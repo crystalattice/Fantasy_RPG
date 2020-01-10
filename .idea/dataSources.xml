@@ -13,5 +13,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/Adv_Dark_Deep/Tables/Races.sqlite</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Classes.sqlite" uuid="815482b2-4ad2-4550-baec-79b7027bceb4">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/Adv_Dark_Deep/Tables/Classes.sqlite</jdbc-url>
+    </data-source>
   </component>
 </project>

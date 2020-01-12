@@ -19,7 +19,7 @@ def rand_num_gen(choice):
     elif choice == 7:  # d20 roll
         die = randint(1, 20)
     else:  # simple error message
-        print("Shouldn't be here.  Invalid choice")
+        raise ValueError("Invalid choice")
     return die
 
 

@@ -1,7 +1,7 @@
 from Adv_Dark_Deep.dice_roller import multi_die
 
 
-def _3d6():
+def three_d6():
     """Roll 3d6 six times. Each result is the value of the ability, from top to bottom
 
     This can lead to characters that are weaker than average and limit race and class eligibility.
@@ -14,7 +14,7 @@ def _3d6():
     return rolls
 
 
-def _4d6_drop_lowest():
+def four_d6_drop_lowest():
     """Roll 4d6 six times, discarding the lowest roll, keeping the order.
 
     This ensures above average scores and greater likelihood of getting the desired class.
@@ -32,7 +32,7 @@ def _4d6_drop_lowest():
     return rolls
 
 
-def _2d6_plus_6():
+def two_d6_plus_6():
     """Roll 2d6+6 six times, keeping the order.
 
     This ensures no score is too low and most abilities are above average.
@@ -45,6 +45,6 @@ def _2d6_plus_6():
 
 
 if __name__ == "__main__":
-    print(_3d6())
-    print(_4d6_drop_lowest())
-    print(_2d6_plus_6())
+    print(three_d6())
+    print(four_d6_drop_lowest())
+    print(two_d6_plus_6())

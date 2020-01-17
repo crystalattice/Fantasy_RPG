@@ -65,3 +65,4 @@ class Character:
 
     def ability_rolls(self, roll_method):
         """Roll the ability scores for the character."""
+        pass

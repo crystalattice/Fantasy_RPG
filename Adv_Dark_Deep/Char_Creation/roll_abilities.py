@@ -8,6 +8,8 @@ def three_d6() -> list:
 
     This can lead to characters that are weaker than average and limit race and class eligibility.
     However, it can also lead to more role playing opportunities.
+
+    :rtype: list
     """
     rolls: List[int] = []
     for i in range(1, 7):

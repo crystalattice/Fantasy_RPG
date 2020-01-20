@@ -1,7 +1,10 @@
+from collections import namedtuple
 from dataclasses import dataclass, field
 from typing import Type, Dict, Any, List
 
 from Adv_Dark_Deep.Char_Creation import roll_abilities
+
+dm_underdark = False  # Value to allow DM to allow Underdark (subterranean) races as player characters
 
 
 @dataclass()
@@ -63,13 +66,15 @@ class Character:
 
     spells_memorized: List[str] = field(default_factory=list)
     spell_components: Dict[str, int] = field(default_factory=dict)
-    max_spells_memorized: Dict[str, int] = field(default_factory=dict) # Maximum number of spells memorized per level
+    max_spells_memorized: Dict[str, int] = field(default_factory=dict)  # Maximum number of spells memorized per level
 
-    def ability_rolls(self, roll_method):
-        """Roll the ability scores for the character."""
+    def ability_rolls(self, roll_method: int) -> None:
+        """Roll the ability scores for the character.
 
+        :type roll_method: int
+        """
         if roll_method == 1:
-            abil_scores = roll_abilities.three_d6()
+            abil_scores: list = roll_abilities.three_d6()
         elif roll_method == 2:
             abil_scores = roll_abilities.four_d6_drop_lowest()
         elif roll_method == 3:
@@ -83,3 +88,66 @@ class Character:
         self.wisdom = abil_scores[3]
         self.constitution = abil_scores[4]
         self.charisma = abil_scores[5]
+
+    def char_name(self) -> None:
+        """Name of the character"""
+        self.name = input("Enter character's name: ")
+
+    def char_gender(self) -> None:
+        """Sex of the character
+
+        Currently, only male and female sex/gender is provided.
+        """
+        char_gender: str = input("Enter the character's sex [M/F]: ").upper()
+        try:
+            if char_gender == "M" or char_gender == "MALE":
+                self.gender = "Male"
+            elif char_gender == "F" or char_gender == "FEMALE":
+                self.gender = "Female"
+            else:
+                raise ValueError("Invalid selection")
+        except ValueError as e:
+            print(e)
+
+    def char_race(self) -> None:
+        """Primary race of character, e.g. dwarf, elf, human, etc."""
+        char_race: int = int(
+            input("Enter the number for the primary race of your character [1: dwarf, 2: elf, 3: gnome, "
+                  "4: halfling, 5: half-orc, 6: human]: "))
+        try:
+            if char_race == 1:
+                self.race = "Dwarf"
+                self.char_subrace(char_race)
+            elif char_race == 2:
+                self.race = "Elf"
+            elif char_race == 3:
+                self.race = "Gnome"
+            elif char_race == 4:
+                self.race = "Halfling"
+            elif char_race == 5:
+                self.race = "Half-Orc"
+            elif char_race == 6:
+                self.race = "Human"
+            else:
+                raise ValueError("Invalid selection")
+        except ValueError as e:
+            print(e)
+
+    def char_subrace(self, race: int) -> None:
+        """Selected subrace of character, if available"""
+        if race == 1:
+            subrace_choice: Dict[int, str] = {1: "Hill Dwarf", 2: "Mountain Dwarf"}
+            if dm_underdark:
+                subrace_choice[3] = "Grey Dwarf"
+        elif race == 2:
+            subrace_choice = {1: "Grey Elf", 2: "Half-Elf", 3: "High Elf", 4: "Wild Elf", 5: "Wood Elf"}
+            if dm_underdark:
+                subrace_choice[6] = "Dark Elf"
+        elif race == 3:
+            subrace_choice = {1: "Forest Gnome", 2: "Hill Gnome"}
+            if dm_underdark:
+                subrace_choice[3] = "Deep Gnome"
+
+        subrace_num: int = int(input(f"Enter the subrace of your character {subrace_choice}"))
+
+        self.subrace = subrace_choice[subrace_num]

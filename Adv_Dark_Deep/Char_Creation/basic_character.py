@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from typing import Type, Dict, Any, List
 
+from Adv_Dark_Deep.Char_Creation import roll_abilities
+
 
 @dataclass()
 class Character:
@@ -65,4 +67,19 @@ class Character:
 
     def ability_rolls(self, roll_method):
         """Roll the ability scores for the character."""
-        pass
+
+        if roll_method == 1:
+            abil_scores = roll_abilities.three_d6()
+        elif roll_method == 2:
+            abil_scores = roll_abilities.four_d6_drop_lowest()
+        elif roll_method == 3:
+            abil_scores = roll_abilities.two_d6_plus_6()
+        else:
+            raise ValueError("Invalid selection")
+
+        self.strength = abil_scores[0]
+        self.dexterity = abil_scores[1]
+        self.intelligence = abil_scores[2]
+        self.wisdom = abil_scores[3]
+        self.constitution = abil_scores[4]
+        self.charisma = abil_scores[5]

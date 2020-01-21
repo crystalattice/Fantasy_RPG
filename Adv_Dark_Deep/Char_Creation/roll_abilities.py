@@ -2,6 +2,8 @@ from typing import List
 
 from Adv_Dark_Deep.dice_roller import multi_die
 
+# TODO: Allow strength to be between 18 and 18/00
+
 
 def three_d6() -> list:
     """Roll 3d6 six times. Each result is the value of the ability, from top to bottom

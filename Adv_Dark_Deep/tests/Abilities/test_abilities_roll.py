@@ -4,7 +4,7 @@ from Adv_Dark_Deep.Char_Creation import roll_abilities
 
 class Test3d6:
     def test_multiple_rolls(self):
-        for i in range(25):
+        for i in range(25):  # Run 25 tests (equals 150 rolls)
             rolls = roll_abilities.three_d6()
             for val in rolls:
                 assert 3 <= val <= 18

@@ -89,9 +89,12 @@ class Character:
         self.constitution = abil_scores[4]
         self.charisma = abil_scores[5]
 
-    def char_name(self) -> None:
+    def char_name(self, name=None) -> None:
         """Name of the character"""
-        self.name = input("Enter character's name: ")
+        if not name:
+            self.name = input("Enter character's name: ")
+        else:
+            self.name = name
 
     def char_gender(self) -> None:
         """Sex of the character

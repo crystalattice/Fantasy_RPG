@@ -4,8 +4,6 @@ from typing import Type, Dict, Any, List
 
 from Adv_Dark_Deep.Char_Creation import roll_abilities
 
-dm_underdark = False  # Value to allow DM to allow Underdark (subterranean) races as player characters
-
 
 @dataclass()
 class Character:
@@ -26,6 +24,7 @@ class Character:
     name: str = ""
     gender: str = ""
     race: str = ""
+    dm_underdark = False  # Value to allow DM to allow Underdark (subterranean) races as player characters
     subrace: str = ""  # If available, specific type of race, e.g. hill dwarf, high elf, etc.
     social_class: str = ""
     alignment: str = ""
@@ -136,20 +135,21 @@ class Character:
                 raise ValueError("Invalid selection")
         except ValueError as e:
             print(e)
+            raise  # Re-raise for testing
 
     def char_subrace(self, race: int) -> None:
         """Selected subrace of character, if available"""
         if race == 1:
             subrace_choice: Dict[int, str] = {1: "Hill Dwarf", 2: "Mountain Dwarf"}
-            if dm_underdark:
+            if self.dm_underdark:
                 subrace_choice[3] = "Grey Dwarf"
         elif race == 2:
             subrace_choice = {1: "Grey Elf", 2: "Half-Elf", 3: "High Elf", 4: "Wild Elf", 5: "Wood Elf"}
-            if dm_underdark:
+            if self.dm_underdark:
                 subrace_choice[6] = "Dark Elf"
         elif race == 3:
             subrace_choice = {1: "Forest Gnome", 2: "Hill Gnome"}
-            if dm_underdark:
+            if self.dm_underdark:
                 subrace_choice[3] = "Deep Gnome"
 
         subrace_num: int = int(input(f"Enter the subrace of your character {subrace_choice}"))

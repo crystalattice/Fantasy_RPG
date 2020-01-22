@@ -140,3 +140,179 @@ class TestCharGender:
             c.char_gender()
         exception_msg = excinfo.value.args[0]
         assert exception_msg == "Invalid selection"
+
+
+class TestCharRace:
+    def test_dwarf(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "1")
+        c.char_race()
+        assert c.race == "Dwarf"
+
+    def test_elf(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "2")
+        c.char_race()
+        assert c.race == "Elf"
+
+    def test_gnome(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "3")
+        c.char_race()
+        assert c.race == "Gnome"
+
+    def test_halfling(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "4")
+        c.char_race()
+        assert c.race == "Halfling"
+
+    def test_half_ord(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "5")
+        c.char_race()
+        assert c.race == "Half-Orc"
+
+    def test_human(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "6")
+        c.char_race()
+        assert c.race == "Human"
+
+    def test_invalid(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "123")
+        with pytest.raises(ValueError) as excinfo:
+            c.char_race()
+        exception_msg = excinfo.value.args[0]
+        assert exception_msg == "Invalid selection"
+
+
+class TestDwarfSubRace:
+    def test_hill_dwarf(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "1")
+        c.char_race()
+        assert c.race == "Dwarf"
+
+        monkeypatch.setattr("builtins.input", lambda x: "1")
+        c.char_subrace(1)
+        assert c.subrace == "Hill Dwarf"
+
+    def test_mntn_dwarf(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "1")
+        c.char_race()
+        assert c.race == "Dwarf"
+
+        monkeypatch.setattr("builtins.input", lambda x: "2")
+        c.char_subrace(1)
+        assert c.subrace == "Mountain Dwarf"
+
+    def test_grey_dwarf(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "1")
+        c.char_race()
+        assert c.race == "Dwarf"
+
+        monkeypatch.setattr("builtins.input", lambda x: "3")
+        c.dm_underdark = True
+        c.char_subrace(1)
+        assert c.subrace == "Grey Dwarf"
+
+
+class TestElfSubRace:
+    def test_grey_elf(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "2")
+        c.char_race()
+        assert c.race == "Elf"
+
+        monkeypatch.setattr("builtins.input", lambda x: "1")
+        c.char_subrace(2)
+        assert c.subrace == "Grey Elf"
+
+    def test_half_elf(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "2")
+        c.char_race()
+        assert c.race == "Elf"
+
+        monkeypatch.setattr("builtins.input", lambda x: "2")
+        c.char_subrace(2)
+        assert c.subrace == "Half-Elf"
+
+    def test_high_elf(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "2")
+        c.char_race()
+        assert c.race == "Elf"
+
+        monkeypatch.setattr("builtins.input", lambda x: "3")
+        c.char_subrace(2)
+        assert c.subrace == "High Elf"
+
+    def test_wild_elf(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "2")
+        c.char_race()
+        assert c.race == "Elf"
+
+        monkeypatch.setattr("builtins.input", lambda x: "4")
+        c.char_subrace(2)
+        assert c.subrace == "Wild Elf"
+
+    def test_wood_elf(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "2")
+        c.char_race()
+        assert c.race == "Elf"
+
+        monkeypatch.setattr("builtins.input", lambda x: "5")
+        c.char_subrace(2)
+        assert c.subrace == "Wood Elf"
+
+    def test_dark_elf(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "2")
+        c.char_race()
+        assert c.race == "Elf"
+
+        monkeypatch.setattr("builtins.input", lambda x: "6")
+        c.dm_underdark = True
+        c.char_subrace(2)
+        assert c.subrace == "Dark Elf"
+
+
+class TestGnomeSubRace:
+    def test_forest_gnome(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "3")
+        c.char_race()
+        assert c.race == "Gnome"
+
+        monkeypatch.setattr("builtins.input", lambda x: "1")
+        c.char_subrace(3)
+        assert c.subrace == "Forest Gnome"
+
+    def test_hill_gnome(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "3")
+        c.char_race()
+        assert c.race == "Gnome"
+
+        monkeypatch.setattr("builtins.input", lambda x: "2")
+        c.char_subrace(3)
+        assert c.subrace == "Hill Gnome"
+
+    def test_deep_gnome(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "3")
+        c.char_race()
+        assert c.race == "Gnome"
+
+        monkeypatch.setattr("builtins.input", lambda x: "3")
+        c.dm_underdark = True
+        c.char_subrace(3)
+        assert c.subrace == "Deep Gnome"
+

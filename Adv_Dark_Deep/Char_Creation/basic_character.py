@@ -111,6 +111,7 @@ class Character:
                 raise ValueError("Invalid selection")
         except ValueError as e:
             print(e)
+            raise  # Re-raise error for testing
 
     def char_race(self) -> None:
         """Primary race of character, e.g. dwarf, elf, human, etc."""

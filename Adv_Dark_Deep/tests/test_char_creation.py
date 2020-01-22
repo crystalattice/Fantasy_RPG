@@ -106,3 +106,37 @@ class TestCharName:
         monkeypatch.setattr("builtins.input", lambda x: "Sir Hector")
         c.char_name()
         assert c.name == "Sir Hector"
+
+
+class TestCharGender:
+    def test_male_letter(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "m")
+        c.char_gender()
+        assert c.gender == "Male"
+
+    def test_male_word(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "male")
+        c.char_gender()
+        assert c.gender == "Male"
+
+    def test_female_letter(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "f")
+        c.char_gender()
+        assert c.gender == "Female"
+
+    def test_female_word(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "female")
+        c.char_gender()
+        assert c.gender == "Female"
+
+    def test_invalid(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "123")
+        with pytest.raises(ValueError) as excinfo:
+            c.char_gender()
+        exception_msg = excinfo.value.args[0]
+        assert exception_msg == "Invalid selection"

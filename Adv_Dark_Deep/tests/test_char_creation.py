@@ -5,6 +5,7 @@ from Adv_Dark_Deep.Char_Creation.basic_character import Character
 
 class TestCharacterCreation:
     def test_empty_char(self):
+        """Confirm all variables are properly created and initialized"""
         c = Character()
         assert c.strength == 0.0
         assert c.dexterity == 0

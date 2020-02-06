@@ -155,3 +155,6 @@ class Character:
         subrace_num: int = int(input(f"Enter the subrace of your character {subrace_choice}"))
 
         self.subrace = subrace_choice[subrace_num]
+
+    def race_vs_abilities(self):
+        pass

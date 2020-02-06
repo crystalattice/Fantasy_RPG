@@ -4,6 +4,7 @@
     <data-source source="LOCAL" name="Abilities.sqlite" uuid="d91c8a7c-9391-48b0-8ce6-c68528e2fa58">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
+      <remarks>Ability tables from book</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/Adv_Dark_Deep/Tables/Abilities.sqlite</jdbc-url>
     </data-source>

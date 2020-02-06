@@ -168,7 +168,7 @@ class TestCharRace:
         c.char_race()
         assert c.race == "Halfling"
 
-    def test_half_ord(self, monkeypatch):
+    def test_half_orc(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "5")
         c.char_race()

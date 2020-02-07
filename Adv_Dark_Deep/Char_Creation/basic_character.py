@@ -160,8 +160,12 @@ class Character:
         """Acceptable classes based on race of character"""
         race_classes = []
         if not self.subrace:
-            race_classes = race_vs_class.get_classes(self.race, self.gender)
+            approved_classes = race_vs_class.get_classes(self.race, self.gender)
         else:
-            race_classes = race_vs_class.get_classes(self.subrace, self.gender)
+            approved_classes = race_vs_class.get_classes(self.subrace, self.gender)
+
+        # Convert the list of tuples that was returned to a list of strings for acceptable classes
+        for value in approved_classes:
+            race_classes.append(value[0])
 
         return race_classes

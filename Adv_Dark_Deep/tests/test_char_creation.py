@@ -200,6 +200,10 @@ class TestDwarfSubRace:
         c.char_subrace(1)
         assert c.subrace == "Hill Dwarf"
 
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Cleric', 'Fighter', 'Thief', 'Acrobat', 'Mountebank']
+
+
     def test_mntn_dwarf(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "1")
@@ -317,3 +321,7 @@ class TestGnomeSubRace:
         c.char_subrace(3)
         assert c.subrace == "Deep Gnome"
 
+
+class TestRaceVsClass:
+    def test_hill_dwarf(self):
+        TestDwarfSubRace.test_hill_dwarf()

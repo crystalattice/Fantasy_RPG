@@ -1,15 +1,15 @@
-from sqlalchemy import create_engine, Column, Integer, String, Boolean
+from typing import List
 
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine, Column, String, Boolean
+from sqlalchemy.engine import Engine
+from sqlalchemy.ext.declarative import declarative_base, DeclarativeMeta
+from sqlalchemy.orm import sessionmaker, Session
 
-Base = declarative_base()
-engine = create_engine("sqlite:////home/codyjackson/PycharmProjects/Fantasy_RPG/Adv_Dark_Deep/Tables/Classes.sqlite")
+Base: DeclarativeMeta = declarative_base()
+engine: Engine = create_engine("sqlite:////home/codyjackson/PycharmProjects/Fantasy_RPG/Adv_Dark_Deep/Tables/Classes.sqlite")
 Base.metadata.bind = engine
-# engine.connect()
-db_session = sessionmaker(bind=engine)
-session = db_session()
-
+db_session: sessionmaker = sessionmaker(bind=engine)
+session: Session = db_session()
 
 class AcceptableCharClass(Base):
     """Create the SQLAlchemy structure for the existing DB
@@ -17,30 +17,30 @@ class AcceptableCharClass(Base):
     The tablename needs to match the table name previously created.
     The column names need to match the names assigned in the table.
     """
-    __tablename__ = "Class_by_Race"  # Race vs. Class
-    Char_Class = Column(String, primary_key=True)
-    Dwarf_Gray = Column(Boolean, default=False)
-    Dwarf_Hill = Column(Boolean, default=False)
-    Dwarf_Mountain = Column(Boolean, default=False)
-    Elf_Dark_Male = Column(Boolean, default=False)
-    Elf_Dark_Female = Column(Boolean, default=False)
-    Elf_Gray = Column(Boolean, default=False)
-    Elf_Half = Column(Boolean, default=False)
-    Elf_High = Column(Boolean, default=False)
-    Elf_Wild = Column(Boolean, default=False)
-    Elf_Wood = Column(Boolean, default=False)
-    Gnome_Deep = Column(Boolean, default=False)
-    Gnome_Forest = Column(Boolean, default=False)
-    Gnome_Hill = Column(Boolean, default=False)
-    Halfling = Column(Boolean, default=False)
-    Orc_Half = Column(Boolean, default=False)
-    Human = Column(Boolean, default=True)
+    __tablename__: str = "Class_by_Race"  # Race vs. Class
+    Char_Class: str = Column(String, primary_key=True)
+    Dwarf_Gray: bool = Column(Boolean, default=False)
+    Dwarf_Hill: bool = Column(Boolean, default=False)
+    Dwarf_Mountain: bool = Column(Boolean, default=False)
+    Elf_Dark_Male: bool = Column(Boolean, default=False)
+    Elf_Dark_Female: bool = Column(Boolean, default=False)
+    Elf_Gray: bool = Column(Boolean, default=False)
+    Elf_Half: bool = Column(Boolean, default=False)
+    Elf_High: bool = Column(Boolean, default=False)
+    Elf_Wild: bool = Column(Boolean, default=False)
+    Elf_Wood: bool = Column(Boolean, default=False)
+    Gnome_Deep: bool = Column(Boolean, default=False)
+    Gnome_Forest: bool = Column(Boolean, default=False)
+    Gnome_Hill: bool = Column(Boolean, default=False)
+    Halfling: bool = Column(Boolean, default=False)
+    Orc_Half: bool = Column(Boolean, default=False)
+    Human: bool = Column(Boolean, default=True)
 
 
-def get_classes(race, gender):
+def get_classes(race: str, gender: str) -> list:
     """Get character classes available to a particular race"""
     global classes
-    char_classes = []
+    char_classes: List[tuple] = []
     if race == "Hill Dwarf":
         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Dwarf_Hill)
     elif race == "Gray Dwarf":
@@ -81,4 +81,7 @@ def get_classes(race, gender):
 
 
 if __name__ == "__main__":
-    print(get_classes("Halfling", "Male"))
+    vals = get_classes("Hill Dwarf", "Male")
+    print(vals)
+    for val in vals:
+        print(val[0])

@@ -2,7 +2,7 @@ from collections import namedtuple
 from dataclasses import dataclass, field
 from typing import Type, Dict, Any, List
 
-from Adv_Dark_Deep.Char_Creation import roll_abilities
+from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_class
 
 
 @dataclass()
@@ -156,5 +156,12 @@ class Character:
 
         self.subrace = subrace_choice[subrace_num]
 
-    def race_vs_abilities(self):
-        pass
+    def class_by_race(self):
+        """Acceptable classes based on race of character"""
+        race_classes = []
+        if not self.subrace:
+            race_classes = race_vs_class.get_classes(self.race, self.gender)
+        else:
+            race_classes = race_vs_class.get_classes(self.subrace, self.gender)
+
+        return race_classes

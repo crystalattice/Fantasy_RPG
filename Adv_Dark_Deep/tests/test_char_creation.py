@@ -168,17 +168,29 @@ class TestCharRace:
         c.char_race()
         assert c.race == "Halfling"
 
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Bard', 'Jester', 'Cleric', 'Druid', 'Mystic', 'Fighter', 'Thief', 'Acrobat',
+                                    'Mountebank']
+
     def test_half_orc(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "5")
         c.char_race()
         assert c.race == "Half-Orc"
 
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Cleric', 'Fighter', 'Barbarian', 'Thief', 'Acrobat', 'Mountebank']
+
     def test_human(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "6")
         c.char_race()
         assert c.race == "Human"
+
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Bard', 'Jester', 'Cavalier', 'Paladin', 'Cleric', 'Druid', 'Mystic', 'Fighter',
+                                    'Barbarian', 'Ranger', 'Mage', 'Illusionist', 'Savant', 'Thief', 'Acrobat',
+                                    'Mountebank']
 
     def test_invalid(self, monkeypatch):
         c = Character()
@@ -203,8 +215,7 @@ class TestDwarfSubRace:
         approved_classes = c.class_by_race()
         assert approved_classes == ['Cleric', 'Fighter', 'Thief', 'Acrobat', 'Mountebank']
 
-
-    def test_mntn_dwarf(self, monkeypatch):
+    def test_mtn_dwarf(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "1")
         c.char_race()
@@ -213,6 +224,9 @@ class TestDwarfSubRace:
         monkeypatch.setattr("builtins.input", lambda x: "2")
         c.char_subrace(1)
         assert c.subrace == "Mountain Dwarf"
+
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Cleric', 'Fighter', 'Thief', 'Acrobat', 'Mountebank']
 
     def test_grey_dwarf(self, monkeypatch):
         c = Character()
@@ -224,6 +238,9 @@ class TestDwarfSubRace:
         c.dm_underdark = True
         c.char_subrace(1)
         assert c.subrace == "Grey Dwarf"
+
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Cleric', 'Fighter', 'Thief', 'Acrobat', 'Mountebank']
 
 
 class TestElfSubRace:
@@ -237,6 +254,9 @@ class TestElfSubRace:
         c.char_subrace(2)
         assert c.subrace == "Grey Elf"
 
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Bard', 'Cleric', 'Druid', 'Mystic', 'Fighter', 'Ranger', 'Mage', 'Savant', 'Thief']
+
     def test_half_elf(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "2")
@@ -246,6 +266,10 @@ class TestElfSubRace:
         monkeypatch.setattr("builtins.input", lambda x: "2")
         c.char_subrace(2)
         assert c.subrace == "Half-Elf"
+
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Bard', 'Cavalier', 'Cleric', 'Druid', 'Mystic', 'Fighter', 'Ranger', 'Mage',
+                                    'Savant', 'Thief', 'Mountebank']
 
     def test_high_elf(self, monkeypatch):
         c = Character()
@@ -257,6 +281,10 @@ class TestElfSubRace:
         c.char_subrace(2)
         assert c.subrace == "High Elf"
 
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Bard', 'Cavalier', 'Cleric', 'Druid', 'Mystic', 'Fighter', 'Ranger', 'Mage',
+                                    'Savant', 'Thief', 'Mountebank']
+
     def test_wild_elf(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "2")
@@ -266,6 +294,9 @@ class TestElfSubRace:
         monkeypatch.setattr("builtins.input", lambda x: "4")
         c.char_subrace(2)
         assert c.subrace == "Wild Elf"
+
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Druid', 'Mystic', 'Fighter', 'Thief', 'Acrobat']
 
     def test_wood_elf(self, monkeypatch):
         c = Character()
@@ -277,6 +308,10 @@ class TestElfSubRace:
         c.char_subrace(2)
         assert c.subrace == "Wood Elf"
 
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Bard', 'Cleric', 'Druid', 'Mystic', 'Fighter', 'Ranger', 'Mage', 'Thief', 'Acrobat',
+                                    'Mountebank']
+
     def test_dark_elf(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "2")
@@ -287,6 +322,10 @@ class TestElfSubRace:
         c.dm_underdark = True
         c.char_subrace(2)
         assert c.subrace == "Dark Elf"
+
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Bard', 'Cavalier', 'Cleric', 'Fighter', 'Ranger', 'Mage', 'Savant', 'Thief',
+                                    'Acrobat', 'Mountebank']
 
 
 class TestGnomeSubRace:
@@ -300,6 +339,9 @@ class TestGnomeSubRace:
         c.char_subrace(3)
         assert c.subrace == "Forest Gnome"
 
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Bard', 'Jester', 'Druid', 'Fighter', 'Savant', 'Thief', 'Acrobat', 'Mountebank']
+
     def test_hill_gnome(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "3")
@@ -309,6 +351,9 @@ class TestGnomeSubRace:
         monkeypatch.setattr("builtins.input", lambda x: "2")
         c.char_subrace(3)
         assert c.subrace == "Hill Gnome"
+
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Bard', 'Cleric', 'Fighter', 'Illusionist', 'Thief', 'Acrobat', 'Mountebank']
 
     def test_deep_gnome(self, monkeypatch):
         c = Character()
@@ -321,7 +366,5 @@ class TestGnomeSubRace:
         c.char_subrace(3)
         assert c.subrace == "Deep Gnome"
 
-
-class TestRaceVsClass:
-    def test_hill_dwarf(self):
-        TestDwarfSubRace.test_hill_dwarf()
+        approved_classes = c.class_by_race()
+        assert approved_classes == ['Bard', 'Cleric', 'Fighter', 'Illusionist', 'Thief', 'Acrobat', 'Mountebank']

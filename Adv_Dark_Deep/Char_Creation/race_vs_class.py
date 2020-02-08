@@ -6,10 +6,12 @@ from sqlalchemy.ext.declarative import declarative_base, DeclarativeMeta
 from sqlalchemy.orm import sessionmaker, Session
 
 Base: DeclarativeMeta = declarative_base()
-engine: Engine = create_engine("sqlite:////home/codyjackson/PycharmProjects/Fantasy_RPG/Adv_Dark_Deep/Tables/Classes.sqlite")
+engine: Engine = create_engine(
+    "sqlite:////home/codyjackson/PycharmProjects/Fantasy_RPG/Adv_Dark_Deep/Tables/Classes.sqlite")
 Base.metadata.bind = engine
 db_session: sessionmaker = sessionmaker(bind=engine)
 session: Session = db_session()
+
 
 class AcceptableCharClass(Base):
     """Create the SQLAlchemy structure for the existing DB
@@ -22,8 +24,7 @@ class AcceptableCharClass(Base):
     Dwarf_Gray: bool = Column(Boolean, default=False)
     Dwarf_Hill: bool = Column(Boolean, default=False)
     Dwarf_Mountain: bool = Column(Boolean, default=False)
-    Elf_Dark_Male: bool = Column(Boolean, default=False)
-    Elf_Dark_Female: bool = Column(Boolean, default=False)
+    Elf_Dark: bool = Column(Boolean, default=False)
     Elf_Gray: bool = Column(Boolean, default=False)
     Elf_Half: bool = Column(Boolean, default=False)
     Elf_High: bool = Column(Boolean, default=False)
@@ -37,21 +38,19 @@ class AcceptableCharClass(Base):
     Human: bool = Column(Boolean, default=True)
 
 
-def get_classes(race: str, gender: str) -> list:
+def get_classes(race: str) -> list:
     """Get character classes available to a particular race"""
     global classes
     char_classes: List[tuple] = []
     if race == "Hill Dwarf":
         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Dwarf_Hill)
-    elif race == "Gray Dwarf":
+    elif race == "Grey Dwarf":
         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Dwarf_Gray)
     elif race == "Mountain Dwarf":
         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Dwarf_Mountain)
-    elif race == "Dark Elf" and gender == "Male":
-        classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Dark_Male)
-    elif race == "Dark Elf" and gender == "Female":
-        classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Dark_Female)
-    elif race == "Gray Elf":
+    elif race == "Dark Elf":
+        classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Dark)
+    elif race == "Grey Elf":
         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Gray)
     elif race == "Half-Elf":
         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Half)
@@ -81,7 +80,7 @@ def get_classes(race: str, gender: str) -> list:
 
 
 if __name__ == "__main__":
-    vals = get_classes("Hill Dwarf", "Male")
+    vals = get_classes("Half-Elf", "Male")
     print(vals)
     for val in vals:
         print(val[0])

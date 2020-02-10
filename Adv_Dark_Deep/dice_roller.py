@@ -4,19 +4,19 @@ from typing import Any, Union
 
 def rand_num_gen(choice: int) -> int:
     """Get a random number to simulate a d6, d10, or d100 roll."""
-    if choice == 1:  # d6 roll
+    if choice == 6:  # d6 roll
         die: Union[int, Any] = randint(1, 6)
-    elif choice == 2:  # d10 roll
+    elif choice == 10:  # d10 roll
         die = randint(1, 10)
-    elif choice == 3:  # d100 roll
+    elif choice == 100:  # d100 roll
         die = randint(1, 100)
     elif choice == 4:  # d4 roll
         die = randint(1, 4)
-    elif choice == 5:  # d8 roll
+    elif choice == 8:  # d8 roll
         die = randint(1, 8)
-    elif choice == 6:  # d12 roll
+    elif choice == 12:  # d12 roll
         die = randint(1, 12)
-    elif choice == 7:  # d20 roll
+    elif choice == 20:  # d20 roll
         die = randint(1, 20)
     else:  # simple error message
         raise ValueError("Invalid choice")
@@ -36,21 +36,21 @@ def multi_die(dice_number: int, die_type: int) -> int:
 
 def test():
     """Test criteria to show script works."""
-    _1d6: int = multi_die(1, 1)  # 1d6
+    _1d6: int = multi_die(1, 6)  # 1d6
     print("1d6 = ", _1d6, )
-    _2d6: int = multi_die(2, 1)  # 2d6
+    _2d6: int = multi_die(2, 6)  # 2d6
     print("\n2d6 = ", _2d6, )
-    _3d6: int = multi_die(3, 1)  # 3d6
+    _3d6: int = multi_die(3, 6)  # 3d6
     print("\n3d6 = ", _3d6, )
-    _4d6: int = multi_die(4, 1)  # 4d6
+    _4d6: int = multi_die(4, 6)  # 4d6
     print("\n4d6 = ", _4d6, )
-    _1d10: int = multi_die(1, 2)  # 1d10
+    _1d10: int = multi_die(1, 10)  # 1d10
     print("\n1d10 = ", _1d10, )
-    _2d10: int = multi_die(2, 2)  # 2d10
+    _2d10: int = multi_die(2, 10)  # 2d10
     print("\n2d10 = ", _2d10, )
-    _3d10: int = multi_die(2, 2)  # 3d10
+    _3d10: int = multi_die(2, 10)  # 3d10
     print("\n3d10 = ", _3d10, )
-    _d100: int = multi_die(1, 3)  # d100
+    _d100: int = multi_die(1, 100)  # d100
     print("\n1d100 = ", _d100, )
 
 

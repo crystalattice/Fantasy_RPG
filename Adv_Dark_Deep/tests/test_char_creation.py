@@ -150,6 +150,12 @@ class TestCharRace:
         c.char_race()
         assert c.race == "Dwarf"
 
+        approved_classes = c.multiclass_by_race()
+        assert approved_classes == ["cleric/fighter",
+                                    "cleric/thief (inc. acrobat)",
+                                    "fighter/mountebank",
+                                    "fighter/thief (inc. acrobat)"]
+
     def test_elf(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "2")
@@ -172,6 +178,16 @@ class TestCharRace:
         assert approved_classes == ['Bard', 'Jester', 'Cleric', 'Druid', 'Mystic', 'Fighter', 'Thief', 'Acrobat',
                                     'Mountebank']
 
+        approved_multiclasses = c.multiclass_by_race()
+        assert approved_multiclasses == ["cleric/fighter",
+                                         "cleric/thief (inc. acrobat)",
+                                         "druid/fighter",
+                                         "druid/thief (inc. acrobat)",
+                                         "fighter/mountebank",
+                                         "fighter/thief (inc. acrobat)",
+                                         "jester/thief (inc. acrobat)",
+                                         "mystic/fighter"]
+
     def test_half_orc(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "5")
@@ -180,6 +196,13 @@ class TestCharRace:
 
         approved_classes = c.class_by_race()
         assert approved_classes == ['Cleric', 'Fighter', 'Barbarian', 'Thief', 'Acrobat', 'Mountebank']
+
+        approved_multiclasses = c.multiclass_by_race()
+        assert approved_multiclasses == ["cleric/fighter",
+                                         "cleric/mountebank",
+                                         "cleric/thief (inc. acrobat)",
+                                         "fighter/mountebank",
+                                         "fighter/thief (inc. acrobat)"]
 
     def test_human(self, monkeypatch):
         c = Character()
@@ -257,7 +280,27 @@ class TestElfSubRace:
         approved_classes = c.class_by_race()
         assert approved_classes == ['Bard', 'Cleric', 'Druid', 'Mystic', 'Fighter', 'Ranger', 'Mage', 'Savant', 'Thief']
 
+        approved_multiclasses = c.multiclass_by_race()
+        assert approved_multiclasses == ["cleric/fighter",
+                                         "cleric/fighter/mage",
+                                         "cleric/mage",
+                                         "cleric/ranger",
+                                         "cleric/ranger/mage",
+                                         "cleric/savant",
+                                         "cleric/thief (inc. acrobat)",
+                                         "druid/ranger",
+                                         "fighter/mage/mountebank",
+                                         "fighter/mage/thief (inc. acrobat)",
+                                         "fighter/mountebank",
+                                         "fighter/savant/mountebank",
+                                         "fighter/savant/thief (inc. acrobat)",
+                                         "fighter/thief (inc. acrobat)",
+                                         "mage (inc. savant)/thief (inc. acrobat)",
+                                         "mage/mountebank",
+                                         "savant/mountebank"]
+
     def test_half_elf(self, monkeypatch):
+        """Half-elves use the same multi-classes as their elven parent's race"""
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "2")
         c.char_race()
@@ -285,6 +328,35 @@ class TestElfSubRace:
         assert approved_classes == ['Bard', 'Cavalier', 'Cleric', 'Druid', 'Mystic', 'Fighter', 'Ranger', 'Mage',
                                     'Savant', 'Thief', 'Mountebank']
 
+        approved_multiclasses = c.multiclass_by_race()
+        assert approved_multiclasses == ["cleric/fighter",
+                                         "cleric/fighter/mage",
+                                         "cleric/fighter/savant",
+                                         "cleric/mage",
+                                         "cleric/ranger",
+                                         "cleric/ranger/mage",
+                                         "cleric/ranger/savant",
+                                         "cleric/savant",
+                                         "cleric/thief (inc. acrobat)",
+                                         "druid/ranger",
+                                         "fighter/mage",
+                                         "fighter/mage (inc. savant)/thief (inc. acrobat or mountebank)",
+                                         "fighter/mage/mountebank",
+                                         "fighter/mountebank",
+                                         "fighter/savant",
+                                         "fighter/savant/mountebank",
+                                         "fighter/savant/thief",
+                                         "fighter/thief (inc. acrobat)",
+                                         "mage (inc. savant)/thief (inc. acrobat or mountebank)",
+                                         "mystic/fighter",
+                                         "mystic/fighter/mage",
+                                         "mystic/mage",
+                                         "mystic/ranger",
+                                         "mystic/savant",
+                                         "mystic/thief (inc. acrobat)",
+                                         "ranger/mage",
+                                         "ranger/savant"]
+
     def test_wild_elf(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "2")
@@ -297,6 +369,9 @@ class TestElfSubRace:
 
         approved_classes = c.class_by_race()
         assert approved_classes == ['Druid', 'Mystic', 'Fighter', 'Thief', 'Acrobat']
+
+        approved_multiclasses = c.multiclass_by_race()
+        assert approved_multiclasses == ["fighter/thief (inc. acrobat)"]
 
     def test_wood_elf(self, monkeypatch):
         c = Character()
@@ -311,6 +386,27 @@ class TestElfSubRace:
         approved_classes = c.class_by_race()
         assert approved_classes == ['Bard', 'Cleric', 'Druid', 'Mystic', 'Fighter', 'Ranger', 'Mage', 'Thief', 'Acrobat',
                                     'Mountebank']
+
+        approved_multiclasses = c.multiclass_by_race()
+        assert approved_multiclasses == ["cleric/fighter",
+                                         "cleric/fighter/mage",
+                                         "cleric/ranger",
+                                         "cleric/ranger/mage",
+                                         "cleric/thief (inc. acrobat)",
+                                         "druid/ranger",
+                                         "fighter/mage",
+                                         "fighter/mage/mountebank",
+                                         "fighter/mage/thief (inc. acrobat)",
+                                         "fighter/mountebank",
+                                         "fighter/thief (inc. acrobat)",
+                                         "mage/mountebank",
+                                         "mage/thief (inc. acrobat)",
+                                         "mystic/fighter",
+                                         "mystic/fighter/mage",
+                                         "mystic/mage",
+                                         "mystic/ranger",
+                                         "mystic/ranger/mage",
+                                         "mystic/thief (inc. acrobat)"]
 
     def test_dark_elf(self, monkeypatch):
         c = Character()
@@ -327,6 +423,24 @@ class TestElfSubRace:
         assert approved_classes == ['Bard', 'Cavalier', 'Cleric', 'Fighter', 'Ranger', 'Mage', 'Savant', 'Thief',
                                     'Acrobat', 'Mountebank']
 
+        approved_multiclasses = c.multiclass_by_race()
+        assert approved_multiclasses == ["cleric/fighter",
+                                         "cleric/fighter/mage",
+                                         "cleric/fighter/savant",
+                                         "cleric/mage",
+                                         "cleric/savant",
+                                         "cleric/thief (inc. acrobat)",
+                                         "fighter/mage",
+                                         "fighter/mage (inc. savant)/thief (inc. acrobat)",
+                                         "fighter/mage/mountebank",
+                                         "fighter/mountebank",
+                                         "fighter/savant",
+                                         "fighter/savant/mountebank",
+                                         "fighter/savant/thief (inc. acrobat)",
+                                         "fighter/thief (inc. acrobat)",
+                                         "mage/mountebank",
+                                         "mage/thief (inc. acrobat)"]
+
 
 class TestGnomeSubRace:
     def test_forest_gnome(self, monkeypatch):
@@ -342,6 +456,16 @@ class TestGnomeSubRace:
         approved_classes = c.class_by_race()
         assert approved_classes == ['Bard', 'Jester', 'Druid', 'Fighter', 'Savant', 'Thief', 'Acrobat', 'Mountebank']
 
+        approved_multiclasses = c.multiclass_by_race()
+        assert approved_multiclasses == ["druid/fighter",
+                                         "druid/thief (inc. acrobat)",
+                                         "fighter/savant",
+                                         "fighter/thief (inc. acrobat)",
+                                         "illusionist/mountebank",
+                                         "jester/fighter",
+                                         "savant/thief",
+                                         "savant/mountebank"]
+
     def test_hill_gnome(self, monkeypatch):
         c = Character()
         monkeypatch.setattr("builtins.input", lambda x: "3")
@@ -354,6 +478,16 @@ class TestGnomeSubRace:
 
         approved_classes = c.class_by_race()
         assert approved_classes == ['Bard', 'Cleric', 'Fighter', 'Illusionist', 'Thief', 'Acrobat', 'Mountebank']
+
+        approved_multiclasses = c.multiclass_by_race()
+        assert approved_multiclasses == ["cleric/fighter",
+                                         "cleric/thief (inc. acrobat)",
+                                         "druid/fighter",
+                                         "druid/thief (inc. acrobat)",
+                                         "fighter/mountebank",
+                                         "fighter/thief (inc. acrobat)",
+                                         "jester/thief (inc. acrobat)",
+                                         "mystic/fighter"]
 
     def test_deep_gnome(self, monkeypatch):
         c = Character()
@@ -368,3 +502,13 @@ class TestGnomeSubRace:
 
         approved_classes = c.class_by_race()
         assert approved_classes == ['Bard', 'Cleric', 'Fighter', 'Illusionist', 'Thief', 'Acrobat', 'Mountebank']
+
+        approved_multiclasses = c.multiclass_by_race()
+        assert approved_multiclasses == ["cleric/fighter",
+                                         "cleric/thief (inc. acrobat)",
+                                         "fighter/illusionist",
+                                         "fighter/mountebank",
+                                         "fighter/thief (inc. acrobat)",
+                                         "illusionist/mountebank",
+                                         "illusionist/thief (inc. acrobat)",
+                                         "jester/fighter"]

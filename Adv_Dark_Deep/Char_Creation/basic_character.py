@@ -2,7 +2,7 @@ from collections import namedtuple
 from dataclasses import dataclass, field
 from typing import Type, Dict, Any, List
 
-from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_class
+from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_class, race_vs_multiclass
 
 
 @dataclass()
@@ -169,3 +169,17 @@ class Character:
             race_classes.append(value[0])
 
         return race_classes
+
+    def multiclass_by_race(self):
+        """Acceptable multiclass combos based on character race"""
+        race_multiclass = []
+        if self.subrace and not self.race == "Dwarf":
+            approved_classes = race_vs_multiclass.get_classes(self.subrace)
+        else:
+            approved_classes = race_vs_multiclass.get_classes(self.race)
+
+        # Convert the list of tuples that was returned to a list of strings for acceptable classes
+        for value in approved_classes:
+            race_multiclass.append(value[0])
+
+        return race_multiclass

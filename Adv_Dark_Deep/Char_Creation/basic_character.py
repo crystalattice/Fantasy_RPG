@@ -2,6 +2,7 @@ from collections import namedtuple
 from dataclasses import dataclass, field
 from typing import Type, Dict, Any, List
 
+from Adv_Dark_Deep.dice_roller import multi_die
 from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_class, race_vs_multiclass
 
 
@@ -171,7 +172,10 @@ class Character:
         return race_classes
 
     def multiclass_by_race(self):
-        """Acceptable multiclass combos based on character race"""
+        """Acceptable multiclass combos based on character race
+
+        Half-elves have class limits based on elf parent's race.
+        """
         race_multiclass = []
         if self.subrace and not self.race == "Dwarf":
             approved_classes = race_vs_multiclass.get_classes(self.subrace)
@@ -183,3 +187,28 @@ class Character:
             race_multiclass.append(value[0])
 
         return race_multiclass
+
+    def set_social_class(self, social_class=None):
+        """If not defined, randomly assign a social class to the character."""
+        if social_class:
+            self.social_class = social_class
+        else:
+            roll = multi_die(1, 100)
+            if 1 <= roll <= 4:
+                self.social_class = "Lower-Lower Class"
+            elif 5 <= roll <= 10:
+                self.social_class = "Middle-Lower Class"
+            elif 11 <= roll <= 20:
+                self.social_class = "Upper-Lower Class"
+            elif 21 <= roll <= 35:
+                self.social_class = "Lower-Middle Class"
+            elif 36 <= roll <= 55:
+                self.social_class = "Middle-Middle Class"
+            elif 56 <= roll <= 87:
+                self.social_class = "Upper-Middle Class"
+            elif 88 <= roll <= 96:
+                self.social_class = "Lower-Upper Class"
+            elif 97 <= roll <= 99:
+                self.social_class = "Middle-Upper Class"
+            else:
+                self.social_class = "Upper-Upper Class"

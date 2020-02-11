@@ -512,3 +512,18 @@ class TestGnomeSubRace:
                                          "illusionist/mountebank",
                                          "illusionist/thief (inc. acrobat)",
                                          "jester/fighter"]
+
+
+class TestSocialClass:
+    def test_argument(self):
+        c = Character()
+        c.set_social_class("Middle-Middle Class")
+        assert c.social_class == "Middle-Middle Class"
+
+    def test_random_roll(self):
+        c = Character()
+        c.set_social_class()
+        print(c.social_class)
+        assert c.social_class in ["Lower-Lower Class", "Middle-Lower Class", "Upper-Lower Class", "Lower-Middle Class",
+                                  "Middle-Middle Class", "Upper-Middle Class", "Lower-Upper Class",
+                                  "Middle-Upper Class", "Upper-Upper Class"]

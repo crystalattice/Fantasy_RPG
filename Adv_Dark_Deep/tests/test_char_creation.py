@@ -527,3 +527,71 @@ class TestSocialClass:
         assert c.social_class in ["Lower-Lower Class", "Middle-Lower Class", "Upper-Lower Class", "Lower-Middle Class",
                                   "Middle-Middle Class", "Upper-Middle Class", "Lower-Upper Class",
                                   "Middle-Upper Class", "Upper-Upper Class"]
+
+
+class TestAlignment:
+    def test_invalid_input(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "Lawful Good")
+        with pytest.raises(ValueError):
+            c.set_alignment()
+
+    def test_invalid_number(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "11")
+        with pytest.raises(KeyError):
+            c.set_alignment()
+
+    def test_lawful_good(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "1")
+        c.set_alignment()
+        assert c.alignment == "Lawful Good"
+
+    def test_lawful_neutral(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "2")
+        c.set_alignment()
+        assert c.alignment == "Lawful Neutral"
+
+    def test_lawful_evil(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "3")
+        c.set_alignment()
+        assert c.alignment == "Lawful Evil"
+
+    def test_neutral_good(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "4")
+        c.set_alignment()
+        assert c.alignment == "Neutral Good"
+
+    def test_neutral(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "5")
+        c.set_alignment()
+        assert c.alignment == "Neutral"
+
+    def test_neutral_evil(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "6")
+        c.set_alignment()
+        assert c.alignment == "Neutral Evil"
+
+    def test_chaotic_good(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "7")
+        c.set_alignment()
+        assert c.alignment == "Chaotic Good"
+
+    def test_chaotic_neutral(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "8")
+        c.set_alignment()
+        assert c.alignment == "Chaotic Neutral"
+
+    def test_chaotic_evil(self, monkeypatch):
+        c = Character()
+        monkeypatch.setattr("builtins.input", lambda x: "9")
+        c.set_alignment()
+        assert c.alignment == "Chaotic Evil"

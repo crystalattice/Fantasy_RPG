@@ -211,3 +211,26 @@ class Character:
                 self.social_class = "Middle-Upper Class"
             else:
                 self.social_class = "Upper-Upper Class"
+
+    def set_alignment(self):
+        """Pick the character's alignment
+
+        The user's input should be an integer. The integer is used as the key for the dictionary, which returns the
+        associated alignment value.
+        """
+        alignment_choices: Dict[int, str] = {1: "Lawful Good", 2: "Lawful Neutral", 3: "Lawful Evil", 4: "Neutral Good",
+                                             5: "Neutral",
+                                             6: "Neutral Evil", 7: "Chaotic Good", 8: "Chaotic Neutral",
+                                             9: "Chaotic Evil"}
+        chosen_alignment: str = input("Pick your alignment from the following: 1) Lawful Good, 2) Lawful Neutral, "
+                                      "3) Lawful Evil, 4) Neutral Good, 5) Neutral, 6) Neutral Evil, 7) Chaotic Good,"
+                                      "8) Chaotic Neutral, 9) Chaotic Evil")
+        try:
+            self.alignment = alignment_choices[int(chosen_alignment)]
+        except ValueError:
+            print("Please select the number associated with the alignment")
+            raise
+        except KeyError:
+            print("Please select a number from 1-9")
+            raise
+

@@ -4,8 +4,9 @@ from typing import Any, Union
 
 def rand_num_gen(choice: int) -> int:
     """Get a random number to simulate a d6, d10, or d100 roll."""
+    die: Union[int, int] = 1
     if choice == 6:  # d6 roll
-        die: Union[int, Any] = randint(1, 6)
+        die = randint(1, 6)
     elif choice == 10:  # d10 roll
         die = randint(1, 10)
     elif choice == 100:  # d100 roll
@@ -18,8 +19,6 @@ def rand_num_gen(choice: int) -> int:
         die = randint(1, 12)
     elif choice == 20:  # d20 roll
         die = randint(1, 20)
-    else:  # simple error message
-        raise ValueError("Invalid choice")
     return die
 
 

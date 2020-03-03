@@ -50,7 +50,7 @@ class Character:
 
     supplies: Dict[str, int] = field(default_factory=dict)  # Expendable items
     equipment: Dict[str, int] = field(default_factory=dict)  # Non-expendable items
-    encumberance: int = 0  # Mass of all equipment, supplies, weapons, armour, etc.
+    encumbrance: int = 0  # Mass of all equipment, supplies, weapons, armour, etc.
     base_move: int = 0  # Unencumbered move rate
     move_rate: int = 0  # Current move rate
     magic_items: Dict[str, int] = field(default_factory=dict)

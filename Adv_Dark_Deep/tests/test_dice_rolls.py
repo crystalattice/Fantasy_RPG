@@ -15,12 +15,6 @@ class TestSixSide:
         for i in range(25):
             assert 3 <= multi_die(3, 1) <= 18
 
-    def test_type_error(self):
-        with pytest.raises(ValueError) as excinfo:
-            multi_die(1, 0)
-        exception_msg = excinfo.value.args[0]
-        assert exception_msg == "Invalid choice"
-
     def test_num_error(self):
         assert multi_die(0, 1) == 0
 
@@ -37,12 +31,6 @@ class TestFourSide:
     def test_3d4(self):
         for i in range(25):
             assert 3 <= multi_die(3, 4) <= 16
-
-    def test_type_error(self):
-        with pytest.raises(ValueError) as excinfo:
-            multi_die(1, 0)
-        exception_msg = excinfo.value.args[0]
-        assert exception_msg == "Invalid choice"
 
     def test_num_error(self):
         assert multi_die(0, 1) == 0
@@ -61,12 +49,6 @@ class TestEightSide:
         for i in range(25):
             assert 3 <= multi_die(3, 5) <= 24
 
-    def test_type_error(self):
-        with pytest.raises(ValueError) as excinfo:
-            multi_die(1, 0)
-        exception_msg = excinfo.value.args[0]
-        assert exception_msg == "Invalid choice"
-
     def test_num_error(self):
         assert multi_die(0, 1) == 0
 
@@ -83,12 +65,6 @@ class TestTenSide:
     def test_3d10(self):
         for i in range(25):
             assert 3 <= multi_die(3, 5) <= 30
-
-    def test_type_error(self):
-        with pytest.raises(ValueError) as excinfo:
-            multi_die(1, 0)
-        exception_msg = excinfo.value.args[0]
-        assert exception_msg == "Invalid choice"
 
     def test_num_error(self):
         assert multi_die(0, 1) == 0
@@ -107,12 +83,6 @@ class TestTwelveSide:
         for i in range(25):
             assert 3 <= multi_die(3, 6) <= 36
 
-    def test_type_error(self):
-        with pytest.raises(ValueError) as excinfo:
-            multi_die(1, 0)
-        exception_msg = excinfo.value.args[0]
-        assert exception_msg == "Invalid choice"
-
     def test_num_error(self):
         assert multi_die(0, 1) == 0
 
@@ -130,12 +100,6 @@ class TestTwentySide:
         for i in range(25):
             assert 3 <= multi_die(3, 7) <= 60
 
-    def test_type_error(self):
-        with pytest.raises(ValueError) as excinfo:
-            multi_die(1, 0)
-        exception_msg = excinfo.value.args[0]
-        assert exception_msg == "Invalid choice"
-
     def test_num_error(self):
         assert multi_die(0, 1) == 0
 
@@ -144,12 +108,6 @@ class TestPercentile:
     def test_1d100(self):
         for i in range(25):
             assert 1 <= multi_die(1, 3) <= 100
-
-    def test_type_error(self):
-        with pytest.raises(ValueError) as excinfo:
-            multi_die(1, 0)
-        exception_msg = excinfo.value.args[0]
-        assert exception_msg == "Invalid choice"
 
     def test_num_error(self):
         assert multi_die(0, 1) == 0

@@ -6,8 +6,10 @@ from sqlalchemy.ext.declarative import declarative_base, DeclarativeMeta
 from sqlalchemy.orm import sessionmaker, Session
 
 Base: DeclarativeMeta = declarative_base()
+# engine: Engine = create_engine(
+#     "sqlite:////home/codyjackson/PycharmProjects/Fantasy_RPG/Adv_Dark_Deep/Tables/Classes.sqlite")
 engine: Engine = create_engine(
-    "sqlite:////home/codyjackson/PycharmProjects/Fantasy_RPG/Adv_Dark_Deep/Tables/Classes.sqlite")
+    "sqlite:///../Tables/Classes.sqlite")
 Base.metadata.bind = engine
 db_session: sessionmaker = sessionmaker(bind=engine)
 session: Session = db_session()

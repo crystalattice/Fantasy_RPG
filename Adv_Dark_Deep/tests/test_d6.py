@@ -15,11 +15,5 @@ class TestSixSide:
         for i in range(25):
             assert 3 <= multi_die(3, 1) <= 18
 
-    def test_type_error(self):
-        with pytest.raises(ValueError) as excinfo:
-            multi_die(1, 0)
-        exception_msg = excinfo.value.args[0]
-        assert exception_msg == "Invalid choice"
-
     def test_num_error(self):
         assert multi_die(0, 1) == 0

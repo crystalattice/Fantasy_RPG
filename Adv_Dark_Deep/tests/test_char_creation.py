@@ -43,7 +43,7 @@ class TestCharacterCreation:
         assert c.class_abilities == {}
         assert c.supplies == {}
         assert c.equipment == {}
-        assert c.encumberance == 0
+        assert c.encumbrance == 0
         assert c.base_move == 0
         assert c.move_rate == 0
         assert c.magic_items == {}

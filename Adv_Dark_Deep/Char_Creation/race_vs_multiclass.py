@@ -8,9 +8,8 @@ from sqlalchemy.orm import sessionmaker, Session
 Base: DeclarativeMeta = declarative_base()
 # engine: Engine = create_engine(
 #     "sqlite:////home/codyjackson/PycharmProjects/Fantasy_RPG/Adv_Dark_Deep/Tables/Classes.sqlite")
-# engine: Engine = create_engine(
-#     "sqlite:///../Tables/Classes.sqlite")
-engine: Engine = create_engine("sqlite:///../Fantasy_RPG/Adv_Dark_Deep/Tables/Classes.sqlite")
+engine: Engine = create_engine("sqlite:///../Tables/Classes.sqlite")
+# engine: Engine = create_engine("sqlite:///../Fantasy_RPG/Adv_Dark_Deep/Tables/Classes.sqlite")  # GitHub path
 
 Base.metadata.bind = engine
 db_session: sessionmaker = sessionmaker(bind=engine)

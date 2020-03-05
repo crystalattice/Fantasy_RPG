@@ -8,6 +8,7 @@ from Adv_Dark_Deep.dice_roller import multi_die
 @dataclass()
 class Character:
     """Basic character information, common to all player characters"""
+    # Generic information for all characters
     strength: float = 0.0
     dexterity: int = 0
     intelligence: int = 0
@@ -23,18 +24,12 @@ class Character:
 
     name: str = ""
     gender: str = ""
-    race: str = ""
-    dm_underdark = False  # Value to allow DM to allow Underdark (subterranean) races as player characters
-    subrace: str = ""  # If available, specific type of race, e.g. hill dwarf, high elf, etc.
+
     social_class: str = ""
     alignment: str = ""
-    age: int = 0
-    height: float = 0.0
-    weight: int = 0
-    special_abilities: List[str] = field(default_factory=list)
+    char_class: Dict[str, int] = field(default_factory=dict)  # Dictionary in case PC is multi/dual classed
     experience: int = 0
     level: int = 0
-    languages: List[str] = field(default_factory=list)
 
     armour_class: int = 0
     hit_points: int = 0
@@ -51,7 +46,6 @@ class Character:
     supplies: Dict[str, int] = field(default_factory=dict)  # Expendable items
     equipment: Dict[str, int] = field(default_factory=dict)  # Non-expendable items
     encumbrance: int = 0  # Mass of all equipment, supplies, weapons, armour, etc.
-    base_move: int = 0  # Unencumbered move rate
     move_rate: int = 0  # Current move rate
     magic_items: Dict[str, int] = field(default_factory=dict)
 
@@ -66,6 +60,19 @@ class Character:
     spells_memorized: List[str] = field(default_factory=list)
     spell_components: Dict[str, int] = field(default_factory=dict)
     max_spells_memorized: Dict[str, int] = field(default_factory=dict)  # Maximum number of spells memorized per level
+
+    # Race-specific information
+    race: str = ""
+    dm_underdark = False  # Value to allow DM to allow Underdark (subterranean) races as player characters
+    subrace: str = ""  # If available, specific type of race, e.g. hill dwarf, high elf, etc.
+    age: int = 0
+    height: float = 0.0
+    weight: int = 0
+    special_abilities: List[str] = field(default_factory=list)
+    languages: List[str] = field(default_factory=list)
+    base_move: int = 0  # Unencumbered move rate
+    want_multiclass: bool = False
+    approved_classes: List[str] = field(default_factory=list)
 
     def ability_rolls(self, roll_method: int) -> None:
         """Roll the ability scores for the character.
@@ -159,7 +166,7 @@ class Character:
     def class_by_race(self):
         """Acceptable classes based on race of character"""
         race_classes = []
-        if self.subrace:
+        if self.subrace and self.want_multiclass is False:
             approved_classes = race_vs_class.get_classes(self.subrace)
         else:
             approved_classes = race_vs_class.get_classes(self.race)
@@ -176,7 +183,7 @@ class Character:
         Half-elves have class limits based on elf parent's race.
         """
         race_multiclass = []
-        if self.subrace and not self.race == "Dwarf":
+        if self.subrace and not self.race == "Dwarf" and self.want_multiclass is True:
             approved_classes = race_vs_multiclass.get_classes(self.subrace)
         else:
             approved_classes = race_vs_multiclass.get_classes(self.race)

@@ -13,11 +13,11 @@ class TestCharacterCreation:
         assert c.wisdom == 0
         assert c.constitution == 0
         assert c.charisma == 0
-        assert c.save_vs_ppd == 0
-        assert c.save_vs_pp == 0
-        assert c.save_vs_bw == 0
-        assert c.save_vs_rsw == 0
-        assert c.save_vs_spell == 0
+        assert c.ppd_save == 0
+        assert c.pp_save == 0
+        assert c.bw_save == 0
+        assert c.rsw_save == 0
+        assert c.spell_save == 0
         assert c.name == ''
         assert c.gender == ''
         assert c.race == ''

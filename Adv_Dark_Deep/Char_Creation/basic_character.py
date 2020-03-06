@@ -8,7 +8,8 @@ from Adv_Dark_Deep.dice_roller import multi_die
 @dataclass()
 class Character:
     """Basic character information, common to all player characters"""
-    def __init__(self, strength=0.0, dexterity=0, intelligence=0, wisdom=0, constitution=0, charisma=0):
+    def __init__(self, strength=0.0, dexterity=0, intelligence=0, wisdom=0, constitution=0, charisma=0,
+                 ppd_save=0, pp_save=0, bw_save=0, rsw_save=0, spell_save=0):
         # Generic information for all characters
         self._strength: float = strength
         self._dexterity: int = dexterity
@@ -17,11 +18,11 @@ class Character:
         self._constitution: int = constitution
         self._charisma: int = charisma
 
-        save_vs_ppd: int = 0  # Save vs. poison, paralyzation, death
-        save_vs_pp: int = 0  # Save vs. petrification, polymorph
-        save_vs_bw: int = 0  # Save vs. breath weapon
-        save_vs_rsw: int = 0  # Save vs. rods, staves, wands
-        save_vs_spell: int = 0  # Save vs. magic spells and spell-like effects
+        self._ppd_save: int = ppd_save  # Save vs. poison, paralyzation, death
+        self._pp_save: int = pp_save  # Save vs. petrification, polymorph
+        self._bw_save: int = bw_save  # Save vs. breath weapon
+        self._rsw_save: int = rsw_save  # Save vs. rods, staves, wands
+        self._spell_save: int = spell_save  # Save vs. magic spells and spell-like effects
 
         name: str = ""
         gender: str = ""
@@ -124,6 +125,47 @@ class Character:
     def charisma(self, value: int) -> None:
         self._charisma = value
 
+    @property
+    def ppd_save(self) -> int:
+        return self._ppd_save
+
+    @ppd_save.setter
+    def ppd_save(self, value: int) -> None:
+        self._ppd_save = value
+
+    @property
+    def pp_save(self) -> int:
+        return self._pp_save
+
+    @pp_save.setter
+    def pp_save(self, value: int) -> None:
+        self._pp_save = value
+
+    @property
+    def rsw_save(self) -> int:
+        return self._rsw_save
+
+    @rsw_save.setter
+    def rsw_save(self, value: int) -> None:
+        self._rsw_save = value
+
+    @property
+    def bw_save(self) -> int:
+        return self._bw_save
+
+    @bw_save.setter
+    def bw_save(self, value: int) -> None:
+        self._bw_save = value
+
+    @property
+    def spell_save(self) -> int:
+        return self._spell_save
+
+    @spell_save.setter
+    def spell_save(self, value: int) -> None:
+        self._spell_save = value
+
+    # Normal methods
     def ability_rolls(self, roll_method: int) -> None:
         """Roll the ability scores for the character.
 

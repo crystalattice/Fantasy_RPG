@@ -48,11 +48,6 @@ class TestCharacterCreation:
         assert c.move_rate == 0
         assert c.magic_items == {}
         assert c.deeds_titles == ''
-        assert c.mount_name == ''
-        assert c.mount_type == ''
-        assert c.mount_hp == 0
-        assert c.mount_armour == ''
-        assert c.mount_ac == 0
         assert c.spells_memorized == []
         assert c.spell_components == {}
         assert c.max_spells_memorized == {}

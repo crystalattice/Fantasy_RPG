@@ -12,9 +12,8 @@ class Character:
                  ppd_save=0, pp_save=0, bw_save=0, rsw_save=0, spell_save=0, name="", gender="", race="",
                  dm_underdark=False, social_class="", alignment="", char_class=None, experience=0.0, level=0,
                  armour_class=0, hit_points=0, non_lethal_wounds=0, armour_worn="", init_mod=0, surprise_mod=0,
-                 attack_column=0, weapons=None, skills=None, class_abilities=None, supplies=None, equipment=None,
-                 encumbrance=0, move_rate=0, magic_items=None, deeds_titles="", mount_name="", mount_type="",
-                 mount_hp=0, mount_armour="", mount_ac=0, spells_memorized=None, spell_components=None,
+                 attack_column="", weapons=None, skills=None, class_abilities=None, supplies=None, equipment=None,
+                 encumbrance=0, move_rate=0, magic_items=None, deeds_titles="",  spells_memorized=None, spell_components=None,
                  max_spells_memorized=None, subrace="", age=0, height=0.0, weight=0, special_abilities=None,
                  languages=None, base_move=0, want_multiclass=False, approved_classes=None):
         # Generic information for all characters
@@ -70,6 +69,7 @@ class Character:
         self._supplies: Dict[str, int] = supplies  # Expendable items
 
         if equipment is None:
+            equipment = {}
             self._equipment: Dict[str, int] = equipment  # Non-expendable items
 
         self._encumbrance: int = encumbrance  # Mass of all equipment, supplies, weapons, armour, etc.
@@ -80,12 +80,6 @@ class Character:
         self._magic_items: Dict[str, int] = magic_items
 
         self._deeds_titles: str = deeds_titles  # Estates, property, and named titles, e.g. Duke
-
-        self._mount_name: str = mount_name
-        self._mount_type: str = mount_type
-        self._mount_hp: int = mount_hp  # Hit points of mount
-        self._mount_armour: str = mount_armour
-        self._mount_ac: int = mount_ac  # Armour class of mount
 
         if spells_memorized is None:
             spells_memorized = []
@@ -209,6 +203,303 @@ class Character:
     def spell_save(self, value: int) -> None:
         self._spell_save = value
 
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @name.setter
+    def name(self, value: int) -> None:
+        self._name = value
+
+    @property
+    def gender(self) -> str:
+        return self._gender
+
+    @gender.setter
+    def gender(self, value: str) -> None:
+        self._gender = value
+
+    @property
+    def race(self) -> str:
+        return self._race
+
+    @race.setter
+    def race(self, value: str) -> None:
+        self._race = value
+
+    @property
+    def dm_underdark(self) -> bool:
+        return self._dm_underdark
+
+    @dm_underdark.setter
+    def dm_underdark(self, value: bool) -> None:
+        self._dm_underdark = value
+
+    @property
+    def social_class(self) -> str:
+        return self._social_class
+
+    @social_class.setter
+    def social_class(self, value: str) -> None:
+        self._social_class = value
+
+    @property
+    def alignment(self) -> str:
+        return self._alignment
+
+    @alignment.setter
+    def alignment(self, value: str) -> None:
+        self._alignment = value
+
+    @property
+    def experience(self) -> float:
+        return self._experience
+
+    @experience.setter
+    def experience(self, value: float) -> None:
+        self._experience = value
+
+    @property
+    def level(self) -> int:
+        return self._level
+
+    @level.setter
+    def level(self, value: int) -> None:
+        self._level = value
+
+    @property
+    def char_class(self) -> dict:
+        return self._char_class
+
+    @char_class.setter
+    def char_class(self, value: dict) -> None:
+        self._char_class = value
+
+    @property
+    def armour_class(self) -> int:
+        return self._armour_class
+
+    @armour_class.setter
+    def armour_class(self, value: int) -> None:
+        self._armour_class = value
+
+    @property
+    def hit_points(self) -> int:
+        return self._hit_points
+
+    @hit_points.setter
+    def hit_points(self, value: int) -> None:
+        self._hit_points = value
+
+    @property
+    def non_lethal_wounds(self) -> int:
+        return self._non_lethal_wounds
+
+    @non_lethal_wounds.setter
+    def non_lethal_wounds(self, value: int) -> None:
+        self._non_lethal_wounds = value
+
+    @property
+    def armour_worn(self) -> str:
+        return self._armour_worn
+
+    @armour_worn.setter
+    def armour_worn(self, value: str) -> None:
+        self._armour_worn = value
+
+    @property
+    def init_mod(self) -> int:
+        return self._init_mod
+
+    @init_mod.setter
+    def init_mod(self, value: int) -> None:
+        self._init_mod = value
+
+    @property
+    def surprise_mod(self) -> int:
+        return self._surprise_mod
+
+    @surprise_mod.setter
+    def surprise_mod(self, value: int) -> None:
+        self._surprise_mod = value
+
+    @property
+    def attack_column(self) -> str:
+        return self._attack_column
+
+    @attack_column.setter
+    def attack_column(self, value: str) -> None:
+        self._attack_column = value
+
+    @property
+    def weapons(self) -> dict:
+        return self._weapons
+
+    @weapons.setter
+    def weapons(self, value: dict) -> None:
+        self._weapons = value
+
+    @property
+    def skills(self) -> dict:
+        return self._skills
+
+    @skills.setter
+    def skills(self, value: dict) -> None:
+        self._skills = value
+
+    @property
+    def class_abilities(self) -> dict:
+        return self._class_abilities
+
+    @class_abilities.setter
+    def class_abilities(self, value: dict) -> None:
+        self._class_abilities = value
+
+    @property
+    def supplies(self) -> dict:
+        return self._supplies
+
+    @supplies.setter
+    def supplies(self, value: dict) -> None:
+        self._supplies = value
+
+    @property
+    def equipment(self) -> dict:
+        return self._equipment
+
+    @equipment.setter
+    def equipment(self, value: dict) -> None:
+        self._equipment = value
+
+    @property
+    def encumbrance(self) -> int:
+        return self._encumbrance
+
+    @encumbrance.setter
+    def encumbrance(self, value: int) -> None:
+        self._encumbrance = value
+
+    @property
+    def move_rate(self) -> int:
+        return self._move_rate
+
+    @move_rate.setter
+    def move_rate(self, value: int) -> None:
+        self._move_rate = value
+
+    @property
+    def magic_items(self) -> dict:
+        return self._magic_items
+
+    @magic_items.setter
+    def magic_items(self, value: dict) -> None:
+        self._magic_items = value
+
+    @property
+    def deeds_titles(self) -> str:
+        return self._deeds_titles
+
+    @deeds_titles.setter
+    def deeds_titles(self, value: str) -> None:
+        self._deeds_titles = value
+
+    @property
+    def spells_memorized(self) -> list:
+        return self._spells_memorized
+
+    @spells_memorized.setter
+    def spells_memorized(self, value: list) -> None:
+        self._spells_memorized = value
+
+    @property
+    def spell_components(self) -> dict:
+        return self._spell_components
+
+    @spell_components.setter
+    def spell_components(self, value: dict) -> None:
+        self._spell_components = value
+
+    @property
+    def max_spells_memorized(self) -> dict:
+        return self._max_spells_memorized
+
+    @max_spells_memorized.setter
+    def max_spells_memorized(self, value: dict) -> None:
+        self._max_spells_memorized = value
+
+    @property
+    def subrace(self) -> str:
+        return self._subrace
+
+    @subrace.setter
+    def subrace(self, value: str) -> None:
+        self._subrace = value
+
+    @property
+    def age(self) -> int:
+        return self._age
+
+    @age.setter
+    def age(self, value: int) -> None:
+        self._age = value
+
+    @property
+    def height(self) -> float:
+        return self._height
+
+    @height.setter
+    def height(self, value: float) -> None:
+        self._height = value
+
+    @property
+    def weight(self) -> int:
+        return self._weight
+
+    @weight.setter
+    def weight(self, value: int) -> None:
+        self._weight = value
+
+    @property
+    def special_abilities(self) -> list:
+        return self._special_abilities
+
+    @special_abilities.setter
+    def special_abilities(self, value: list) -> None:
+        self._special_abilities = value
+
+    @property
+    def languages(self) -> list:
+        return self._languages
+
+    @languages.setter
+    def languages(self, value: list) -> None:
+        self._languages = value
+
+    @property
+    def base_move(self) -> int:
+        return self._base_move
+
+    @base_move.setter
+    def base_move(self, value: int) -> None:
+        self._base_move = value
+
+# TODO: Figure out if want_multiclass is necessary
+    @property
+    def want_multiclass(self) -> bool:
+        return self._want_multiclass
+
+    @want_multiclass.setter
+    def want_multiclass(self, value: bool) -> None:
+        self._want_multiclass = value
+
+    @property
+    def approved_classes(self) -> list:
+        return self._approved_classes
+
+    @approved_classes.setter
+    def approved_classes(self, value: list) -> None:
+        self._approved_classes = value
+
     # Normal methods
     def ability_rolls(self, roll_method: int) -> None:
         """Roll the ability scores for the character.
@@ -302,7 +593,8 @@ class Character:
     def class_by_race(self):
         """Acceptable classes based on race of character"""
         race_classes = []
-        if self.subrace and self.want_multiclass is False:
+        # if self.subrace and self.want_multiclass is False:
+        if self.subrace:
             approved_classes = race_vs_class.get_classes(self.subrace)
         else:
             approved_classes = race_vs_class.get_classes(self.race)
@@ -319,7 +611,8 @@ class Character:
         Half-elves have class limits based on elf parent's race.
         """
         race_multiclass = []
-        if self.subrace and not self.race == "Dwarf" and self.want_multiclass is True:
+        # if self.subrace and not self.race == "Dwarf" and self.want_multiclass is True:
+        if self.subrace and not self.race == "Dwarf":
             approved_classes = race_vs_multiclass.get_classes(self.subrace)
         else:
             approved_classes = race_vs_multiclass.get_classes(self.race)

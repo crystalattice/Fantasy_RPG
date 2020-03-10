@@ -7,8 +7,6 @@ from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy.exc import OperationalError
 
 Base: DeclarativeMeta = declarative_base()
-# engine: Engine = create_engine(
-#     "sqlite:////home/codyjackson/PycharmProjects/Fantasy_RPG/Adv_Dark_Deep/Tables/Classes.sqlite")
 # try:
 #     engine: Engine = create_engine("sqlite:///../Tables/Classes.sqlite")  # Try local DB path
 # except OperationalError:

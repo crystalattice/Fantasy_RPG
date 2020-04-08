@@ -16,6 +16,8 @@ class Character:
                  encumbrance=0, move_rate=0, magic_items=None, deeds_titles="",  spells_memorized=None, spell_components=None,
                  max_spells_memorized=None, subrace="", age=0, height=0.0, weight=0, special_abilities=None,
                  languages=None, base_move=0, want_multiclass=False, approved_classes=None):
+        # TODO: Remove init() method and move default values to variable assignment
+
         # Generic information for all characters
         self._strength: float = strength
         self._dexterity: int = dexterity

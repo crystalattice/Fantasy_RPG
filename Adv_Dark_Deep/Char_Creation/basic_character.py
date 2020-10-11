@@ -8,113 +8,73 @@ from Adv_Dark_Deep.dice_roller import multi_die
 @dataclass()
 class Character:
     """Basic character information, common to all player characters"""
-    def __init__(self, strength=0.0, dexterity=0, intelligence=0, wisdom=0, constitution=0, charisma=0,
-                 ppd_save=0, pp_save=0, bw_save=0, rsw_save=0, spell_save=0, name="", gender="", race="",
-                 dm_underdark=False, social_class="", alignment="", char_class=None, experience=0.0, level=0,
-                 armour_class=0, hit_points=0, non_lethal_wounds=0, armour_worn="", init_mod=0, surprise_mod=0,
-                 attack_column="", weapons=None, skills=None, class_abilities=None, supplies=None, equipment=None,
-                 encumbrance=0, move_rate=0, magic_items=None, deeds_titles="",  spells_memorized=None, spell_components=None,
-                 max_spells_memorized=None, subrace="", age=0, height=0.0, weight=0, special_abilities=None,
-                 languages=None, base_move=0, want_multiclass=False, approved_classes=None):
-        # TODO: Remove init() method and move default values to variable assignment
+    # Generic information for all characters
+    _strength: float = 0.0
+    _dexterity: int = 0
+    _intelligence: int = 0
+    _wisdom: int = 0
+    _constitution: int = 0
+    _charisma: int = 0
 
-        # Generic information for all characters
-        self._strength: float = strength
-        self._dexterity: int = dexterity
-        self._intelligence: int = intelligence
-        self._wisdom: int = wisdom
-        self._constitution: int = constitution
-        self._charisma: int = charisma
+    _ppd_save: int = 0  # Save vs. poison, paralyzation, death
+    _pp_save: int = 0  # Save vs. petrification, polymorph
+    _bw_save: int = 0  # Save vs. breath weapon
+    _rsw_save: int = 0  # Save vs. rods, staves, wands
+    _spell_save: int = 0  # Save vs. magic spells and spell-like effects
 
-        self._ppd_save: int = ppd_save  # Save vs. poison, paralyzation, death
-        self._pp_save: int = pp_save  # Save vs. petrification, polymorph
-        self._bw_save: int = bw_save  # Save vs. breath weapon
-        self._rsw_save: int = rsw_save  # Save vs. rods, staves, wands
-        self._spell_save: int = spell_save  # Save vs. magic spells and spell-like effects
+    _name: str = ""
+    _gender: str = ""
+    _race: str = ""
+    _dm_underdark = False  # DM allows Underdark (subterranean) races as player characters
 
-        self._name: str = name
-        self._gender: str = gender
-        self._race: str = race
-        self._dm_underdark = dm_underdark  # DM allows Underdark (subterranean) races as player characters
+    _social_class: str = ""
+    _alignment: str = ""
+    _experience: float = 0.0
+    _level: int = 0
 
-        self._social_class: str = social_class
-        self._alignment: str = alignment
-        self._experience: float = experience
-        self._level: int = level
+    _char_class: Dict[str, int] = field(default_factory={"": 0})  # Dictionary in case PC is multi/dual classed
 
-        if char_class is None:  # Corrects mutable argument
-            char_class = {}
-        self._char_class: Dict[str, int] = char_class  # Dictionary in case PC is multi/dual classed
+    _armour_class: int = 0
+    _hit_points: int = 0
+    _non_lethal_wounds: int = 0
+    _armour_worn: str = ""
+    _init_mod: int = 0  # Initiative modifier
+    _surprise_mod: int = 0  # Modifier to be surprised
+    _attack_column: str = ""  # Attack column (Adv. Dark & Deep only)
 
-        self._armour_class: int = armour_class
-        self._hit_points: int = hit_points
-        self._non_lethal_wounds: int = non_lethal_wounds
-        self._armour_worn: str = armour_worn
-        self._init_mod: int = init_mod  # Initiative modifier
-        self._surprise_mod: int = surprise_mod  # Modifier to be surprised
-        self._attack_column: str = attack_column  # Attack column (Adv. Dark & Deep only)
+    _weapons: Dict[str, int] = field(default_factory={"": 0})
 
-        if weapons is None:
-            weapons = {}
-        self._weapons: Dict[str, int] = weapons
+    _skills: Dict[str, int] = field(default_factory={"": 0})
+    _class_abilities: Dict[str, int] = field(default_factory={"": 0})
 
-        if skills is None:
-            skills = {}
-        self._skills: Dict[str, int] = skills
+    _supplies: Dict[str, int] = field(default_factory={"": 0})  # Expendable items
+    _equipment: Dict[str, int] = field(default_factory={"": 0})  # Non-expendable items
 
-        if class_abilities is None:
-            class_abilities = {}
-        self._class_abilities: Dict[str, int] = class_abilities
+    _encumbrance: int = 0  # Mass of all equipment, supplies, weapons, armour, etc.
+    _move_rate: int = 0  # Current move rate
 
-        if supplies is None:
-            supplies = {}
-        self._supplies: Dict[str, int] = supplies  # Expendable items
+    _magic_items: Dict[str, int] = field(default_factory={"": 0})
 
-        if equipment is None:
-            equipment = {}
-            self._equipment: Dict[str, int] = equipment  # Non-expendable items
+    _deeds_titles: str = ""  # Estates, property, and named titles, e.g. Duke
 
-        self._encumbrance: int = encumbrance  # Mass of all equipment, supplies, weapons, armour, etc.
-        self._move_rate: int = move_rate  # Current move rate
+    _spells_memorized: List[str] = field(default_factory=[""])
+    _spell_components: Dict[str, int] = field(default_factory={"": 0})
+    _max_spells_memorized: Dict[str, int] = field(default_factory={"": 0})  # Maximum number of spells memorized per level
 
-        if magic_items is None:
-            magic_items = {}
-        self._magic_items: Dict[str, int] = magic_items
+    # Race-specific information
+    _subrace: str = ""  # If available, specific type of race, e.g. hill dwarf, high elf, etc.
+    _age: int = 0
+    _height: float = 0.0
+    _weight: int = 0
 
-        self._deeds_titles: str = deeds_titles  # Estates, property, and named titles, e.g. Duke
+    _special_abilities: List[str] = field(default_factory=[""])
 
-        if spells_memorized is None:
-            spells_memorized = []
-        self._spells_memorized: List[str] = spells_memorized
+    _languages: List[str] = field(default_factory=[""])
 
-        if spell_components is None:
-            spell_components = {}
-        self._spell_components: Dict[str, int] = spell_components
+    _base_move: int = 0  # Unencumbered move rate
 
-        if max_spells_memorized is None:
-            max_spells_memorized = {}
-        self._max_spells_memorized: Dict[str, int] = max_spells_memorized  # Maximum number of spells memorized per level
-
-        # Race-specific information
-        self._subrace: str = subrace  # If available, specific type of race, e.g. hill dwarf, high elf, etc.
-        self._age: int = age
-        self._height: float = height
-        self._weight: int = weight
-
-        if special_abilities is None:
-            special_abilities = []
-        self._special_abilities: List[str] = special_abilities
-
-        if languages is None:
-            languages = []
-        self._languages: List[str] = languages
-
-        self._base_move: int = base_move  # Unencumbered move rate
-        self._want_multiclass: bool = want_multiclass
-
-        if approved_classes is None:
-            approved_classes = []
-        self._approved_classes: List[str] = approved_classes
+    _want_multiclass: bool = False
+    _approved_classes: List[str] = field(default_factory=[""])
 
     # Properties
     @property

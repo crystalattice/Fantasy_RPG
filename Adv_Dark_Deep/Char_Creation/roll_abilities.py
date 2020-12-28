@@ -15,7 +15,7 @@ def three_d6() -> list:
     """
     rolls: List[int] = []
     for i in range(1, 7):
-        roll: int = multi_die(3, 1)
+        roll: int = multi_die(3, 6)
         rolls.append(roll)
     return rolls
 
@@ -30,7 +30,7 @@ def four_d6_drop_lowest() -> list:
         new_val: int = 0
         i: int = 0
         while i < 7:
-            roll: int = multi_die(3, 1)
+            roll: int = multi_die(3, 6)
             if roll >= new_val:
                 new_val = roll
             i += 1
@@ -45,7 +45,7 @@ def two_d6_plus_6() -> list:
     """
     rolls: List[int] = []
     for i in range(1, 7):
-        roll: int = multi_die(2, 1) + 6
+        roll: int = multi_die(2, 6) + 6
         rolls.append(roll)
     return rolls
 

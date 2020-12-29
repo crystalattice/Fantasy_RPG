@@ -14,9 +14,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.show()
 
         # Character sheet inputs
+        self.char_name = self.Char_Name_lineEdit
+        self.char_race = self.Race_comboBox
+        self.char_multi_class = self.Multi_Class_checkBox
+        self.char_dual_class = self.Dual_Class_checkBox
+        self.char_class = self.Class_comboBox
+        self.char_2nd_class = self.Second_Class_comboBox
+        self.char_3rd_class = self.Third_Class_comboBox
+        self.char_align = self.Alignment_comboBox
+        self.char_age = self.Age_spinBox
+        self.char_gender = self.Gender_comboBox
+        self.char_social_class = self.Social_Class_comboBox
+        self.char_height = self.Height_spinBox
+        self.char_weight = self.Weight_spinBox
 
         # Character sheet outputs
-        self.str = self.STR_Output_label
+        self.strength = self.STR_Output_label
         self.dex = self.Dex_Output_label
         self.iq = self.IQ_Output_label
         self.wis = self.Wisdom_Output_label
@@ -35,18 +48,31 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         try:
             if roll_type == "2d6":
                 rolls = roll_abilities.two_d6_plus_6()
-                # str, dex, iq, wis, con, chr = [rolls[i] for i in range(6)]
-                self.str.setText(str(rolls[0]))
-                self.dex.setText(str(rolls[1]))
-                self.iq.setText(str(rolls[2]))
-                self.wis.setText(str(rolls[3]))
-                self.con.setText(str(rolls[4]))
-                self.chr.setText(str(rolls[5]))
-
-            elif roll_type == "3d6":
-                print(roll_abilities.three_d6())
-            elif roll_type == "4d6":
-                print(roll_abilities.four_d6_drop_lowest())
+                strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
+                self.strength.setText(strength)
+                self.dex.setText(dex)
+                self.iq.setText(iq)
+                self.wis.setText(wis)
+                self.con.setText(con)
+                self.chr.setText(chr)
+            if roll_type == "3d6":
+                rolls = roll_abilities.three_d6()
+                strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
+                self.strength.setText(strength)
+                self.dex.setText(dex)
+                self.iq.setText(iq)
+                self.wis.setText(wis)
+                self.con.setText(con)
+                self.chr.setText(chr)
+            if roll_type == "4d6":
+                rolls = roll_abilities.four_d6_drop_lowest()
+                strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
+                self.strength.setText(strength)
+                self.dex.setText(dex)
+                self.iq.setText(iq)
+                self.wis.setText(wis)
+                self.con.setText(con)
+                self.chr.setText(chr)
             else:
                 raise ValueError
         except ValueError:

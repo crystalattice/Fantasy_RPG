@@ -32,8 +32,6 @@ class Character:
     _experience: float = 0.0
     _level: int = 0
 
-    _char_class: Dict[str, int] = field(default_factory={"": 0})  # Dictionary in case PC is multi/dual classed
-
     _armour_class: int = 0
     _hit_points: int = 0
     _non_lethal_wounds: int = 0
@@ -59,7 +57,7 @@ class Character:
 
     _spells_memorized: List[str] = field(default_factory=[""])
     _spell_components: Dict[str, int] = field(default_factory={"": 0})
-    _max_spells_memorized: Dict[str, int] = field(default_factory={"": 0})  # Maximum number of spells memorized per level
+    _max_spells_memorized: Dict[str, int] = field(default_factory={"": 0})  # Max number of spells memorized per level
 
     # Race-specific information
     _subrace: str = ""  # If available, specific type of race, e.g. hill dwarf, high elf, etc.
@@ -73,6 +71,7 @@ class Character:
 
     _base_move: int = 0  # Unencumbered move rate
 
+    _char_class: Dict[str, int] = field(default_factory={"": 0})  # Dictionary in case PC is multi/dual classed
     _want_multiclass: bool = False
     _approved_classes: List[str] = field(default_factory=[""])
 
@@ -170,7 +169,7 @@ class Character:
         return self._name
 
     @name.setter
-    def name(self, value: int) -> None:
+    def name(self, value: str) -> None:
         self._name = value
 
     @property
@@ -228,14 +227,6 @@ class Character:
     @level.setter
     def level(self, value: int) -> None:
         self._level = value
-
-    @property
-    def char_class(self) -> dict:
-        return self._char_class
-
-    @char_class.setter
-    def char_class(self, value: dict) -> None:
-        self._char_class = value
 
     @property
     def armour_class(self) -> int:
@@ -445,7 +436,14 @@ class Character:
     def base_move(self, value: int) -> None:
         self._base_move = value
 
-# TODO: Figure out if want_multiclass is necessary
+    @property
+    def char_class(self) -> dict:
+        return self._char_class
+
+    @char_class.setter
+    def char_class(self, value: dict) -> None:
+        self._char_class = value
+
     @property
     def want_multiclass(self) -> bool:
         return self._want_multiclass
@@ -631,4 +629,3 @@ class Character:
         except KeyError:
             print("Please select a number from 1-9")
             raise
-

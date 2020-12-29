@@ -26,10 +26,11 @@ class TestCharacterCreation:
         assert c.alignment == ''
         assert c.age == 0
         assert c.height == 0.0
-        assert c.weight ==0
+        assert c.weight == 0
         assert c.special_abilities == []
         assert c.experience == 0
         assert c.level == 0
+        assert c.char_class == {"": 0}
         assert c.languages == []
         assert c.armour_class == 0
         assert c.hit_points == 0
@@ -38,19 +39,19 @@ class TestCharacterCreation:
         assert c.init_mod == 0
         assert c.surprise_mod == 0
         assert c.attack_column == ''
-        assert c.weapons == {}
-        assert c.skills == {}
-        assert c.class_abilities == {}
-        assert c.supplies == {}
-        assert c.equipment == {}
+        assert c.weapons == {"": 0}
+        assert c.skills == {"": 0}
+        assert c.class_abilities == {"": 0}
+        assert c.supplies == {"": 0}
+        assert c.equipment == {"": 0}
         assert c.encumbrance == 0
         assert c.base_move == 0
         assert c.move_rate == 0
-        assert c.magic_items == {}
+        assert c.magic_items == {"": 0}
         assert c.deeds_titles == ''
-        assert c.spells_memorized == []
-        assert c.spell_components == {}
-        assert c.max_spells_memorized == {}
+        assert c.spells_memorized == [""]
+        assert c.spell_components == {"": 0}
+        assert c.max_spells_memorized == {"": 0}
 
 
 class TestAbilityRolls:

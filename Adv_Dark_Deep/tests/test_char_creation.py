@@ -1,6 +1,6 @@
 import pytest
 
-from Adv_Dark_Deep.Char_Creation.basic_character import Character
+from Adv_Dark_Deep.Char_Creation.Archived.basic_character import Character
 
 
 class TestCharacterCreation:

@@ -1,7 +1,8 @@
 from dataclasses import dataclass, field
 from typing import Dict, List
 
-from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_class, race_vs_multiclass
+from Adv_Dark_Deep.Char_Creation import roll_abilities
+from Adv_Dark_Deep.Char_Creation.Archived import race_vs_multiclass, race_vs_class
 from Adv_Dark_Deep.dice_roller import multi_die
 
 

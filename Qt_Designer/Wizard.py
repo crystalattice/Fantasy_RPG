@@ -39,48 +39,27 @@ class Wizard(QWizard, Ui_Wizard):
         """Roll the dice for character attributes"""
         if self.roll_type.checkedButton().text() == "4d6, drop lowest":
             rolls = roll_abilities.four_d6_drop_lowest()
-            strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
-            if strength == "18":
-                self.bonus_strength.setText(str(roll_abilities.multi_die(1, 100)))
-            else:
-                self.bonus_strength.setText("0")
-            self.strength.setText(strength)
-            self.dex.setText(dex)
-            self.iq.setText(iq)
-            self.wis.setText(wis)
-            self.con.setText(con)
-            self.chr.setText(chr)
+            self.insert_rolls(rolls)
         elif self.roll_type.checkedButton().text() == "3d6":
             rolls = roll_abilities.three_d6()
-            strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
-            if strength == "18":
-                self.bonus_strength.setText(str(roll_abilities.multi_die(1, 100)))
-            else:
-                self.bonus_strength.setText("0")
-            self.strength.setText(strength)
-            self.dex.setText(dex)
-            self.iq.setText(iq)
-            self.wis.setText(wis)
-            self.con.setText(con)
-            self.chr.setText(chr)
+            self.insert_rolls(rolls)
         elif self.roll_type.checkedButton().text() == "2d6+6":
             rolls = roll_abilities.two_d6_plus_6()
-            strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
-            if strength == "18":
-                self.bonus_strength.setText(str(roll_abilities.multi_die(1, 100)))
-            else:
-                self.bonus_strength.setText("0")
-            self.strength.setText(strength)
-            self.dex.setText(dex)
-            self.iq.setText(iq)
-            self.wis.setText(wis)
-            self.con.setText(con)
-            self.chr.setText(chr)
+            self.insert_rolls(rolls)
 
-    # def exceptional_str(self):
-    #     """Percentile bonus for normal strength of 18"""
-    #     roll = roll_abilities.multi_die(1, 100)
-    #     self.bonus_str.setText(roll)
+    def insert_rolls(self, rolls):
+        """Put the attribute rolls into their respective variables"""
+        strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
+        if strength == "18":
+            self.bonus_strength.setText(str(roll_abilities.multi_die(1, 100)))
+        else:
+            self.bonus_strength.setText("0")
+        self.strength.setText(strength)
+        self.dex.setText(dex)
+        self.iq.setText(iq)
+        self.wis.setText(wis)
+        self.con.setText(con)
+        self.chr.setText(chr)
 
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""

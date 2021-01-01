@@ -58,40 +58,40 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         """Save the current character sheet"""
         pass
 
-    def roll_stats(self, roll_type):
-        """Clicking the menu option will generate new stats for the character and populate default data in the sheet."""
-        try:
-            if roll_type == "2d6":
-                rolls = roll_abilities.two_d6_plus_6()
-                strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
-                self.strength.setText(strength)
-                self.dex.setText(dex)
-                self.iq.setText(iq)
-                self.wis.setText(wis)
-                self.con.setText(con)
-                self.chr.setText(chr)
-            if roll_type == "3d6":
-                rolls = roll_abilities.three_d6()
-                strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
-                self.strength.setText(strength)
-                self.dex.setText(dex)
-                self.iq.setText(iq)
-                self.wis.setText(wis)
-                self.con.setText(con)
-                self.chr.setText(chr)
-            if roll_type == "4d6":
-                rolls = roll_abilities.four_d6_drop_lowest()
-                strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
-                self.strength.setText(strength)
-                self.dex.setText(dex)
-                self.iq.setText(iq)
-                self.wis.setText(wis)
-                self.con.setText(con)
-                self.chr.setText(chr)
-            else:
-                raise ValueError
-        except ValueError:
-            print("Invalid roll type")
+    # def roll_stats(self, roll_type):
+    #     """Clicking the menu option will generate new stats for the character and populate default data in the sheet."""
+    #     try:
+    #         if roll_type == "2d6":
+    #             rolls = roll_abilities.two_d6_plus_6()
+    #             strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
+    #             self.strength.setText(strength)
+    #             self.dex.setText(dex)
+    #             self.iq.setText(iq)
+    #             self.wis.setText(wis)
+    #             self.con.setText(con)
+    #             self.chr.setText(chr)
+    #         if roll_type == "3d6":
+    #             rolls = roll_abilities.three_d6()
+    #             strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
+    #             self.strength.setText(strength)
+    #             self.dex.setText(dex)
+    #             self.iq.setText(iq)
+    #             self.wis.setText(wis)
+    #             self.con.setText(con)
+    #             self.chr.setText(chr)
+    #         if roll_type == "4d6":
+    #             rolls = roll_abilities.four_d6_drop_lowest()
+    #             strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
+    #             self.strength.setText(strength)
+    #             self.dex.setText(dex)
+    #             self.iq.setText(iq)
+    #             self.wis.setText(wis)
+    #             self.con.setText(con)
+    #             self.chr.setText(chr)
+    #         else:
+    #             raise ValueError
+    #     except ValueError:
+    #         print("Invalid roll type")
 
     # Saving character checks
     def get_char_name(self):

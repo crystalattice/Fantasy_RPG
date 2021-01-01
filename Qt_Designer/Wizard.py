@@ -4,10 +4,11 @@ from PyQt5.QtCore import Qt, pyqtSlot
 from PyQt5.QtWidgets import QApplication, QWizard, QPushButton, QButtonGroup, QLineEdit, QLabel, QGroupBox
 
 from New_Char_Wizard import Ui_Wizard
-from Adv_Dark_Deep.Char_Creation import roll_abilities
+from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_classes
 
 
 class Wizard(QWizard, Ui_Wizard):
+    gender: QButtonGroup
     third_class: QGroupBox
     second_class: QGroupBox
     prime_class: QGroupBox
@@ -43,6 +44,7 @@ class Wizard(QWizard, Ui_Wizard):
         self.con = self.CON_Out_label
         self.chr = self.CHR_Out_label
         self.race = self.Race_buttonGroup
+        self.gender = self.Gender_buttonGroup
         self.prime_class = self.First_Class_groupBox
         self.second_class = self.Second_Class_groupBox
         self.third_class = self.Third_Class_groupBox
@@ -100,9 +102,25 @@ class Wizard(QWizard, Ui_Wizard):
             self.Elf_Dark_radioButton.setEnabled(False)
             self.Dwarf_Gray_radioButton.setEnabled(False)
 
+    def get_race(self):
+        """Get the selected race radiobutton"""
+        return self.race.checkedButton().text()
+
+    def get_gender(self):
+        """Get the selected gender radiobutton"""
+        return self.gender.checkedButton().text()
+
+    def set_avail_classes(self):
+        """Determine which classes the character is eligible for, based on previous selections"""
+        try:
+            race_class = race_vs_classes.multi_class[self.get_race().lower()]
+        except KeyError:
+            race_class = race_vs_classes.single_class[self.get_race().lower()]
+        print(race_class)
+
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""
-        print(self.name.text())
+        self.set_avail_classes()
 
 
 app = QApplication(sys.argv)

@@ -1,7 +1,8 @@
 import sys
 
 from PyQt5.QtCore import Qt, pyqtSlot
-from PyQt5.QtWidgets import QApplication, QWizard, QPushButton, QButtonGroup, QLineEdit, QLabel, QGroupBox
+from PyQt5.QtWidgets import QApplication, QWizard, QPushButton, QButtonGroup, QLineEdit, QLabel, QGroupBox, \
+    QRadioButton, QGridLayout, QWizardPage
 
 from New_Char_Wizard import Ui_Wizard
 from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_classes
@@ -52,7 +53,6 @@ class Wizard(QWizard, Ui_Wizard):
         # Buttons
         self.roll_dice.clicked.connect(self.roll_attribs)
         self.button(QWizard.FinishButton).clicked.connect(self.finished)
-        self.UnderDark_checkBox.stateChanged.connect(self.under_dark_checked)
 
     def roll_attribs(self):
         """Roll the dice for character attributes"""
@@ -87,20 +87,22 @@ class Wizard(QWizard, Ui_Wizard):
         self.con.setText(con)
         self.chr.setText(chr)
 
-    def under_dark_checked(self):
-        """
-        If UnderDark races allowed, enable them in the groupbox.
-
-        Toggles between enabled and disabled to ensure that the UnderDark races aren't left enabled.
-        """
-        if self.UnderDark_checkBox.isChecked():
-            self.Gnome_Deep_radioButton.setEnabled(True)
-            self.Elf_Dark_radioButton.setEnabled(True)
-            self.Dwarf_Gray_radioButton.setEnabled(True)
-        else:
-            self.Gnome_Deep_radioButton.setEnabled(False)
-            self.Elf_Dark_radioButton.setEnabled(False)
-            self.Dwarf_Gray_radioButton.setEnabled(False)
+    # def under_dark_checked(self):
+    #     """
+    #     If UnderDark races allowed, enable them in the groupbox.
+    #
+    #     Toggles between enabled and disabled to ensure that the UnderDark races aren't left enabled.
+    #     """
+    #     if self.UnderDark_groupBox.isChecked():
+    #         self.UnderDark_groupBox.setEnabled(True)
+    #         # self.Gnome_Deep_radioButton.setEnabled(True)
+    #         # self.Elf_Dark_radioButton.setEnabled(True)
+    #         # self.Dwarf_Gray_radioButton.setEnabled(True)
+    #     else:
+    #         self.UnderDark_groupBox.setEnabled(False)
+    #         # self.Gnome_Deep_radioButton.setEnabled(False)
+    #         # self.Elf_Dark_radioButton.setEnabled(False)
+    #         # self.Dwarf_Gray_radioButton.setEnabled(False)
 
     def get_race(self):
         """Get the selected race radiobutton"""
@@ -116,11 +118,13 @@ class Wizard(QWizard, Ui_Wizard):
             race_class = race_vs_classes.multi_class[self.get_race().lower()]
         except KeyError:
             race_class = race_vs_classes.single_class[self.get_race().lower()]
-        print(race_class)
+        # TODO: Change this from brute force to something more elegant
+
+
 
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""
-        self.set_avail_classes()
+        self.under_dark_checked()
 
 
 app = QApplication(sys.argv)

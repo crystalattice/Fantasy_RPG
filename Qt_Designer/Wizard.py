@@ -53,6 +53,7 @@ class Wizard(QWizard, Ui_Wizard):
         # Buttons
         self.roll_dice.clicked.connect(self.roll_attribs)
         self.button(QWizard.FinishButton).clicked.connect(self.finished)
+        self.button(QWizard.NextButton).clicked.connect(self.possible_classes)
 
     def roll_attribs(self):
         """Roll the dice for character attributes"""
@@ -87,23 +88,6 @@ class Wizard(QWizard, Ui_Wizard):
         self.con.setText(con)
         self.chr.setText(chr)
 
-    # def under_dark_checked(self):
-    #     """
-    #     If UnderDark races allowed, enable them in the groupbox.
-    #
-    #     Toggles between enabled and disabled to ensure that the UnderDark races aren't left enabled.
-    #     """
-    #     if self.UnderDark_groupBox.isChecked():
-    #         self.UnderDark_groupBox.setEnabled(True)
-    #         # self.Gnome_Deep_radioButton.setEnabled(True)
-    #         # self.Elf_Dark_radioButton.setEnabled(True)
-    #         # self.Dwarf_Gray_radioButton.setEnabled(True)
-    #     else:
-    #         self.UnderDark_groupBox.setEnabled(False)
-    #         # self.Gnome_Deep_radioButton.setEnabled(False)
-    #         # self.Elf_Dark_radioButton.setEnabled(False)
-    #         # self.Dwarf_Gray_radioButton.setEnabled(False)
-
     def get_race(self):
         """Get the selected race radiobutton"""
         return self.race.checkedButton().text()
@@ -112,20 +96,58 @@ class Wizard(QWizard, Ui_Wizard):
         """Get the selected gender radiobutton"""
         return self.gender.checkedButton().text()
 
-    def set_avail_classes(self):
+    def possible_classes(self):
         """Determine which classes the character is eligible for, based on previous selections"""
         try:
             race_class = race_vs_classes.multi_class[self.get_race().lower()]
-        except KeyError:
+            self.enable_classes(race_class, 1)
+        except KeyError:  # Error indicates not multi-class eligible
             race_class = race_vs_classes.single_class[self.get_race().lower()]
-        # TODO: Change this from brute force to something more elegant
+            self.enable_classes(race_class, 0)
 
+    def enable_classes(self, classes, multi):
+        """Enable radio button associated with authorized classes"""
+        # TODO: Figure out how to not brute-force this
+        if multi == 0:
+            if "Bard" in classes:
+                self.Bard_radioButton.setEnabled(True)
+            if "Jester" in classes:
+                self.Jester_radioButton.setEnabled(True)
+            if "Cavalier" in classes:
+                self.Cavalier_radioButton.setEnabled(True)
+            if "Paladin" in classes:
+                self.Paladin_radioButton.setEnabled(True)
+            if "Cleric" in classes:
+                self.Cleric_radioButton.setEnabled(True)
+            if "Druid" in classes:
+                self.Druid_radioButton.setEnabled(True)
+            if "Mystic" in classes:
+                self.Mystic_radioButton.setEnabled(True)
+            if "Fighter" in classes:
+                self.Fighter_radioButton.setEnabled(True)
+            if "Barbarian" in classes:
+                self.Barbarian_radioButton.setEnabled(True)
+            if "Ranger" in classes:
+                self.Ranger_radioButton.setEnabled(True)
+            if "Mage" in classes:
+                self.Mage_radioButton.setEnabled(True)
+            if "Illusionist" in classes:
+                self.Illusionist_radioButton.setEnabled(True)
+            if "Savant" in classes:
+                self.Savant_radioButton.setEnabled(True)
+            if "Thief" in classes:
+                self.Thief_radioButton.setEnabled(True)
+            if "Thief-Acrobat" in classes:
+                self.Thief_Acrobat_radioButton.setEnabled(True)
+            if "Mountebank" in classes:
+                self.Mountebank_radioButton.setEnabled(True)
+            if "Assassin" in classes:
+                self.Assassin_radioButton.setEnabled(True)
 
 
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""
-        self.under_dark_checked()
-
+        pass
 
 app = QApplication(sys.argv)
 w = Wizard()

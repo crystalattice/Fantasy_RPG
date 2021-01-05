@@ -99,8 +99,13 @@ class Wizard(QWizard, Ui_Wizard):
     def possible_classes(self):
         """Determine which classes the character is eligible for, based on previous selections"""
         try:
-            race_class = race_vs_classes.multi_class[self.get_race().lower()]
-            self.enable_classes(race_class, 1)
+            if (self.get_race() == "Dwarf, Hill" or self.get_race() == "Dwarf, Mountain" or
+                    self.get_race() == "Dwarf, Grey"):
+                race_class = race_vs_classes.multi_class["dwarf"]
+            else:
+                race_class = race_vs_classes.multi_class[self.get_race().lower()]
+                self.enable_classes(race_class, 1)
+            print(race_class)
         except KeyError:  # Error indicates not multi-class eligible
             race_class = race_vs_classes.single_class[self.get_race().lower()]
             self.enable_classes(race_class, 0)
@@ -108,7 +113,8 @@ class Wizard(QWizard, Ui_Wizard):
     def enable_classes(self, classes, multi):
         """Enable radio button associated with authorized classes"""
         # TODO: Figure out how to not brute-force this
-        if multi == 0:
+        # TODO: Allow user to go back and pick new race
+        if multi == 0:  # Single class
             if "Bard" in classes:
                 self.Bard_radioButton.setEnabled(True)
             if "Jester" in classes:
@@ -143,6 +149,8 @@ class Wizard(QWizard, Ui_Wizard):
                 self.Mountebank_radioButton.setEnabled(True)
             if "Assassin" in classes:
                 self.Assassin_radioButton.setEnabled(True)
+        elif multi == 1:
+            print(classes)
 
 
     def finished(self):

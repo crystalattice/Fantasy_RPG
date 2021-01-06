@@ -111,9 +111,69 @@ class Wizard(QWizard, Ui_Wizard):
             race_class = race_vs_classes.single_class[self.get_race().lower()]
             # self.enable_classes(race_class, 0)
         new_list = list(race_class)
-        if "Bard" in race_class:
-            if int(self.dex.text()) < class_min_attribs.bard["dex"] or int(self.chr.text()) < class_min_attribs.bard["chr"]:
-                new_list.remove("Bard")
+
+        if int(self.dex.text()) < class_min_attribs.bard["dex"] or \
+                int(self.chr.text()) < class_min_attribs.bard["chr"]:
+            new_list.remove("Bard")
+        if int(self.iq.text()) < class_min_attribs.jester["iq"] or \
+                int(self.dex.text()) < class_min_attribs.jester["dex"] or \
+                int(self.chr.text()) < class_min_attribs.jester["chr"]:
+            new_list.remove("Jester")
+        if int(self.strength.text()) < class_min_attribs.cavalier["str"] or \
+                int(self.dex.text()) < class_min_attribs.cavalier["dex"] or \
+                int(self.con.text()) < class_min_attribs.cavalier["con"] or \
+                int(self.iq.text()) < class_min_attribs.cavalier["iq"] or \
+                int(self.wis.text()) < class_min_attribs.cavalier["wis"]:
+            new_list.remove("Cavalier")
+        if int(self.strength.text()) < class_min_attribs.paladin["str"] or \
+                int(self.dex.text()) < class_min_attribs.paladin["dex"] or \
+                int(self.con.text()) < class_min_attribs.paladin["con"] or \
+                int(self.iq.text()) < class_min_attribs.paladin["iq"] or \
+                int(self.wis.text()) < class_min_attribs.paladin["wis"] or \
+                int(self.chr.text()) < class_min_attribs.paladin["chr"]:
+            new_list.remove("Paladin")
+        if int(self.wis.text()) < class_min_attribs.cleric["wis"]:
+            new_list.remove("Cleric")
+        if int(self.wis.text()) < class_min_attribs.druid["wis"] or \
+                int(self.chr.text()) < class_min_attribs.druid["chr"]:
+            new_list.remove("Druid")
+        if int(self.wis.text()) < class_min_attribs.mystic["wis"] or \
+                int(self.dex.text()) < class_min_attribs.mystic["dex"]:
+            new_list.remove("Mystic")
+        if int(self.strength.text()) < class_min_attribs.fighter["str"] or \
+                int(self.con.text()) < class_min_attribs.fighter["con"]:
+            new_list.remove("Fighter")
+        if int(self.strength.text()) < class_min_attribs.barbarian["str"] or \
+                int(self.dex.text()) < class_min_attribs.barbarian["dex"] or \
+                int(self.con.text()) < class_min_attribs.barbarian["con"] or \
+                int(self.wis.text()) >= class_min_attribs.barbarian["wis"]:
+            new_list.remove("Barbarian")
+        if int(self.iq.text()) < class_min_attribs.ranger["iq"] or \
+                int(self.wis.text()) < class_min_attribs.ranger["wis"] or \
+                int(self.con.text()) < class_min_attribs.ranger["con"]:
+            new_list.remove("Ranger")
+        if int(self.iq.text()) < class_min_attribs.mage["iq"] or \
+                int(self.dex.text()) < class_min_attribs.mage["dex"]:
+            new_list.remove("Mage")
+        if int(self.dex.text()) < class_min_attribs.illusionist["dex"] or \
+                int(self.iq.text()) < class_min_attribs.illusionist["iq"]:
+            new_list.remove("Illusionist")
+        if int(self.iq.text()) < class_min_attribs.savant["iq"] or \
+                int(self.wis.text()) < class_min_attribs.savant["wis"]:
+            new_list.remove("Savant")
+        if int(self.dex.text()) < class_min_attribs.thief["dex"]:
+            new_list.remove("Thief")
+        if int(self.strength.text()) < class_min_attribs.thief_acrobat["str"] or \
+                int(self.dex.text()) < class_min_attribs.thief_acrobat["dex"]:
+            new_list.remove("Thief-Acrobat")
+        if int(self.dex.text()) < class_min_attribs.mountebank["dex"] or \
+                int(self.iq.text()) < class_min_attribs.mountebank["iq"] or \
+                int(self.chr.text()) < class_min_attribs.mountebank["chr"]:
+            new_list.remove("Mountebank")
+        if int(self.strength.text()) < class_min_attribs.assassin["str"] or \
+                int(self.dex.text()) < class_min_attribs.assassin["dex"] or \
+                int(self.iq.text()) < class_min_attribs.assassin["iq"]:
+            new_list.remove("Assassin")
         print(new_list)
 
     def enable_classes(self, classes, multi):
@@ -299,6 +359,7 @@ class Wizard(QWizard, Ui_Wizard):
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""
         pass
+
 
 app = QApplication(sys.argv)
 w = Wizard()

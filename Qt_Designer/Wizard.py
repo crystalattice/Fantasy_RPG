@@ -98,86 +98,92 @@ class Wizard(QWizard, Ui_Wizard):
 
     def possible_classes(self):
         """Determine which classes the character is eligible for, based on previous selections"""
+        # TODO: Have a check to ensure that the attributes are rolled
         new_list = []
         try:
             if (self.get_race() == "Dwarf, Hill" or self.get_race() == "Dwarf, Mountain" or
                     self.get_race() == "Dwarf, Grey"):
                 race_class = race_vs_classes.multi_class["dwarf"]
-                # self.enable_classes(race_class, 1)
+                multi = 1
             else:
                 race_class = race_vs_classes.multi_class[self.get_race().lower()]
-                # self.enable_classes(race_class, 1)
+                multi = 1
         except KeyError:  # Error indicates not multi-class eligible
             race_class = race_vs_classes.single_class[self.get_race().lower()]
-            # self.enable_classes(race_class, 0)
+            multi = 0
         new_list = list(race_class)
 
-        if int(self.dex.text()) < class_min_attribs.bard["dex"] or \
-                int(self.chr.text()) < class_min_attribs.bard["chr"]:
-            new_list.remove("Bard")
-        if int(self.iq.text()) < class_min_attribs.jester["iq"] or \
-                int(self.dex.text()) < class_min_attribs.jester["dex"] or \
-                int(self.chr.text()) < class_min_attribs.jester["chr"]:
-            new_list.remove("Jester")
-        if int(self.strength.text()) < class_min_attribs.cavalier["str"] or \
-                int(self.dex.text()) < class_min_attribs.cavalier["dex"] or \
-                int(self.con.text()) < class_min_attribs.cavalier["con"] or \
-                int(self.iq.text()) < class_min_attribs.cavalier["iq"] or \
-                int(self.wis.text()) < class_min_attribs.cavalier["wis"]:
-            new_list.remove("Cavalier")
-        if int(self.strength.text()) < class_min_attribs.paladin["str"] or \
-                int(self.dex.text()) < class_min_attribs.paladin["dex"] or \
-                int(self.con.text()) < class_min_attribs.paladin["con"] or \
-                int(self.iq.text()) < class_min_attribs.paladin["iq"] or \
-                int(self.wis.text()) < class_min_attribs.paladin["wis"] or \
-                int(self.chr.text()) < class_min_attribs.paladin["chr"]:
-            new_list.remove("Paladin")
-        if int(self.wis.text()) < class_min_attribs.cleric["wis"]:
-            new_list.remove("Cleric")
-        if int(self.wis.text()) < class_min_attribs.druid["wis"] or \
-                int(self.chr.text()) < class_min_attribs.druid["chr"]:
-            new_list.remove("Druid")
-        if int(self.wis.text()) < class_min_attribs.mystic["wis"] or \
-                int(self.dex.text()) < class_min_attribs.mystic["dex"]:
-            new_list.remove("Mystic")
-        if int(self.strength.text()) < class_min_attribs.fighter["str"] or \
-                int(self.con.text()) < class_min_attribs.fighter["con"]:
-            new_list.remove("Fighter")
-        if int(self.strength.text()) < class_min_attribs.barbarian["str"] or \
-                int(self.dex.text()) < class_min_attribs.barbarian["dex"] or \
-                int(self.con.text()) < class_min_attribs.barbarian["con"] or \
-                int(self.wis.text()) >= class_min_attribs.barbarian["wis"]:
-            new_list.remove("Barbarian")
-        if int(self.iq.text()) < class_min_attribs.ranger["iq"] or \
-                int(self.wis.text()) < class_min_attribs.ranger["wis"] or \
-                int(self.con.text()) < class_min_attribs.ranger["con"]:
-            new_list.remove("Ranger")
-        if int(self.iq.text()) < class_min_attribs.mage["iq"] or \
-                int(self.dex.text()) < class_min_attribs.mage["dex"]:
-            new_list.remove("Mage")
-        if int(self.dex.text()) < class_min_attribs.illusionist["dex"] or \
-                int(self.iq.text()) < class_min_attribs.illusionist["iq"]:
-            new_list.remove("Illusionist")
-        if int(self.iq.text()) < class_min_attribs.savant["iq"] or \
-                int(self.wis.text()) < class_min_attribs.savant["wis"]:
-            new_list.remove("Savant")
-        if int(self.dex.text()) < class_min_attribs.thief["dex"]:
-            new_list.remove("Thief")
-        if int(self.strength.text()) < class_min_attribs.thief_acrobat["str"] or \
-                int(self.dex.text()) < class_min_attribs.thief_acrobat["dex"]:
-            new_list.remove("Thief-Acrobat")
-        if int(self.dex.text()) < class_min_attribs.mountebank["dex"] or \
-                int(self.iq.text()) < class_min_attribs.mountebank["iq"] or \
-                int(self.chr.text()) < class_min_attribs.mountebank["chr"]:
-            new_list.remove("Mountebank")
-        if int(self.strength.text()) < class_min_attribs.assassin["str"] or \
-                int(self.dex.text()) < class_min_attribs.assassin["dex"] or \
-                int(self.iq.text()) < class_min_attribs.assassin["iq"]:
-            new_list.remove("Assassin")
-        print(new_list)
+        try:
+            if int(self.dex.text()) < class_min_attribs.bard["dex"] or \
+                    int(self.chr.text()) < class_min_attribs.bard["chr"]:
+                new_list.remove("Bard")
+            if int(self.iq.text()) < class_min_attribs.jester["iq"] or \
+                    int(self.dex.text()) < class_min_attribs.jester["dex"] or \
+                    int(self.chr.text()) < class_min_attribs.jester["chr"]:
+                new_list.remove("Jester")
+            if int(self.strength.text()) < class_min_attribs.cavalier["str"] or \
+                    int(self.dex.text()) < class_min_attribs.cavalier["dex"] or \
+                    int(self.con.text()) < class_min_attribs.cavalier["con"] or \
+                    int(self.iq.text()) < class_min_attribs.cavalier["iq"] or \
+                    int(self.wis.text()) < class_min_attribs.cavalier["wis"]:
+                new_list.remove("Cavalier")
+            if int(self.strength.text()) < class_min_attribs.paladin["str"] or \
+                    int(self.dex.text()) < class_min_attribs.paladin["dex"] or \
+                    int(self.con.text()) < class_min_attribs.paladin["con"] or \
+                    int(self.iq.text()) < class_min_attribs.paladin["iq"] or \
+                    int(self.wis.text()) < class_min_attribs.paladin["wis"] or \
+                    int(self.chr.text()) < class_min_attribs.paladin["chr"]:
+                new_list.remove("Paladin")
+            if int(self.wis.text()) < class_min_attribs.cleric["wis"]:
+                new_list.remove("Cleric")
+            if int(self.wis.text()) < class_min_attribs.druid["wis"] or \
+                    int(self.chr.text()) < class_min_attribs.druid["chr"]:
+                new_list.remove("Druid")
+            if int(self.wis.text()) < class_min_attribs.mystic["wis"] or \
+                    int(self.dex.text()) < class_min_attribs.mystic["dex"]:
+                new_list.remove("Mystic")
+            if int(self.strength.text()) < class_min_attribs.fighter["str"] or \
+                    int(self.con.text()) < class_min_attribs.fighter["con"]:
+                new_list.remove("Fighter")
+            if int(self.strength.text()) < class_min_attribs.barbarian["str"] or \
+                    int(self.dex.text()) < class_min_attribs.barbarian["dex"] or \
+                    int(self.con.text()) < class_min_attribs.barbarian["con"] or \
+                    int(self.wis.text()) >= class_min_attribs.barbarian["wis"]:
+                new_list.remove("Barbarian")
+            if int(self.iq.text()) < class_min_attribs.ranger["iq"] or \
+                    int(self.wis.text()) < class_min_attribs.ranger["wis"] or \
+                    int(self.con.text()) < class_min_attribs.ranger["con"]:
+                new_list.remove("Ranger")
+            if int(self.iq.text()) < class_min_attribs.mage["iq"] or \
+                    int(self.dex.text()) < class_min_attribs.mage["dex"]:
+                new_list.remove("Mage")
+            if int(self.dex.text()) < class_min_attribs.illusionist["dex"] or \
+                    int(self.iq.text()) < class_min_attribs.illusionist["iq"]:
+                new_list.remove("Illusionist")
+            if int(self.iq.text()) < class_min_attribs.savant["iq"] or \
+                    int(self.wis.text()) < class_min_attribs.savant["wis"]:
+                new_list.remove("Savant")
+            if int(self.dex.text()) < class_min_attribs.thief["dex"]:
+                new_list.remove("Thief")
+            if int(self.strength.text()) < class_min_attribs.thief_acrobat["str"] or \
+                    int(self.dex.text()) < class_min_attribs.thief_acrobat["dex"]:
+                new_list.remove("Thief-Acrobat")
+            if int(self.dex.text()) < class_min_attribs.mountebank["dex"] or \
+                    int(self.iq.text()) < class_min_attribs.mountebank["iq"] or \
+                    int(self.chr.text()) < class_min_attribs.mountebank["chr"]:
+                new_list.remove("Mountebank")
+            if int(self.strength.text()) < class_min_attribs.assassin["str"] or \
+                    int(self.dex.text()) < class_min_attribs.assassin["dex"] or \
+                    int(self.iq.text()) < class_min_attribs.assassin["iq"]:
+                new_list.remove("Assassin")
+        except ValueError:
+            pass
+
+        self.enable_classes(new_list, multi)
 
     def enable_classes(self, classes, multi):
         """Enable radio button associated with authorized classes"""
+        print(multi)
         # TODO: Figure out how to not brute-force this
         if multi == 0:  # Single class
             if "Bard" in classes:
@@ -217,74 +223,77 @@ class Wizard(QWizard, Ui_Wizard):
         elif multi == 1:
             for item in classes:
                 print(item)
-                if "Bard" in item[0]:
-                    self.Bard_radioButton.setEnabled(True)
+            # for item in classes:
+            #     print(item[0])
+            #     if "Bard" in item[0]:
+            #         print(item[0])
+            #         self.Bard_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Bard_radioButton.setEnabled(False)
+            #     elif "Jester" in item[0]:
+            #         self.Jester_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Jester_radioButton.setEnabled(False)
+            #     elif "Cavalier" in item[0]:
+            #         self.Cavalier_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Cavalier_radioButton.setEnabled(False)
+            #     elif "Paladin" in item[0]:
+            #         self.Paladin_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Paladin_radioButton.setEnabled(False)
+            #     elif "Cleric" in item[0]:
+            #         self.Cleric_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Cleric_radioButton.setEnabled(False)
+            #     elif "Druid" in item[0]:
+            #         self.Druid_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Druid_radioButton.setEnabled(False)
+            #     elif "Mystic" in item[0]:
+            #         self.Mystic_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Mystic_radioButton.setEnabled(False)
+            #     elif "Fighter" in item[0]:
+            #         self.Fighter_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Fighter_radioButton.setEnabled(False)
+            #     elif "Barbarian" in item[0]:
+            #         self.Barbarian_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Barbarian_radioButton.setEnabled(False)
+            #     elif "Ranger" in item[0]:
+            #         self.Ranger_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Ranger_radioButton.setEnabled(False)
+            #     elif "Mage" in item[0]:
+            #         self.Mage_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Mage_radioButton.setEnabled(False)
+            #     elif "Illusionist" in item[0]:
+            #         self.Illusionist_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Illusionist_radioButton.setEnabled(False)
+            #     elif "Savant" in item[0]:
+            #         self.Savant_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Savant_radioButton.setEnabled(False)
+            #     elif "Thief" in item[0]:
+            #         self.Thief_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Thief_radioButton.setEnabled(False)
+            #     elif "Thief-Acrobat" in item[0]:
+            #         self.Thief_Acrobat_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Thief_Acrobat_radioButton.setEnabled(False)
+            #     elif "Mountebank" in item[0]:
+            #         self.Mountebank_radioButton.setEnabled(True)
+            #     # else:
+            #     #     self.Mountebank_radioButton.setEnabled(False)
+            #     elif "Assassin" in item[0]:
+            #         self.Assassin_radioButton.setEnabled(True)
                 # else:
-                #     self.Bard_radioButton.setEnabled(False)
-                if "Jester" in item[0]:
-                    self.Jester_radioButton.setEnabled(True)
-                # else:
-                #     self.Jester_radioButton.setEnabled(False)
-                if "Cavalier" in item[0]:
-                    self.Cavalier_radioButton.setEnabled(True)
-                else:
-                    self.Cavalier_radioButton.setEnabled(False)
-                if "Paladin" in item[0]:
-                    self.Paladin_radioButton.setEnabled(True)
-                # else:
-                #     self.Paladin_radioButton.setEnabled(False)
-                elif "Cleric" in item[0]:
-                    self.Cleric_radioButton.setEnabled(True)
-                else:
-                    self.Cleric_radioButton.setEnabled(False)
-                if "Druid" in item[0]:
-                    self.Druid_radioButton.setEnabled(True)
-                else:
-                    self.Druid_radioButton.setEnabled(False)
-                if "Mystic" in item[0]:
-                    self.Mystic_radioButton.setEnabled(True)
-                else:
-                    self.Mystic_radioButton.setEnabled(False)
-                if "Fighter" in item[0]:
-                    self.Fighter_radioButton.setEnabled(True)
-                else:
-                    self.Fighter_radioButton.setEnabled(False)
-                if "Barbarian" in item[0]:
-                    self.Barbarian_radioButton.setEnabled(True)
-                else:
-                    self.Barbarian_radioButton.setEnabled(False)
-                if "Ranger" in item[0]:
-                    self.Ranger_radioButton.setEnabled(True)
-                else:
-                    self.Ranger_radioButton.setEnabled(False)
-                if "Mage" in item[0]:
-                    self.Mage_radioButton.setEnabled(True)
-                else:
-                    self.Mage_radioButton.setEnabled(False)
-                if "Illusionist" in item[0]:
-                    self.Illusionist_radioButton.setEnabled(True)
-                else:
-                    self.Illusionist_radioButton.setEnabled(False)
-                if "Savant" in item[0]:
-                    self.Savant_radioButton.setEnabled(True)
-                else:
-                    self.Savant_radioButton.setEnabled(False)
-                if "Thief" in item[0]:
-                    self.Thief_radioButton.setEnabled(True)
-                else:
-                    self.Thief_radioButton.setEnabled(False)
-                if "Thief-Acrobat" in item[0]:
-                    self.Thief_Acrobat_radioButton.setEnabled(True)
-                else:
-                    self.Thief_Acrobat_radioButton.setEnabled(False)
-                if "Mountebank" in item[0]:
-                    self.Mountebank_radioButton.setEnabled(True)
-                else:
-                    self.Mountebank_radioButton.setEnabled(False)
-                if "Assassin" in item[0]:
-                    self.Assassin_radioButton.setEnabled(True)
-                else:
-                    self.Assassin_radioButton.setEnabled(False)
+                #     self.Assassin_radioButton.setEnabled(False)
 
                 # if "Bard" in item[1]:
                 #     self.Bard_radioButton_2.setEnabled(True)
@@ -320,41 +329,45 @@ class Wizard(QWizard, Ui_Wizard):
                 #     self.Mountebank_radioButton_2.setEnabled(True)
                 # if "Assassin" in item[1]:
                 #     self.Assassin_radioButton_2.setEnabled(True)
-
-                # if "Bard" in item[2]:
-                #     self.Bard_radioButton_3.setEnabled(True)
-                # if "Jester" in item[2]:
-                #     self.Jester_radioButton_3.setEnabled(True)
-                # if "Cavalier" in item[2]:
-                #     self.Cavalier_radioButton_3.setEnabled(True)
-                # if "Paladin" in item[2]:
-                #     self.Paladin_radioButton_3.setEnabled(True)
-                # if "Cleric" in item[2]:
-                #     self.Cleric_radioButton_3.setEnabled(True)
-                # if "Druid" in item[2]:
-                #     self.Druid_radioButton_3.setEnabled(True)
-                # if "Mystic" in item[2]:
-                #     self.Mystic_radioButton_3.setEnabled(True)
-                # if "Fighter" in item[2]:
-                #     self.Fighter_radioButton_3.setEnabled(True)
-                # if "Barbarian" in item[2]:
-                #     self.Barbarian_radioButton_3.setEnabled(True)
-                # if "Ranger" in item[2]:
-                #     self.Ranger_radioButton_3.setEnabled(True)
-                # if "Mage" in item[2]:
-                #     self.Mage_radioButton_3.setEnabled(True)
-                # if "Illusionist" in item[2]:
-                #     self.Illusionist_radioButton_3.setEnabled(True)
-                # if "Savant" in item[2]:
-                #     self.Savant_radioButton_3.setEnabled(True)
-                # if "Thief" in item[2]:
-                #     self.Thief_radioButton_3.setEnabled(True)
-                # if "Thief-Acrobat" in item[2]:
-                #     self.Thief_Acrobat_radioButton_3.setEnabled(True)
-                # if "Mountebank" in item[2]:
-                #     self.Mountebank_radioButton_3.setEnabled(True)
-                # if "Assassin" in item[2]:
-                #     self.Assassin_radioButton_3.setEnabled(True)
+                #
+                # try:
+                #     if item[2]:
+                #         if "Bard" in item[2]:
+                #             self.Bard_radioButton_3.setEnabled(True)
+                #         if "Jester" in item[2]:
+                #             self.Jester_radioButton_3.setEnabled(True)
+                #         if "Cavalier" in item[2]:
+                #             self.Cavalier_radioButton_3.setEnabled(True)
+                #         if "Paladin" in item[2]:
+                #             self.Paladin_radioButton_3.setEnabled(True)
+                #         if "Cleric" in item[2]:
+                #             self.Cleric_radioButton_3.setEnabled(True)
+                #         if "Druid" in item[2]:
+                #             self.Druid_radioButton_3.setEnabled(True)
+                #         if "Mystic" in item[2]:
+                #             self.Mystic_radioButton_3.setEnabled(True)
+                #         if "Fighter" in item[2]:
+                #             self.Fighter_radioButton_3.setEnabled(True)
+                #         if "Barbarian" in item[2]:
+                #             self.Barbarian_radioButton_3.setEnabled(True)
+                #         if "Ranger" in item[2]:
+                #             self.Ranger_radioButton_3.setEnabled(True)
+                #         if "Mage" in item[2]:
+                #             self.Mage_radioButton_3.setEnabled(True)
+                #         if "Illusionist" in item[2]:
+                #             self.Illusionist_radioButton_3.setEnabled(True)
+                #         if "Savant" in item[2]:
+                #             self.Savant_radioButton_3.setEnabled(True)
+                #         if "Thief" in item[2]:
+                #             self.Thief_radioButton_3.setEnabled(True)
+                #         if "Thief-Acrobat" in item[2]:
+                #             self.Thief_Acrobat_radioButton_3.setEnabled(True)
+                #         if "Mountebank" in item[2]:
+                #             self.Mountebank_radioButton_3.setEnabled(True)
+                #         if "Assassin" in item[2]:
+                #             self.Assassin_radioButton_3.setEnabled(True)
+                # except IndexError:
+                #     pass
 
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""

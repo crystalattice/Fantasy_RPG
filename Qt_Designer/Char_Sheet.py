@@ -1,3 +1,4 @@
+import pickle
 import sys
 
 from PyQt5.QtCore import Qt
@@ -30,6 +31,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Character sheet outputs
         self.strength: QLabel = self.STR_Output_label
+        self.bonus_strength: QLabel = self.Exceptional_Output_label
         self.dex: QLabel = self.Dex_Output_label
         self.iq: QLabel = self.IQ_Output_label
         self.wis: QLabel = self.Wisdom_Output_label
@@ -37,13 +39,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.chr: QLabel = self.CHR_Output_label
 
         # Actions
-        self.actionNew_Character.connect(self.new_character)
-        self.actionOpen_Character.connect(self.open_character)
-        self.actionSave_Character.connect(self.save_character)
+        # self.actionNew_Character.connect(self.new_character)
+        # self.actionOpen_Character.connect(self.open_character)
+        self.actionSave_Character.triggered.connect(self.save_character)
 
-        self.action3d6.triggered.connect(lambda: self.roll_stats("3d6"))
-        self.action4d6_drop_lowest.triggered.connect(lambda: self.roll_stats("4d6"))
-        self.action2d6_6.triggered.connect(lambda: self.roll_stats("2d6"))
+        self.action3d6.triggered.connect(self.roll_3d6)
+        self.action4d6_drop_lowest.triggered.connect(self.roll_4d6)
+        self.action2d6_6.triggered.connect(self.roll_2d6)
 
     # File menu
     def new_character(self):
@@ -56,42 +58,54 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def save_character(self):
         """Save the current character sheet"""
-        pass
+        save_name = self.get_char_name()
+        attribs = {
+            "str": self.strength.text(),
+            "char_exp_str": self.bonus_strength.text(),
+            "char_dex": self.strength.text(),
+            "char_wis": self.wis.text(),
+            "char_iq": self.iq.text(),
+            "char_chr": self.chr.text(),
+            "char_con": self.con.text()
+        }
+        with open(f"{save_name}", "wb") as save_file:
+            pickle.dump(attribs, save_file)
+        with open(f"{save_name}", "rb") as new_file:  # Verification of pickle
+            bob = pickle.load(new_file)
+            print(bob)
 
-    # def roll_stats(self, roll_type):
-    #     """Clicking the menu option will generate new stats for the character and populate default data in the sheet."""
-    #     try:
-    #         if roll_type == "2d6":
-    #             rolls = roll_abilities.two_d6_plus_6()
-    #             strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
-    #             self.strength.setText(strength)
-    #             self.dex.setText(dex)
-    #             self.iq.setText(iq)
-    #             self.wis.setText(wis)
-    #             self.con.setText(con)
-    #             self.chr.setText(chr)
-    #         if roll_type == "3d6":
-    #             rolls = roll_abilities.three_d6()
-    #             strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
-    #             self.strength.setText(strength)
-    #             self.dex.setText(dex)
-    #             self.iq.setText(iq)
-    #             self.wis.setText(wis)
-    #             self.con.setText(con)
-    #             self.chr.setText(chr)
-    #         if roll_type == "4d6":
-    #             rolls = roll_abilities.four_d6_drop_lowest()
-    #             strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
-    #             self.strength.setText(strength)
-    #             self.dex.setText(dex)
-    #             self.iq.setText(iq)
-    #             self.wis.setText(wis)
-    #             self.con.setText(con)
-    #             self.chr.setText(chr)
-    #         else:
-    #             raise ValueError
-    #     except ValueError:
-    #         print("Invalid roll type")
+    def roll_3d6(self):
+        rolls: list = roll_abilities.three_d6()
+        self.insert_rolls(rolls)
+
+    def roll_4d6(self):
+        rolls: list = roll_abilities.four_d6_drop_lowest()
+        self.insert_rolls(rolls)
+
+    def roll_2d6(self):
+        rolls: list = roll_abilities.two_d6_plus_6()
+        self.insert_rolls(rolls)
+
+    def insert_rolls(self, rolls):
+        """Put the attribute rolls into their respective variables"""
+        strength: str
+        bonus_strength: str
+        dex: str
+        iq: str
+        wis: str
+        con: str
+        chr: str
+        strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
+        if strength == "18":
+            self.bonus_strength.setText(str(roll_abilities.multi_die(1, 100)))
+        else:
+            self.bonus_strength.setText("0")
+        self.strength.setText(strength)
+        self.dex.setText(dex)
+        self.iq.setText(iq)
+        self.wis.setText(wis)
+        self.con.setText(con)
+        self.chr.setText(chr)
 
     # Saving character checks
     def get_char_name(self):
@@ -99,12 +113,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         try:
             if not self.char_name:
                 raise ValueError
+            else:
+                return self.char_name.text()
         except ValueError:
             print("You need a character name to save.")
 
     # Race selection and associated information
     def race_class_selection(self):
-        pass
+        print(self.char_race)
 
 
 app = QApplication(sys.argv)

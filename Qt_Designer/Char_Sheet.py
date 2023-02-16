@@ -2,7 +2,8 @@ import pickle
 import sys
 
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QComboBox, QSpinBox, QLabel
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QComboBox, QSpinBox, QLabel, \
+    QDialogButtonBox, QMessageBox
 
 from ADD_Char_Sheet import Ui_MainWindow
 from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_classes
@@ -77,12 +78,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             "char_chr": self.chr.text(),
             "char_con": self.con.text()
         }
-        # TODO: ensure char name provided for save name
-        with open(f"{save_name}", "wb") as save_file:
-            pickle.dump(attribs, save_file)
-        with open(f"{save_name}", "rb") as new_file:  # Verification of pickle
-            bob = pickle.load(new_file)
-            print(bob)
+        if not save_name:
+            no_name_msg = QMessageBox()
+            no_name_msg.setWindowTitle("Missing Character Name")
+            no_name_msg.setText("You must provide a character name prior to saving.")
+            no_name_msg.setIcon(QMessageBox.Icon.Warning)
+            button = no_name_msg.exec()
+            button = QMessageBox.StandardButtons(button)
+        else:
+            with open(f"{save_name}", "wb") as save_file:
+                pickle.dump(attribs, save_file)
 
     def roll_3d6(self):
         rolls: list = roll_abilities.three_d6()

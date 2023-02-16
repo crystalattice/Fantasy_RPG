@@ -40,7 +40,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Actions
         # self.actionNew_Character.connect(self.new_character)
-        # self.actionOpen_Character.connect(self.open_character)
+        self.actionOpen_Character.triggered.connect(self.open_character)
         self.actionSave_Character.triggered.connect(self.save_character)
 
         self.action3d6.triggered.connect(self.roll_3d6)
@@ -54,7 +54,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def open_character(self):
         """Open an existing character"""
-        pass
+        with open("bob", "rb") as character:
+            unpickle = pickle.load(character)
+            self.strength.setText(unpickle["str"])
+            self.bonus_strength.setText(unpickle["char_exp_str"])
+            self.dex.setText(unpickle["char_dex"])
+            self.wis.setText(unpickle["char_wis"])
+            self.iq.setText(unpickle["char_iq"])
+            self.chr.setText(unpickle["char_chr"])
+            self.con.setText(unpickle["char_con"])
+
 
     def save_character(self):
         """Save the current character sheet"""
@@ -62,12 +71,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         attribs = {
             "str": self.strength.text(),
             "char_exp_str": self.bonus_strength.text(),
-            "char_dex": self.strength.text(),
+            "char_dex": self.dex.text(),
             "char_wis": self.wis.text(),
             "char_iq": self.iq.text(),
             "char_chr": self.chr.text(),
             "char_con": self.con.text()
         }
+        # TODO: ensure char name provided for save name
         with open(f"{save_name}", "wb") as save_file:
             pickle.dump(attribs, save_file)
         with open(f"{save_name}", "rb") as new_file:  # Verification of pickle

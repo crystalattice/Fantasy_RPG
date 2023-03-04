@@ -104,7 +104,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         else:
             # with open(f"{save_name}", "wb") as save_file:
             #     pickle.dump(char_vals, save_file)
-            # # TODO: remove after testing
+            # TODO: remove after testing
             # with open(f"{save_name}", "rb") as open_file:
             #     print(pickle.load(save_file))
             print(char_vals)
@@ -149,17 +149,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.wis.setText(wis)
         self.con.setText(con)
         self.chr.setText(chr)
-# TODO: Consider making the following into properties
+
+    # TODO: Consider making the following into properties
     # Saving character checks
     def get_char_name(self):
         """Assign input character name to variable"""
         return self.char_name.text()
 
     # Race selection and associated information
+    # TODO: Check attributes vs. race limits
     def race_selection(self):
         """Get the character's race"""
         return self.char_race.currentText()
 
+    # TODO: Check attributes vs. class mins
     def class_selection(self):
         """Get the character's class"""
         return self.char_class.currentText()

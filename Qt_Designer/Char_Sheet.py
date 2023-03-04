@@ -76,12 +76,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             "char_con": self.con.text(),
             "race": self.race_selection(),
             "class": self.class_selection(),
-            "second_class": self.dual_class_selection()
+            "second_class": self.dual_class_selection(),
+            "third_class": self.third_class_selection(),
         }
+        if not "str":  # Assume no attributes created
+            no_name_msg = QMessageBox()
+            no_name_msg.setWindowTitle("Missing Attributes")
+            no_name_msg.setText("You must roll for attributes prior to saving.\n"
+                                "Character not saved.")
+            no_name_msg.setIcon(QMessageBox.Icon.Warning)
+            button = no_name_msg.exec()
+            button = QMessageBox.StandardButtons(button)
         if not save_name:
             no_name_msg = QMessageBox()
             no_name_msg.setWindowTitle("Missing Character Name")
-            no_name_msg.setText("You must provide a character name prior to saving.")
+            no_name_msg.setText("You must provide a character name prior to saving.\n"
+                                "Character not saved.")
             no_name_msg.setIcon(QMessageBox.Icon.Warning)
             button = no_name_msg.exec()
             button = QMessageBox.StandardButtons(button)
@@ -142,9 +152,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def dual_class_selection(self):
         """If dual classed, get second class"""
-        if self.Dual_Class_checkBox.isChecked():
-            self.Second_Class_comboBox.setEnabled(True)
-            print(self.Second_Class_comboBox.currentText())
+        if self.Second_Class_comboBox.currentText() != "None":
+            return self.Second_Class_comboBox.currentText()
+
+    def third_class_selection(self):
+        """If multi-classed, get third class"""
+        if self.Second_Class_comboBox.currentText() == "None" and self.Third_Class_comboBox.currentText() != "None":
+            no_name_msg = QMessageBox()
+            no_name_msg.setWindowTitle("Invalid Classes")
+            no_name_msg.setText("Your character cannot have a third class without having a second class.\n"
+                                "Character not saved.")
+            no_name_msg.setIcon(QMessageBox.Icon.Warning)
+            button = no_name_msg.exec()
+            button = QMessageBox.StandardButtons(button)
+        else:
+            if self.Third_Class_comboBox.currentText() != "None":
+                return self.Third_Class_comboBox.currentText()
 
 
 app = QApplication(sys.argv)

@@ -78,6 +78,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             "class": self.class_selection(),
             "second_class": self.dual_class_selection(),
             "third_class": self.third_class_selection(),
+            "alignment": self.alignment_selection(),
+            "age": self.get_age(),
         }
         if not "str":  # Assume no attributes created
             no_attribs_msg = QMessageBox()
@@ -176,6 +178,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         else:
             if self.Third_Class_comboBox.currentText() != "None":
                 return self.Third_Class_comboBox.currentText()
+
+    def alignment_selection(self):
+        """Get character's alignment"""
+        return self.Alignment_comboBox.currentText()
+
+    def get_age(self):
+        """Get character's age"""
+        return self.Age_spinBox.text()
+
+
 
 
 app = QApplication(sys.argv)

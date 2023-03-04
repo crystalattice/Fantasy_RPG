@@ -349,30 +349,6 @@
               </widget>
              </item>
              <item row="3" column="0">
-              <widget class="QCheckBox" name="Multi_Class_checkBox">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Multi-class</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QCheckBox" name="Dual_Class_checkBox">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Dual-Class</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0">
               <widget class="QLabel" name="Second_Class_label">
                <property name="font">
                 <font>
@@ -384,10 +360,10 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="1">
+             <item row="3" column="1">
               <widget class="QComboBox" name="Second_Class_comboBox">
                <property name="enabled">
-                <bool>false</bool>
+                <bool>true</bool>
                </property>
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -401,6 +377,132 @@
                  <pointsize>10</pointsize>
                 </font>
                </property>
+               <item>
+                <property name="text">
+                 <string>None</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Fighter</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Ranger</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Paladin</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Cavalier</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Barbarian</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Cleric</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Druid</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Vates</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mystic</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mage</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Illusionist</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Savant</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Thief</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Thief-Acrobat</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mountebank</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Bard</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Jester</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="Third_Class_label">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Third Class</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QComboBox" name="Third_Class_comboBox">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <item>
+                <property name="text">
+                 <string>None</string>
+                </property>
+               </item>
                <item>
                 <property name="text">
                  <string>Fighter</string>
@@ -489,122 +591,6 @@
               </widget>
              </item>
              <item row="5" column="0">
-              <widget class="QLabel" name="Third_Class_label">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Third Class</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="1">
-              <widget class="QComboBox" name="Third_Class_comboBox">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <family>DejaVu Sans</family>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Fighter</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Ranger</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Paladin</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Cavalier</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Barbarian</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Cleric</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Druid</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Vates</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Mystic</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Mage</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Illusionist</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Savant</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Thief</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Thief-Acrobat</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Mountebank</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bard</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Jester</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="6" column="0">
               <widget class="QLabel" name="Alignment_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -623,7 +609,7 @@
                </property>
               </widget>
              </item>
-             <item row="6" column="1">
+             <item row="5" column="1">
               <widget class="QComboBox" name="Alignment_comboBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -684,7 +670,7 @@
                </item>
               </widget>
              </item>
-             <item row="7" column="0">
+             <item row="6" column="0">
               <widget class="QLabel" name="Age_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -703,7 +689,7 @@
                </property>
               </widget>
              </item>
-             <item row="7" column="1">
+             <item row="6" column="1">
               <widget class="QSpinBox" name="Age_spinBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -728,7 +714,7 @@
                </property>
               </widget>
              </item>
-             <item row="8" column="0">
+             <item row="7" column="0">
               <widget class="QLabel" name="Gender_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -747,7 +733,7 @@
                </property>
               </widget>
              </item>
-             <item row="8" column="1">
+             <item row="7" column="1">
               <widget class="QComboBox" name="Gender_comboBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -778,7 +764,7 @@
                </item>
               </widget>
              </item>
-             <item row="9" column="0">
+             <item row="8" column="0">
               <widget class="QLabel" name="Social_Class_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -800,7 +786,7 @@
                </property>
               </widget>
              </item>
-             <item row="9" column="1">
+             <item row="8" column="1">
               <widget class="QComboBox" name="Social_Class_comboBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -861,7 +847,7 @@
                </item>
               </widget>
              </item>
-             <item row="10" column="0">
+             <item row="9" column="0">
               <widget class="QLabel" name="Height_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -883,7 +869,7 @@
                </property>
               </widget>
              </item>
-             <item row="10" column="1">
+             <item row="9" column="1">
               <widget class="QSpinBox" name="Height_spinBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -908,7 +894,7 @@
                </property>
               </widget>
              </item>
-             <item row="11" column="0">
+             <item row="10" column="0">
               <widget class="QLabel" name="Weight_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -930,7 +916,7 @@
                </property>
               </widget>
              </item>
-             <item row="11" column="1">
+             <item row="10" column="1">
               <widget class="QSpinBox" name="Weight_spinBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -2197,6 +2183,7 @@
                      <widget class="QLabel" name="STR_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>12</pointsize>
                        </font>
                       </property>
@@ -2231,6 +2218,7 @@
                      <widget class="QLabel" name="Hit_Bonus_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2252,6 +2240,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2264,6 +2253,7 @@
                      <widget class="QLabel" name="Carry_Bonus_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2285,6 +2275,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2297,6 +2288,7 @@
                      <widget class="QLabel" name="Open_Doors_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2335,6 +2327,7 @@
                      <widget class="QLabel" name="Exceptional_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2369,6 +2362,7 @@
                      <widget class="QLabel" name="Damage_Mod_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2390,6 +2384,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2402,6 +2397,7 @@
                      <widget class="QLabel" name="Stuck_Doors_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2423,6 +2419,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2435,6 +2432,7 @@
                      <widget class="QLabel" name="Bend_Bars_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2461,6 +2459,7 @@
                  </property>
                  <property name="font">
                   <font>
+                   <family>DejaVu Sans</family>
                    <pointsize>13</pointsize>
                   </font>
                  </property>
@@ -2480,6 +2479,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>12</pointsize>
                        </font>
                       </property>
@@ -2495,6 +2495,7 @@
                      <widget class="QLabel" name="Dex_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>12</pointsize>
                        </font>
                       </property>
@@ -2516,6 +2517,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2531,6 +2533,7 @@
                      <widget class="QLabel" name="Missile_Bonus_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2556,6 +2559,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2571,6 +2575,7 @@
                      <widget class="QLabel" name="Init_Adj_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2592,6 +2597,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2604,6 +2610,7 @@
                      <widget class="QLabel" name="AC_Adjust_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2634,6 +2641,7 @@
                  </property>
                  <property name="font">
                   <font>
+                   <family>DejaVu Sans</family>
                    <pointsize>13</pointsize>
                   </font>
                  </property>
@@ -2653,6 +2661,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>12</pointsize>
                        </font>
                       </property>
@@ -2671,6 +2680,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2683,6 +2693,7 @@
                      <widget class="QLabel" name="IQ_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>12</pointsize>
                        </font>
                       </property>
@@ -2698,6 +2709,7 @@
                      <widget class="QLabel" name="Lang_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2723,6 +2735,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2744,6 +2757,7 @@
                       </property>
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2759,6 +2773,7 @@
                      <widget class="QLabel" name="Immunity_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2774,6 +2789,7 @@
                      <widget class="QLabel" name="Max_Level_Output_label">
                       <property name="font">
                        <font>
+                        <family>DejaVu Sans</family>
                         <pointsize>10</pointsize>
                        </font>
                       </property>
@@ -2800,6 +2816,7 @@
                  </property>
                  <property name="font">
                   <font>
+                   <family>DejaVu Sans</family>
                    <pointsize>13</pointsize>
                   </font>
                  </property>
@@ -2817,6 +2834,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>12</pointsize>
                      </font>
                     </property>
@@ -2838,6 +2856,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -2853,6 +2872,7 @@
                    <widget class="QLabel" name="CON_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>12</pointsize>
                      </font>
                     </property>
@@ -2868,6 +2888,7 @@
                    <widget class="QLabel" name="HP_Adj_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -2889,6 +2910,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -2910,6 +2932,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -2925,6 +2948,7 @@
                    <widget class="QLabel" name="Sys_Shock_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -2940,6 +2964,7 @@
                    <widget class="QLabel" name="Resurrect_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>11</pointsize>
                      </font>
                     </property>
@@ -2968,6 +2993,7 @@
                  </property>
                  <property name="font">
                   <font>
+                   <family>DejaVu Sans</family>
                    <pointsize>13</pointsize>
                   </font>
                  </property>
@@ -2979,6 +3005,7 @@
                    <widget class="QLabel" name="Wisdom_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>12</pointsize>
                      </font>
                     </property>
@@ -3000,6 +3027,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>12</pointsize>
                      </font>
                     </property>
@@ -3012,6 +3040,7 @@
                    <widget class="QLabel" name="Mag_Attack_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3033,6 +3062,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3054,6 +3084,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3069,6 +3100,7 @@
                    <widget class="QLabel" name="Immunity_Output_label_2">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3084,6 +3116,7 @@
                    <widget class="QLabel" name="Spell_Fail_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3105,6 +3138,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3120,6 +3154,7 @@
                    <widget class="QLabel" name="Spell_Bonus_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3141,6 +3176,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3165,6 +3201,7 @@
                  </property>
                  <property name="font">
                   <font>
+                   <family>DejaVu Sans</family>
                    <pointsize>13</pointsize>
                   </font>
                  </property>
@@ -3182,6 +3219,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>12</pointsize>
                      </font>
                     </property>
@@ -3203,6 +3241,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3218,6 +3257,7 @@
                    <widget class="QLabel" name="CHR_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>12</pointsize>
                      </font>
                     </property>
@@ -3233,6 +3273,7 @@
                    <widget class="QLabel" name="Henchmen_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3254,6 +3295,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3275,6 +3317,7 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3290,6 +3333,7 @@
                    <widget class="QLabel" name="Morale_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>
@@ -3305,6 +3349,7 @@
                    <widget class="QLabel" name="React_Output_label">
                     <property name="font">
                      <font>
+                      <family>DejaVu Sans</family>
                       <pointsize>10</pointsize>
                      </font>
                     </property>

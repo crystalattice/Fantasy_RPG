@@ -18,8 +18,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Character sheet inputs-Info tab
         self.char_name: QLineEdit = self.Char_Name_lineEdit
         self.char_race: QComboBox = self.Race_comboBox
-        self.char_multi_class: QCheckBox = self.Multi_Class_checkBox
-        self.char_dual_class: QCheckBox = self.Dual_Class_checkBox
         self.char_class: QComboBox = self.Class_comboBox
         self.char_2nd_class: QComboBox = self.Second_Class_comboBox
         self.char_3rd_class: QComboBox = self.Third_Class_comboBox
@@ -65,18 +63,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.chr.setText(unpickle["char_chr"])
             self.con.setText(unpickle["char_con"])
 
-
     def save_character(self):
         """Save the current character sheet"""
         save_name = self.get_char_name()
-        attribs = {
+        char_vals = {
             "str": self.strength.text(),
             "char_exp_str": self.bonus_strength.text(),
             "char_dex": self.dex.text(),
             "char_wis": self.wis.text(),
             "char_iq": self.iq.text(),
             "char_chr": self.chr.text(),
-            "char_con": self.con.text()
+            "char_con": self.con.text(),
+            "race": self.race_selection(),
+            "class": self.class_selection(),
+            "second_class": self.dual_class_selection()
         }
         if not save_name:
             no_name_msg = QMessageBox()
@@ -86,8 +86,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             button = no_name_msg.exec()
             button = QMessageBox.StandardButtons(button)
         else:
-            with open(f"{save_name}", "wb") as save_file:
-                pickle.dump(attribs, save_file)
+            # with open(f"{save_name}", "wb") as save_file:
+            #     pickle.dump(char_vals, save_file)
+            # # TODO: remove after testing
+            # with open(f"{save_name}", "rb") as open_file:
+            #     print(pickle.load(save_file))
+            print(char_vals)
 
     def roll_3d6(self):
         rolls: list = roll_abilities.three_d6()
@@ -125,17 +129,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     # Saving character checks
     def get_char_name(self):
         """Assign input character name to variable"""
-        try:
-            if not self.char_name:
-                raise ValueError
-            else:
-                return self.char_name.text()
-        except ValueError:
-            print("You need a character name to save.")
+        return self.char_name.text()
 
     # Race selection and associated information
-    def race_class_selection(self):
-        print(self.char_race)
+    def race_selection(self):
+        """Get the character's race"""
+        return self.char_race.currentText()
+
+    def class_selection(self):
+        """Get the character's class"""
+        return self.char_class.currentText()
+
+    def dual_class_selection(self):
+        """If dual classed, get second class"""
+        if self.Dual_Class_checkBox.isChecked():
+            self.Second_Class_comboBox.setEnabled(True)
+            print(self.Second_Class_comboBox.currentText())
 
 
 app = QApplication(sys.argv)

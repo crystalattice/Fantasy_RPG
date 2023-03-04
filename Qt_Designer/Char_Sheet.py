@@ -80,6 +80,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             "third_class": self.third_class_selection(),
             "alignment": self.alignment_selection(),
             "age": self.get_age(),
+            "gender": self.get_gender(),
+            "social_class": self.get_social_class(),
+            "height": self.get_height(),
+            "weight": self.get_weight(),
         }
         if not "str":  # Assume no attributes created
             no_attribs_msg = QMessageBox()
@@ -145,7 +149,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.wis.setText(wis)
         self.con.setText(con)
         self.chr.setText(chr)
-
+# TODO: Consider making the following into properties
     # Saving character checks
     def get_char_name(self):
         """Assign input character name to variable"""
@@ -187,7 +191,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         """Get character's age"""
         return self.Age_spinBox.text()
 
+    def get_gender(self):
+        """Get character's gender"""
+        return self.Gender_comboBox.currentText()
 
+    def get_social_class(self):
+        """Get character's social class"""
+        return self.Social_Class_comboBox.currentText()
+
+    def get_height(self):
+        """Get character's height"""
+        return self.Height_spinBox.text()
+
+    def get_weight(self):
+        """Get character's weight"""
+        return self.Weight_spinBox.text()
 
 
 app = QApplication(sys.argv)

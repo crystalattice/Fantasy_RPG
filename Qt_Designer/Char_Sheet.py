@@ -80,12 +80,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             "third_class": self.third_class_selection(),
         }
         if not "str":  # Assume no attributes created
-            no_name_msg = QMessageBox()
-            no_name_msg.setWindowTitle("Missing Attributes")
-            no_name_msg.setText("You must roll for attributes prior to saving.\n"
-                                "Character not saved.")
-            no_name_msg.setIcon(QMessageBox.Icon.Warning)
-            button = no_name_msg.exec()
+            no_attribs_msg = QMessageBox()
+            no_attribs_msg.setWindowTitle("Missing Attributes")
+            no_attribs_msg.setText("You must roll for attributes prior to saving.\n"
+                                   "Character not saved.")
+            no_attribs_msg.setIcon(QMessageBox.Icon.Warning)
+            button = no_attribs_msg.exec()
             button = QMessageBox.StandardButtons(button)
         if not save_name:
             no_name_msg = QMessageBox()
@@ -125,6 +125,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         con: str
         chr: str
         strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
+        # TODO: Add check to overwrite attribs
+        # if self.strength.text():
+        #     existing_attribs_msg = QMessageBox()
+        #     existing_attribs_msg.setWindowTitle("Existing Attributes")
+        #     existing_attribs_msg.setText("Your character already has attributes. Are you sure you want to reroll?")
+        #     existing_attribs_msg.setIcon(QMessageBox.Icon.Warning)
+        #     button = existing_attribs_msg.exec()
+        #     button = QMessageBox.StandardButtons(button)
         if strength == "18":
             self.bonus_strength.setText(str(roll_abilities.multi_die(1, 100)))
         else:
@@ -158,12 +166,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def third_class_selection(self):
         """If multi-classed, get third class"""
         if self.Second_Class_comboBox.currentText() == "None" and self.Third_Class_comboBox.currentText() != "None":
-            no_name_msg = QMessageBox()
-            no_name_msg.setWindowTitle("Invalid Classes")
-            no_name_msg.setText("Your character cannot have a third class without having a second class.\n"
-                                "Character not saved.")
-            no_name_msg.setIcon(QMessageBox.Icon.Warning)
-            button = no_name_msg.exec()
+            multi_class_msg = QMessageBox()
+            multi_class_msg.setWindowTitle("Invalid Classes")
+            multi_class_msg.setText("Your character cannot have a third class without having a second class.\n"
+                                    "Character not saved.")
+            multi_class_msg.setIcon(QMessageBox.Icon.Warning)
+            button = multi_class_msg.exec()
             button = QMessageBox.StandardButtons(button)
         else:
             if self.Third_Class_comboBox.currentText() != "None":

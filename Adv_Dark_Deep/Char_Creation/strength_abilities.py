@@ -1,6 +1,7 @@
 from collections import namedtuple
 
-str_abilities = namedtuple("Strength", ["ToHit_Modifier", "Damage_Modifier", "Weight_Allowance", "Open_Stuck_Doors", "Open_Locked_Doors", "Bend_Bars_Lift_Gates"])
+str_abilities = namedtuple("Strength", ["ToHit_Modifier", "Damage_Modifier", "Weight_Allowance", "Open_Stuck_Doors",
+                                        "Open_Locked_Doors", "Bend_Bars_Lift_Gates"])
 str_1 = str_abilities(-5, -2, -55, 0, 0, 0)
 str_2 = str_abilities(-4, -2, -45, 0, 0, 0)
 str_3 = str_abilities(-3, -1, -35, 0.17, 0, 0)

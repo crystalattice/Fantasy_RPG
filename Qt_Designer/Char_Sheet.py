@@ -34,6 +34,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.to_hit_bonus: QLabel = self.Hit_Bonus_label
         self.carry_bonus: QLabel = self.Carry_Bonus_Output_label
         self.damage_bonus: QLabel = self.Damage_Mod_Output_label
+        self.stuck_doors: QLabel = self.Stuck_Doors_Output_label
         self.locked_doors_bonus: QLabel = self.Open_Doors_Output_label
         self.bend_bars: QLabel = self.Bend_Bars_Output_label
 
@@ -148,14 +149,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def insert_rolls(self, rolls):
         """Put the attribute rolls into their respective variables"""
-        strength: str
-        bonus_strength: str
-        dex: str
-        iq: str
-        wis: str
-        con: str
-        chr: str
-        strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
+        strength: int
+        bonus_strength: int
+        str_plus_bonus: int
+        dex: int
+        iq: int
+        wis: int
+        con: int
+        charisma: int
+        strength, dex, iq, wis, con, charisma = [rolls[i] for i in range(6)]
         # TODO: Add check to overwrite attribs
         # if self.strength.text():
         #     existing_attribs_msg = QMessageBox()
@@ -164,17 +166,26 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #     existing_attribs_msg.setIcon(QMessageBox.Icon.Warning)
         #     button = existing_attribs_msg.exec()
         #     button = QMessageBox.StandardButtons(button)
-        if strength == "18":
-            self.bonus_strength.setText(str(roll_abilities.multi_die(1, 100)))
+        if strength == 18:
+            bonus_strength = roll_abilities.multi_die(1, 100)
+            self.bonus_strength.setText(str(bonus_strength))
+            str_plus_bonus = int(f"{strength}{bonus_strength}")
         else:
             self.bonus_strength.setText("0")
-        self.strength.setText(strength)
-        # self.to_hit_bonus.setText(strength_abilities.get_str_ability(strength, 0))
-        self.dex.setText(dex)
-        self.iq.setText(iq)
-        self.wis.setText(wis)
-        self.con.setText(con)
-        self.chr.setText(chr)
+            str_plus_bonus = strength
+        self.strength.setText(str(strength))
+        self.to_hit_bonus.setText(str(strength_abilities.get_str_ability(str_plus_bonus, 0)))
+        self.damage_bonus.setText(str(strength_abilities.get_str_ability(str_plus_bonus, 1)))
+        self.carry_bonus.setText(str(strength_abilities.get_str_ability(str_plus_bonus, 2)))
+        self.stuck_doors.setText(str(strength_abilities.get_str_ability(str_plus_bonus, 3)))
+        self.locked_doors_bonus.setText(str(strength_abilities.get_str_ability(str_plus_bonus, 4)))
+        self.bend_bars.setText(str(strength_abilities.get_str_ability(str_plus_bonus, 5)))
+
+        self.dex.setText(str(dex))
+        self.iq.setText(str(iq))
+        self.wis.setText(str(wis))
+        self.con.setText(str(con))
+        self.chr.setText(str(charisma))
 
     def add_str_abilities(self):
         """Put strength associated abilities in form"""

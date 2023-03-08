@@ -6,7 +6,8 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QCo
     QDialogButtonBox, QMessageBox
 
 from ADD_Char_Sheet import Ui_MainWindow
-from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_classes, strength_abilities
+from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_classes, strength_abilities, dex_abilities, \
+    iq_abilities, wisdom_abilities, con_abilities, charisma_abilities
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -166,6 +167,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #     existing_attribs_msg.setIcon(QMessageBox.Icon.Warning)
         #     button = existing_attribs_msg.exec()
         #     button = QMessageBox.StandardButtons(button)
+        # TODO: Check if PC allowed bonus strength
         if strength == 18:
             bonus_strength = roll_abilities.multi_die(1, 100)
             self.bonus_strength.setText(str(bonus_strength))
@@ -182,6 +184,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bend_bars.setText(str(strength_abilities.get_str_ability(str_plus_bonus, 5)))
 
         self.dex.setText(str(dex))
+        self.init_adj.setText(str(dex_abilities.get_dex_ability(dex, 0)))
+        self.missile_adj.setText(str(dex_abilities.get_dex_ability(dex, 1)))
+        self.ac_adj.setText(str(dex_abilities.get_dex_ability(dex, 2)))
+
         self.iq.setText(str(iq))
         self.wis.setText(str(wis))
         self.con.setText(str(con))
@@ -189,7 +195,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def add_str_abilities(self):
         """Put strength associated abilities in form"""
-
 
     # TODO: Consider making the following into properties
     # Saving character checks

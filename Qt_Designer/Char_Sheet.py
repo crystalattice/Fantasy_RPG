@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QCo
     QDialogButtonBox, QMessageBox
 
 from ADD_Char_Sheet import Ui_MainWindow
-from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_classes
+from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_classes, strength_abilities
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -31,11 +31,36 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Character sheet outputs
         self.strength: QLabel = self.STR_Output_label
         self.bonus_strength: QLabel = self.Exceptional_Output_label
+        self.to_hit_bonus: QLabel = self.Hit_Bonus_label
+        self.carry_bonus: QLabel = self.Carry_Bonus_Output_label
+        self.damage_bonus: QLabel = self.Damage_Mod_Output_label
+        self.locked_doors_bonus: QLabel = self.Open_Doors_Output_label
+        self.bend_bars: QLabel = self.Bend_Bars_Output_label
+
         self.dex: QLabel = self.Dex_Output_label
+        self.init_adj: QLabel = self.Init_Adj_Output_label
+        self.missile_adj: QLabel = self.Missile_Bonus_Output_label
+        self.ac_adj: QLabel = self.AC_Adj_Output_label
+
         self.iq: QLabel = self.IQ_Output_label
+        self.max_lang: QLabel = self.Lang_Output_label
+        self.immune_illusion: QLabel = self.Immunity_Output_label
+        self.max_spell_level: QLabel = self.Max_Level_Output_label
+
         self.wis: QLabel = self.Wisdom_Output_label
+        self.magical_attack_adj: QLabel = self.Mag_Attack_Output_label
+        self.cleric_spell_bonus: QLabel = self.Spell_Bonus_Output_label
+        self.immune_charm: QLabel = self.Immunity_Output_label_2
+
         self.con: QLabel = self.CON_Output_label
+        self.hp_adj: QLabel = self.HP_Adj_Output_label
+        self.sys_shock: QLabel = self.Sys_Shock_Output_label
+        self.resurrection: QLabel = self.Resurrect_Output_label
+
         self.chr: QLabel = self.CHR_Output_label
+        self.max_henchmen: QLabel = self.Henchmen_Output_label
+        self.morale_adj: QLabel = self.Morale_Output_label
+        self.reaction_adj: QLabel = self.React_Output_label
 
         # Actions
         # self.actionNew_Character.connect(self.new_character)
@@ -144,11 +169,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         else:
             self.bonus_strength.setText("0")
         self.strength.setText(strength)
+        # self.to_hit_bonus.setText(strength_abilities.get_str_ability(strength, 0))
         self.dex.setText(dex)
         self.iq.setText(iq)
         self.wis.setText(wis)
         self.con.setText(con)
         self.chr.setText(chr)
+
+    def add_str_abilities(self):
+        """Put strength associated abilities in form"""
+
 
     # TODO: Consider making the following into properties
     # Saving character checks

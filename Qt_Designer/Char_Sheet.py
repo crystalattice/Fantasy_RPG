@@ -52,6 +52,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.wis: QLabel = self.Wisdom_Output_label
         self.magical_attack_adj: QLabel = self.Mag_Attack_Output_label
         self.cleric_spell_bonus: QLabel = self.Spell_Bonus_Output_label
+        self.spell_failure: QLabel = self.Spell_Fail_Output_label
         self.immune_charm: QLabel = self.Immunity_Output_label_2
 
         self.con: QLabel = self.CON_Output_label
@@ -188,6 +189,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.immune_illusion.setText(str(iq_abilities.get_iq_ability(iq, 1)))
         self.max_spell_level.setText(str(iq_abilities.get_iq_ability(iq, 2)))
 
+        self.wis.setText(str(wis))
+        self.magical_attack_adj.setText(str(wisdom_abilities.get_wis_ability(wis, 0)))
+        self.cleric_spell_bonus.setText(str(wisdom_abilities.get_wis_ability(wis, 1)))
+        self.spell_failure.setText(str(wisdom_abilities.get_wis_ability(wis, 2)))
+        self.immune_charm.setText(str(wisdom_abilities.get_wis_ability(wis, 3)))
+
+
+
+
         # self.dex.setText(str(dex))
         # self.init_adj.setText(str(dex_abilities.get_dex_ability(dex, 0)))
         # self.missile_adj.setText(str(dex_abilities.get_dex_ability(dex, 1)))
@@ -195,7 +205,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #
 
         #
-        # self.wis.setText(str(wis))
         # self.con.setText(str(con))
         # self.chr.setText(str(charisma))
 

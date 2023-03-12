@@ -1,6 +1,6 @@
 from collections import namedtuple
 
-wisdom_abilities = namedtuple("Wisdom", ["Mag. Attack Adjust.", "Cleric Bonus", "Spell Failure", "Immune to Charm"])
+wisdom_abilities = namedtuple("Wisdom", ["Magical_Attack_Adjustment", "Cleric_Bonus", "Spell_Failure", "Immune_to_Charm"])
 
 wis_1 = wisdom_abilities(-5, "", 100, 0)
 wis_2 = wisdom_abilities(-4, "", 100, 0)

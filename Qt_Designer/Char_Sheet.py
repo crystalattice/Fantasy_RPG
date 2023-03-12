@@ -183,15 +183,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.locked_doors_bonus.setText(str(strength_abilities.get_str_ability(str_plus_bonus, 4)))
         self.bend_bars.setText(str(strength_abilities.get_str_ability(str_plus_bonus, 5)))
 
-        self.dex.setText(str(dex))
-        self.init_adj.setText(str(dex_abilities.get_dex_ability(dex, 0)))
-        self.missile_adj.setText(str(dex_abilities.get_dex_ability(dex, 1)))
-        self.ac_adj.setText(str(dex_abilities.get_dex_ability(dex, 2)))
-
         self.iq.setText(str(iq))
-        self.wis.setText(str(wis))
-        self.con.setText(str(con))
-        self.chr.setText(str(charisma))
+        self.max_lang.setText(str(iq_abilities.get_iq_ability(iq, 0)))
+        self.immune_illusion.setText(str(iq_abilities.get_iq_ability(iq, 1)))
+        self.max_spell_level.setText(str(iq_abilities.get_iq_ability(iq, 2)))
+
+        # self.dex.setText(str(dex))
+        # self.init_adj.setText(str(dex_abilities.get_dex_ability(dex, 0)))
+        # self.missile_adj.setText(str(dex_abilities.get_dex_ability(dex, 1)))
+        # self.ac_adj.setText(str(dex_abilities.get_dex_ability(dex, 2)))
+        #
+
+        #
+        # self.wis.setText(str(wis))
+        # self.con.setText(str(con))
+        # self.chr.setText(str(charisma))
 
     def add_str_abilities(self):
         """Put strength associated abilities in form"""

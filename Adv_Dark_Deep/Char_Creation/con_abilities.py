@@ -1,6 +1,6 @@
 from collections import namedtuple
 
-con_abilities = namedtuple("Con", ["HP Bonus", "Fighter HP Bonus", "Re-roll HD", "System Shock", "Resurrection"])
+con_abilities = namedtuple("Con", ["HP_Bonus", "Fighter_HP_Bonus", "Reroll_HD", "System_Shock", "Resurrection"])
 con_1 = con_abilities(-4, 0, "5, 6, 7, 8, 9, 10", 25, 30)
 con_2 = con_abilities(-3, 0, "6, 7, 8, 9, 10", 30, 35)
 con_3 = con_abilities(-2, 0, "", 35, 40)

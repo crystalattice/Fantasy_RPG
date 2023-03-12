@@ -1,6 +1,6 @@
 from collections import namedtuple
 
-char_abilities = namedtuple("Char", ["Max Henchmen", "Morale Adj", "React Adj"])
+char_abilities = namedtuple("Char", ["Max_Henchmen", "Morale_Adj", "React_Adj"])
 char_1 = char_abilities(0, -8, -35)
 char_2 = char_abilities(0, -7, -30)
 char_3 = char_abilities(1, -6, -25)

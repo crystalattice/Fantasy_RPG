@@ -23,3 +23,23 @@ con_19_20 = con_abilities(2, 5, "1", 99, 100)
 con_21_22 = con_abilities(2, 6, "1, 2", 99, 100)
 con_23 = con_abilities(2, 6, "1, 2, 3", 99, 100)
 con_24_25 = con_abilities(2, 7, "1, 2, 3", 99, 100)
+
+con_abilities = (None, con_1, con_2, con_3, con_4, con_5, con_6, con_7, con_8, con_9, con_10, con_11, con_12, con_13, con_14, con_15,
+                 con_16, con_17, con_18, con_19_20, con_21_22, con_23, con_24_25)
+
+
+def get_con_ability(con_val, ability):
+    """Get the appropriate ability for a given iq value"""
+    ability_val = 0
+    try:
+        if con_val == 19 or con_val == 20:
+            ability_val = con_19_20[ability]
+        elif con_val == 21 or con_val == 22:
+            ability_val = con_21_22[ability]
+        elif con_val == 24 or con_val == 25:
+            ability_val = con_24_25[ability]
+        else:
+            ability_val = con_abilities[con_val][ability]
+        return ability_val
+    except IndexError:
+        print(ability_val, con_val, ability)

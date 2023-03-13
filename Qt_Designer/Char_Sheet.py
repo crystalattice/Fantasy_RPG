@@ -195,17 +195,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.spell_failure.setText(str(wisdom_abilities.get_wis_ability(wis, 2)))
         self.immune_charm.setText(str(wisdom_abilities.get_wis_ability(wis, 3)))
 
-
-
-
+        # dex = 1
         # self.dex.setText(str(dex))
         # self.init_adj.setText(str(dex_abilities.get_dex_ability(dex, 0)))
         # self.missile_adj.setText(str(dex_abilities.get_dex_ability(dex, 1)))
         # self.ac_adj.setText(str(dex_abilities.get_dex_ability(dex, 2)))
-        #
 
-        #
-        # self.con.setText(str(con))
+        self.con.setText(str(con))
+        # TODO: account for fighter multiclass
+        if self.char_class == "Fighter":
+            self.hp_adj.setText(str(con_abilities.get_con_ability(con, 1)))
+        else:
+            self.hp_adj.setText(str(con_abilities.get_con_ability(con, 0)))
+        self.sys_shock.setText(str(con_abilities.get_con_ability(con, 3)))
+        self.resurrection.setText(str(con_abilities.get_con_ability(con, 4)))
+
+
         # self.chr.setText(str(charisma))
 
     def add_str_abilities(self):

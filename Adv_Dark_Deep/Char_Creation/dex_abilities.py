@@ -21,7 +21,7 @@ dex_abilities = (None, dex_1, dex_2, dex_3, dex_4, dex_5, dex_6, dex_7_14, dex_1
 
 
 def get_dex_ability(dex_val, ability):
-    """Get the appropriate ability for a given strength value"""
+    """Get the appropriate ability for a given dexterity value"""
     ability_val = 0
     try:
         if 7 < dex_val <= 14:

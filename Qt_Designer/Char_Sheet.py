@@ -201,6 +201,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # self.missile_adj.setText(str(dex_abilities.get_dex_ability(dex, 1)))
         # self.ac_adj.setText(str(dex_abilities.get_dex_ability(dex, 2)))
 
+        # TODO: account for HP re-roll
         self.con.setText(str(con))
         # TODO: account for fighter multiclass
         if self.char_class == "Fighter":
@@ -210,8 +211,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.sys_shock.setText(str(con_abilities.get_con_ability(con, 3)))
         self.resurrection.setText(str(con_abilities.get_con_ability(con, 4)))
 
-
-        # self.chr.setText(str(charisma))
+        self.chr.setText(str(charisma))
+        self.max_henchmen.setText(str(charisma_abilities.get_char_ability(charisma, 0)))
+        self.morale_adj.setText(str(charisma_abilities.get_char_ability(charisma, 1)))
+        self.reaction_adj.setText(str(charisma_abilities.get_char_ability(charisma, 2)))
 
     def add_str_abilities(self):
         """Put strength associated abilities in form"""

@@ -24,3 +24,20 @@ char_22 = char_abilities(35, 16, 55)
 char_23 = char_abilities(40, 18, 60)
 char_24 = char_abilities(45, 20, 65)
 char_25 = char_abilities(50, 20, 70)
+
+char_abilities = (None, char_1, char_2, char_3, char_4, char_5, char_6, char_7, char_8, char_9_11, char_12, char_13,
+                  char_14, char_15, char_16, char_17, char_18, char_19, char_20, char_21, char_22, char_23, char_24,
+                  char_25)
+
+
+def get_char_ability(char_val, ability):
+    """Get the appropriate ability for a given charisma value"""
+    ability_val = 0
+    try:
+        if 9 < char_val <= 11:
+            ability_val = char_9_11[ability]
+        else:
+            ability_val = char_abilities[char_val][ability]
+        return ability_val
+    except IndexError:
+        print(ability_val, char_val, ability)

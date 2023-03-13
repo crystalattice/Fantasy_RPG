@@ -33,7 +33,7 @@ wis_abilities = (None, wis_1, wis_2, wis_3, wis_4, wis_5, wis_6, wis_7, wis_8, w
 
 
 def get_wis_ability(wis_val, ability):
-    """Get the appropriate ability for a given iq value"""
+    """Get the appropriate ability for a given wisdom value"""
     ability_val = 0
     try:
         ability_val = wis_abilities[wis_val][ability]

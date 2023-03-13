@@ -29,7 +29,7 @@ con_abilities = (None, con_1, con_2, con_3, con_4, con_5, con_6, con_7, con_8, c
 
 
 def get_con_ability(con_val, ability):
-    """Get the appropriate ability for a given iq value"""
+    """Get the appropriate ability for a given constitution value"""
     ability_val = 0
     try:
         if con_val == 19 or con_val == 20:

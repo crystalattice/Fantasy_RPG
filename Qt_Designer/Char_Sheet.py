@@ -42,7 +42,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.dex: QLabel = self.Dex_Output_label
         self.init_adj: QLabel = self.Init_Adj_Output_label
         self.missile_adj: QLabel = self.Missile_Bonus_Output_label
-        self.ac_adj: QLabel = self.AC_Adj_Output_label
+        self.ac_adj: QLabel = self.AC_Adj_Output_label_55
 
         self.iq: QLabel = self.IQ_Output_label
         self.max_lang: QLabel = self.Lang_Output_label
@@ -195,11 +195,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.spell_failure.setText(str(wisdom_abilities.get_wis_ability(wis, 2)))
         self.immune_charm.setText(str(wisdom_abilities.get_wis_ability(wis, 3)))
 
-        # dex = 1
-        # self.dex.setText(str(dex))
-        # self.init_adj.setText(str(dex_abilities.get_dex_ability(dex, 0)))
-        # self.missile_adj.setText(str(dex_abilities.get_dex_ability(dex, 1)))
-        # self.ac_adj.setText(str(dex_abilities.get_dex_ability(dex, 2)))
+        dex = 21
+        self.dex.setText(str(dex))
+        self.init_adj.setText(str(dex_abilities.get_dex_ability(dex, 0)))
+        self.missile_adj.setText(str(dex_abilities.get_dex_ability(dex, 1)))
+        self.ac_adj.setText(str(dex_abilities.get_dex_ability(dex, 2)))
 
         # TODO: account for HP re-roll
         self.con.setText(str(con))

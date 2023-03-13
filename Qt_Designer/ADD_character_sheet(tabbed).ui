@@ -2607,7 +2607,7 @@
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLabel" name="AC_Adjust_Output_label">
+                     <widget class="QLabel" name="AC_Adj_Output_label_55">
                       <property name="font">
                        <font>
                         <family>DejaVu Sans</family>

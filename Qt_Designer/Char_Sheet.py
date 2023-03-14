@@ -5,7 +5,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QComboBox, QSpinBox, QLabel, \
     QDialogButtonBox, QMessageBox
 
-from ADD_Char_Sheet import Ui_MainWindow
+from .ADD_Char_Sheet import Ui_MainWindow
 from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_classes, strength_abilities, dex_abilities, \
     iq_abilities, wisdom_abilities, con_abilities, charisma_abilities
 

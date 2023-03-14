@@ -5,7 +5,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QComboBox, QSpinBox, QLabel, \
     QDialogButtonBox, QMessageBox
 
-from .ADD_Char_Sheet import Ui_MainWindow
+from Qt_Designer.ADD_Char_Sheet import Ui_MainWindow
 from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_classes, strength_abilities, dex_abilities, \
     iq_abilities, wisdom_abilities, con_abilities, charisma_abilities
 
@@ -195,7 +195,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.spell_failure.setText(str(wisdom_abilities.get_wis_ability(wis, 2)))
         self.immune_charm.setText(str(wisdom_abilities.get_wis_ability(wis, 3)))
 
-        dex = 21
         self.dex.setText(str(dex))
         self.init_adj.setText(str(dex_abilities.get_dex_ability(dex, 0)))
         self.missile_adj.setText(str(dex_abilities.get_dex_ability(dex, 1)))

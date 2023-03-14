@@ -195,7 +195,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.spell_failure.setText(str(wisdom_abilities.get_wis_ability(wis, 2)))
         self.immune_charm.setText(str(wisdom_abilities.get_wis_ability(wis, 3)))
 
-        dex = 21
         self.dex.setText(str(dex))
         self.init_adj.setText(str(dex_abilities.get_dex_ability(dex, 0)))
         self.missile_adj.setText(str(dex_abilities.get_dex_ability(dex, 1)))

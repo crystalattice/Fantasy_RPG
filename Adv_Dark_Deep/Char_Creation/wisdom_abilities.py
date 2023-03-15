@@ -1,6 +1,7 @@
 from collections import namedtuple
+from typing import Type
 
-wisdom_abilities = namedtuple("Wisdom", ["Magical_Attack_Adjustment", "Cleric_Bonus", "Spell_Failure", "Immune_to_Charm"])
+wisdom_abilities: Type[namedtuple] = namedtuple("Wisdom", ["Magical_Attack_Adjustment", "Cleric_Bonus", "Spell_Failure", "Immune_to_Charm"])
 
 wis_1 = wisdom_abilities(-5, "0", 100, 0)
 wis_2 = wisdom_abilities(-4, "0", 100, 0)
@@ -28,11 +29,12 @@ wis_23 = wisdom_abilities(4, "3x1, 3x2, 2x3, 4x4, 4x5", 0, 5)
 wis_24 = wisdom_abilities(4, "3x1, 3x2, 2x3, 4x4, 4x5, 2x6", 0, 6)
 wis_25 = wisdom_abilities(4, "3x1, 3x2, 2x3, 4x4, 4x5, 3x6, 1x7", 0, 7)
 
+# Offset tuple so values match possible attribute scores
 wis_abilities = (None, wis_1, wis_2, wis_3, wis_4, wis_5, wis_6, wis_7, wis_8, wis_9, wis_10, wis_11, wis_12, wis_13,
                  wis_14, wis_15, wis_16, wis_17, wis_18, wis_19, wis_20, wis_21, wis_22, wis_23, wis_24, wis_25)
 
 
-def get_wis_ability(wis_val, ability):
+def get_wis_ability(wis_val: int, ability: int) -> int:
     """Get the appropriate ability for a given wisdom value"""
     ability_val = 0
     try:

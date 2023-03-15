@@ -13,16 +13,19 @@ def app(qtbot):
     return test_basic_app
 
 
+# Test character sheet dice rollers
 expected_roll = []
 for i in range(3, 19):
     expected_roll.append(str(i))
 
+# Test all possible attribute values
 full_range = []
 for i in range(1, 26):
     full_range.append(i)
 
 
 def test_2d6(app, qtbot):
+    """Test the 2d6 sheet dice roller"""
     Char_Sheet.MainWindow.roll_2d6(app)
 
     assert app.STR_Output_label.text() in expected_roll
@@ -34,6 +37,7 @@ def test_2d6(app, qtbot):
 
 
 def test_3d6(app, qtbot):
+    """Test the 3d6 sheet dice roller"""
     Char_Sheet.MainWindow.roll_3d6(app)
 
     assert app.STR_Output_label.text() in expected_roll
@@ -45,6 +49,7 @@ def test_3d6(app, qtbot):
 
 
 def test_4d6(app, qtbot):
+    """Test the 4d6-least sheet dice roller"""
     Char_Sheet.MainWindow.roll_4d6(app)
 
     assert app.STR_Output_label.text() in expected_roll
@@ -56,6 +61,7 @@ def test_4d6(app, qtbot):
 
 
 def test_strength_abilities(app, qtbot):
+    """Test the strength-associated abilities"""
     for val in full_range:
         strength = val
         app.strength.setText(str(strength))
@@ -76,6 +82,7 @@ def test_strength_abilities(app, qtbot):
 
 
 def test_exceptional_str_abilities(app, qtbot):
+    """Test the strength-associated abilities for exceptional strength"""
     bonus = []
     for j in range(1, 101):
         bonus.append(int(f"{18}{j}"))

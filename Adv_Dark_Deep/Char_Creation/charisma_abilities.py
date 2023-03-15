@@ -1,6 +1,7 @@
 from collections import namedtuple
+from typing import Type
 
-char_abilities = namedtuple("Char", ["Max_Henchmen", "Morale_Adj", "React_Adj"])
+char_abilities: Type[namedtuple] = namedtuple("Char", ["Max_Henchmen", "Morale_Adj", "React_Adj"])
 char_1 = char_abilities(0, -8, -35)
 char_2 = char_abilities(0, -7, -30)
 char_3 = char_abilities(1, -6, -25)
@@ -25,12 +26,13 @@ char_23 = char_abilities(40, 18, 60)
 char_24 = char_abilities(45, 20, 65)
 char_25 = char_abilities(50, 20, 70)
 
+# Offset tuple so values match possible attribute scores
 char_abilities = (None, char_1, char_2, char_3, char_4, char_5, char_6, char_7, char_8, char_9_11, char_12, char_13,
                   char_14, char_15, char_16, char_17, char_18, char_19, char_20, char_21, char_22, char_23, char_24,
                   char_25)
 
 
-def get_char_ability(char_val, ability):
+def get_char_ability(char_val: int, ability: int) -> int:
     """Get the appropriate ability for a given charisma value"""
     ability_val = 0
     try:

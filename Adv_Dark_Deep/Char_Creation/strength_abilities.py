@@ -1,7 +1,9 @@
 from collections import namedtuple
+from typing import Type
 
-strength = namedtuple("Strength", ["ToHit_Modifier", "Damage_Modifier", "Weight_Allowance", "Open_Stuck_Doors",
-                              "Open_Locked_Doors", "Bend_Bars_Lift_Gates"])
+strength: Type[namedtuple] = namedtuple("Strength",
+                                        ["ToHit_Modifier", "Damage_Modifier", "Weight_Allowance", "Open_Stuck_Doors",
+                                         "Open_Locked_Doors", "Bend_Bars_Lift_Gates"])
 str_1 = strength(-5, -2, -55, 0, 0, 0)
 str_2 = strength(-4, -2, -45, 0, 0, 0)
 str_3 = strength(-3, -1, -35, 0.17, 0, 0)
@@ -33,14 +35,14 @@ str_23 = strength(5, 11, 900, 0.917, 0.83, 90)
 str_24 = strength(6, 12, 1200, 0.917, 0.875, 100)
 str_25 = strength(7, 14, 1500, 0.958, 0.9, 100)
 
+# Offset tuple so values match possible attribute scores
 str_abilities = (None, str_1, str_2, str_3, str_4, str_5, str_6, str_7, str_8, str_9, str_10, str_11, str_12, str_13,
                  str_14, str_15, str_16, str_17, str_18, str_19, str_20, str_21, str_22, str_23, str_24, str_25,
                  str_181_1850, str_1851_1875, str_1876_1890, str_1891_1899, str_18100,)
 
 
-def get_str_ability(str_val, ability):
+def get_str_ability(str_val: int, ability: int) -> int:
     """Get the appropriate ability for a given strength value"""
-    # ability_val = 0
     try:
         if 181 <= str_val <= 1850:
             ability_val = str_181_1850[ability]

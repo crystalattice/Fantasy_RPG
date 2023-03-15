@@ -1,6 +1,7 @@
 from collections import namedtuple
+from typing import Type
 
-iq = namedtuple("IQ", ["Max_Additional_Languages", "Immune_to_Illusion", "Max_Mage_Spell_Level"])
+iq: Type[namedtuple] = namedtuple("IQ", ["Max_Additional_Languages", "Immune_to_Illusion", "Max_Mage_Spell_Level"])
 
 iq_1 = iq(0, 0, 0)
 iq_2 = iq(0, 0, 0)
@@ -28,11 +29,12 @@ iq_23 = iq(7, 5, 9)
 iq_24 = iq(7, 6, 9)
 iq_25 = iq(7, 7, 9)
 
+# Offset tuple so values match possible attribute scores
 iq_abilities = (None, iq_1, iq_2, iq_3, iq_4, iq_5, iq_6, iq_7, iq_8, iq_9, iq_10, iq_11, iq_12, iq_13, iq_14, iq_15,
                 iq_16, iq_17, iq_18, iq_19, iq_20, iq_21, iq_22, iq_23, iq_24, iq_25)
 
 
-def get_iq_ability(iq_val, ability):
+def get_iq_ability(iq_val: int, ability: int) -> int:
     """Get the appropriate ability for a given iq value"""
     ability_val = 0
     try:

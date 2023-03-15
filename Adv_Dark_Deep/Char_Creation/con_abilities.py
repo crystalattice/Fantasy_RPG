@@ -1,6 +1,7 @@
 from collections import namedtuple
+from typing import Type
 
-constitution = namedtuple("Con", ["HP_Bonus", "Fighter_HP_Bonus", "Reroll_HD", "System_Shock", "Resurrection"])
+constitution: Type[namedtuple] = namedtuple("Con", ["HP_Bonus", "Fighter_HP_Bonus", "Reroll_HD", "System_Shock", "Resurrection"])
 con_1 = constitution(-4, 0, "5, 6, 7, 8, 9, 10", 25, 30)
 con_2 = constitution(-3, 0, "6, 7, 8, 9, 10", 30, 35)
 con_3 = constitution(-2, 0, "", 35, 40)
@@ -24,11 +25,12 @@ con_21_22 = constitution(2, 6, "1, 2", 99, 100)
 con_23 = constitution(2, 6, "1, 2, 3", 99, 100)
 con_24_25 = constitution(2, 7, "1, 2, 3", 99, 100)
 
+# Offset tuple so values match possible attribute scores
 con_abilities = (None, con_1, con_2, con_3, con_4, con_5, con_6, con_7, con_8, con_9, con_10, con_11, con_12, con_13,
                  con_14, con_15, con_16, con_17, con_18, con_19_20, con_21_22, con_23, con_24_25)
 
 
-def get_con_ability(con_val, ability):
+def get_con_ability(con_val: int, ability: int) -> int:
     """Get the appropriate ability for a given constitution value"""
     ability_val = 0
     try:

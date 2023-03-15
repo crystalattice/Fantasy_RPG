@@ -1,6 +1,7 @@
 from collections import namedtuple
+from typing import Type
 
-dexterity = namedtuple("Dex", ["Init_Adj", "Missile_Attack", "AC_Adj"])
+dexterity: Type[namedtuple] = namedtuple("Dex", ["Init_Adj", "Missile_Attack", "AC_Adj"])
 dex_1 = dexterity(5, -5, 6)
 dex_2 = dexterity(4, -4, 5)
 dex_3 = dexterity(3, -3, 4)
@@ -15,11 +16,12 @@ dex_18_20 = dexterity(-3, 3, -4)
 dex_21_23 = dexterity(-4, 4, -5)
 dex_24_25 = dexterity(-5, 5, -6)
 
+# Offset tuple so values match possible attribute scores
 dex_abilities = (None, dex_1, dex_2, dex_3, dex_4, dex_5, dex_6, dex_15, dex_16, dex_17, dex_7_14, dex_18_20,
                  dex_21_23, dex_24_25)
 
 
-def get_dex_ability(dex_value, ability):
+def get_dex_ability(dex_value: int, ability: int) -> int:
     """Get the appropriate ability for a given dexterity value.
 
     Values 15-17 are explicitly listed because, for some reason, the code could not figure out how to get a value from

@@ -1,5 +1,6 @@
 import pickle
 import sys
+from typing import Dict, Any
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QComboBox, QSpinBox, QLabel, \
@@ -91,10 +92,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.chr.setText(unpickle["char_chr"])
             self.con.setText(unpickle["char_con"])
 
-    def save_character(self):
+    def save_character(self) -> None:
         """Save the current character sheet"""
-        save_name = self.get_char_name()
-        char_vals = {
+        save_name: str = self.get_char_name()
+        char_vals: dict[str | Any, str | Any] = {
             "str": self.strength.text(),
             "char_exp_str": self.bonus_strength.text(),
             "char_dex": self.dex.text(),
@@ -114,15 +115,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             "weight": self.get_weight(),
         }
         if not "str":  # Assume no attributes created
-            no_attribs_msg = QMessageBox()
+            no_attribs_msg: QMessageBox | QMessageBox = QMessageBox()
             no_attribs_msg.setWindowTitle("Missing Attributes")
             no_attribs_msg.setText("You must roll for attributes prior to saving.\n"
                                    "Character not saved.")
             no_attribs_msg.setIcon(QMessageBox.Icon.Warning)
-            button = no_attribs_msg.exec()
+            button: QMessageBox.StandardButtons = no_attribs_msg.exec()
             button = QMessageBox.StandardButtons(button)
         if not save_name:
-            no_name_msg = QMessageBox()
+            no_name_msg: QMessageBox | QMessageBox = QMessageBox()
             no_name_msg.setWindowTitle("Missing Character Name")
             no_name_msg.setText("You must provide a character name prior to saving.\n"
                                 "Character not saved.")
@@ -137,19 +138,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             #     print(pickle.load(save_file))
             print(char_vals)
 
-    def roll_3d6(self):
+    def roll_3d6(self) -> None:
         rolls: list = roll_abilities.three_d6()
         self.insert_rolls(rolls)
 
-    def roll_4d6(self):
+    def roll_4d6(self) -> None:
         rolls: list = roll_abilities.four_d6_drop_lowest()
         self.insert_rolls(rolls)
 
-    def roll_2d6(self):
+    def roll_2d6(self) -> None:
         rolls: list = roll_abilities.two_d6_plus_6()
         self.insert_rolls(rolls)
 
-    def insert_rolls(self, rolls):
+    def insert_rolls(self, rolls) -> None:
         """Put the attribute rolls into their respective variables"""
         strength: int
         bonus_strength: int
@@ -214,9 +215,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.max_henchmen.setText(str(charisma_abilities.get_char_ability(charisma, 0)))
         self.morale_adj.setText(str(charisma_abilities.get_char_ability(charisma, 1)))
         self.reaction_adj.setText(str(charisma_abilities.get_char_ability(charisma, 2)))
-
-    def add_str_abilities(self):
-        """Put strength associated abilities in form"""
 
     # TODO: Consider making the following into properties
     # Saving character checks

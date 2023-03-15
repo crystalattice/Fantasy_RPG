@@ -12,15 +12,9 @@ def app(qtbot):
     return test_basic_app
 
 
-# Test all possible attribute values
-full_range = []
-for i in range(1, 26):
-    full_range.append(i)
-
-
 def test_strength_abilities(app, qtbot):
     """Test the strength-associated abilities"""
-    for val in full_range:
+    for val in range(1, 26):
         strength = val
         app.strength.setText(str(strength))
         app.to_hit_bonus.setText(str(strength_abilities.get_str_ability(strength, 0)))

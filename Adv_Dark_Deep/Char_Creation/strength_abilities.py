@@ -42,13 +42,13 @@ def get_str_ability(str_val, ability):
     """Get the appropriate ability for a given strength value"""
     # ability_val = 0
     try:
-        if 181 < str_val <= 1850:
+        if 181 <= str_val <= 1850:
             ability_val = str_181_1850[ability]
-        elif 1851 < str_val <= 1875:
+        elif 1851 <= str_val <= 1875:
+            ability_val = str_1851_1875[ability]
+        elif 1876 <= str_val <= 1890:
             ability_val = str_1876_1890[ability]
-        elif 1876 < str_val <= 1890:
-            ability_val = str_1876_1890[ability]
-        elif 1891 < str_val <= 1899:
+        elif 1891 <= str_val <= 1899:
             ability_val = str_1891_1899[ability]
         elif str_val == 18100:
             ability_val = str_18100[ability]

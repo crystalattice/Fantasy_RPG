@@ -36,10 +36,12 @@ def get_char_ability(char_val: int, ability: int) -> int:
     """Get the appropriate ability for a given charisma value"""
     ability_val = 0
     try:
-        if 9 < char_val <= 11:
+        if char_val < 9:
+            ability_val = char_abilities[char_val][ability]
+        elif 9 <= char_val <= 11:
             ability_val = char_9_11[ability]
         else:
-            ability_val = char_abilities[char_val][ability]
+            ability_val = char_abilities[char_val - 2][ability]
         return ability_val
     except IndexError:
         print(ability_val, char_val, ability)

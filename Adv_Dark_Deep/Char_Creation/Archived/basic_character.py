@@ -41,24 +41,24 @@ class Character:
     _surprise_mod: int = 0  # Modifier to be surprised
     _attack_column: str = ""  # Attack column (Adv. Dark & Deep only)
 
-    _weapons: Dict[str, int] = field(default_factory={"": 0})
+    _weapons: Dict[str, int] = field(default_factory=dict)
 
-    _skills: Dict[str, int] = field(default_factory={"": 0})
-    _class_abilities: Dict[str, int] = field(default_factory={"": 0})
+    _skills: Dict[str, int] = field(default_factory=dict)
+    _class_abilities: Dict[str, int] = field(default_factory=dict)
 
-    _supplies: Dict[str, int] = field(default_factory={"": 0})  # Expendable items
-    _equipment: Dict[str, int] = field(default_factory={"": 0})  # Non-expendable items
+    _supplies: Dict[str, int] = field(default_factory=dict)  # Expendable items
+    _equipment: Dict[str, int] = field(default_factory=dict)  # Non-expendable items
 
     _encumbrance: int = 0  # Mass of all equipment, supplies, weapons, armour, etc.
     _move_rate: int = 0  # Current move rate
 
-    _magic_items: Dict[str, int] = field(default_factory={"": 0})
+    _magic_items: Dict[str, int] = field(default_factory=dict)
 
     _deeds_titles: str = ""  # Estates, property, and named titles, e.g. Duke
 
-    _spells_memorized: List[str] = field(default_factory=[""])
-    _spell_components: Dict[str, int] = field(default_factory={"": 0})
-    _max_spells_memorized: Dict[str, int] = field(default_factory={"": 0})  # Max number of spells memorized per level
+    _spells_memorized: List[str] = field(default_factory=list)
+    _spell_components: Dict[str, int] = field(default_factory=dict)
+    _max_spells_memorized: Dict[str, int] = field(default_factory=dict)  # Max number of spells memorized per level
 
     # Race-specific information
     _subrace: str = ""  # If available, specific type of race, e.g. hill dwarf, high elf, etc.
@@ -66,15 +66,15 @@ class Character:
     _height: float = 0.0
     _weight: int = 0
 
-    _special_abilities: List[str] = field(default_factory=[""])
+    _special_abilities: List[str] = field(default_factory=list)
 
-    _languages: List[str] = field(default_factory=[""])
+    _languages: List[str] = field(default_factory=list)
 
     _base_move: int = 0  # Unencumbered move rate
 
-    _char_class: Dict[str, int] = field(default_factory={"": 0})  # Dictionary in case PC is multi/dual classed
+    _char_class: Dict[str, int] = field(default_factory=dict)  # Dictionary in case PC is multi/dual classed
     _want_multiclass: bool = False
-    _approved_classes: List[str] = field(default_factory=[""])
+    _approved_classes: List[str] = field(default_factory=list)
 
     # Properties
     @property

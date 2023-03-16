@@ -38,6 +38,8 @@ def get_con_ability(con_val: int, ability: int) -> int:
             ability_val = con_19_20[ability]
         elif con_val == 21 or con_val == 22:
             ability_val = con_21_22[ability]
+        elif con_val == 23:
+            ability_val = con_23[ability]
         elif con_val == 24 or con_val == 25:
             ability_val = con_24_25[ability]
         else:

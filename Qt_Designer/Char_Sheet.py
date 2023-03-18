@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QCo
     QDialogButtonBox, QMessageBox
 
 from Qt_Designer.ADD_Char_Sheet import Ui_MainWindow
-from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_classes, strength_abilities, dex_abilities, \
+from Adv_Dark_Deep.Char_Creation import roll_abilities, race_acceptable_classes, strength_abilities, dex_abilities, \
     iq_abilities, wisdom_abilities, con_abilities, charisma_abilities
 
 
@@ -97,16 +97,44 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         save_name: str = self.get_char_name()
         char_vals: dict[str | Any, str | Any] = {
             "str": self.strength.text(),
-            "char_exp_str": self.bonus_strength.text(),
+            "char_bonus_str": self.bonus_strength.text(),
+            "to_hit_bonus": self.to_hit_bonus.text(),
+            "dam_bonus": self.damage_bonus.text(),
+            "carry_bonus": self.carry_bonus.text(),
+            "stuck_doors": self.stuck_doors.text(),
+            "locked_doors": self.locked_doors_bonus.text(),
+            "bend_bars": self.bend_bars.text(),
+
             "char_dex": self.dex.text(),
+            "init_adj": self.init_adj.text(),
+            "missile_adj": self.missile_adj.text(),
+            "ac_adj": self.ac_adj.text(),
+
             "char_wis": self.wis.text(),
+            "magical_attack_adj": self.magical_attack_adj.text(),
+            "cleric_spell_bonus": self.cleric_spell_bonus.text(),
+            "spell_failure": self.spell_failure.text(),
+            "immune_charm": self.immune_charm.text(),
+
             "char_iq": self.iq.text(),
+            "max_lang": self.max_lang.text(),
+            "immune_to_illusion": self.immune_illusion.text(),
+            "max_spell_level": self.max_spell_level.text(),
+
             "char_chr": self.chr.text(),
+            "max_henchmen": self.max_henchmen.text(),
+            "morale_adj": self.morale_adj.text(),
+            "reaction_adj": self.reaction_adj.text(),
+
             "char_con": self.con.text(),
+            "hp_adj": self.hp_adj.text(),
+            "system_shock": self.sys_shock.text(),
+            "resurrect": self.resurrection.text(),
+
             "race": self.race_selection(),
             "class": self.class_selection(),
-            "second_class": self.dual_class_selection(),
-            "third_class": self.third_class_selection(),
+            "second_class": self.char_2nd_class,
+            "third_class": self.char_3rd_class,
             "alignment": self.alignment_selection(),
             "age": self.get_age(),
             "gender": self.get_gender(),
@@ -235,12 +263,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def dual_class_selection(self):
         """If dual classed, get second class"""
-        if self.Second_Class_comboBox.currentText() != "None":
-            return self.Second_Class_comboBox.currentText()
+        if self.char_2nd_class.currentText() != "None":
+             return self.Second_Class_comboBox.currentText()
 
     def third_class_selection(self):
         """If multi-classed, get third class"""
-        if self.Second_Class_comboBox.currentText() == "None" and self.Third_Class_comboBox.currentText() != "None":
+        if self.char_2nd_class.currentText() == "None" and self.char_3rd_class.currentText() != "None":
             multi_class_msg = QMessageBox()
             multi_class_msg.setWindowTitle("Invalid Classes")
             multi_class_msg.setText("Your character cannot have a third class without having a second class.\n"
@@ -249,8 +277,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             button = multi_class_msg.exec()
             button = QMessageBox.StandardButtons(button)
         else:
-            if self.Third_Class_comboBox.currentText() != "None":
-                return self.Third_Class_comboBox.currentText()
+            if self.char_3rd_class.currentText() != "None":
+                return self.char_3rd_class.currentText()
 
     def alignment_selection(self):
         """Get character's alignment"""

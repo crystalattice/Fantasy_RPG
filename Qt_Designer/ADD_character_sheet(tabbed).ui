@@ -40,7 +40,7 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-258</y>
+           <y>0</y>
            <width>1395</width>
            <height>1047</height>
           </rect>
@@ -256,96 +256,9 @@
                  <pointsize>10</pointsize>
                 </font>
                </property>
-               <item>
-                <property name="text">
-                 <string>Fighter</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Ranger</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Paladin</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Cavalier</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Barbarian</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Cleric</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Druid</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Vates</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Mystic</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Mage</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Illusionist</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Savant</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Thief</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Thief-Acrobat</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Mountebank</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Assassin</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bard</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Jester</string>
-                </property>
-               </item>
+               <property name="editable">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item row="3" column="0">

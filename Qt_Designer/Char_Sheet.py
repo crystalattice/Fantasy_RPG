@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QCo
     QDialogButtonBox, QMessageBox
 
 from Qt_Designer.ADD_Char_Sheet import Ui_MainWindow
-from Adv_Dark_Deep.Char_Creation import roll_abilities, race_acceptable_classes, strength_abilities, dex_abilities, \
+from Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class, strength_abilities, dex_abilities, \
     iq_abilities, wisdom_abilities, con_abilities, charisma_abilities
 
 
@@ -21,8 +21,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.char_name: QLineEdit = self.Char_Name_lineEdit
         self.char_race: QComboBox = self.Race_comboBox
         self.char_class: QComboBox = self.Class_comboBox
-        self.char_2nd_class: QComboBox = self.Second_Class_comboBox
-        self.char_3rd_class: QComboBox = self.Third_Class_comboBox
         self.char_align: QComboBox = self.Alignment_comboBox
         self.char_age: QSpinBox = self.Age_spinBox
         self.char_gender: QComboBox = self.Gender_comboBox
@@ -66,6 +64,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.morale_adj: QLabel = self.Morale_Output_label
         self.reaction_adj: QLabel = self.React_Output_label
 
+        self.char_2nd_class: str = "None"
+        self.char_3rd_class: str = "None"
+
         # Actions
         # self.actionNew_Character.connect(self.new_character)
         self.actionOpen_Character.triggered.connect(self.open_character)
@@ -74,6 +75,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.action3d6.triggered.connect(self.roll_3d6)
         self.action4d6_drop_lowest.triggered.connect(self.roll_4d6)
         self.action2d6_6.triggered.connect(self.roll_2d6)
+        self.char_race.currentTextChanged.connect(self.race_selection)
 
     # File menu
     def new_character(self):
@@ -254,21 +256,28 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     # TODO: Check attributes vs. race limits
     def race_selection(self):
         """Get the character's race"""
+        # if self.char_race.currentTextChanged():
+        # print(self.char_race.currentText())
+        self.class_selection()
         return self.char_race.currentText()
 
     # TODO: Check attributes vs. class mins
     def class_selection(self):
         """Get the character's class"""
-        return self.char_class.currentText()
+        self.char_class.clear()
+        classes = get_acceptable_class.get_one_class(self.char_race.currentText().lower())
+        self.char_class.addItems(classes)
 
-    def dual_class_selection(self):
+
+
+    def dual_class_selection(self) -> None:
         """If dual classed, get second class"""
-        if self.char_2nd_class.currentText() != "None":
-             return self.Second_Class_comboBox.currentText()
+        if self.Second_Class_comboBox.currentText() != "None":
+            self.char_2nd_class = self.Second_Class_comboBox.currentText()
 
-    def third_class_selection(self):
+    def third_class_selection(self) -> None:
         """If multi-classed, get third class"""
-        if self.char_2nd_class.currentText() == "None" and self.char_3rd_class.currentText() != "None":
+        if self.Second_Class_comboBox.currentText() == "None" and self.Third_Class_comboBox.currentText() != "None":
             multi_class_msg = QMessageBox()
             multi_class_msg.setWindowTitle("Invalid Classes")
             multi_class_msg.setText("Your character cannot have a third class without having a second class.\n"
@@ -277,8 +286,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             button = multi_class_msg.exec()
             button = QMessageBox.StandardButtons(button)
         else:
-            if self.char_3rd_class.currentText() != "None":
-                return self.char_3rd_class.currentText()
+            if self.Third_Class_comboBox.currentText() != "None":
+                self.char_3rd_class = self.Third_Class_comboBox.currentText()
 
     def alignment_selection(self):
         """Get character's alignment"""

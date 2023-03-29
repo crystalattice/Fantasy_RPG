@@ -1,9 +1,8 @@
 from typing import List
 
-import race_acceptable_classes as rac
-import Qt_Designer.Char_Sheet as char_sheet
+import Adv_Dark_Deep.Char_Creation.race_acceptable_classes as rac
+# from Qt_Designer.Char_Sheet import MainWindow as mw
 
-if char_sheet.char_2nd_class
 
 def get_one_class(race: str) -> tuple:
     """For the PC's race, get acceptable single class types"""
@@ -12,9 +11,12 @@ def get_one_class(race: str) -> tuple:
     #     return rac.single_class["dwarf, grey"]
     return rac.single_class[race]
 
+
 def get_multi_class(race: str) -> tuple:
     """For the PC's race, get allowed multi-class combinations"""
     return rac.multi_class[race]
+
+
 # def get_classes(race: str) -> list:
 #     """Get character classes available to a particular race"""
 #     # global classes

@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QWizardPage, QWizard
 #     QRadioButton, QGridLayout, QWizardPage
 
 # from New_Char_Wizard import Ui_Wizard
-from Adv_Dark_Deep.Char_Creation import roll_abilities, race_vs_classes, class_min_attribs
+from Adv_Dark_Deep.Char_Creation import roll_abilities, race_acceptable_classes, class_min_attribs
 
 
 class Wizard(QWizard, QWizardPage):

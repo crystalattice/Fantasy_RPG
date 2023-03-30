@@ -252,13 +252,26 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         """Assign input character name to variable"""
         return self.char_name.text()
 
+    def get_gender(self):
+        """Get character's gender"""
+        return self.Gender_comboBox.currentText()
+
     # Race selection and associated information
     # TODO: Check attributes vs. race limits
     def race_selection(self):
-        """Get the character's race"""
-        # if self.char_race.currentTextChanged():
-        # print(self.char_race.currentText())
-        self.class_selection()
+        """Get the character's race.
+
+        Race combobox will be populated by eligible races based on character's rolled abilities.
+        """
+        if not self.wis:  # Assume no attributes created
+            no_attribs_msg: QMessageBox | QMessageBox = QMessageBox()
+            no_attribs_msg.setWindowTitle("Missing Attributes")
+            no_attribs_msg.setText("You must roll for attributes before selecting a race.")
+            no_attribs_msg.setIcon(QMessageBox.Icon.Warning)
+            button: QMessageBox.StandardButtons = no_attribs_msg.exec()
+            button = QMessageBox.StandardButtons(button)
+        # TODO: populate combox
+        self.class_selection()  # Use race to determine eligible classes
         return self.char_race.currentText()
 
     # TODO: Check attributes vs. class mins
@@ -297,9 +310,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         """Get character's age"""
         return self.Age_spinBox.text()
 
-    def get_gender(self):
-        """Get character's gender"""
-        return self.Gender_comboBox.currentText()
+
 
     def get_social_class(self):
         """Get character's social class"""

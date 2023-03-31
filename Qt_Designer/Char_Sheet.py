@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QCo
 
 from Qt_Designer.ADD_Char_Sheet import Ui_MainWindow
 from Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class, strength_abilities, dex_abilities, \
-    iq_abilities, wisdom_abilities, con_abilities, charisma_abilities
+    iq_abilities, wisdom_abilities, con_abilities, charisma_abilities, race_vs_abilities
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -270,7 +270,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             no_attribs_msg.setIcon(QMessageBox.Icon.Warning)
             button: QMessageBox.StandardButtons = no_attribs_msg.exec()
             button = QMessageBox.StandardButtons(button)
-        # TODO: populate combox
+        races = race_vs_abilities.get_acceptable_race(self.get_gender(), int(self.strength.text()), int(self.iq.text()),
+                                                      int(self.wis.text()), int(self.dex.text()), int(self.con.text()),
+                                                      int(self.chr.text()))
+        self.char_race.addItems(races)
         self.class_selection()  # Use race to determine eligible classes
         return self.char_race.currentText()
 

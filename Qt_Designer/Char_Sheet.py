@@ -263,7 +263,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         Race combobox will be populated by eligible races based on character's rolled abilities.
         """
-        if not self.wis:  # Assume no attributes created
+        if self.wis.text() == "0":  # Assume no attributes created
             no_attribs_msg: QMessageBox | QMessageBox = QMessageBox()
             no_attribs_msg.setWindowTitle("Missing Attributes")
             no_attribs_msg.setText("You must roll for attributes before selecting a race.")
@@ -274,7 +274,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                                                       int(self.wis.text()), int(self.dex.text()), int(self.con.text()),
                                                       int(self.chr.text()))
         self.char_race.addItems(races)
-        self.class_selection()  # Use race to determine eligible classes
+        # self.class_selection()  # Use race to determine eligible classes
         return self.char_race.currentText()
 
     # TODO: Check attributes vs. class mins

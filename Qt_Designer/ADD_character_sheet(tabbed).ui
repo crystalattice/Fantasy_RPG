@@ -29,7 +29,7 @@
          <rect>
           <x>9</x>
           <y>9</y>
-          <width>1411</width>
+          <width>1421</width>
           <height>791</height>
          </rect>
         </property>
@@ -41,7 +41,7 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>1395</width>
+           <width>1405</width>
            <height>1047</height>
           </rect>
          </property>
@@ -68,7 +68,7 @@
             <property name="title">
              <string>Basic Info</string>
             </property>
-            <layout class="QFormLayout" name="formLayout_4">
+            <layout class="QGridLayout" name="gridLayout_40">
              <item row="0" column="0">
               <widget class="QLabel" name="Char_name_label">
                <property name="sizePolicy">
@@ -221,6 +221,56 @@
               </widget>
              </item>
              <item row="2" column="0">
+              <widget class="QLabel" name="Gender_label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Gender</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="Gender_comboBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Male</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Female</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Other</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="3" column="0">
               <widget class="QLabel" name="Class_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -239,7 +289,7 @@
                </property>
               </widget>
              </item>
-             <item row="2" column="1">
+             <item row="3" column="1">
               <widget class="QComboBox" name="Class_comboBox">
                <property name="enabled">
                 <bool>true</bool>
@@ -261,7 +311,7 @@
                </property>
               </widget>
              </item>
-             <item row="3" column="0">
+             <item row="4" column="0">
               <widget class="QLabel" name="Second_Class_label">
                <property name="font">
                 <font>
@@ -273,7 +323,7 @@
                </property>
               </widget>
              </item>
-             <item row="3" column="1">
+             <item row="4" column="1">
               <widget class="QComboBox" name="Second_Class_comboBox">
                <property name="enabled">
                 <bool>true</bool>
@@ -382,7 +432,7 @@
                </item>
               </widget>
              </item>
-             <item row="4" column="0">
+             <item row="5" column="0">
               <widget class="QLabel" name="Third_Class_label">
                <property name="font">
                 <font>
@@ -394,7 +444,7 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="1">
+             <item row="5" column="1">
               <widget class="QComboBox" name="Third_Class_comboBox">
                <property name="enabled">
                 <bool>true</bool>
@@ -503,7 +553,7 @@
                </item>
               </widget>
              </item>
-             <item row="5" column="0">
+             <item row="6" column="0">
               <widget class="QLabel" name="Alignment_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -522,7 +572,7 @@
                </property>
               </widget>
              </item>
-             <item row="5" column="1">
+             <item row="6" column="1">
               <widget class="QComboBox" name="Alignment_comboBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -583,7 +633,7 @@
                </item>
               </widget>
              </item>
-             <item row="6" column="0">
+             <item row="7" column="0">
               <widget class="QLabel" name="Age_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -602,7 +652,7 @@
                </property>
               </widget>
              </item>
-             <item row="6" column="1">
+             <item row="7" column="1">
               <widget class="QSpinBox" name="Age_spinBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -625,56 +675,6 @@
                <property name="value">
                 <number>20</number>
                </property>
-              </widget>
-             </item>
-             <item row="7" column="0">
-              <widget class="QLabel" name="Gender_label">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <family>DejaVu Sans</family>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Gender</string>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="1">
-              <widget class="QComboBox" name="Gender_comboBox">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <family>DejaVu Sans</family>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Male</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Female</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Other</string>
-                </property>
-               </item>
               </widget>
              </item>
              <item row="8" column="0">
@@ -1999,7 +1999,7 @@
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>461</width>
+                  <width>471</width>
                   <height>211</height>
                  </rect>
                 </property>
@@ -3301,8 +3301,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1409</width>
-             <height>783</height>
+             <width>1189</width>
+             <height>731</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_14">
@@ -8358,8 +8358,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1409</width>
-             <height>783</height>
+             <width>677</width>
+             <height>556</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_26">
@@ -9716,8 +9716,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>284</width>
-                    <height>506</height>
+                    <width>159</width>
+                    <height>279</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout">
@@ -9752,8 +9752,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1395</width>
-             <height>847</height>
+             <width>550</width>
+             <height>862</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_9">
@@ -9988,7 +9988,7 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>905</width>
+                    <width>108</width>
                     <height>210</height>
                    </rect>
                   </property>
@@ -11628,8 +11628,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1409</width>
-             <height>783</height>
+             <width>66</width>
+             <height>16</height>
             </rect>
            </property>
            <widget class="QGroupBox" name="Money_groupBox">
@@ -12235,8 +12235,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1409</width>
-             <height>783</height>
+             <width>447</width>
+             <height>136</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_24">
@@ -12261,8 +12261,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>1059</width>
-                    <height>715</height>
+                    <width>381</width>
+                    <height>624</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_15">
@@ -13281,8 +13281,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>274</width>
-                    <height>715</height>
+                    <width>260</width>
+                    <height>88</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_30">
@@ -13323,8 +13323,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1409</width>
-             <height>783</height>
+             <width>996</width>
+             <height>590</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_36">
@@ -15032,8 +15032,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>440</width>
-                <height>735</height>
+                <width>88</width>
+                <height>88</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_33">
@@ -15074,8 +15074,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>441</width>
-                <height>735</height>
+                <width>88</width>
+                <height>88</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_35">
@@ -15116,8 +15116,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>440</width>
-                <height>735</height>
+                <width>88</width>
+                <height>88</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_36">

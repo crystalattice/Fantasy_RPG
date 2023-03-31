@@ -1,3 +1,4 @@
+# names are keyed to GUI text
 single_class = {
     "dwarf, grey (duergar)": ("Cleric", "Fighter", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
     "dwarf, hill": ("Cleric", "Fighter", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
@@ -32,7 +33,7 @@ multi_class = {
         ("Fighter", "Thief"),
         ("Fighter", "Thief-Acrobat")
     ),
-    "elf, dark": (
+    "elf, dark (drow)": (
         ("Cleric", "Fighter"),
         ("Cleric", "Fighter", "Mage"),
         ("Cleric", "Fighter", "Savant"),
@@ -54,7 +55,7 @@ multi_class = {
         ("Mage", "Thief"),
         ("Mage", "Thief-Acrobat")
     ),
-    "elf, gray": (
+    "elf, grey": (
         ("Cleric", "Fighter"),
         ("Cleric", "Fighter", "Mage"),
         ("Cleric", "Ranger"),
@@ -149,7 +150,7 @@ multi_class = {
         ("Mystic", "Thief"),
         ("Mystic", "Thief-Acrobat")
     ),
-    "gnome, deep": (
+    "gnome, deep (svirfneblin)": (
         ("Cleric", "Fighter"),
         ("Cleric", "Thief"),
         ("Cleric", "Thief-Acrobat"),

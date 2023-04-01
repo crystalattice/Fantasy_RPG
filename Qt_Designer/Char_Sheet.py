@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QCo
 
 from Qt_Designer.ADD_Char_Sheet import Ui_MainWindow
 from Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class, strength_abilities, dex_abilities, \
-    iq_abilities, wisdom_abilities, con_abilities, charisma_abilities, race_vs_abilities
+    iq_abilities, wisdom_abilities, con_abilities, charisma_abilities, race_vs_attribs
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -270,9 +270,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             no_attribs_msg.setIcon(QMessageBox.Icon.Warning)
             button: QMessageBox.StandardButtons = no_attribs_msg.exec()
             button = QMessageBox.StandardButtons(button)
-        races = race_vs_abilities.get_acceptable_race(self.get_gender(), int(self.strength.text()), int(self.iq.text()),
-                                                      int(self.wis.text()), int(self.dex.text()), int(self.con.text()),
-                                                      int(self.chr.text()))
+            self.char_race.setCurrentIndex(0)
+            # TODO: will cause the dialog box to appear twice
+        races = race_vs_attribs.get_acceptable_race(self.get_gender(), int(self.strength.text()), int(self.iq.text()),
+                                                    int(self.wis.text()), int(self.dex.text()), int(self.con.text()),
+                                                    int(self.chr.text()))
         self.char_race.addItems(races)
         # self.class_selection()  # Use race to determine eligible classes
         return self.char_race.currentText()
@@ -283,8 +285,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.char_class.clear()
         classes = get_acceptable_class.get_one_class(self.char_race.currentText().lower())
         self.char_class.addItems(classes)
-
-
 
     def dual_class_selection(self) -> None:
         """If dual classed, get second class"""
@@ -312,8 +312,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def get_age(self):
         """Get character's age"""
         return self.Age_spinBox.text()
-
-
 
     def get_social_class(self):
         """Get character's social class"""

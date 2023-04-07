@@ -32,7 +32,18 @@ class Wizard(QWizard, QWizardPage):
 
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""
-        pass
+
+        def save_abilities(self):
+            """Save the rolled abilities for use in the actual character sheet"""
+            save_name: str = self.Char_Name_Out_lineEdit.text()
+            char_vals: dict[str | Any, str | Any] = {
+                "str": self.strength.text(),
+                "char_dex": self.dex.text(),
+                "char_wis": self.wis.text(),
+                "char_iq": self.iq.text(),
+                "char_chr": self.chr.text(),
+                "char_con": self.con.text(),
+            }
 
 
 class Page1(QWizardPage):
@@ -140,11 +151,11 @@ class Page1(QWizardPage):
         self.STR_label.setWordWrap(True)
         self.STR_label.setObjectName("STR_label")
         self.verticalLayout_2.addWidget(self.STR_label)
-        self.STR_Out_label = QtWidgets.QLabel(self.frame_2)
-        self.STR_Out_label.setFrameShape(QtWidgets.QFrame.Box)
-        self.STR_Out_label.setText("")
-        self.STR_Out_label.setObjectName("STR_Out_label")
-        self.verticalLayout_2.addWidget(self.STR_Out_label)
+        self.STR_Output = QtWidgets.QLabel(self.frame_2)
+        self.STR_Output.setFrameShape(QtWidgets.QFrame.Box)
+        self.STR_Output.setText("")
+        self.STR_Output.setObjectName("STR_Output")
+        self.verticalLayout_2.addWidget(self.STR_Output)
         self.horizontalLayout_2.addLayout(self.verticalLayout_2)
         self.verticalLayout_3 = QtWidgets.QVBoxLayout()
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -154,11 +165,11 @@ class Page1(QWizardPage):
         self.Exceptional_STR_label.setObjectName("Exceptional_STR_label")
         self.verticalLayout_3.addWidget(self.Exceptional_STR_label)
         self.Exceptional_STR_label.setText("Exceptional Strength")
-        self.STR_Out_label_2 = QtWidgets.QLabel(self.frame_2)
-        self.STR_Out_label_2.setFrameShape(QtWidgets.QFrame.Box)
-        self.STR_Out_label_2.setText("")
-        self.STR_Out_label_2.setObjectName("STR_Out_label_2")
-        self.verticalLayout_3.addWidget(self.STR_Out_label_2)
+        self.STR_Bonus_Output = QtWidgets.QLabel(self.frame_2)
+        self.STR_Bonus_Output.setFrameShape(QtWidgets.QFrame.Box)
+        self.STR_Bonus_Output.setText("")
+        self.STR_Bonus_Output.setObjectName("STR_Output_2")
+        self.verticalLayout_3.addWidget(self.STR_Bonus_Output)
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_3)
         self.verticalLayout_4 = QtWidgets.QVBoxLayout()
@@ -167,11 +178,11 @@ class Page1(QWizardPage):
         self.DEX_label.setObjectName("DEX_label")
         self.verticalLayout_4.addWidget(self.DEX_label)
         self.DEX_label.setText("Dexterity")
-        self.DEX_Out_label = QtWidgets.QLabel(self.frame_2)
-        self.DEX_Out_label.setFrameShape(QtWidgets.QFrame.Box)
-        self.DEX_Out_label.setText("")
-        self.DEX_Out_label.setObjectName("DEX_Out_label")
-        self.verticalLayout_4.addWidget(self.DEX_Out_label)
+        self.DEX_Output = QtWidgets.QLabel(self.frame_2)
+        self.DEX_Output.setFrameShape(QtWidgets.QFrame.Box)
+        self.DEX_Output.setText("")
+        self.DEX_Output.setObjectName("DEX_Output")
+        self.verticalLayout_4.addWidget(self.DEX_Output)
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_4)
         self.verticalLayout_5 = QtWidgets.QVBoxLayout()
@@ -180,11 +191,11 @@ class Page1(QWizardPage):
         self.IQ_label.setObjectName("IQ_label")
         self.verticalLayout_5.addWidget(self.IQ_label)
         self.IQ_label.setText("Intelligence")
-        self.IQ_Out_label = QtWidgets.QLabel(self.frame_2)
-        self.IQ_Out_label.setFrameShape(QtWidgets.QFrame.Box)
-        self.IQ_Out_label.setText("")
-        self.IQ_Out_label.setObjectName("IQ_Out_label")
-        self.verticalLayout_5.addWidget(self.IQ_Out_label)
+        self.IQ_Output = QtWidgets.QLabel(self.frame_2)
+        self.IQ_Output.setFrameShape(QtWidgets.QFrame.Box)
+        self.IQ_Output.setText("")
+        self.IQ_Output.setObjectName("IQ_Output")
+        self.verticalLayout_5.addWidget(self.IQ_Output)
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_5)
         self.verticalLayout_6 = QtWidgets.QVBoxLayout()
@@ -193,11 +204,11 @@ class Page1(QWizardPage):
         self.WIS_label.setObjectName("WIS_label")
         self.verticalLayout_6.addWidget(self.WIS_label)
         self.WIS_label.setText("Wisdom")
-        self.WIS_Out_label = QtWidgets.QLabel(self.frame_2)
-        self.WIS_Out_label.setFrameShape(QtWidgets.QFrame.Box)
-        self.WIS_Out_label.setText("")
-        self.WIS_Out_label.setObjectName("WIS_Out_label")
-        self.verticalLayout_6.addWidget(self.WIS_Out_label)
+        self.WIS_Output = QtWidgets.QLabel(self.frame_2)
+        self.WIS_Output.setFrameShape(QtWidgets.QFrame.Box)
+        self.WIS_Output.setText("")
+        self.WIS_Output.setObjectName("WIS_Output")
+        self.verticalLayout_6.addWidget(self.WIS_Output)
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_6)
         self.verticalLayout_7 = QtWidgets.QVBoxLayout()
@@ -206,11 +217,11 @@ class Page1(QWizardPage):
         self.CON_label.setObjectName("CON_label")
         self.verticalLayout_7.addWidget(self.CON_label)
         self.CON_label.setText("Constitution")
-        self.CON_Out_label = QtWidgets.QLabel(self.frame_2)
-        self.CON_Out_label.setFrameShape(QtWidgets.QFrame.Box)
-        self.CON_Out_label.setText("")
-        self.CON_Out_label.setObjectName("CON_Out_label")
-        self.verticalLayout_7.addWidget(self.CON_Out_label)
+        self.CON_Output = QtWidgets.QLabel(self.frame_2)
+        self.CON_Output.setFrameShape(QtWidgets.QFrame.Box)
+        self.CON_Output.setText("")
+        self.CON_Output.setObjectName("CON_Output")
+        self.verticalLayout_7.addWidget(self.CON_Output)
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_7)
         self.verticalLayout_8 = QtWidgets.QVBoxLayout()
@@ -219,26 +230,26 @@ class Page1(QWizardPage):
         self.CHR_label.setObjectName("CHR_label")
         self.verticalLayout_8.addWidget(self.CHR_label)
         self.CHR_label.setText("Charisma")
-        self.CHR_Out_label = QtWidgets.QLabel(self.frame_2)
-        self.CHR_Out_label.setFrameShape(QtWidgets.QFrame.Box)
-        self.CHR_Out_label.setText("")
-        self.CHR_Out_label.setObjectName("CHR_Out_label")
-        self.verticalLayout_8.addWidget(self.CHR_Out_label)
+        self.CHR_Output = QtWidgets.QLabel(self.frame_2)
+        self.CHR_Output.setFrameShape(QtWidgets.QFrame.Box)
+        self.CHR_Output.setText("")
+        self.CHR_Output.setObjectName("CHR_Output")
+        self.verticalLayout_8.addWidget(self.CHR_Output)
         self.horizontalLayout_2.addLayout(self.verticalLayout_8)
 
         self.roll_type = self.Dice_Type_buttonGroup
         self.Roll_Attribs_pushButton.clicked.connect(self.roll_attribs)
 
         self.name = self.Char_Name_Out_lineEdit
-        self.strength = self.STR_Out_label
-        self.bonus_strength = self.STR_Out_label_2
-        self.dex = self.DEX_Out_label
-        self.iq = self.IQ_Out_label
-        self.wis = self.WIS_Out_label
-        self.con = self.CON_Out_label
-        self.chr = self.CHR_Out_label
+        self.strength = self.STR_Output
+        self.bonus_strength = self.STR_Bonus_Output
+        self.dex = self.DEX_Output
+        self.iq = self.IQ_Output
+        self.wis = self.WIS_Output
+        self.con = self.CON_Output
+        self.chr = self.CHR_Output
 
-        self.registerField("dex", self.DEX_Out_label)
+        self.registerField("dex", self.DEX_Output)
 
 
     def roll_attribs(self):
@@ -273,6 +284,7 @@ class Page1(QWizardPage):
         self.wis.setText(wis)
         self.con.setText(con)
         self.chr.setText(chr)
+
 
 
 
@@ -1075,14 +1087,16 @@ class Page4(QWizardPage):
         self.setSubTitle("Click \"Finish\" to complete the basics of your character.")
         self.verticalLayout_10 = QtWidgets.QVBoxLayout(self)
         self.verticalLayout_10.setObjectName("verticalLayout_10")
-        self.Finish_Out_label = QtWidgets.QLabel(self)
-        self.Finish_Out_label.setWordWrap(True)
-        self.Finish_Out_label.setObjectName("Finish_Out_label")
-        self.Finish_Out_label.setText(
+        self.Finish_Output = QtWidgets.QLabel(self)
+        self.Finish_Output.setWordWrap(True)
+        self.Finish_Output.setObjectName("Finish_Output")
+        self.Finish_Output.setText(
             "<html><head/><body><p>Your character\'s information will be moved to a character sheet. In addition, "
             "your character\'s hit points, initial money, etc. will be auto-generated and added to the character "
             "sheet as well.<br/><br/></p></body></html>")
-        self.verticalLayout_10.addWidget(self.Finish_Out_label)
+        self.verticalLayout_10.addWidget(self.Finish_Output)
+
+
 
 
 def main():

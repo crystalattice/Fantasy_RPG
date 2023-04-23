@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QApplication, QWizard, QPushButton, QButtonGroup, QL
     QRadioButton, QGridLayout, QWizardPage, QWidget
 
 from New_Char_Wizard import Ui_Wizard
-from Adv_Dark_Deep.Char_Creation import roll_abilities, race_acceptable_classes, class_min_attribs
+from Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class, class_min_attribs, race_vs_attribs
 
 
 class Wizard(QWizard, Ui_Wizard):
@@ -46,8 +46,8 @@ class Wizard(QWizard, Ui_Wizard):
         self.wis = self.WIS_Out_label
         self.con = self.CON_Out_label
         self.chr = self.CHR_Out_label
-        self.race = self.Race_buttonGroup
-        self.gender = self.Gender_buttonGroup
+        self.race = self.Race_buttonGroup.checkedButton().text()
+        self.gender = self.Gender_buttonGroup.checkedButton().text()
         self.prime_class = self.First_Class_groupBox
         self.second_class = self.Second_Class_groupBox
         self.third_class = self.Third_Class_groupBox
@@ -55,8 +55,8 @@ class Wizard(QWizard, Ui_Wizard):
         # Buttons
         self.roll_dice.clicked.connect(self.roll_attribs)
         self.button(QWizard.FinishButton).clicked.connect(self.finished)
+        self.button(QWizard.NextButton).clicked.connect(self.populate_races)
         self.button(QWizard.NextButton).clicked.connect(self.possible_classes)
-
 
     def roll_attribs(self):
         """Roll the dice for character attributes"""
@@ -91,98 +91,111 @@ class Wizard(QWizard, Ui_Wizard):
         self.con.setText(con)
         self.chr.setText(chr)
 
-    def get_race(self):
-        """Get the selected race radiobutton"""
-        return self.race.checkedButton().text()
-
     def get_gender(self):
         """Get the selected gender radiobutton"""
-        return self.gender.checkedButton().text()
+        return self.gender
+
+    def populate_races(self):
+        """Enable appropriate radio buttons for available races, based on attributes and gender"""
+        # races = race_vs_attribs.get_acceptable_race(self.get_gender(), int(self.strength.text()), int(self.iq.text()),
+        #                                             int(self.wis.text()), int(self.dex.text()), int(self.con.text()),
+        #                                             int(self.chr.text()))
+        print("HERE")
+        # if "Dwarf, Hill" in races:
+        #     self.Dwarf_Hill_radioButton.setEnabled()
+
+    def get_race(self):
+        """Get the selected race radiobutton"""
+        return self.race
 
     def possible_classes(self):
         """Determine which classes the character is eligible for, based on previous selections"""
         # TODO: Have a check to ensure that the attributes are rolled
-        new_list = []
-        try:
-            if (self.get_race() == "Dwarf, Hill" or self.get_race() == "Dwarf, Mountain" or
-                    self.get_race() == "Dwarf, Grey"):
-                race_class = race_vs_classes.multi_class["dwarf"]
-                self.multi = 1
-            else:
-                race_class = race_vs_classes.multi_class[self.get_race().lower()]
-                self.multi = 1
-        except KeyError:  # Error indicates not multi-class eligible
-            race_class = race_vs_classes.single_class[self.get_race().lower()]
-            self.multi = 0
-        new_list = list(race_class)
+        print(self.gender)
+        print(self.strength.text())
+        print(self.populate_races())
 
-        try:
-            if int(self.dex.text()) < class_min_attribs.bard["dex"] or \
-                    int(self.chr.text()) < class_min_attribs.bard["chr"]:
-                new_list.remove("Bard")
-            if int(self.iq.text()) < class_min_attribs.jester["iq"] or \
-                    int(self.dex.text()) < class_min_attribs.jester["dex"] or \
-                    int(self.chr.text()) < class_min_attribs.jester["chr"]:
-                new_list.remove("Jester")
-            if int(self.strength.text()) < class_min_attribs.cavalier["str"] or \
-                    int(self.dex.text()) < class_min_attribs.cavalier["dex"] or \
-                    int(self.con.text()) < class_min_attribs.cavalier["con"] or \
-                    int(self.iq.text()) < class_min_attribs.cavalier["iq"] or \
-                    int(self.wis.text()) < class_min_attribs.cavalier["wis"]:
-                new_list.remove("Cavalier")
-            if int(self.strength.text()) < class_min_attribs.paladin["str"] or \
-                    int(self.dex.text()) < class_min_attribs.paladin["dex"] or \
-                    int(self.con.text()) < class_min_attribs.paladin["con"] or \
-                    int(self.iq.text()) < class_min_attribs.paladin["iq"] or \
-                    int(self.wis.text()) < class_min_attribs.paladin["wis"] or \
-                    int(self.chr.text()) < class_min_attribs.paladin["chr"]:
-                new_list.remove("Paladin")
-            if int(self.wis.text()) < class_min_attribs.cleric["wis"]:
-                new_list.remove("Cleric")
-            if int(self.wis.text()) < class_min_attribs.druid["wis"] or \
-                    int(self.chr.text()) < class_min_attribs.druid["chr"]:
-                new_list.remove("Druid")
-            if int(self.wis.text()) < class_min_attribs.mystic["wis"] or \
-                    int(self.dex.text()) < class_min_attribs.mystic["dex"]:
-                new_list.remove("Mystic")
-            if int(self.strength.text()) < class_min_attribs.fighter["str"] or \
-                    int(self.con.text()) < class_min_attribs.fighter["con"]:
-                new_list.remove("Fighter")
-            if int(self.strength.text()) < class_min_attribs.barbarian["str"] or \
-                    int(self.dex.text()) < class_min_attribs.barbarian["dex"] or \
-                    int(self.con.text()) < class_min_attribs.barbarian["con"] or \
-                    int(self.wis.text()) >= class_min_attribs.barbarian["wis"]:
-                new_list.remove("Barbarian")
-            if int(self.iq.text()) < class_min_attribs.ranger["iq"] or \
-                    int(self.wis.text()) < class_min_attribs.ranger["wis"] or \
-                    int(self.con.text()) < class_min_attribs.ranger["con"]:
-                new_list.remove("Ranger")
-            if int(self.iq.text()) < class_min_attribs.mage["iq"] or \
-                    int(self.dex.text()) < class_min_attribs.mage["dex"]:
-                new_list.remove("Mage")
-            if int(self.dex.text()) < class_min_attribs.illusionist["dex"] or \
-                    int(self.iq.text()) < class_min_attribs.illusionist["iq"]:
-                new_list.remove("Illusionist")
-            if int(self.iq.text()) < class_min_attribs.savant["iq"] or \
-                    int(self.wis.text()) < class_min_attribs.savant["wis"]:
-                new_list.remove("Savant")
-            if int(self.dex.text()) < class_min_attribs.thief["dex"]:
-                new_list.remove("Thief")
-            if int(self.strength.text()) < class_min_attribs.thief_acrobat["str"] or \
-                    int(self.dex.text()) < class_min_attribs.thief_acrobat["dex"]:
-                new_list.remove("Thief-Acrobat")
-            if int(self.dex.text()) < class_min_attribs.mountebank["dex"] or \
-                    int(self.iq.text()) < class_min_attribs.mountebank["iq"] or \
-                    int(self.chr.text()) < class_min_attribs.mountebank["chr"]:
-                new_list.remove("Mountebank")
-            if int(self.strength.text()) < class_min_attribs.assassin["str"] or \
-                    int(self.dex.text()) < class_min_attribs.assassin["dex"] or \
-                    int(self.iq.text()) < class_min_attribs.assassin["iq"]:
-                new_list.remove("Assassin")
-        except ValueError:
-            pass
+        # new_list = []
+        # try:
+        #     if (self.get_race() == "Dwarf, Hill" or self.get_race() == "Dwarf, Mountain" or
+        #             self.get_race() == "Dwarf, Grey"):
+        #         race_class = race_vs_classes.multi_class["dwarf"]
+        #         self.multi = 1
+        #     else:
+        #         race_class = race_vs_classes.multi_class[self.get_race().lower()]
+        #         self.multi = 1
+        # except KeyError:  # Error indicates not multi-class eligible
+        #     race_class = race_vs_classes.single_class[self.get_race().lower()]
+        #     self.multi = 0
+        # new_list = list(race_class)
+        #
+        # try:
+        #     if int(self.dex.text()) < class_min_attribs.bard["dex"] or \
+        #             int(self.chr.text()) < class_min_attribs.bard["chr"]:
+        #         new_list.remove("Bard")
+        #     if int(self.iq.text()) < class_min_attribs.jester["iq"] or \
+        #             int(self.dex.text()) < class_min_attribs.jester["dex"] or \
+        #             int(self.chr.text()) < class_min_attribs.jester["chr"]:
+        #         new_list.remove("Jester")
+        #     if int(self.strength.text()) < class_min_attribs.cavalier["str"] or \
+        #             int(self.dex.text()) < class_min_attribs.cavalier["dex"] or \
+        #             int(self.con.text()) < class_min_attribs.cavalier["con"] or \
+        #             int(self.iq.text()) < class_min_attribs.cavalier["iq"] or \
+        #             int(self.wis.text()) < class_min_attribs.cavalier["wis"]:
+        #         new_list.remove("Cavalier")
+        #     if int(self.strength.text()) < class_min_attribs.paladin["str"] or \
+        #             int(self.dex.text()) < class_min_attribs.paladin["dex"] or \
+        #             int(self.con.text()) < class_min_attribs.paladin["con"] or \
+        #             int(self.iq.text()) < class_min_attribs.paladin["iq"] or \
+        #             int(self.wis.text()) < class_min_attribs.paladin["wis"] or \
+        #             int(self.chr.text()) < class_min_attribs.paladin["chr"]:
+        #         new_list.remove("Paladin")
+        #     if int(self.wis.text()) < class_min_attribs.cleric["wis"]:
+        #         new_list.remove("Cleric")
+        #     if int(self.wis.text()) < class_min_attribs.druid["wis"] or \
+        #             int(self.chr.text()) < class_min_attribs.druid["chr"]:
+        #         new_list.remove("Druid")
+        #     if int(self.wis.text()) < class_min_attribs.mystic["wis"] or \
+        #             int(self.dex.text()) < class_min_attribs.mystic["dex"]:
+        #         new_list.remove("Mystic")
+        #     if int(self.strength.text()) < class_min_attribs.fighter["str"] or \
+        #             int(self.con.text()) < class_min_attribs.fighter["con"]:
+        #         new_list.remove("Fighter")
+        #     if int(self.strength.text()) < class_min_attribs.barbarian["str"] or \
+        #             int(self.dex.text()) < class_min_attribs.barbarian["dex"] or \
+        #             int(self.con.text()) < class_min_attribs.barbarian["con"] or \
+        #             int(self.wis.text()) >= class_min_attribs.barbarian["wis"]:
+        #         new_list.remove("Barbarian")
+        #     if int(self.iq.text()) < class_min_attribs.ranger["iq"] or \
+        #             int(self.wis.text()) < class_min_attribs.ranger["wis"] or \
+        #             int(self.con.text()) < class_min_attribs.ranger["con"]:
+        #         new_list.remove("Ranger")
+        #     if int(self.iq.text()) < class_min_attribs.mage["iq"] or \
+        #             int(self.dex.text()) < class_min_attribs.mage["dex"]:
+        #         new_list.remove("Mage")
+        #     if int(self.dex.text()) < class_min_attribs.illusionist["dex"] or \
+        #             int(self.iq.text()) < class_min_attribs.illusionist["iq"]:
+        #         new_list.remove("Illusionist")
+        #     if int(self.iq.text()) < class_min_attribs.savant["iq"] or \
+        #             int(self.wis.text()) < class_min_attribs.savant["wis"]:
+        #         new_list.remove("Savant")
+        #     if int(self.dex.text()) < class_min_attribs.thief["dex"]:
+        #         new_list.remove("Thief")
+        #     if int(self.strength.text()) < class_min_attribs.thief_acrobat["str"] or \
+        #             int(self.dex.text()) < class_min_attribs.thief_acrobat["dex"]:
+        #         new_list.remove("Thief-Acrobat")
+        #     if int(self.dex.text()) < class_min_attribs.mountebank["dex"] or \
+        #             int(self.iq.text()) < class_min_attribs.mountebank["iq"] or \
+        #             int(self.chr.text()) < class_min_attribs.mountebank["chr"]:
+        #         new_list.remove("Mountebank")
+        #     if int(self.strength.text()) < class_min_attribs.assassin["str"] or \
+        #             int(self.dex.text()) < class_min_attribs.assassin["dex"] or \
+        #             int(self.iq.text()) < class_min_attribs.assassin["iq"]:
+        #         new_list.remove("Assassin")
+        # except ValueError:
+        # pass
 
-        self.enable_classes(new_list)
+        # self.enable_classes(new_list)
 
     def enable_classes(self, classes):
         """Enable radio button associated with authorized classes"""

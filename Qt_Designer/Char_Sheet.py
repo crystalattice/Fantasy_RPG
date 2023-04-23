@@ -246,6 +246,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.morale_adj.setText(str(charisma_abilities.get_char_ability(charisma, 1)))
         self.reaction_adj.setText(str(charisma_abilities.get_char_ability(charisma, 2)))
 
+        self.race_selection()
+
     # TODO: Consider making the following into properties
     # Saving character checks
     def get_char_name(self):
@@ -275,9 +277,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         races = race_vs_attribs.get_acceptable_race(self.get_gender(), int(self.strength.text()), int(self.iq.text()),
                                                     int(self.wis.text()), int(self.dex.text()), int(self.con.text()),
                                                     int(self.chr.text()))
+        # self.char_race.clear()
         self.char_race.addItems(races)
         # self.class_selection()  # Use race to determine eligible classes
-        return self.char_race.currentText()
+        # return self.char_race.currentText()
 
     # TODO: Check attributes vs. class mins
     def class_selection(self):

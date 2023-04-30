@@ -33,8 +33,8 @@ race_abil_limits = (male_dwarf, female_dwarf, male_dark_elf, female_dark_elf, ma
 
 
 def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int, con: int, chr: int) -> list:
-    avail_races = []
-    if gender == "male":
+    avail_races = ["Human"]
+    if gender == "Male":
         if (
                 male_dwarf.STR_min <= strength <= male_dwarf.STR_max and
                 male_dwarf.IQ_min <= iq <= male_dwarf.IQ_max and
@@ -43,7 +43,8 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 male_dwarf.CON_min <= con <= male_dwarf.CON_max and
                 male_dwarf.CHR_min <= chr <= male_dwarf.CHR_max
         ):
-            avail_races.append("dwarf")
+            avail_races.extend(["Dwarf, Grey (Duergar)", "Dwarf, Hill", "Dwarf, Mountain"])
+
         if (
                 male_dark_elf.STR_min <= strength <= male_dark_elf.STR_max and
                 male_dark_elf.IQ_min <= iq <= male_dark_elf.IQ_max and
@@ -52,7 +53,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 male_dark_elf.CON_min <= con <= male_dark_elf.CON_max and
                 male_dark_elf.CHR_min <= chr <= male_dark_elf.CHR_max
         ):
-            avail_races.append("dark elf")
+            avail_races.append("Elf, Dark (Drow)")
         if (
                 male_grey_elf.STR_min <= strength <= male_grey_elf.STR_max and
                 male_grey_elf.IQ_min <= iq <= male_grey_elf.IQ_max and
@@ -61,7 +62,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 male_grey_elf.CON_min <= con <= male_grey_elf.CON_max and
                 male_grey_elf.CHR_min <= chr <= male_grey_elf.CHR_max
         ):
-            avail_races.append("grey elf")
+            avail_races.append("Elf, Grey")
         if (
                 male_half_elf.STR_min <= strength <= male_half_elf.STR_max and
                 male_half_elf.IQ_min <= iq <= male_half_elf.IQ_max and
@@ -70,7 +71,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 male_half_elf.CON_min <= con <= male_half_elf.CON_max and
                 male_half_elf.CHR_min <= chr <= male_half_elf.CHR_max
         ):
-            avail_races.append("half elf")
+            avail_races.append("Half-Elf")
         if (
                 male_high_elf.STR_min <= strength <= male_high_elf.STR_max and
                 male_high_elf.IQ_min <= iq <= male_high_elf.IQ_max and
@@ -79,7 +80,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 male_high_elf.CON_min <= con <= male_high_elf.CON_max and
                 male_high_elf.CHR_min <= chr <= male_high_elf.CHR_max
         ):
-            avail_races.append("high elf")
+            avail_races.append("Elf, High")
         if (
                 male_wild_elf.STR_min <= strength <= male_wild_elf.STR_max and
                 male_wild_elf.IQ_min <= iq <= male_wild_elf.IQ_max and
@@ -88,7 +89,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 male_wild_elf.CON_min <= con <= male_wild_elf.CON_max and
                 male_wild_elf.CHR_min <= chr <= male_wild_elf.CHR_max
         ):
-            avail_races.append("wild elf")
+            avail_races.append("Elf, Wild")
         if (
                 male_wood_elf.STR_min <= strength <= male_wood_elf.STR_max and
                 male_wood_elf.IQ_min <= iq <= male_wood_elf.IQ_max and
@@ -97,7 +98,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 male_wood_elf.CON_min <= con <= male_wood_elf.CON_max and
                 male_wood_elf.CHR_min <= chr <= male_wood_elf.CHR_max
         ):
-            avail_races.append("wood elf")
+            avail_races.append("Elf, Wood")
         if (
                 male_gnome.STR_min <= strength <= male_gnome.STR_max and
                 male_gnome.IQ_min <= iq <= male_gnome.IQ_max and
@@ -106,7 +107,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 male_gnome.CON_min <= con <= male_gnome.CON_max and
                 male_gnome.CHR_min <= chr <= male_gnome.CHR_max
         ):
-            avail_races.append("gnome")
+            avail_races.extend(["Gnome, Deep (Svirfneblin)", "Gnome, Forest", "Gnome, Hill"])
         if (
                 male_halfling.STR_min <= strength <= male_halfling.STR_max and
                 male_halfling.IQ_min <= iq <= male_halfling.IQ_max and
@@ -115,7 +116,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 male_halfling.CON_min <= con <= male_halfling.CON_max and
                 male_halfling.CHR_min <= chr <= male_halfling.CHR_max
         ):
-            avail_races.append("halfling")
+            avail_races.append("Halfling")
         if (
                 male_half_orc.STR_min <= strength <= male_half_orc.STR_max and
                 male_half_orc.IQ_min <= iq <= male_half_orc.IQ_max and
@@ -124,7 +125,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 male_half_orc.CON_min <= con <= male_half_orc.CON_max and
                 male_half_orc.CHR_min <= chr <= male_half_orc.CHR_max
         ):
-            avail_races.append("half orc")
+            avail_races.append("Half-Orc")
     else:  # Females
         if (
                 female_dwarf.STR_min <= strength <= female_dwarf.STR_max and
@@ -134,7 +135,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 female_dwarf.CON_min <= con <= female_dwarf.CON_max and
                 female_dwarf.CHR_min <= chr <= female_dwarf.CHR_max
         ):
-            avail_races.append("dwarf")
+            avail_races.extend(["Dwarf, Grey (Duergar)", "Dwarf, Hill", "Dwarf, Mountain"])
         if (
                 female_dark_elf.STR_min <= strength <= female_dark_elf.STR_max and
                 female_dark_elf.IQ_min <= iq <= female_dark_elf.IQ_max and
@@ -143,7 +144,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 female_dark_elf.CON_min <= con <= female_dark_elf.CON_max and
                 female_dark_elf.CHR_min <= chr <= female_dark_elf.CHR_max
         ):
-            avail_races.append("dark elf")
+            avail_races.append("Elf, Dark (Drow)")
         if (
                 female_grey_elf.STR_min <= strength <= female_grey_elf.STR_max and
                 female_grey_elf.IQ_min <= iq <= female_grey_elf.IQ_max and
@@ -152,7 +153,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 female_grey_elf.CON_min <= con <= female_grey_elf.CON_max and
                 female_grey_elf.CHR_min <= chr <= female_grey_elf.CHR_max
         ):
-            avail_races.append("grey elf")
+            avail_races.append("Elf, Grey")
         if (
                 female_half_elf.STR_min <= strength <= female_half_elf.STR_max and
                 female_half_elf.IQ_min <= iq <= female_half_elf.IQ_max and
@@ -161,7 +162,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 female_half_elf.CON_min <= con <= female_half_elf.CON_max and
                 female_half_elf.CHR_min <= chr <= female_half_elf.CHR_max
         ):
-            avail_races.append("half elf")
+            avail_races.append("Half-Elf")
         if (
                 female_high_elf.STR_min <= strength <= female_high_elf.STR_max and
                 female_high_elf.IQ_min <= iq <= female_high_elf.IQ_max and
@@ -170,7 +171,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 female_high_elf.CON_min <= con <= female_high_elf.CON_max and
                 female_high_elf.CHR_min <= chr <= female_high_elf.CHR_max
         ):
-            avail_races.append("high elf")
+            avail_races.append("Elf, High")
         if (
                 female_wild_elf.STR_min <= strength <= female_wild_elf.STR_max and
                 female_wild_elf.IQ_min <= iq <= female_wild_elf.IQ_max and
@@ -179,7 +180,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 female_wild_elf.CON_min <= con <= female_wild_elf.CON_max and
                 female_wild_elf.CHR_min <= chr <= female_wild_elf.CHR_max
         ):
-            avail_races.append("wild elf")
+            avail_races.append("Elf, Wild")
         if (
                 female_wood_elf.STR_min <= strength <= female_wood_elf.STR_max and
                 female_wood_elf.IQ_min <= iq <= female_wood_elf.IQ_max and
@@ -188,7 +189,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 female_wood_elf.CON_min <= con <= female_wood_elf.CON_max and
                 female_wood_elf.CHR_min <= chr <= female_wood_elf.CHR_max
         ):
-            avail_races.append("wood elf")
+            avail_races.append("Elf, Wood")
         if (
                 female_gnome.STR_min <= strength <= female_gnome.STR_max and
                 female_gnome.IQ_min <= iq <= female_gnome.IQ_max and
@@ -197,7 +198,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 female_gnome.CON_min <= con <= female_gnome.CON_max and
                 female_gnome.CHR_min <= chr <= female_gnome.CHR_max
         ):
-            avail_races.append("gnome")
+            avail_races.extend(["Gnome, Deep (Svirfneblin)", "Gnome, Forest", "Gnome, Hill"])
         if (
                 female_halfling.STR_min <= strength <= female_halfling.STR_max and
                 female_halfling.IQ_min <= iq <= female_halfling.IQ_max and
@@ -206,7 +207,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 female_halfling.CON_min <= con <= female_halfling.CON_max and
                 female_halfling.CHR_min <= chr <= female_halfling.CHR_max
         ):
-            avail_races.append("halfling")
+            avail_races.append("Halfling")
         if (
                 female_half_orc.STR_min <= strength <= female_half_orc.STR_max and
                 female_half_orc.IQ_min <= iq <= female_half_orc.IQ_max and
@@ -215,7 +216,7 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
                 female_half_orc.CON_min <= con <= female_half_orc.CON_max and
                 female_half_orc.CHR_min <= chr <= female_half_orc.CHR_max
         ):
-            avail_races.append("half orc")
+            avail_races.append("Half-Orc")
     return avail_races
 
 

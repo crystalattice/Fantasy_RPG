@@ -49,15 +49,22 @@ class Wizard(QWizard, Ui_Wizard):
         self.race = self.Race_buttonGroup.checkedButton().text()
         self.gender = self.Gender_buttonGroup.checkedButton().text()
         self.prime_class = self.First_Class_groupBox
-        self.second_class = self.Second_Class_groupBox
-        self.third_class = self.Third_Class_groupBox
+        self.second_class = self.Second_Class_groupBox_2
+        self.third_class = self.Third_Class_groupBox_2
 
         # Buttons
         self.roll_dice.clicked.connect(self.roll_attribs)
         self.button(QWizard.FinishButton).clicked.connect(self.finished)
-        self.button(QWizard.NextButton).clicked.connect(self.populate_races)
-        self.button(QWizard.NextButton).clicked.connect(self.possible_classes)
+        self.button(QWizard.NextButton).clicked.connect(self.confirm_page)
+        self.button(QWizard.BackButton).clicked.connect(self.confirm_page)
+        # self.button(QWizard.NextButton).clicked.connect(self.possible_classes)
 
+    def confirm_page(self):
+        """Check for current Wizard page and apply appropriate method"""
+        if self.currentId() == 1:
+            self.populate_races()
+        elif self.currentId() == 2:
+            self.possible_classes()
     def roll_attribs(self):
         """Roll the dice for character attributes"""
         if self.roll_type.checkedButton().text() == "4d6, drop lowest":
@@ -97,12 +104,37 @@ class Wizard(QWizard, Ui_Wizard):
 
     def populate_races(self):
         """Enable appropriate radio buttons for available races, based on attributes and gender"""
-        # races = race_vs_attribs.get_acceptable_race(self.get_gender(), int(self.strength.text()), int(self.iq.text()),
-        #                                             int(self.wis.text()), int(self.dex.text()), int(self.con.text()),
-        #                                             int(self.chr.text()))
-        print("HERE")
-        # if "Dwarf, Hill" in races:
-        #     self.Dwarf_Hill_radioButton.setEnabled()
+        races = race_vs_attribs.get_acceptable_race(self.get_gender(), int(self.strength.text()), int(self.iq.text()),
+                                                    int(self.wis.text()), int(self.dex.text()), int(self.con.text()),
+                                                    int(self.chr.text()))
+        if "Dwarf, Hill" in races:
+            self.Dwarf_Hill_radioButton.setEnabled(True)
+        if "Dwarf, Grey (Duergar)" in races:
+            self.Dwarf_Gray_radioButton.setEnabled(True)
+        if "Dwarf, Mountain" in races:
+            self.Dwarf_Mountain_radioButton.setEnabled(True)
+        if "Elf, Dark (Drow)" in races:
+            self.Elf_Dark_radioButton.setEnabled(True)
+        if "Elf, Grey" in races:
+            self.Elf_Gray_radioButton.setEnabled(True)
+        if "Half-Elf" in races:
+            self.Elf_Half_radioButton.setEnabled(True)
+        if "Elf, High" in races:
+            self.Elf_High_radioButton.setEnabled(True)
+        if "Elf, Wood" in races:
+            self.Elf_Wood_radioButton.setEnabled(True)
+        if "Elf, Wild" in races:
+            self.Elf_Wild_radioButton.setEnabled(True)
+        if "Gnome, Deep (Svirfneblin)" in races:
+            self.Gnome_Deep_radioButton.setEnabled(True)
+        if "Gnome, Forest" in races:
+            self.Gnome_Forest_radioButton.setEnabled(True)
+        if "Gnome, Hill" in races:
+            self.Gnome_Hill_radioButton.setEnabled(True)
+        if "Halfling" in races:
+            self.Halfling_radioButton.setEnabled(True)
+        if "Half-Orc" in races:
+            self.Half_Orc_radioButton.setEnabled(True)
 
     def get_race(self):
         """Get the selected race radiobutton"""
@@ -111,9 +143,7 @@ class Wizard(QWizard, Ui_Wizard):
     def possible_classes(self):
         """Determine which classes the character is eligible for, based on previous selections"""
         # TODO: Have a check to ensure that the attributes are rolled
-        print(self.gender)
-        print(self.strength.text())
-        print(self.populate_races())
+        print(self.get_race())
 
         # new_list = []
         # try:

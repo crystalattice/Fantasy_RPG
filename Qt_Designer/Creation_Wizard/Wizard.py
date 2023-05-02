@@ -47,7 +47,6 @@ class Wizard(QWizard, Ui_Wizard):
         self.wis = self.WIS_Out_label
         self.con = self.CON_Out_label
         self.chr = self.CHR_Out_label
-        self.race = self.Race_groupBox
         self.prime_class = self.First_Class_groupBox
         self.second_class = self.Second_Class_groupBox
         self.third_class = self.Third_Class_groupBox
@@ -65,6 +64,7 @@ class Wizard(QWizard, Ui_Wizard):
             self.populate_races()
         elif self.currentId() == 2:
             self.possible_classes()
+
     def roll_attribs(self):
         """Roll the dice for character attributes"""
         if self.roll_type.checkedButton().text() == "4d6, drop lowest":
@@ -100,10 +100,11 @@ class Wizard(QWizard, Ui_Wizard):
 
     def get_gender(self):
         """Get the selected gender radiobutton"""
-        if self.Male_radioButton.isChecked():
-            return "Male"
-        else:
-            return "Female"
+        # # if self.Male_radioButton.isChecked():
+        #     return "Male"
+        # else:
+        #     return "Female"
+        return self.Gender_buttonGroup.checkedButton().text()
 
     def populate_races(self):
         """Enable appropriate radio buttons for available races, based on attributes and gender"""
@@ -141,13 +142,13 @@ class Wizard(QWizard, Ui_Wizard):
 
     def get_race(self):
         """Get the selected race radiobutton"""
-        return self.race
+        return self.Race_buttonGroup.checkedButton().text()
 
     def possible_classes(self):
         """Determine which classes the character is eligible for, based on previous selections"""
         # TODO: Have a check to ensure that the attributes are rolled
-        print(self.race)
-        # print(get_acceptable_class.get_one_class(self.get_race()))
+        print(self.get_race())
+        print(get_acceptable_class.get_one_class(self.get_race()))
         # print(Adv_Dark_Deep.Char_Creation.get_acceptable_class.get_one_class(self.get_race()))
         # new_list = []
         # try:

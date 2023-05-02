@@ -4,6 +4,7 @@ from PyQt5.QtCore import Qt, pyqtSlot
 from PyQt5.QtWidgets import QApplication, QWizard, QPushButton, QButtonGroup, QLineEdit, QLabel, QGroupBox, \
     QRadioButton, QGridLayout, QWizardPage, QWidget
 
+import Adv_Dark_Deep
 from New_Char_Wizard import Ui_Wizard
 from Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class, class_min_attribs, race_vs_attribs
 
@@ -46,11 +47,10 @@ class Wizard(QWizard, Ui_Wizard):
         self.wis = self.WIS_Out_label
         self.con = self.CON_Out_label
         self.chr = self.CHR_Out_label
-        self.race = self.Race_buttonGroup.checkedButton().text()
-        self.gender = self.Gender_buttonGroup.checkedButton().text()
+        self.race = self.Race_groupBox
         self.prime_class = self.First_Class_groupBox
-        self.second_class = self.Second_Class_groupBox_2
-        self.third_class = self.Third_Class_groupBox_2
+        self.second_class = self.Second_Class_groupBox
+        self.third_class = self.Third_Class_groupBox
 
         # Buttons
         self.roll_dice.clicked.connect(self.roll_attribs)
@@ -100,7 +100,10 @@ class Wizard(QWizard, Ui_Wizard):
 
     def get_gender(self):
         """Get the selected gender radiobutton"""
-        return self.gender
+        if self.Male_radioButton.isChecked():
+            return "Male"
+        else:
+            return "Female"
 
     def populate_races(self):
         """Enable appropriate radio buttons for available races, based on attributes and gender"""
@@ -143,8 +146,9 @@ class Wizard(QWizard, Ui_Wizard):
     def possible_classes(self):
         """Determine which classes the character is eligible for, based on previous selections"""
         # TODO: Have a check to ensure that the attributes are rolled
-        print(self.get_race())
-
+        print(self.race)
+        # print(get_acceptable_class.get_one_class(self.get_race()))
+        # print(Adv_Dark_Deep.Char_Creation.get_acceptable_class.get_one_class(self.get_race()))
         # new_list = []
         # try:
         #     if (self.get_race() == "Dwarf, Hill" or self.get_race() == "Dwarf, Mountain" or

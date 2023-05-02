@@ -221,5 +221,5 @@ def get_acceptable_race(gender: str, strength: int, iq: int, wis: int, dex: int,
 
 
 if __name__ == "__main__":
-    print(get_acceptable_race("male", 9, 5, 10, 6, 13, 9))
-    print(get_acceptable_race("female", 13, 13, 12, 14, 12, 12))
+    print(get_acceptable_race("Male", 9, 5, 10, 6, 13, 9))
+    print(get_acceptable_race("Female", 13, 13, 12, 14, 12, 12))

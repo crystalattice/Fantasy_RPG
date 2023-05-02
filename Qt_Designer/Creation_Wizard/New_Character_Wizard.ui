@@ -462,12 +462,12 @@
         </widget>
        </item>
        <item row="5" column="0">
-        <widget class="QRadioButton" name="Elf_Gray_radioButton">
+        <widget class="QRadioButton" name="Elf_Grey_radioButton">
          <property name="enabled">
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>Elf, Gray</string>
+          <string>Elf, Grey</string>
          </property>
          <property name="checked">
           <bool>false</bool>
@@ -590,12 +590,12 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QRadioButton" name="Dwarf_Gray_radioButton">
+        <widget class="QRadioButton" name="Dwarf_Grey_radioButton">
          <property name="enabled">
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>Dwarf, Gray</string>
+          <string>Dwarf, Grey</string>
          </property>
          <property name="checked">
           <bool>false</bool>

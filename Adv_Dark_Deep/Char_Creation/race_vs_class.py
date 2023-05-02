@@ -25,11 +25,11 @@ class AcceptableCharClass(Base):
     """
     __tablename__: str = "Class_by_Race"  # Race vs. Class
     Char_Class: str = Column(String, primary_key=True)
-    Dwarf_Gray: bool = Column(Boolean, default=False)
+    Dwarf_Grey: bool = Column(Boolean, default=False)
     Dwarf_Hill: bool = Column(Boolean, default=False)
     Dwarf_Mountain: bool = Column(Boolean, default=False)
     Elf_Dark: bool = Column(Boolean, default=False)
-    Elf_Gray: bool = Column(Boolean, default=False)
+    Elf_Grey: bool = Column(Boolean, default=False)
     Elf_Half: bool = Column(Boolean, default=False)
     Elf_High: bool = Column(Boolean, default=False)
     Elf_Wild: bool = Column(Boolean, default=False)
@@ -49,13 +49,13 @@ def get_classes(race: str) -> list:
     if race == "Hill Dwarf":
         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Dwarf_Hill)
     elif race == "Grey Dwarf":
-        classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Dwarf_Gray)
+        classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Dwarf_Grey)
     elif race == "Mountain Dwarf":
         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Dwarf_Mountain)
     elif race == "Dark Elf":
         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Dark)
     elif race == "Grey Elf":
-        classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Gray)
+        classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Grey)
     elif race == "Half-Elf":
         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Half)
     elif race == "High Elf":

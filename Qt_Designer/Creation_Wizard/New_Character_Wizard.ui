@@ -855,7 +855,7 @@
        <item>
         <widget class="QGroupBox" name="Second_Class_groupBox">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="title">
           <string>Second Class</string>
@@ -865,13 +865,22 @@
            <layout class="QVBoxLayout" name="verticalLayout_21">
             <item>
              <widget class="QRadioButton" name="Bard_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Bard</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QRadioButton" name="Jester_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Jester</string>
               </property>
@@ -879,6 +888,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Cavalier_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Cavalier</string>
               </property>
@@ -886,6 +898,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Paladin_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Paladin</string>
               </property>
@@ -893,6 +908,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Cleric_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Cleric</string>
               </property>
@@ -900,6 +918,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Druid_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Druid</string>
               </property>
@@ -907,6 +928,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Mystic_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Mystic</string>
               </property>
@@ -914,6 +938,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Fighter_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Fighter</string>
               </property>
@@ -921,6 +948,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Barbarian_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Barbarian</string>
               </property>
@@ -928,6 +958,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Ranger_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Ranger</string>
               </property>
@@ -939,6 +972,9 @@
            <layout class="QVBoxLayout" name="verticalLayout_22">
             <item>
              <widget class="QRadioButton" name="Mage_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Mage</string>
               </property>
@@ -946,6 +982,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Illusionist_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Illusionist</string>
               </property>
@@ -953,6 +992,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Savant_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Savant</string>
               </property>
@@ -960,6 +1002,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Thief_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Thief</string>
               </property>
@@ -967,6 +1012,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Thief_Acrobat_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Thief-Acrobat</string>
               </property>
@@ -974,6 +1022,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Mountebank_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Mountebank</string>
               </property>
@@ -981,6 +1032,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Assassin_radioButton_5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Assassin</string>
               </property>
@@ -1001,7 +1055,7 @@
        <item>
         <widget class="QGroupBox" name="Third_Class_groupBox">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="title">
           <string>Third Class</string>
@@ -1011,6 +1065,9 @@
            <layout class="QVBoxLayout" name="verticalLayout_23">
             <item>
              <widget class="QRadioButton" name="Bard_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Bard</string>
               </property>
@@ -1018,6 +1075,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Jester_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Jester</string>
               </property>
@@ -1025,6 +1085,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Cavalier_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Cavalier</string>
               </property>
@@ -1032,6 +1095,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Paladin_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Paladin</string>
               </property>
@@ -1039,6 +1105,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Cleric_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Cleric</string>
               </property>
@@ -1046,6 +1115,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Druid_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Druid</string>
               </property>
@@ -1053,6 +1125,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Mystic_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Mystic</string>
               </property>
@@ -1060,6 +1135,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Fighter_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Fighter</string>
               </property>
@@ -1067,6 +1145,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Barbarian_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Barbarian</string>
               </property>
@@ -1074,6 +1155,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Ranger_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Ranger</string>
               </property>
@@ -1085,6 +1169,9 @@
            <layout class="QVBoxLayout" name="verticalLayout_24">
             <item>
              <widget class="QRadioButton" name="Mage_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Mage</string>
               </property>
@@ -1092,6 +1179,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Illusionist_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Illusionist</string>
               </property>
@@ -1099,6 +1189,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Savant_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Savant</string>
               </property>
@@ -1106,6 +1199,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Thief_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Thief</string>
               </property>
@@ -1113,6 +1209,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Thief_Acrobat_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Thief-Acrobat</string>
               </property>
@@ -1120,6 +1219,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Mountebank_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Mountebank</string>
               </property>
@@ -1127,6 +1229,9 @@
             </item>
             <item>
              <widget class="QRadioButton" name="Assassin_radioButton_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Assassin</string>
               </property>

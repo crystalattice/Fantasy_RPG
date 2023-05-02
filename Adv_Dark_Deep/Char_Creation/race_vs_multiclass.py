@@ -27,7 +27,7 @@ class AcceptableMultiClass(Base):
     Multi_class: str = Column(String, primary_key=True)
     Dwarf: bool = Column(Boolean, default=False)
     Elf_Dark: bool = Column(Boolean, default=False)
-    Elf_Gray: bool = Column(Boolean, default=False)
+    Elf_Grey: bool = Column(Boolean, default=False)
     Elf_Half: bool = Column(Boolean, default=False)
     Elf_High: bool = Column(Boolean, default=False)
     Elf_Wild: bool = Column(Boolean, default=False)
@@ -52,7 +52,7 @@ def get_classes(race: str) -> list:
     elif race == "Dark Elf":
         classes = session.query(AcceptableMultiClass.Multi_class).filter(AcceptableMultiClass.Elf_Dark)
     elif race == "Grey Elf":
-        classes = session.query(AcceptableMultiClass.Multi_class).filter(AcceptableMultiClass.Elf_Gray)
+        classes = session.query(AcceptableMultiClass.Multi_class).filter(AcceptableMultiClass.Elf_Grey)
     elif race == "Half-Elf":
         classes = session.query(AcceptableMultiClass.Multi_class).filter(AcceptableMultiClass.Elf_Half)
     elif race == "High Elf":

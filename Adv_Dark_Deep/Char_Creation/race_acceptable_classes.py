@@ -1,31 +1,31 @@
 # names are keyed to GUI text
 single_class = {
-    "dwarf, grey (duergar)": ("Cleric", "Fighter", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
-    "dwarf, hill": ("Cleric", "Fighter", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
-    "dwarf, mountain": ("Cleric", "Fighter", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
-    "elf, dark (drow)": ("Bard", "Cavalier", "Cleric", "Fighter", "Ranger", "Mage", "Savant", "Thief", "Thief-Acrobat",
+    "Dwarf, Grey (duergar)": ("Cleric", "Fighter", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
+    "Dwarf, Hill": ("Cleric", "Fighter", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
+    "Dwarf, Mountain": ("Cleric", "Fighter", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
+    "Elf, Dark (Drow)": ("Bard", "Cavalier", "Cleric", "Fighter", "Ranger", "Mage", "Savant", "Thief", "Thief-Acrobat",
                         "Mountebank", "Assassin"),
-    "elf, grey": ("Bard", "Cleric", "Druid", "Mystic", "Fighter", "Ranger", "Mage", "Savant", "Thief", "Thief-Acrobat",
+    "Elf, Grey": ("Bard", "Cleric", "Druid", "Mystic", "Fighter", "Ranger", "Mage", "Savant", "Thief", "Thief-Acrobat",
                   "Assassin"),
-    "elf, half": ("Bard", "Cavalier", "Cleric", "Druid", "Mystic", "Fighter", "Ranger", "Mage", "Savant", "Thief",
+    "Half-Elf": ("Bard", "Cavalier", "Cleric", "Druid", "Mystic", "Fighter", "Ranger", "Mage", "Savant", "Thief",
                   "Thief-Acrobat", "Mountebank", "Assassin"),
-    "elf, high": ("Bard", "Cavalier", "Cleric", "Druid", "Mystic", "Fighter", "Ranger", "Mage", "Savant", "Thief",
+    "Elf, High": ("Bard", "Cavalier", "Cleric", "Druid", "Mystic", "Fighter", "Ranger", "Mage", "Savant", "Thief",
                   "Thief-Acrobat", "Mountebank", "Assassin"),
-    "elf, wild": ("Druid", "Mystic", "Fighter", "Thief", "Thief-Acrobat"),
-    "elf, wood": ("Bard", "Cleric", "Druid", "Mystic", "Fighter", "Ranger", "Mage", "Thief", "Thief-Acrobat",
+    "Elf, Wild": ("Druid", "Mystic", "Fighter", "Thief", "Thief-Acrobat"),
+    "Elf, Wood": ("Bard", "Cleric", "Druid", "Mystic", "Fighter", "Ranger", "Mage", "Thief", "Thief-Acrobat",
                   "Mountebank", "Assassin"),
-    "gnome, deep (svirfneblin)": ("Bard", "Cleric", "Fighter", "Illusionist", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
-    "gnome, forest": ("Bard", "Jester", "Druid", "Fighter", "Savant", "Thief", "Thief-Acrobat", "Mountebank",
+    "Gnome, Deep (Svirfneblin)": ("Bard", "Cleric", "Fighter", "Illusionist", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
+    "Gnome, Forest": ("Bard", "Jester", "Druid", "Fighter", "Savant", "Thief", "Thief-Acrobat", "Mountebank",
                       "Assassin"),
-    "gnome, hill": ("Bard", "Cleric", "Fighter", "Illusionist", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
-    "halfling": ("Bard", "Jester", "Cleric", "Druid", "Mystic", "Fighter", "Thief", "Thief-Acrobat", "Mountebank",
+    "Gnome, Hill": ("Bard", "Cleric", "Fighter", "Illusionist", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
+    "Halfling": ("Bard", "Jester", "Cleric", "Druid", "Mystic", "Fighter", "Thief", "Thief-Acrobat", "Mountebank",
                  "Assassin"),
-    "half-orc": ("Cleric", "Fighter", "Barbarian", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
-    "human": ("Bard", "Jester", "Cavalier", "Paladin", "Cleric", "Druid", "Mystic", "Fighter", "Barbarian", "Ranger",
+    "Half-Orc": ("Cleric", "Fighter", "Barbarian", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
+    "Human": ("Bard", "Jester", "Cavalier", "Paladin", "Cleric", "Druid", "Mystic", "Fighter", "Barbarian", "Ranger",
               "Mage", "Illusionist", "Savant", "Thief", "Thief-Acrobat", "Mountebank", "Assassin"),
 }
 multi_class = {
-    "dwarf": (
+    "Dwarf": (
         ("Cleric", "Fighter"),
         ("Cleric", "Thief"),
         ("Cleric", "Thief-Acrobat"),
@@ -33,7 +33,7 @@ multi_class = {
         ("Fighter", "Thief"),
         ("Fighter", "Thief-Acrobat")
     ),
-    "elf, dark (drow)": (
+    "Elf, Dark (Drow)": (
         ("Cleric", "Fighter"),
         ("Cleric", "Fighter", "Mage"),
         ("Cleric", "Fighter", "Savant"),
@@ -55,7 +55,7 @@ multi_class = {
         ("Mage", "Thief"),
         ("Mage", "Thief-Acrobat")
     ),
-    "elf, grey": (
+    "Elf, Grey": (
         ("Cleric", "Fighter"),
         ("Cleric", "Fighter", "Mage"),
         ("Cleric", "Ranger"),
@@ -81,7 +81,7 @@ multi_class = {
         ("Savant", "Thief-Acrobat"),
         ("Savant", "Mountebank")
     ),
-    "elf, high": (
+    "Elf, High": (
         ("Cleric", "Fighter"),
         ("Cleric", "Fighter", "Mage"),
         ("Cleric", "Fighter", "Savant"),
@@ -121,11 +121,11 @@ multi_class = {
         ("Savant", "Thief-Acrobat"),
         ("Savant", "Mountebank")
     ),
-    "elf, wild": (
+    "Elf, Wild": (
         ("Fighter", "Thief"),
         ("Fighter", "Thief-Acrobat")
     ),
-    "elf, wood": (
+    "Elf, Wood": (
         ("Cleric", "Fighter"),
         ("Cleric", "Fighter", "Mage"),
         ("Cleric", "Ranger"),
@@ -150,7 +150,7 @@ multi_class = {
         ("Mystic", "Thief"),
         ("Mystic", "Thief-Acrobat")
     ),
-    "gnome, deep (svirfneblin)": (
+    "Gnome, Deep (Svirfneblin)": (
         ("Cleric", "Fighter"),
         ("Cleric", "Thief"),
         ("Cleric", "Thief-Acrobat"),
@@ -165,7 +165,7 @@ multi_class = {
         ("Fighter", "Assassin"),
         ("Illusionist", "Assassin")
     ),
-    "gnome, forest": (
+    "Gnome, Forest": (
         ("Druid", "Fighter"),
         ("Druid", "Thief"),
         ("Druid", "Thief-Acrobat"),
@@ -179,7 +179,7 @@ multi_class = {
         ("Fighter", "Assassin"),
         ("Illusionist", "Assassin")
     ),
-    "gnome, hill": (
+    "Gnome, Hill": (
         ("Cleric", "Fighter"),
         ("Cleric", "Thief"),
         ("Cleric", "Thief-Acrobat"),
@@ -195,7 +195,7 @@ multi_class = {
         ("Fighter", "Assassin"),
         ("Illusionist", "Assassin")
     ),
-    "halfling": (
+    "Halfling": (
         ("Cleric", "Fighter"),
         ("Cleric", "Thief"),
         ("Cleric", "Thief-Acrobat"),
@@ -209,7 +209,7 @@ multi_class = {
         ("Jester", "Thief-Acrobat"),
         ("Mystic", "Fighter")
     ),
-    "half-orc": (
+    "Half-Orc": (
         ("Cleric", "Fighter"),
         ("Cleric", "Mountebank"),
         ("Cleric", "Thief"),

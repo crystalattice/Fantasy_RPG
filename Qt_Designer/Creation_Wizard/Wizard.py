@@ -1,3 +1,4 @@
+import pickle
 import sys
 
 from PyQt5.QtCore import Qt, pyqtSlot
@@ -350,21 +351,40 @@ class Wizard(QWizard, Ui_Wizard):
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""
         prime_class, second_class, third_class = self.get_classes()
-        print(
-            self.name.text(),
-            self.get_gender(),
-            self.strength.text(),
-            self.bonus_strength.text(),
-            self.iq.text(),
-            self.wis.text(),
-            self.dex.text(),
-            self.con.text(),
-            self.chr.text(),
-            self.get_race(),
-            prime_class,
-            second_class,
-            third_class
-        )
+        # print(
+        #     self.name.text(),
+        #     self.get_gender(),
+        #     self.strength.text(),
+        #     self.bonus_strength.text(),
+        #     self.iq.text(),
+        #     self.wis.text(),
+        #     self.dex.text(),
+        #     self.con.text(),
+        #     self.chr.text(),
+        #     self.get_race(),
+        #     prime_class,
+        #     second_class,
+        #     third_class
+        # )
+
+        wizard_save_name: str = self.name.text()
+        char_vals: dict[str | Any, str | Any] = {
+            "char_name": self.name.text(),
+            "str": int(self.strength.text()),
+            "bonus_str": int(self.bonus_strength.text()),
+            "dex": int(self.dex.text()),
+            "wis": int(self.wis.text()),
+            "iq": int(self.iq.text()),
+            "chr": int(self.chr.text()),
+            "con": int(self.con.text()),
+            "race": self.get_race(),
+            "class": prime_class,
+            "second_class": second_class,
+            "third_class": third_class,
+        }
+        # with open(f"{wizard_save_name}", "wb") as save_file:
+        #     pickle.dump(char_vals, save_file)
+        print(char_vals)
 
 
 app = QApplication(sys.argv)

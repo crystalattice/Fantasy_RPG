@@ -1,5 +1,6 @@
 import pickle
 import sys
+from pathlib import Path
 
 from PyQt5.QtCore import Qt, pyqtSlot
 from PyQt5.QtWidgets import QApplication, QWizard, QPushButton, QButtonGroup, QLineEdit, QLabel, QGroupBox, \
@@ -313,6 +314,7 @@ class Wizard(QWizard, Ui_Wizard):
             no_name_msg.setIcon(QMessageBox.Icon.Warning)
             button = no_name_msg.exec()
             button = QMessageBox.StandardButtons(button)
+
         if self.multi is True:
             if "Bard" in self.classes:
                 self.Bard_radioButton_5.setEnabled(True)
@@ -396,10 +398,11 @@ class Wizard(QWizard, Ui_Wizard):
             "second_class": second_class,
             "third_class": third_class,
         }
-
-        # with open(f"{wizard_save_name}", "wb") as save_file:
-        #     pickle.dump(char_vals, save_file)
-        print(char_vals)
+        save_dir = Path(Path.home().joinpath("Adv_Dark_Deep").joinpath("Characters"))
+        Path.mkdir(save_dir, parents=True, exist_ok=True)
+        wizard_character = save_dir.joinpath(wizard_save_name)
+        with open(f"{wizard_character}", "wb") as save_file:
+            pickle.dump(char_vals, save_file)
 
 
 app = QApplication(sys.argv)

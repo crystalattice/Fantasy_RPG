@@ -26,13 +26,13 @@ def get_multi_class(race: str) -> tuple:
 #         # classes = rac.
 #         pass
 #     elif race == "Grey Dwarf":
-#         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Dwarf_Gray)
+#         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Dwarf_Grey)
 #     elif race == "Mountain Dwarf":
 #         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Dwarf_Mountain)
 #     elif race == "Dark Elf":
 #         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Dark)
 #     elif race == "Grey Elf":
-#         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Gray)
+#         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Grey)
 #     elif race == "Half-Elf":
 #         classes = session.query(AcceptableCharClass.Char_Class).filter(AcceptableCharClass.Elf_Half)
 #     elif race == "High Elf":

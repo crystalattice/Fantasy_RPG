@@ -659,6 +659,9 @@
               <property name="text">
                <string>Bard</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -669,6 +672,9 @@
               <property name="text">
                <string>Jester</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -679,6 +685,9 @@
               <property name="text">
                <string>Cavalier</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -689,6 +698,9 @@
               <property name="text">
                <string>Paladin</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -699,6 +711,9 @@
               <property name="text">
                <string>Cleric</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -709,6 +724,9 @@
               <property name="text">
                <string>Druid</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -719,6 +737,9 @@
               <property name="text">
                <string>Mystic</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -729,6 +750,9 @@
               <property name="text">
                <string>Fighter</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -739,6 +763,9 @@
               <property name="text">
                <string>Barbarian</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -749,6 +776,9 @@
               <property name="text">
                <string>Ranger</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
            </layout>
@@ -763,6 +793,9 @@
               <property name="text">
                <string>Mage</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -773,6 +806,9 @@
               <property name="text">
                <string>Illusionist</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -783,6 +819,9 @@
               <property name="text">
                <string>Savant</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -793,6 +832,9 @@
               <property name="text">
                <string>Thief</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -803,6 +845,9 @@
               <property name="text">
                <string>Thief-Acrobat</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -813,6 +858,9 @@
               <property name="text">
                <string>Mountebank</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -823,6 +871,9 @@
               <property name="text">
                <string>Assassin</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">First_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
            </layout>
@@ -874,6 +925,9 @@
               <property name="checked">
                <bool>true</bool>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -884,6 +938,9 @@
               <property name="text">
                <string>Jester</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -894,6 +951,9 @@
               <property name="text">
                <string>Cavalier</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -904,6 +964,9 @@
               <property name="text">
                <string>Paladin</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -914,6 +977,9 @@
               <property name="text">
                <string>Cleric</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -924,6 +990,9 @@
               <property name="text">
                <string>Druid</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -934,6 +1003,9 @@
               <property name="text">
                <string>Mystic</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -944,6 +1016,9 @@
               <property name="text">
                <string>Fighter</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -954,6 +1029,9 @@
               <property name="text">
                <string>Barbarian</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -964,6 +1042,9 @@
               <property name="text">
                <string>Ranger</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
            </layout>
@@ -978,6 +1059,9 @@
               <property name="text">
                <string>Mage</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -988,6 +1072,9 @@
               <property name="text">
                <string>Illusionist</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -998,6 +1085,9 @@
               <property name="text">
                <string>Savant</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1008,6 +1098,9 @@
               <property name="text">
                <string>Thief</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1018,6 +1111,9 @@
               <property name="text">
                <string>Thief-Acrobat</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1028,6 +1124,9 @@
               <property name="text">
                <string>Mountebank</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1038,6 +1137,9 @@
               <property name="text">
                <string>Assassin</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Second_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
            </layout>
@@ -1071,6 +1173,9 @@
               <property name="text">
                <string>Bard</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1081,6 +1186,9 @@
               <property name="text">
                <string>Jester</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1091,6 +1199,9 @@
               <property name="text">
                <string>Cavalier</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1101,6 +1212,9 @@
               <property name="text">
                <string>Paladin</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1111,6 +1225,9 @@
               <property name="text">
                <string>Cleric</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1121,6 +1238,9 @@
               <property name="text">
                <string>Druid</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1131,6 +1251,9 @@
               <property name="text">
                <string>Mystic</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1141,6 +1264,9 @@
               <property name="text">
                <string>Fighter</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1151,6 +1277,9 @@
               <property name="text">
                <string>Barbarian</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1161,6 +1290,9 @@
               <property name="text">
                <string>Ranger</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
            </layout>
@@ -1175,6 +1307,9 @@
               <property name="text">
                <string>Mage</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1185,6 +1320,9 @@
               <property name="text">
                <string>Illusionist</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1195,6 +1333,9 @@
               <property name="text">
                <string>Savant</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1205,6 +1346,9 @@
               <property name="text">
                <string>Thief</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1215,6 +1359,9 @@
               <property name="text">
                <string>Thief-Acrobat</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1225,6 +1372,9 @@
               <property name="text">
                <string>Mountebank</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -1235,6 +1385,9 @@
               <property name="text">
                <string>Assassin</string>
               </property>
+              <attribute name="buttonGroup">
+               <string notr="true">Third_Class_buttonGroup</string>
+              </attribute>
              </widget>
             </item>
            </layout>
@@ -1274,5 +1427,8 @@
   <buttongroup name="Gender_buttonGroup"/>
   <buttongroup name="Dice_Type_buttonGroup"/>
   <buttongroup name="Race_buttonGroup"/>
+  <buttongroup name="First_Class_buttonGroup"/>
+  <buttongroup name="Second_Class_buttonGroup"/>
+  <buttongroup name="Third_Class_buttonGroup"/>
  </buttongroups>
 </ui>

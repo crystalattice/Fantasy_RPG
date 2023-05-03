@@ -47,16 +47,14 @@ class Wizard(QWizard, Ui_Wizard):
         self.chr = self.CHR_Out_label
         self.multi = False
         self.classes = ()
-        # self.prime_class = self.First_Class_groupBox
-        # self.second_class = self.Second_Class_groupBox
-        # self.third_class = self.Third_Class_groupBox
+
+
 
         # Buttons
         self.roll_dice.clicked.connect(self.roll_attribs)
         self.button(QWizard.FinishButton).clicked.connect(self.finished)
         self.button(QWizard.NextButton).clicked.connect(self.confirm_page)
         self.button(QWizard.BackButton).clicked.connect(self.confirm_page)
-        # self.button(QWizard.NextButton).clicked.connect(self.possible_classes)
 
     def confirm_page(self):
         """Check for current Wizard page and apply appropriate method"""
@@ -241,15 +239,11 @@ class Wizard(QWizard, Ui_Wizard):
 
     def enable_classes(self):
         """Enable radio button associated with authorized classes"""
-        print(self.get_gender())
-        print(self.get_race())
         if self.get_race() == "Human":
             self.multi = False
         else:
             self.multi = True
-        print(self.multi)
         self.classes = get_acceptable_class.get_one_class(self.get_race())
-        print(self.classes)
 
         # TODO: Figure out how to not brute-force this
         if "Bard" in self.classes:
@@ -290,10 +284,6 @@ class Wizard(QWizard, Ui_Wizard):
     def multi_class(self):
         """Enable multiclass selections"""
         if self.multi is True:
-            # self.Second_Class_groupBox.setEnabled(True)
-            # self.Third_Class_groupBox.setEnabled(True)
-            print("Multi")
-            print(self.classes)
             if "Bard" in self.classes:
                 self.Bard_radioButton_5.setEnabled(True)
                 self.Bard_radioButton_6.setEnabled(True)
@@ -345,158 +335,36 @@ class Wizard(QWizard, Ui_Wizard):
             if "Assassin" in self.classes:
                 self.Assassin_radioButton_5.setEnabled(True)
                 self.Assassin_radioButton_6.setEnabled(True)
-            # for item in self.classes:
-            #     if "Fighter" in item[1]:
-            #         print(item[1])
-            #         self.Fighter_radioButton_5.setEnabled(True)
-            # for item in classes:
-            #     print(item)
-            #     if "Bard" in item[0]:
-            #         self.Bard_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Bard_radioButton.setEnabled(False)
-            #     elif "Jester" in item[0]:
-            #         self.Jester_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Jester_radioButton.setEnabled(False)
-            #     elif "Cavalier" in item[0]:
-            #         self.Cavalier_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Cavalier_radioButton.setEnabled(False)
-            #     elif "Paladin" in item[0]:
-            #         self.Paladin_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Paladin_radioButton.setEnabled(False)
-            #     elif "Cleric" in item[0]:
-            #         self.Cleric_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Cleric_radioButton.setEnabled(False)
-            #     elif "Druid" in item[0]:
-            #         self.Druid_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Druid_radioButton.setEnabled(False)
-            #     elif "Mystic" in item[0]:
-            #         self.Mystic_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Mystic_radioButton.setEnabled(False)
-            #     elif "Fighter" in item[0]:
-            #         self.Fighter_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Fighter_radioButton.setEnabled(False)
-            #     elif "Barbarian" in item[0]:
-            #         self.Barbarian_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Barbarian_radioButton.setEnabled(False)
-            #     elif "Ranger" in item[0]:
-            #         self.Ranger_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Ranger_radioButton.setEnabled(False)
-            #     elif "Mage" in item[0]:
-            #         self.Mage_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Mage_radioButton.setEnabled(False)
-            #     elif "Illusionist" in item[0]:
-            #         self.Illusionist_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Illusionist_radioButton.setEnabled(False)
-            #     elif "Savant" in item[0]:
-            #         self.Savant_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Savant_radioButton.setEnabled(False)
-            #     elif "Thief" in item[0]:
-            #         self.Thief_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Thief_radioButton.setEnabled(False)
-            #     elif "Thief-Acrobat" in item[0]:
-            #         self.Thief_Acrobat_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Thief_Acrobat_radioButton.setEnabled(False)
-            #     elif "Mountebank" in item[0]:
-            #         self.Mountebank_radioButton.setEnabled(True)
-            #     # else:
-            #     #     self.Mountebank_radioButton.setEnabled(False)
-            #     elif "Assassin" in item[0]:
-            #         self.Assassin_radioButton.setEnabled(True)
-            # else:
-            #     self.Assassin_radioButton.setEnabled(False)
 
-            # if "Bard" in item[1]:
-            #     self.Bard_radioButton_2.setEnabled(True)
-            # if "Jester" in item[1]:
-            #     self.Jester_radioButton_2.setEnabled(True)
-            # if "Cavalier" in item[1]:
-            #     self.Cavalier_radioButton_2.setEnabled(True)
-            # if "Paladin" in item[1]:
-            #     self.Paladin_radioButton_2.setEnabled(True)
-            # if "Cleric" in item[1]:
-            #     self.Cleric_radioButton_2.setEnabled(True)
-            # if "Druid" in item[1]:
-            #     self.Druid_radioButton_2.setEnabled(True)
-            # if "Mystic" in item[1]:
-            #     self.Mystic_radioButton_2.setEnabled(True)
-            # if "Fighter" in item[1]:
-            #     self.Fighter_radioButton_2.setEnabled(True)
-            # if "Barbarian" in item[1]:
-            #     self.Barbarian_radioButton_2.setEnabled(True)
-            # if "Ranger" in item[1]:
-            #     self.Ranger_radioButton_2.setEnabled(True)
-            # if "Mage" in item[1]:
-            #     self.Mage_radioButton_2.setEnabled(True)
-            # if "Illusionist" in item[1]:
-            #     self.Illusionist_radioButton_2.setEnabled(True)
-            # if "Savant" in item[1]:
-            #     self.Savant_radioButton_2.setEnabled(True)
-            # if "Thief" in item[1]:
-            #     self.Thief_radioButton_2.setEnabled(True)
-            # if "Thief-Acrobat" in item[1]:
-            #     self.Thief_Acrobat_radioButton_2.setEnabled(True)
-            # if "Mountebank" in item[1]:
-            #     self.Mountebank_radioButton_2.setEnabled(True)
-            # if "Assassin" in item[1]:
-            #     self.Assassin_radioButton_2.setEnabled(True)
-            #
-            # try:
-            #     if item[2]:
-            #         if "Bard" in item[2]:
-            #             self.Bard_radioButton_3.setEnabled(True)
-            #         if "Jester" in item[2]:
-            #             self.Jester_radioButton_3.setEnabled(True)
-            #         if "Cavalier" in item[2]:
-            #             self.Cavalier_radioButton_3.setEnabled(True)
-            #         if "Paladin" in item[2]:
-            #             self.Paladin_radioButton_3.setEnabled(True)
-            #         if "Cleric" in item[2]:
-            #             self.Cleric_radioButton_3.setEnabled(True)
-            #         if "Druid" in item[2]:
-            #             self.Druid_radioButton_3.setEnabled(True)
-            #         if "Mystic" in item[2]:
-            #             self.Mystic_radioButton_3.setEnabled(True)
-            #         if "Fighter" in item[2]:
-            #             self.Fighter_radioButton_3.setEnabled(True)
-            #         if "Barbarian" in item[2]:
-            #             self.Barbarian_radioButton_3.setEnabled(True)
-            #         if "Ranger" in item[2]:
-            #             self.Ranger_radioButton_3.setEnabled(True)
-            #         if "Mage" in item[2]:
-            #             self.Mage_radioButton_3.setEnabled(True)
-            #         if "Illusionist" in item[2]:
-            #             self.Illusionist_radioButton_3.setEnabled(True)
-            #         if "Savant" in item[2]:
-            #             self.Savant_radioButton_3.setEnabled(True)
-            #         if "Thief" in item[2]:
-            #             self.Thief_radioButton_3.setEnabled(True)
-            #         if "Thief-Acrobat" in item[2]:
-            #             self.Thief_Acrobat_radioButton_3.setEnabled(True)
-            #         if "Mountebank" in item[2]:
-            #             self.Mountebank_radioButton_3.setEnabled(True)
-            #         if "Assassin" in item[2]:
-            #             self.Assassin_radioButton_3.setEnabled(True)
-            # except IndexError:
-            #     pass
+    def get_classes(self):
+        """Get the primary and multi-classes, if available"""
+        prime_class = self.First_Class_buttonGroup.checkedButton().text()
+        if self.multi is True:
+            second_class = self.Second_Class_buttonGroup.checkedButton().text()
+            third_class = self.Third_Class_buttonGroup.checkedButton().text()
+        else:
+            second_class = ""
+            third_class = ""
+        return prime_class, second_class, third_class
 
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""
-        pass
+        prime_class, second_class, third_class = self.get_classes()
+        print(
+            self.name.text(),
+            self.get_gender(),
+            self.strength.text(),
+            self.bonus_strength.text(),
+            self.iq.text(),
+            self.wis.text(),
+            self.dex.text(),
+            self.con.text(),
+            self.chr.text(),
+            self.get_race(),
+            prime_class,
+            second_class,
+            third_class
+        )
 
 
 app = QApplication(sys.argv)

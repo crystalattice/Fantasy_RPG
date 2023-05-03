@@ -69,8 +69,20 @@
              <string>Basic Info</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_40">
-             <item row="0" column="0">
-              <widget class="QLabel" name="Char_name_label">
+             <item row="6" column="0">
+              <widget class="QLabel" name="Second_Class_label">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Second Class</string>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="0">
+              <widget class="QLabel" name="Age_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -84,7 +96,127 @@
                 </font>
                </property>
                <property name="text">
-                <string>Name</string>
+                <string>Age</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="Third_Class_label">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Third Class</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="1">
+              <widget class="QComboBox" name="Alignment_comboBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Lawful Good</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Lawful Neutral</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Lawful Evil</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Neutral Good</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Neutral</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Neutral Evil</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Chaotic Good</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Chaotic Neutral</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Chaotic Evil</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="9" column="1">
+              <widget class="QSpinBox" name="Age_spinBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="minimum">
+                <number>12</number>
+               </property>
+               <property name="maximum">
+                <number>1350</number>
+               </property>
+               <property name="value">
+                <number>20</number>
+               </property>
+              </widget>
+             </item>
+             <item row="12" column="0">
+              <widget class="QLabel" name="Weight_label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Weight (pounds)</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -104,8 +236,8 @@
                </property>
               </widget>
              </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="Race_label">
+             <item row="0" column="0">
+              <widget class="QLabel" name="Char_name_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -119,11 +251,30 @@
                 </font>
                </property>
                <property name="text">
-                <string>Race</string>
+                <string>Name</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
+             <item row="8" column="0">
+              <widget class="QLabel" name="Alignment_label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Alignment</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
               <widget class="QComboBox" name="Race_comboBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -143,109 +294,13 @@
                <property name="maxVisibleItems">
                 <number>1</number>
                </property>
-               <item>
-                <property name="text">
-                 <string/>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Human</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Dwarf, Grey (Duergar)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Dwarf, Hill</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Dwarf, Mountain</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Elf, Dark (Drow)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Elf, Grey</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Elf, Half</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Elf, High</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Elf, Wild</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Elf, Wood</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Gnome, Deep (Svirfneblin)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Gnome, Forest</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Gnome, Hill</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Halfling</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Half-Orc</string>
-                </property>
-               </item>
               </widget>
              </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="Gender_label">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
+             <item row="7" column="1">
+              <widget class="QComboBox" name="Third_Class_comboBox">
+               <property name="enabled">
+                <bool>true</bool>
                </property>
-               <property name="font">
-                <font>
-                 <family>DejaVu Sans</family>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Gender</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QComboBox" name="Gender_comboBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -260,23 +315,98 @@
                </property>
                <item>
                 <property name="text">
-                 <string>Male</string>
+                 <string>None</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>Female</string>
+                 <string>Fighter</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>Other</string>
+                 <string>Ranger</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Paladin</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Cavalier</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Barbarian</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Cleric</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Druid</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Vates</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mystic</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mage</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Illusionist</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Savant</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Thief</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Thief-Acrobat</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mountebank</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Bard</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Jester</string>
                 </property>
                </item>
               </widget>
              </item>
              <item row="3" column="0">
-              <widget class="QLabel" name="Class_label">
+              <widget class="QLabel" name="Race_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -290,11 +420,58 @@
                 </font>
                </property>
                <property name="text">
-                <string>Class</string>
+                <string>Race</string>
                </property>
               </widget>
              </item>
-             <item row="3" column="1">
+             <item row="11" column="0">
+              <widget class="QLabel" name="Height_label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Height (inches)</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="1">
+              <widget class="QSpinBox" name="Height_spinBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="minimum">
+                <number>32</number>
+               </property>
+               <property name="maximum">
+                <number>84</number>
+               </property>
+               <property name="value">
+                <number>60</number>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
               <widget class="QComboBox" name="Class_comboBox">
                <property name="enabled">
                 <bool>true</bool>
@@ -316,19 +493,7 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="Second_Class_label">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Second Class</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1">
+             <item row="6" column="1">
               <widget class="QComboBox" name="Second_Class_comboBox">
                <property name="enabled">
                 <bool>true</bool>
@@ -438,128 +603,7 @@
               </widget>
              </item>
              <item row="5" column="0">
-              <widget class="QLabel" name="Third_Class_label">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Third Class</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="1">
-              <widget class="QComboBox" name="Third_Class_comboBox">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <family>DejaVu Sans</family>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <item>
-                <property name="text">
-                 <string>None</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Fighter</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Ranger</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Paladin</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Cavalier</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Barbarian</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Cleric</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Druid</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Vates</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Mystic</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Mage</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Illusionist</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Savant</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Thief</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Thief-Acrobat</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Mountebank</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bard</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Jester</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="6" column="0">
-              <widget class="QLabel" name="Alignment_label">
+              <widget class="QLabel" name="Class_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -573,92 +617,12 @@
                 </font>
                </property>
                <property name="text">
-                <string>Alignment</string>
+                <string>Class</string>
                </property>
               </widget>
              </item>
-             <item row="6" column="1">
-              <widget class="QComboBox" name="Alignment_comboBox">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <family>DejaVu Sans</family>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Lawful Good</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Lawful Neutral</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Lawful Evil</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Neutral Good</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Neutral</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Neutral Evil</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Chaotic Good</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Chaotic Neutral</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Chaotic Evil</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="7" column="0">
-              <widget class="QLabel" name="Age_label">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <family>DejaVu Sans</family>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Age</string>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="1">
-              <widget class="QSpinBox" name="Age_spinBox">
+             <item row="12" column="1">
+              <widget class="QSpinBox" name="Weight_spinBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -672,17 +636,17 @@
                 </font>
                </property>
                <property name="minimum">
-                <number>12</number>
+                <number>42</number>
                </property>
                <property name="maximum">
-                <number>1350</number>
+                <number>235</number>
                </property>
                <property name="value">
-                <number>20</number>
+                <number>150</number>
                </property>
               </widget>
              </item>
-             <item row="8" column="0">
+             <item row="10" column="0">
               <widget class="QLabel" name="Social_Class_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -704,7 +668,7 @@
                </property>
               </widget>
              </item>
-             <item row="8" column="1">
+             <item row="10" column="1">
               <widget class="QComboBox" name="Social_Class_comboBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -765,8 +729,8 @@
                </item>
               </widget>
              </item>
-             <item row="9" column="0">
-              <widget class="QLabel" name="Height_label">
+             <item row="1" column="0">
+              <widget class="QLabel" name="Gender_label">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -780,15 +744,12 @@
                 </font>
                </property>
                <property name="text">
-                <string>Height (inches)</string>
-               </property>
-               <property name="wordWrap">
-                <bool>true</bool>
+                <string>Gender</string>
                </property>
               </widget>
              </item>
-             <item row="9" column="1">
-              <widget class="QSpinBox" name="Height_spinBox">
+             <item row="1" column="1">
+              <widget class="QComboBox" name="Gender_comboBox">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -801,62 +762,21 @@
                  <pointsize>10</pointsize>
                 </font>
                </property>
-               <property name="minimum">
-                <number>32</number>
-               </property>
-               <property name="maximum">
-                <number>84</number>
-               </property>
-               <property name="value">
-                <number>60</number>
-               </property>
-              </widget>
-             </item>
-             <item row="10" column="0">
-              <widget class="QLabel" name="Weight_label">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <family>DejaVu Sans</family>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Weight (pounds)</string>
-               </property>
-               <property name="wordWrap">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="10" column="1">
-              <widget class="QSpinBox" name="Weight_spinBox">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <family>DejaVu Sans</family>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="minimum">
-                <number>42</number>
-               </property>
-               <property name="maximum">
-                <number>235</number>
-               </property>
-               <property name="value">
-                <number>150</number>
-               </property>
+               <item>
+                <property name="text">
+                 <string>Male</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Female</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Other</string>
+                </property>
+               </item>
               </widget>
              </item>
             </layout>
@@ -3306,8 +3226,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1409</width>
-             <height>783</height>
+             <width>1189</width>
+             <height>731</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_14">
@@ -8363,8 +8283,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1409</width>
-             <height>783</height>
+             <width>677</width>
+             <height>556</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_26">
@@ -9721,8 +9641,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>284</width>
-                    <height>506</height>
+                    <width>98</width>
+                    <height>88</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout">
@@ -9757,8 +9677,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1395</width>
-             <height>847</height>
+             <width>550</width>
+             <height>862</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_9">
@@ -9993,8 +9913,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>905</width>
-                    <height>210</height>
+                    <width>98</width>
+                    <height>88</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_23">
@@ -11633,8 +11553,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1409</width>
-             <height>783</height>
+             <width>98</width>
+             <height>28</height>
             </rect>
            </property>
            <widget class="QGroupBox" name="Money_groupBox">
@@ -12240,8 +12160,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1409</width>
-             <height>783</height>
+             <width>447</width>
+             <height>136</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_24">
@@ -12266,8 +12186,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>1059</width>
-                    <height>715</height>
+                    <width>381</width>
+                    <height>624</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_15">
@@ -13286,8 +13206,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>274</width>
-                    <height>715</height>
+                    <width>98</width>
+                    <height>88</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_30">
@@ -13328,8 +13248,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1409</width>
-             <height>783</height>
+             <width>996</width>
+             <height>590</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_36">
@@ -15037,8 +14957,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>440</width>
-                <height>735</height>
+                <width>98</width>
+                <height>88</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_33">
@@ -15079,8 +14999,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>441</width>
-                <height>735</height>
+                <width>98</width>
+                <height>88</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_35">
@@ -15121,8 +15041,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>440</width>
-                <height>735</height>
+                <width>98</width>
+                <height>88</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_36">

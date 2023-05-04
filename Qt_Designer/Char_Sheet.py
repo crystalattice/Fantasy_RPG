@@ -1,10 +1,11 @@
 import pickle
 import sys
+from pathlib import Path
 from typing import Dict, Any
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QCheckBox, QComboBox, QSpinBox, QLabel, \
-    QDialogButtonBox, QMessageBox
+    QDialogButtonBox, QMessageBox, QFileDialog
 
 from Qt_Designer.ADD_Char_Sheet import Ui_MainWindow
 from Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class, strength_abilities, dex_abilities, \
@@ -84,15 +85,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def open_character(self):
         """Open an existing character"""
-        with open("bob", "rb") as character:
-            unpickle = pickle.load(character)
-            self.strength.setText(unpickle["str"])
-            self.bonus_strength.setText(unpickle["char_exp_str"])
-            self.dex.setText(unpickle["char_dex"])
-            self.wis.setText(unpickle["char_wis"])
-            self.iq.setText(unpickle["char_iq"])
-            self.chr.setText(unpickle["char_chr"])
-            self.con.setText(unpickle["char_con"])
+        char_dir = str(Path(Path.home().joinpath("Adv_Dark_Deep").joinpath("Characters")))
+        file_dialog = QFileDialog.getOpenFileName(self, "Open character", char_dir)
+        if file_dialog[0]:
+            with open(file_dialog[0], "rb") as character:
+                unpickle = pickle.load(character)
+                print(unpickle)
+                # self.strength.setText(unpickle["str"])
+                # self.bonus_strength.setText(unpickle["char_exp_str"])
+                # self.dex.setText(unpickle["char_dex"])
+                # self.wis.setText(unpickle["char_wis"])
+                # self.iq.setText(unpickle["char_iq"])
+                # self.chr.setText(unpickle["char_chr"])
+                # self.con.setText(unpickle["char_con"])
 
     def save_character(self) -> None:
         """Save the current character sheet"""
@@ -161,6 +166,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             button = no_name_msg.exec()
             button = QMessageBox.StandardButtons(button)
         else:
+            # TODO: Make a character save directory
             # with open(f"{save_name}", "wb") as save_file:
             #     pickle.dump(char_vals, save_file)
             # TODO: remove after testing

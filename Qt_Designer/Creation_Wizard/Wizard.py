@@ -1,4 +1,5 @@
 import pickle
+import random
 import sys
 from pathlib import Path
 
@@ -13,9 +14,9 @@ from Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class, cl
 
 class Wizard(QWizard, Ui_Wizard):
     gender: QButtonGroup
-    third_class: QGroupBox
-    second_class: QGroupBox
-    prime_class: QGroupBox
+    char_3rd_class: QGroupBox
+    char_2nd_class: QGroupBox
+    char_class: QGroupBox
     race: QButtonGroup
     chr: QLabel
     con: QLabel
@@ -49,6 +50,9 @@ class Wizard(QWizard, Ui_Wizard):
         self.chr = self.CHR_Out_label
         self.multi = False
         self.classes = ()
+        self.social_class = ""
+        self.money = 0
+
 
         # Buttons
         self.roll_dice.clicked.connect(self.roll_attribs)
@@ -165,6 +169,7 @@ class Wizard(QWizard, Ui_Wizard):
 
     def enable_classes(self):
         """Enable radio button associated with authorized classes"""
+        # TODO: Check race vs class for Assassin
         if self.get_race() == "Human":
             self.multi = False
         else:
@@ -283,6 +288,50 @@ class Wizard(QWizard, Ui_Wizard):
             char_3rd_class = ""
         return char_class, char_2nd_class, char_3rd_class
 
+    def starting_hp(self):
+        """Calculate starting hit points"""
+        pass
+
+    def starting_money(self):
+        """Calculate starting money"""
+        if self.char_class == "Thief" or self.char_class == "Thief_Acrobat" or self.char_class == "Assassin" \
+                or self.char_class == "Mountebank" or self.char_class == "Bard":
+            self.money = random.randint(20, 120)
+        elif self.char_class == "Mage" or self.char_class == "Illusionist" or self.char_class == "Savant" \
+                or self.char_class == "Jester":
+            self.money = random.randint(20, 80)
+        elif self.char_class == "Cleric" or self.char_class == "Druid":
+            self.money = random.randint(30, 180)
+        elif self.char_class == "Mystic":
+            self.money = random.randint(13, 24)
+        elif self.char_class == "Fighter" or self.char_class == "Barbarian" or self.char_class == "Ranger":
+            self.money = random.randint(50, 200)
+        elif self.char_class == "Cavalier" or self.char_class == "Paladin":
+            pass
+
+    def social_class(self):
+        """Determine character's social class"""
+        if self.char_class == "Thief" or self.char_class == "Thief_Acrobat" or self.char_class == "Assassin" \
+                or self.char_class == "Mountebank":
+            self.social_class = "Lower-Lower Class"
+        elif self.char_class == "Bard" or self.char_class == "Barbarian" or self.char_class == "Jester":
+            self.social_class = "Middle-Lower Class"
+        elif self.char_class == "Fighter":
+            self.social_class = "Upper-Lower Class"
+        elif self.char_class == "Druid" or self.char_class == "Ranger" or self.char_class == "Cavalier" \
+                or self.char_class == "Mystic":
+            self.social_class = "Lower-Middle Class"
+        elif self.char_class == "Mage" or self.char_class == "Illusionist" or self.char_class == "Savant":
+            self.social_class = "Middle-Middle Class"
+        elif self.char_class == "Cleric":
+            self.social_class = "Upper-Middle Class"
+        elif self.char_class == "Paladin":
+            self.social_class = "Lower-Upper Class"
+
+    def initial_age(self):
+        """Determine starting age"""
+        pass
+
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""
         char_class, char_2nd_class, char_3rd_class = self.get_classes()
@@ -290,17 +339,18 @@ class Wizard(QWizard, Ui_Wizard):
         wizard_save_name: str = self.char_name.text()
         char_vals: dict[str | Any, str | Any] = {
             "char_name": self.char_name.text(),
-            "str": int(self.strength.text()),
-            "bonus_str": int(self.bonus_strength.text()),
-            "dex": int(self.dex.text()),
-            "wis": int(self.wis.text()),
-            "iq": int(self.iq.text()),
-            "chr": int(self.chr.text()),
-            "con": int(self.con.text()),
-            "race": self.get_race(),
-            "class": char_class,
+            "char_str": int(self.strength.text()),
+            "char_bonus_str": int(self.bonus_strength.text()),
+            "char_dex": int(self.dex.text()),
+            "char_wis": int(self.wis.text()),
+            "char_iq": int(self.iq.text()),
+            "char_chr": int(self.chr.text()),
+            "char_con": int(self.con.text()),
+            "char_race": self.get_race(),
+            "char_class": char_class,
             "char_2nd_class": char_2nd_class,
             "char_3rd_class": char_3rd_class,
+            "char_social_class": self.social_class
         }
         save_dir = Path(Path.home().joinpath("Adv_Dark_Deep").joinpath("Characters"))
         Path.mkdir(save_dir, parents=True, exist_ok=True)

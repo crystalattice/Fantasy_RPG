@@ -90,14 +90,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if file_dialog[0]:
             with open(file_dialog[0], "rb") as character:
                 unpickle = pickle.load(character)
-                print(unpickle)
-                # self.strength.setText(unpickle["str"])
-                # self.bonus_strength.setText(unpickle["char_exp_str"])
-                # self.dex.setText(unpickle["char_dex"])
-                # self.wis.setText(unpickle["char_wis"])
-                # self.iq.setText(unpickle["char_iq"])
-                # self.chr.setText(unpickle["char_chr"])
-                # self.con.setText(unpickle["char_con"])
+                self.char_name.setText(unpickle["char_name"])
+                self.strength.setText(unpickle["char_str"])
+                self.bonus_strength.setText(unpickle["char_bonus_str"])
+                self.dex.setText(unpickle["char_dex"])
+                self.wis.setText(unpickle["char_wis"])
+                self.iq.setText(unpickle["char_iq"])
+                self.chr.setText(unpickle["char_chr"])
+                self.con.setText(unpickle["char_con"])
 
     def save_character(self) -> None:
         """Save the current character sheet"""

@@ -307,7 +307,7 @@ class Wizard(QWizard, Ui_Wizard):
         elif self.char_class == "Fighter" or self.char_class == "Barbarian" or self.char_class == "Ranger":
             self.money = random.randint(50, 200)
         elif self.char_class == "Cavalier" or self.char_class == "Paladin":
-            pass
+            self.money = (random.randint(1, 2) + 6) * 10
 
     def social_class(self):
         """Determine character's social class"""
@@ -318,14 +318,13 @@ class Wizard(QWizard, Ui_Wizard):
             self.social_class = "Middle-Lower Class"
         elif self.char_class == "Fighter":
             self.social_class = "Upper-Lower Class"
-        elif self.char_class == "Druid" or self.char_class == "Ranger" or self.char_class == "Cavalier" \
-                or self.char_class == "Mystic":
+        elif self.char_class == "Druid" or self.char_class == "Ranger" or self.char_class == "Mystic":
             self.social_class = "Lower-Middle Class"
         elif self.char_class == "Mage" or self.char_class == "Illusionist" or self.char_class == "Savant":
             self.social_class = "Middle-Middle Class"
         elif self.char_class == "Cleric":
             self.social_class = "Upper-Middle Class"
-        elif self.char_class == "Paladin":
+        elif self.char_class == "Paladin" or self.char_class == "Cavalier":
             self.social_class = "Lower-Upper Class"
 
     def initial_age(self):

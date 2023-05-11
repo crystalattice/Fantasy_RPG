@@ -32,6 +32,7 @@ class Wizard(QWizard, Ui_Wizard):
 
     def __init__(self, *args, obj=None, **kwargs):
         super().__init__(*args, **kwargs)
+        self.age = 0
         self.setupUi(self)
         self.show()
 
@@ -52,7 +53,6 @@ class Wizard(QWizard, Ui_Wizard):
         self.classes = ()
         self.social_class = ""
         self.money = 0
-
 
         # Buttons
         self.roll_dice.clicked.connect(self.roll_attribs)
@@ -329,8 +329,128 @@ class Wizard(QWizard, Ui_Wizard):
 
     def initial_age(self):
         """Determine starting age"""
-        pass
-
+        if self.char_class == "Bard":
+            if "Elf" in self.race:
+                self.age = roll_abilities.multi_die(4, 8) + 300
+            elif "Gnome" in self.race:
+                self.age = roll_abilities.multi_die(2, 6) + 200
+            elif self.race == "Half-Elf":
+                self.age = roll_abilities.multi_die(2, 12) + 30
+            elif self.race == "Halfling":
+                self.age = roll_abilities.multi_die(1, 6) + 26
+            else:  # Default Human
+                self.age = roll_abilities.multi_die(1, 4) + 16
+        elif self.char_class == "Jester":
+            if "Gnome" in self.race:
+                self.age = roll_abilities.multi_die(1, 6) + 200
+            elif self.race == "Halfling":
+                self.age = roll_abilities.multi_die(1, 8) + 24
+            else:  # Default Human
+                self.age = roll_abilities.multi_die(1, 4) + 16
+        elif self.char_class == "Cavalier":
+            if "Elf" in self.race:
+                self.age = roll_abilities.multi_die(10, 10) + 500
+            elif self.race == "Half-Elf":
+                self.age = roll_abilities.multi_die(2, 4) + 40
+            else:
+                self.age = roll_abilities.multi_die(1, 4) + 18
+        elif self.char_class == "Paladin":  # Can only be human
+            self.age = roll_abilities.multi_die(1, 4) + 17
+        elif self.char_class == "Cleric":
+            if "Dwarf" in self.race:
+                self.age = roll_abilities.multi_die(2, 20) + 250
+            elif "Elf" in self.race:
+                self.age = roll_abilities.multi_die(10, 10) + 500
+            elif "Gnome" in self.race:
+                self.age = roll_abilities.multi_die(3, 12) + 300
+            elif self.race == "Half-Elf":
+                self.age = roll_abilities.multi_die(2, 4) + 40
+            elif self.race == "Halfling":
+                self.age = roll_abilities.multi_die(2, 4) + 38
+            elif self.race == "Half-Orc":
+                self.age = roll_abilities.multi_die(1, 4) + 20
+            else:
+                self.age = roll_abilities.multi_die(1, 4) + 18
+        elif self.char_class == "Druid":
+            if "Elf" in self.race:
+                self.age = roll_abilities.multi_die(8, 10) + 500
+            elif "Gnome" in self.race:
+                self.age = roll_abilities.multi_die(1, 12) + 300
+            elif self.race == "Half-Elf":
+                self.age = roll_abilities.multi_die(2, 4) + 40
+            elif self.race == "Halfling":
+                self.age = roll_abilities.multi_die(1, 4) + 38
+            else:
+                self.age = roll_abilities.multi_die(1, 4) + 18
+        elif self.char_class == "Mystic":
+            if "Elf" in self.race:
+                self.age = roll_abilities.multi_die(9, 10) + 500
+            elif self.race == "Half-Elf":
+                self.age = roll_abilities.multi_die(1, 4) + 40
+            elif self.race == "Halfling":
+                self.age = roll_abilities.multi_die(1, 4) + 38
+            else:
+                self.age = roll_abilities.multi_die(1, 4) + 18
+        elif self.char_class == "Fighter":
+            if "Dwarf" in self.race:
+                self.age = roll_abilities.multi_die(5, 4) + 40
+            elif "Elf" in self.race:
+                self.age = roll_abilities.multi_die(5, 6) + 130
+            elif "Gnome" in self.race:
+                self.age = roll_abilities.multi_die(5, 4) + 60
+            elif self.race == "Half-Elf":
+                self.age = roll_abilities.multi_die(3, 4) + 22
+            elif self.race == "Halfling":
+                self.age = roll_abilities.multi_die(3, 4) + 20
+            elif self.race == "Half-Orc":
+                self.age = roll_abilities.multi_die(1, 4) + 13
+            else:
+                self.age = roll_abilities.multi_die(1, 4) + 15
+        elif self.char_class == "Barbarian":
+            self.age = roll_abilities.multi_die(1, 4) + 14
+        elif self.char_class == "Ranger":
+            if "Elf" in self.race:
+                self.age = roll_abilities.multi_die(3, 8) + 160
+            elif self.race == "Half-Elf":
+                self.age = roll_abilities.multi_die(2, 6) + 30
+            else:
+                self.age = roll_abilities.multi_die(1, 4) + 20
+        elif self.char_class == "Mage":
+            if "Elf" in self.race:
+                self.age = roll_abilities.multi_die(3, 6) + 150
+            elif self.race == "Half-Elf":
+                self.age = roll_abilities.multi_die(2, 8) + 30
+            else:
+                self.age = roll_abilities.multi_die(2, 8) + 24
+        elif self.char_class == "Illusionist":
+            if "Gnome" in self.char_class:
+                self.age = roll_abilities.multi_die(2, 12) + 100
+            else:
+                self.age = roll_abilities.multi_die(1, 6) + 30
+        elif self.char_class == "Savant":
+            if "Elf" in self.char_class:
+                self.age = roll_abilities.multi_die(3, 8) + 180
+            elif "Gnome" in self.char_class:
+                self.age = roll_abilities.multi_die(3, 12) + 100
+            elif self.char_class == "Half-Elf":
+                self.age = roll_abilities.multi_die(3, 6) + 34
+            else:
+                self.age = roll_abilities.multi_die(2, 6) + 28
+        elif self.char_class == "Thief" or self.char_class == "Thief-Acrobat" or self.char_class == "Mountebank":
+            if "Dwarf" in self.race:
+                self.age = roll_abilities.multi_die(3, 6) + 75
+            elif "Elf" in self.race:
+                self.age = roll_abilities.multi_die(5, 6) + 100
+            elif "Gnome" in self.race:
+                self.age = roll_abilities.multi_die(5, 4) + 80
+            elif self.race == "Half-Elf":
+                self.age = roll_abilities.multi_die(3, 8) + 22
+            elif self.race == "Halfling":
+                self.age = roll_abilities.multi_die(2, 4) + 40
+            elif self.race == "Half-Orc":
+                self.age = roll_abilities.multi_die(2, 4) + 20
+            else:
+                self.age = roll_abilities.multi_die(1, 4) + 18
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""
         char_class, char_2nd_class, char_3rd_class = self.get_classes()

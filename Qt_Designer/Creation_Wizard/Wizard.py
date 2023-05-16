@@ -2,22 +2,26 @@ import pickle
 import random
 import sys
 from pathlib import Path
+from typing import Tuple
 
-from PyQt5.QtCore import Qt, pyqtSlot
-from PyQt5.QtWidgets import QApplication, QWizard, QPushButton, QButtonGroup, QLineEdit, QLabel, QGroupBox, \
-    QRadioButton, QGridLayout, QWizardPage, QWidget, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWizard, QPushButton, QButtonGroup, QLineEdit, QLabel, QMessageBox
 
-import Adv_Dark_Deep
+from Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class, race_vs_attribs, con_abilities
 from New_Char_Wizard import Ui_Wizard
-from Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class, class_min_attribs, race_vs_attribs
 
 
 class Wizard(QWizard, Ui_Wizard):
+    age: int
+    hp: int
+    money: int
+    social_class: str
+    classes: tuple
+    multi: bool
     gender: QButtonGroup
-    char_3rd_class: QGroupBox
-    char_2nd_class: QGroupBox
-    char_class: QGroupBox
-    race: QButtonGroup
+    char_3rd_class: str
+    char_2nd_class: str
+    char_class: str
+    race: str
     chr: QLabel
     con: QLabel
     wis: QLabel
@@ -30,9 +34,8 @@ class Wizard(QWizard, Ui_Wizard):
     roll_dice: QPushButton
     roll_type: QButtonGroup
 
-    def __init__(self, *args, obj=None, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.age = 0
         self.setupUi(self)
         self.show()
 
@@ -53,6 +56,8 @@ class Wizard(QWizard, Ui_Wizard):
         self.classes = ()
         self.social_class = ""
         self.money = 0
+        self.hp = 0
+        self.age = 0
 
         # Buttons
         self.roll_dice.clicked.connect(self.roll_attribs)
@@ -69,7 +74,7 @@ class Wizard(QWizard, Ui_Wizard):
         elif self.currentId() == 3:
             self.multi_class()
 
-    def roll_attribs(self):
+    def roll_attribs(self) -> None:
         """Roll the dice for character attributes"""
         if self.roll_type.checkedButton().text() == "4d6, drop lowest":
             rolls: list = roll_abilities.four_d6_drop_lowest()
@@ -81,7 +86,7 @@ class Wizard(QWizard, Ui_Wizard):
             rolls: list = roll_abilities.two_d6_plus_6()
             self.insert_rolls(rolls)
 
-    def insert_rolls(self, rolls):
+    def insert_rolls(self, rolls) -> None:
         """Put the attribute rolls into their respective variables"""
         strength: str
         bonus_strength: str
@@ -89,8 +94,8 @@ class Wizard(QWizard, Ui_Wizard):
         iq: str
         wis: str
         con: str
-        chr: str
-        strength, dex, iq, wis, con, chr = [str(rolls[i]) for i in range(6)]
+        charisma: str
+        strength, dex, iq, wis, con, charisma = [str(rolls[i]) for i in range(6)]
         if strength == "18":
             self.bonus_strength.setText(str(roll_abilities.multi_die(1, 100)))
         else:
@@ -100,13 +105,13 @@ class Wizard(QWizard, Ui_Wizard):
         self.iq.setText(iq)
         self.wis.setText(wis)
         self.con.setText(con)
-        self.chr.setText(chr)
+        self.chr.setText(charisma)
 
-    def get_gender(self):
+    def get_gender(self) -> str:
         """Get the selected gender radiobutton"""
         return self.Gender_buttonGroup.checkedButton().text()
 
-    def populate_races(self):
+    def populate_races(self) -> None:
         """Enable appropriate radio buttons for available races, based on attributes and gender.
 
         Provides a check to ensure name and attributes are provided before moving on.
@@ -121,11 +126,13 @@ class Wizard(QWizard, Ui_Wizard):
             button = QMessageBox.StandardButtons(button)
 
         try:
-            races = race_vs_attribs.get_acceptable_race(self.get_gender(), int(self.strength.text()),
-                                                        int(self.iq.text()),
-                                                        int(self.wis.text()), int(self.dex.text()),
-                                                        int(self.con.text()),
-                                                        int(self.chr.text()))
+            races: list = race_vs_attribs.get_acceptable_race(self.get_gender(),
+                                                              int(self.strength.text()),
+                                                              int(self.iq.text()),
+                                                              int(self.wis.text()),
+                                                              int(self.dex.text()),
+                                                              int(self.con.text()),
+                                                              int(self.chr.text()))
             if "Dwarf, Hill" in races:
                 self.Dwarf_Hill_radioButton.setEnabled(True)
             if "Dwarf, Grey (Duergar)" in races:
@@ -163,13 +170,12 @@ class Wizard(QWizard, Ui_Wizard):
             button: QMessageBox.StandardButtons = no_attribs_msg.exec()
             button = QMessageBox.StandardButtons(button)
 
-    def get_race(self):
+    def get_race(self) -> str:
         """Get the selected race radiobutton"""
         return self.Race_buttonGroup.checkedButton().text()
 
-    def enable_classes(self):
+    def enable_classes(self) -> None:
         """Enable radio button associated with authorized classes"""
-        # TODO: Check race vs class for Assassin
         if self.get_race() == "Human":
             self.multi = False
         else:
@@ -211,7 +217,7 @@ class Wizard(QWizard, Ui_Wizard):
         if "Assassin" in self.classes:
             self.Assassin_radioButton.setEnabled(True)
 
-    def multi_class(self):
+    def multi_class(self) -> None:
         """Enable multiclass selections"""
         try:
             self.First_Class_buttonGroup.checkedButton().text()
@@ -277,20 +283,35 @@ class Wizard(QWizard, Ui_Wizard):
                 self.Assassin_radioButton_5.setEnabled(True)
                 self.Assassin_radioButton_6.setEnabled(True)
 
-    def get_classes(self):
+    def get_classes(self) -> None:
         """Get the primary and multi-classes, if available"""
-        char_class = self.First_Class_buttonGroup.checkedButton().text()
+        self.char_class = self.First_Class_buttonGroup.checkedButton().text()
         if self.multi is True:
-            char_2nd_class = self.Second_Class_buttonGroup.checkedButton().text()
-            char_3rd_class = self.Third_Class_buttonGroup.checkedButton().text()
+            self.char_2nd_class = self.Second_Class_buttonGroup.checkedButton().text()
+            self.char_3rd_class = self.Third_Class_buttonGroup.checkedButton().text()
         else:
-            char_2nd_class = ""
-            char_3rd_class = ""
-        return char_class, char_2nd_class, char_3rd_class
+            self.char_2nd_class = ""
+            self.char_3rd_class = ""
 
-    def starting_hp(self):
+    def starting_hp(self) -> None:
         """Calculate starting hit points"""
-        pass
+        hp = 0
+        if self.char_class == "Bard" or self.char_class == "Jester" or self.char_class == "Mystic" \
+                or self.char_class == "Thief" or self.char_class == "Thief-Acrobat" or self.char_class == "Mountebank" \
+                or self.char_class == "Assassin":
+            hp = 6
+        elif self.char_class == "Cavalier" or self.char_class == "Paladin" or self.char_class == "Fighter":
+            hp = 10
+        elif self.char_class == "Cleric" or self.char_class == "Druid":
+            hp = 8
+        elif self.char_class == "Barbarian":
+            hp = 12
+        elif self.char_class == "Ranger":
+            hp = 16
+        elif self.char_class == "Mage" or self.char_class == "Illusionist" or self.char_class == "Savant":
+            hp = 4
+        hp_bonus = con_abilities.get_con_ability(int(self.con.text()), 0)
+        self.hp = hp + hp_bonus
 
     def starting_money(self):
         """Calculate starting money"""
@@ -451,12 +472,11 @@ class Wizard(QWizard, Ui_Wizard):
                 self.age = roll_abilities.multi_die(2, 4) + 20
             else:
                 self.age = roll_abilities.multi_die(1, 4) + 18
+
     def finished(self):
         """Actions performed when 'Finish' button is clicked"""
-        char_class, char_2nd_class, char_3rd_class = self.get_classes()
-
         wizard_save_name: str = self.char_name.text()
-        char_vals: dict[str | Any, str | Any] = {
+        char_vals: dict[str, str] = {
             "char_name": self.char_name.text(),
             "char_str": int(self.strength.text()),
             "char_bonus_str": int(self.bonus_strength.text()),
@@ -466,10 +486,13 @@ class Wizard(QWizard, Ui_Wizard):
             "char_chr": int(self.chr.text()),
             "char_con": int(self.con.text()),
             "char_race": self.get_race(),
-            "char_class": char_class,
-            "char_2nd_class": char_2nd_class,
-            "char_3rd_class": char_3rd_class,
-            "char_social_class": self.social_class
+            "char_class": self.char_class,
+            "char_2nd_class": self.char_2nd_class,
+            "char_3rd_class": self.char_3rd_class,
+            "char_social_class": self.social_class,
+            "char_hp": self.hp,
+            "char_money": self.money,
+            "char_age": self.age,
         }
         save_dir = Path(Path.home().joinpath("Adv_Dark_Deep").joinpath("Characters"))
         Path.mkdir(save_dir, parents=True, exist_ok=True)

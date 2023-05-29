@@ -54,6 +54,9 @@ class Wizard(QWizard, Ui_Wizard):
         self.chr = self.CHR_Out_label
         self.multi = False
         self.classes = ()
+        self.char_class = ""
+        self.char_2nd_class = ""
+        self.char_3rd_class = ""
         self.social_class = ""
         self.money = 0
         self.hp = 0
@@ -313,7 +316,7 @@ class Wizard(QWizard, Ui_Wizard):
         hp_bonus = con_abilities.get_con_ability(int(self.con.text()), 0)
         self.hp = hp + hp_bonus
 
-    def starting_money(self):
+    def starting_money(self) -> None:
         """Calculate starting money"""
         if self.char_class == "Thief" or self.char_class == "Thief_Acrobat" or self.char_class == "Assassin" \
                 or self.char_class == "Mountebank" or self.char_class == "Bard":
@@ -330,7 +333,7 @@ class Wizard(QWizard, Ui_Wizard):
         elif self.char_class == "Cavalier" or self.char_class == "Paladin":
             self.money = (random.randint(1, 2) + 6) * 10
 
-    def social_class(self):
+    def social_class(self) -> None:
         """Determine character's social class"""
         if self.char_class == "Thief" or self.char_class == "Thief_Acrobat" or self.char_class == "Assassin" \
                 or self.char_class == "Mountebank":
@@ -348,7 +351,7 @@ class Wizard(QWizard, Ui_Wizard):
         elif self.char_class == "Paladin" or self.char_class == "Cavalier":
             self.social_class = "Lower-Upper Class"
 
-    def initial_age(self):
+    def initial_age(self) -> None:
         """Determine starting age"""
         if self.char_class == "Bard":
             if "Elf" in self.race:
@@ -473,7 +476,19 @@ class Wizard(QWizard, Ui_Wizard):
             else:
                 self.age = roll_abilities.multi_die(1, 4) + 18
 
-    def finished(self):
+    def initial_height(self) -> None:
+        """Calculate character's height"""
+        pass
+
+    def initial_weight(self) -> None:
+        """Calculate character's weight"""
+        pass
+
+    def get_alignment(self) -> None:
+        """Get selected alignment"""
+        pass
+
+    def finished(self) -> None:
         """Actions performed when 'Finish' button is clicked"""
         wizard_save_name: str = self.char_name.text()
         char_vals: dict[str, str] = {

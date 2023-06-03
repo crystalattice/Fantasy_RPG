@@ -752,7 +752,7 @@ class Wizard(QWizard, Ui_Wizard):
                     self.height = 62 + roll_abilities.multi_die(1, 4)
                 else:
                     self.height = 62 + roll_abilities.multi_die(1, 8)
-        else: # Human
+        else:  # Human
             if self.gender == "Male":
                 if 1 <= roll <= 20:
                     self.height = 72 - roll_abilities.multi_die(1, 12)
@@ -778,7 +778,331 @@ class Wizard(QWizard, Ui_Wizard):
 
     def initial_weight(self) -> None:
         """Calculate character's weight"""
-        pass
+        race = self.get_race()
+        roll = roll_abilities.multi_die(1, 100)
+
+        if race == "Dwarf, Grey (Duergar)":
+            if self.gender == "Male":
+                if 1 <= roll <= 20:
+                    self.weight = 150 - roll_abilities.multi_die(2, 8)
+                elif 21 <= roll <= 35:
+                    self.weight = 150 - roll_abilities.multi_die(1, 8)
+                elif 36 <= roll <= 49:
+                    self.weight = 150
+                elif 50 <= roll <= 65:
+                    self.weight = 150 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 150 + roll_abilities.multi_die(2, 12)
+            else:  # Female
+                if 1 <= roll <= 20:
+                    self.weight = 120 - roll_abilities.multi_die(2, 8)
+                elif 21 <= roll <= 35:
+                    self.weight = 120 - roll_abilities.multi_die(1, 8)
+                elif 36 <= roll <= 49:
+                    self.weight = 120
+                elif 50 <= roll <= 65:
+                    self.weight = 120 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 120 + roll_abilities.multi_die(2, 10)
+        elif self.race == "Dwarf, Hill":
+            if self.gender == "Male":
+                if 1 <= roll <= 20:
+                    self.weight = 150 - roll_abilities.multi_die(2, 8)
+                elif 21 <= roll <= 35:
+                    self.weight = 150 - roll_abilities.multi_die(1, 8)
+                elif 36 <= roll <= 49:
+                    self.weight = 150
+                elif 50 <= roll <= 65:
+                    self.weight = 150 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 150 + roll_abilities.multi_die(2, 12)
+            else:  # Female
+                if 1 <= roll <= 20:
+                    self.weight = 120 - roll_abilities.multi_die(2, 8)
+                elif 21 <= roll <= 35:
+                    self.weight = 120 - roll_abilities.multi_die(1, 8)
+                elif 36 <= roll <= 49:
+                    self.weight = 120
+                elif 50 <= roll <= 65:
+                    self.weight = 120 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 120 + roll_abilities.multi_die(2, 10)
+        elif self.race == "Dwarf, Mountain":
+            if self.gender == "Male":
+                if 1 <= roll <= 20:
+                    self.weight = 165 - roll_abilities.multi_die(2, 8)
+                elif 21 <= roll <= 35:
+                    self.weight = 165 - roll_abilities.multi_die(1, 8)
+                elif 36 <= roll <= 49:
+                    self.weight = 165
+                elif 50 <= roll <= 65:
+                    self.weight = 165 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 165 + roll_abilities.multi_die(2, 12)
+            else:  # Female
+                if 1 <= roll <= 20:
+                    self.weight = 135 - roll_abilities.multi_die(2, 8)
+                elif 21 <= roll <= 35:
+                    self.weight = 135 - roll_abilities.multi_die(1, 8)
+                elif 36 <= roll <= 49:
+                    self.weight = 135
+                elif 50 <= roll <= 65:
+                    self.weight = 135 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 135 + roll_abilities.multi_die(2, 10)
+        elif self.race == "Elf, Dark (Drow)":
+            if self.gender == "Male":
+                if 1 <= roll <= 15:
+                    self.weight = 100 - roll_abilities.multi_die(1, 10)
+                elif 16 <= roll <= 38:
+                    self.weight = 100 - roll_abilities.multi_die(1, 8)
+                elif 39 <= roll <= 67:
+                    self.weight = 100
+                elif 68 <= roll <= 90:
+                    self.weight = 100 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 100 + roll_abilities.multi_die(1, 20)
+            else:  # Female
+                if 1 <= roll <= 15:
+                    self.weight = 80 - roll_abilities.multi_die(1, 10)
+                elif 16 <= roll <= 38:
+                    self.weight = 80 - roll_abilities.multi_die(1, 4)
+                elif 39 <= roll <= 67:
+                    self.weight = 80
+                elif 68 <= roll <= 90:
+                    self.weight = 80 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 80 + roll_abilities.multi_die(2, 6)
+        elif self.race == "Elf, Grey":
+            if self.gender == "Male":
+                if 1 <= roll <= 15:
+                    self.weight = 105 - roll_abilities.multi_die(1, 10)
+                elif 16 <= roll <= 38:
+                    self.weight = 105 - roll_abilities.multi_die(1, 8)
+                elif 39 <= roll <= 67:
+                    self.weight = 105
+                elif 68 <= roll <= 90:
+                    self.weight = 105 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 105 + roll_abilities.multi_die(1, 20)
+            else:  # Female
+                if 1 <= roll <= 15:
+                    self.weight = 85 - roll_abilities.multi_die(1, 10)
+                elif 16 <= roll <= 38:
+                    self.weight = 85 - roll_abilities.multi_die(1, 4)
+                elif 39 <= roll <= 67:
+                    self.weight = 85
+                elif 68 <= roll <= 90:
+                    self.weight = 85 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 85 + roll_abilities.multi_die(2, 6)
+        elif self.race == "Half-Elf":
+            if self.gender == "Male":
+                if 1 <= roll <= 20:
+                    self.weight = 130 - roll_abilities.multi_die(1, 20)
+                elif 21 <= roll <= 42:
+                    self.weight = 130 - roll_abilities.multi_die(1, 8)
+                elif 43 <= roll <= 63:
+                    self.weight = 130
+                elif 64 <= roll <= 85:
+                    self.weight = 130 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 130 + roll_abilities.multi_die(1, 20)
+            else:  # Female
+                if 1 <= roll <= 20:
+                    self.weight = 100 - roll_abilities.multi_die(1, 12)
+                elif 21 <= roll <= 42:
+                    self.weight = 100 - roll_abilities.multi_die(1, 8)
+                elif 43 <= roll <= 63:
+                    self.weight = 100
+                elif 64 <= roll <= 85:
+                    self.weight = 100 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 100 + roll_abilities.multi_die(1, 12)
+        elif self.race == "Elf, High":
+            if self.gender == "Male":
+                if 1 <= roll <= 15:
+                    self.weight = 100 - roll_abilities.multi_die(1, 10)
+                elif 16 <= roll <= 38:
+                    self.weight = 100 - roll_abilities.multi_die(1, 8)
+                elif 39 <= roll <= 67:
+                    self.weight = 100
+                elif 68 <= roll <= 90:
+                    self.weight = 100 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 100 + roll_abilities.multi_die(1, 20)
+            else:  # Female
+                if 1 <= roll <= 15:
+                    self.weight = 80 - roll_abilities.multi_die(1, 10)
+                elif 16 <= roll <= 38:
+                    self.weight = 80 - roll_abilities.multi_die(1, 4)
+                elif 39 <= roll <= 67:
+                    self.weight = 80
+                elif 68 <= roll <= 90:
+                    self.weight = 80 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 80 + roll_abilities.multi_die(2, 6)
+        elif self.race == "Elf, Wild":
+            if self.gender == "Male":
+                if 1 <= roll <= 15:
+                    self.weight = 85 - roll_abilities.multi_die(1, 10)
+                elif 16 <= roll <= 38:
+                    self.weight = 85 - roll_abilities.multi_die(1, 4)
+                elif 39 <= roll <= 67:
+                    self.weight = 85
+                elif 68 <= roll <= 90:
+                    self.weight = 85 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 85 + roll_abilities.multi_die(1, 20)
+            else:  # Female
+                if 1 <= roll <= 15:
+                    self.weight = 65 - roll_abilities.multi_die(1, 10)
+                elif 16 <= roll <= 38:
+                    self.weight = 65 - roll_abilities.multi_die(1, 4)
+                elif 39 <= roll <= 67:
+                    self.weight = 65
+                elif 68 <= roll <= 90:
+                    self.weight = 65 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 65 + roll_abilities.multi_die(2, 6)
+        elif self.race == "Elf, Wood":
+            if self.gender == "Male":
+                if 1 <= roll <= 15:
+                    self.weight = 95 - roll_abilities.multi_die(1, 10)
+                elif 16 <= roll <= 38:
+                    self.weight = 95 - roll_abilities.multi_die(1, 4)
+                elif 39 <= roll <= 67:
+                    self.weight = 95
+                elif 68 <= roll <= 90:
+                    self.weight = 95 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 95 + roll_abilities.multi_die(1, 20)
+            else:  # Female
+                if 1 <= roll <= 15:
+                    self.weight = 75 - roll_abilities.multi_die(1, 10)
+                elif 16 <= roll <= 38:
+                    self.weight = 75 - roll_abilities.multi_die(1, 4)
+                elif 39 <= roll <= 67:
+                    self.weight = 75
+                elif 68 <= roll <= 90:
+                    self.weight = 75 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 75 + roll_abilities.multi_die(2, 6)
+        elif self.race == "Gnome, Deep (Svirfneblin)" or self.race == "Gnome, Hill":
+            if self.gender == "Male":
+                if 1 <= roll <= 20:
+                    self.weight = 80 - roll_abilities.multi_die(2, 4)
+                elif 21 <= roll <= 37:
+                    self.weight = 80 - roll_abilities.multi_die(1, 4)
+                elif 38 <= roll <= 58:
+                    self.weight = 80
+                elif 59 <= roll <= 75:
+                    self.weight = 80 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 80 + roll_abilities.multi_die(2, 6)
+            else:  # Female
+                if 1 <= roll <= 20:
+                    self.weight = 75 - roll_abilities.multi_die(1, 8)
+                elif 21 <= roll <= 37:
+                    self.weight = 75 - roll_abilities.multi_die(1, 4)
+                elif 38 <= roll <= 58:
+                    self.weight = 75
+                elif 59 <= roll <= 75:
+                    self.weight = 75 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 75 + roll_abilities.multi_die(1, 8)
+        elif self.race == "Gnome, Forest":
+            if self.gender == "Male":
+                if 1 <= roll <= 20:
+                    self.weight = 82 - roll_abilities.multi_die(2, 4)
+                elif 21 <= roll <= 37:
+                    self.weight = 82 - roll_abilities.multi_die(1, 4)
+                elif 38 <= roll <= 58:
+                    self.weight = 82
+                elif 59 <= roll <= 75:
+                    self.weight = 82 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 82 + roll_abilities.multi_die(2, 6)
+            else:  # Female
+                if 1 <= roll <= 20:
+                    self.weight = 75 - roll_abilities.multi_die(1, 8)
+                elif 21 <= roll <= 37:
+                    self.weight = 75 - roll_abilities.multi_die(1, 4)
+                elif 38 <= roll <= 58:
+                    self.weight = 75
+                elif 59 <= roll <= 75:
+                    self.weight = 75 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 75 + roll_abilities.multi_die(1, 8)
+        elif self.race == "Halfling":
+            if self.gender == "Male":
+                if 1 <= roll <= 10:
+                    self.weight = 60 - roll_abilities.multi_die(2, 8)
+                elif 11 <= roll <= 22:
+                    self.weight = 60 - roll_abilities.multi_die(1, 4)
+                elif 23 <= roll <= 38:
+                    self.weight = 60
+                elif 39 <= roll <= 50:
+                    self.weight = 60 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 60 + roll_abilities.multi_die(2, 6)
+            else:  # Female
+                if 1 <= roll <= 10:
+                    self.weight = 50 - roll_abilities.multi_die(2, 4)
+                elif 11 <= roll <= 22:
+                    self.weight = 50 - roll_abilities.multi_die(1, 4)
+                elif 23 <= roll <= 38:
+                    self.weight = 50
+                elif 39 <= roll <= 50:
+                    self.weight = 50 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.weight = 50 + roll_abilities.multi_die(2, 4)
+        elif self.race == "Half-Orc":
+            if self.gender == "Male":
+                if 1 <= roll <= 30:
+                    self.weight = 150 - roll_abilities.multi_die(2, 8)
+                elif 31 <= roll <= 38:
+                    self.weight = 150 - roll_abilities.multi_die(1, 4)
+                elif 39 <= roll <= 47:
+                    self.weight = 150
+                elif 48 <= roll <= 55:
+                    self.weight = 150 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 150 + roll_abilities.multi_die(4, 10)
+            else:  # Female
+                if 1 <= roll <= 30:
+                    self.weight = 120 - roll_abilities.multi_die(3, 6)
+                elif 31 <= roll <= 38:
+                    self.weight = 120 - roll_abilities.multi_die(1, 8)
+                elif 39 <= roll <= 47:
+                    self.weight = 120
+                elif 48 <= roll <= 55:
+                    self.weight = 120 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 120 + roll_abilities.multi_die(4, 8)
+        else:  # Human
+            if self.gender == "Male":
+                if 1 <= roll <= 25:
+                    self.weight = 175 - roll_abilities.multi_die(3, 12)
+                elif 26 <= roll <= 40:
+                    self.weight = 175 - roll_abilities.multi_die(1, 8)
+                elif 47 <= roll <= 60:
+                    self.weight = 175
+                elif 61 <= roll <= 75:
+                    self.weight = 175 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 175 + roll_abilities.multi_die(5, 12)
+            else:  # Female
+                if 1 <= roll <= 25:
+                    self.weight = 130 - roll_abilities.multi_die(3, 10)
+                elif 26 <= roll <= 40:
+                    self.weight = 130 - roll_abilities.multi_die(1, 8)
+                elif 47 <= roll <= 60:
+                    self.weight = 130
+                elif 61 <= roll <= 75:
+                    self.weight = 130 + roll_abilities.multi_die(1, 8)
+                else:
+                    self.weight = 130 + roll_abilities.multi_die(4, 12)
 
     def get_alignment(self) -> None:
         """Get selected alignment"""

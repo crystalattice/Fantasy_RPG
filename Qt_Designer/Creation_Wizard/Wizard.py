@@ -508,7 +508,7 @@ class Wizard(QWizard, Ui_Wizard):
                     self.height = 53
                 else:
                     self.height = 54
-            else: # Female
+            else:  # Female
                 if 1 <= roll <= 4:
                     self.height = 42
                 elif 5 <= roll <= 15:
@@ -539,7 +539,7 @@ class Wizard(QWizard, Ui_Wizard):
                     self.height = 48 + roll_abilities.multi_die(1, 3)
                 else:
                     self.height = 48 + roll_abilities.multi_die(1, 6)
-            else: # Female
+            else:  # Female
                 if 1 <= roll <= 15:
                     self.height = 46 - roll_abilities.multi_die(1, 4)
                 elif 16 <= roll <= 36:
@@ -596,26 +596,25 @@ class Wizard(QWizard, Ui_Wizard):
                     self.height = 54 + roll_abilities.multi_die(1, 6)
         elif self.race == "Elf, Grey":
             if self.gender == "Male":
-                if self.gender == "Male":
-                    if 1 <= roll <= 31:
-                        self.height = 62 - roll_abilities.multi_die(1, 4)
-                    elif 32 <= roll <= 59:
-                        self.height = 62
-                    elif 60 <= roll <= 80:
-                        self.height = 62 + roll_abilities.multi_die(1, 4)
-                    else:
-                        self.height = 62 + roll_abilities.multi_die(1, 6)
+                if 1 <= roll <= 31:
+                    self.height = 62 - roll_abilities.multi_die(1, 4)
+                elif 32 <= roll <= 59:
+                    self.height = 62
+                elif 60 <= roll <= 80:
+                    self.height = 62 + roll_abilities.multi_die(1, 4)
                 else:
-                    if 1 <= roll <= 10:
-                        self.height = 56 - roll_abilities.multi_die(1, 4)
-                    elif 11 <= roll <= 31:
-                        self.height = 56 - roll_abilities.multi_die(1, 3)
-                    elif 32 <= roll <= 59:
-                        self.height = 56
-                    elif 60 <= roll <= 80:
-                        self.height = 56 + roll_abilities.multi_die(1, 4)
-                    else:
-                        self.height = 56 + roll_abilities.multi_die(1, 6)
+                    self.height = 62 + roll_abilities.multi_die(1, 6)
+            else:
+                if 1 <= roll <= 10:
+                    self.height = 56 - roll_abilities.multi_die(1, 4)
+                elif 11 <= roll <= 31:
+                    self.height = 56 - roll_abilities.multi_die(1, 3)
+                elif 32 <= roll <= 59:
+                    self.height = 56
+                elif 60 <= roll <= 80:
+                    self.height = 56 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.height = 56 + roll_abilities.multi_die(1, 6)
         elif self.race == "Half-Elf":
             if self.gender == "Male":
                 if 1 <= roll <= 35:
@@ -640,7 +639,142 @@ class Wizard(QWizard, Ui_Wizard):
                 else:
                     self.height = 62 + roll_abilities.multi_die(1, 6)
         elif self.race == "Elf, High":
-            pass
+            if self.gender == "Male":
+                if 1 <= roll <= 31:
+                    self.height = 60 - roll_abilities.multi_die(1, 4)
+                elif 32 <= roll <= 59:
+                    self.height = 60
+                elif 60 <= roll <= 80:
+                    self.height = 60 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.height = 60 + roll_abilities.multi_die(1, 6)
+            else:
+                if 1 <= roll <= 10:
+                    self.height = 54 - roll_abilities.multi_die(1, 4)
+                elif 11 <= roll <= 31:
+                    self.height = 54 - roll_abilities.multi_die(1, 3)
+                elif 32 <= roll <= 59:
+                    self.height = 54
+                elif 60 <= roll <= 80:
+                    self.height = 54 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.height = 56 + roll_abilities.multi_die(1, 6)
+        elif self.race == "Elf, Wild":
+            if self.gender == "Male":
+                if 1 <= roll <= 31:
+                    self.height = 52 - roll_abilities.multi_die(1, 4)
+                elif 32 <= roll <= 59:
+                    self.height = 52
+                elif 60 <= roll <= 80:
+                    self.height = 52 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.height = 52 + roll_abilities.multi_die(1, 6)
+            else:
+                if 1 <= roll <= 10:
+                    self.height = 48 - roll_abilities.multi_die(1, 4)
+                elif 11 <= roll <= 31:
+                    self.height = 48 - roll_abilities.multi_die(1, 3)
+                elif 32 <= roll <= 59:
+                    self.height = 48
+                elif 60 <= roll <= 80:
+                    self.height = 48 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.height = 48 + roll_abilities.multi_die(1, 6)
+        elif self.race == "Elf, Wood":
+            if self.gender == "Male":
+                if 1 <= roll <= 31:
+                    self.height = 58 - roll_abilities.multi_die(1, 4)
+                elif 32 <= roll <= 59:
+                    self.height = 58
+                elif 60 <= roll <= 80:
+                    self.height = 58 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.height = 58 + roll_abilities.multi_die(1, 6)
+            else:
+                if 1 <= roll <= 10:
+                    self.height = 52 - roll_abilities.multi_die(1, 4)
+                elif 11 <= roll <= 31:
+                    self.height = 52 - roll_abilities.multi_die(1, 3)
+                elif 32 <= roll <= 59:
+                    self.height = 52
+                elif 60 <= roll <= 80:
+                    self.height = 52 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.height = 52 + roll_abilities.multi_die(1, 6)
+        elif self.race == "Gnome, Deep (Svirfneblin)" or self.race == "Gnome, Forest" or self.race == "Gnome, Hill":
+            if self.gender == "Male":
+                if 1 <= roll <= 40:
+                    self.height = 39 - roll_abilities.multi_die(1, 3)
+                elif 41 <= roll <= 65:
+                    self.height = 39
+                else:
+                    self.height = 39 + roll_abilities.multi_die(1, 3)
+            else:
+                if 1 <= roll <= 40:
+                    self.height = 36 - roll_abilities.multi_die(1, 3)
+                elif 41 <= roll <= 65:
+                    self.height = 36
+                else:
+                    self.height = 36 + roll_abilities.multi_die(1, 3)
+        elif self.race == "Halfling":
+            if self.gender == "Male":
+                if 1 <= roll <= 34:
+                    self.height = 36 - roll_abilities.multi_die(1, 3)
+                elif 35 <= roll <= 56:
+                    self.height = 36
+                elif 57 <= roll <= 90:
+                    self.height = 36 + roll_abilities.multi_die(1, 3)
+                else:
+                    self.height = 36 + roll_abilities.multi_die(1, 6)
+            else:
+                if 1 <= roll <= 34:
+                    self.height = 33 - roll_abilities.multi_die(1, 3)
+                elif 35 <= roll <= 56:
+                    self.height = 33
+                else:
+                    self.height = 36 + roll_abilities.multi_die(1, 3)
+        elif self.race == "Half-Orc":
+            if self.gender == "Male":
+                if 1 <= roll <= 55:
+                    self.height = 66 - roll_abilities.multi_die(1, 4)
+                elif 56 <= roll <= 65:
+                    self.height = 66
+                else:
+                    self.height = 66 + roll_abilities.multi_die(1, 4)
+            else:
+                if 1 <= roll <= 45:
+                    self.height = 62 - roll_abilities.multi_die(1, 6)
+                elif 46 <= roll <= 55:
+                    self.height = 62 - roll_abilities.multi_die(1, 4)
+                elif 56 <= roll <= 65:
+                    self.height = 62
+                elif 66 <= roll <= 75:
+                    self.height = 62 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.height = 62 + roll_abilities.multi_die(1, 8)
+        else: # Human
+            if self.gender == "Male":
+                if 1 <= roll <= 20:
+                    self.height = 72 - roll_abilities.multi_die(1, 12)
+                elif 21 <= roll <= 40:
+                    self.height = 72 - roll_abilities.multi_die(1, 4)
+                elif 41 <= roll <= 60:
+                    self.height = 72
+                elif 61 <= roll <= 80:
+                    self.height = 72 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.height = 72 + roll_abilities.multi_die(1, 12)
+            else:
+                if 1 <= roll <= 20:
+                    self.height = 66 - roll_abilities.multi_die(1, 6)
+                elif 21 <= roll <= 40:
+                    self.height = 66 - roll_abilities.multi_die(1, 4)
+                elif 41 <= roll <= 60:
+                    self.height = 66
+                elif 61 <= roll <= 80:
+                    self.height = 66 + roll_abilities.multi_die(1, 4)
+                else:
+                    self.height = 66 + roll_abilities.multi_die(1, 8)
 
     def initial_weight(self) -> None:
         """Calculate character's weight"""

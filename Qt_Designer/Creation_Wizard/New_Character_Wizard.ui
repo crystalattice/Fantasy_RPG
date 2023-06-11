@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>775</width>
-    <height>572</height>
+    <width>877</width>
+    <height>612</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -73,8 +73,8 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>115</y>
+      <x>0</x>
+      <y>140</y>
       <width>776</width>
       <height>322</height>
      </rect>
@@ -358,6 +358,114 @@
        </property>
        <attribute name="buttonGroup">
         <string notr="true">Gender_buttonGroup</string>
+       </attribute>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="Alignment_groupBox">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>0</y>
+      <width>395</width>
+      <height>125</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Alignment</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="1" column="0">
+      <widget class="QRadioButton" name="LN_radioButton">
+       <property name="text">
+        <string>Lawful Neutral</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">Alignment_buttonGroup</string>
+       </attribute>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QRadioButton" name="CG_radioButton">
+       <property name="text">
+        <string>Chaotic Good</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">Alignment_buttonGroup</string>
+       </attribute>
+      </widget>
+     </item>
+     <item row="1" column="1" rowspan="2">
+      <widget class="QRadioButton" name="N_radioButton">
+       <property name="text">
+        <string>Neutral</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">Alignment_buttonGroup</string>
+       </attribute>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QRadioButton" name="CN_radioButton">
+       <property name="text">
+        <string>Chaotic Neutral</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">Alignment_buttonGroup</string>
+       </attribute>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QRadioButton" name="CE_radioButton">
+       <property name="text">
+        <string>Chaotic Evil</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">Alignment_buttonGroup</string>
+       </attribute>
+      </widget>
+     </item>
+     <item row="2" column="0" rowspan="2">
+      <widget class="QRadioButton" name="LE_radioButton">
+       <property name="text">
+        <string>Lawful Evil</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">Alignment_buttonGroup</string>
+       </attribute>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QRadioButton" name="NG_radioButton">
+       <property name="text">
+        <string>Neutral Good</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">Alignment_buttonGroup</string>
+       </attribute>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QRadioButton" name="LG_radioButton">
+       <property name="text">
+        <string>Lawful Good</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">Alignment_buttonGroup</string>
+       </attribute>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QRadioButton" name="NE_radioButton">
+       <property name="text">
+        <string>Neutral Evil</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">Alignment_buttonGroup</string>
        </attribute>
       </widget>
      </item>
@@ -1424,11 +1532,12 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="Gender_buttonGroup"/>
-  <buttongroup name="Dice_Type_buttonGroup"/>
-  <buttongroup name="Race_buttonGroup"/>
-  <buttongroup name="First_Class_buttonGroup"/>
   <buttongroup name="Second_Class_buttonGroup"/>
+  <buttongroup name="Dice_Type_buttonGroup"/>
+  <buttongroup name="First_Class_buttonGroup"/>
   <buttongroup name="Third_Class_buttonGroup"/>
+  <buttongroup name="Gender_buttonGroup"/>
+  <buttongroup name="Race_buttonGroup"/>
+  <buttongroup name="Alignment_buttonGroup"/>
  </buttongroups>
 </ui>

@@ -99,6 +99,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 self.chr.setText(unpickle["char_chr"])
                 self.con.setText(unpickle["char_con"])
 
+
     def save_character(self) -> None:
         """Save the current character sheet"""
         save_name: str = self.get_char_name()

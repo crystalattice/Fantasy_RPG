@@ -1106,7 +1106,7 @@ class Wizard(QWizard, Ui_Wizard):
 
     def get_alignment(self) -> None:
         """Get selected alignment"""
-        pass
+        return self.Alignment_buttonGroup.checkedButton().text()
 
     def finished(self) -> None:
         """Actions performed when 'Finish' button is clicked"""
@@ -1128,6 +1128,7 @@ class Wizard(QWizard, Ui_Wizard):
             "char_hp": self.hp,
             "char_money": self.money,
             "char_age": self.age,
+            "char_alignment": self.get_alignment()
         }
         save_dir = Path(Path.home().joinpath("Adv_Dark_Deep").joinpath("Characters"))
         Path.mkdir(save_dir, parents=True, exist_ok=True)

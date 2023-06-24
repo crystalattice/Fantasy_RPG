@@ -1,0 +1,39 @@
+Weapon,Cost,Weight (lbs.),Range_short_indoors,Range_med_indoors,Range_long_indoors,Range_short_outdoors,Range_med_outdoors,Range_long_outdoors,Rate_of_fire,Dam_vs_S/M,Dam_vs_L
+Acid,10 g.p.,3,10’,20’,30’,30’,60’,90’,1 / round,special,special-see below
+Aklys,2 g.p.,3,3’,n/a,n/a,9’,n/a,n/a,1 / round,1d6,1d3
+"Arrow, normal",1 g.p./doz.,0.1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,1d6,1d6
+"Axe, throwing",1 g.p.,5,10’,20’,30’,30’,60’,90’,1 / round,1d6,1d4
+Blowgun,20 g.p.,1,10’,20’,30’,30’,60’,90’,2 / round,n/a,n/a
+Blowgun needle,1 s.p.,0,n/a,n/a,n/a,n/a,n/a,n/a,n/a,1,1
+"Bow, composite, long*",100 g.p.,8,60’,120’,210’,180’,360’,630’,2 / round,n/a,n/a
+"Bow, composite, short*",75 g.p.,5,50’,100’,180’,150’,300’,540’,2 / round,n/a,n/a
+"Bow, long*",60 g.p.,10,70’,140’,210’,210’,420’,630’,2 / round,n/a,n/a
+"Bow, short*",15 g.p.,5,50’,100’,150’,150’,300’,450’,2 / round,n/a,n/a
+"Crossbow bolt, hand",10 g.p.,0.1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,1d3,1d2
+"Crossbow bolt, heavy",2 s.p.,0.2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,1d4+1,1d6+1
+"Crossbow bolt, light",1 s.p.,0.1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,1d4,1d4
+"Crossbow bolt, repeating",1 s.p.,0.1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,1d4,1d3
+"Crossbow bolt, underwater",10 s.p.,0.2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,1d4,1d4
+"Crossbow, hand",300 g.p.,2,20’,40’,60’,60’,120’,180’,1 / round,n/a,n/a
+"Crossbow, heavy*",20 g.p.,8,80’,160’,240’,240’,480’,720’,1 / 2 rounds,n/a,n/a
+"Crossbow, light*",12 g.p.,5,60’,120’,180’,180’,360’,540’,1 / round,n/a,n/a
+"Crossbow, repeating*",50 g.p.,6,40’,80’,120’,120’,240’,360’,2 / round,n/a,n/a
+"Crossbow, underwater*",120 g.p.,5,30’,60’,90’,90’,120’,270’,1 / round,n/a,n/a
+"Dagger, thrown",2 g.p.,1,10’,20’,30’,30’,60’,90’,2 / round,1d4,1d3
+Dart,5 s.p.,0.5,15’,30’,45’,45’,90’,135’,3 / round,1d3,1d2
+Hammer,1 g.p.,5,10’,20’,30’,30’,60’,90’,1 / round,1d4+1,1d4
+Harpoon,5 g.p.,6,10’,20’,30’,30’,60’,90’,1 / round,2d4,2d6
+Holy water,25 g.p.,3,10’,20’,30’,30’,60’,90’,1 / round,special,special-see below
+Improvised weapon*,n/a,1-5,5’,10’,15’,15’,30’,45’,1 / round,1d6,1d3
+Javelin,10 s.p.,2,20’,40’,60’,60’,120’,180’,1 / round,1d6,1d6
+Javelin-thrower,1 g.p.,1,30’,60’,90’,90’,180’,270’,1 / round,n/a,n/a
+"Knife, thrown",1 g.p.,0.5,10’,20’,30’,30’,60’,90’,2 / round,1d3,1d2
+Lasso*,5 s.p.,2,10’,20’,30’,30’,60’,90’,1 / 2 rounds,n/a,n/a
+Oil,1 g.p.,3,10’,20’,30’,30’,60’,90’,1 / round,special,special-see below
+Sling,10 s.p.,0.1,40’,80’,160’,120’,240’,480’,1 / round,n/a,n/a
+Sling bullet,10 s.p./doz.,0.2,+10',+20',+40',+30',+60',+120',n/a,1d4+1,1d6+1
+Sling stone,n/a,0.1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,1d4,1d4
+"Spear, thrown",1 g.p.,5,10’,20’,30’,30’,60’,90’,1 / round,1d6,1d8
+Staff sling*,2 g.p.,5,n/a,45’,90’,n/a,135’,270’,1 / 2 rounds,n/a,n/a
+Staff sling bullet,10 s.p./doz.,0.2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,2d4,1d8+2
+Staff sling stone,n/a,0.1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,1d8,2d4

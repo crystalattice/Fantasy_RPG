@@ -1,0 +1,56 @@
+Weapon,Cost,Weight(lbs.),Length,Two-Handed?,Space(feet),Speed,Dam_vs_S/M,Dam_vs_L
+"Axe, battle",5 g.p.,7,4’,N,4,7,1d8,1d8
+"Axe, hand",1 g.p.,5,18”,N,1,4,1d6,1d4
+Bardiche,7 g.p.,12,5’,Y,5,9,2d4,3d4
+Bec de corbin,6 g.p.,10,6’,Y,6,9,1d8,1d6
+Bill-guisarme,6 g.p.,15,8’,Y,2,10,2d4,1d10
+Caltrop,2 s.p.,3,n/a,n/a,n/a,n/a,1,1d2
+Club,n/a,3,3’,N,3,4,1d6,1d3
+Dagger,2 g.p.,1,15”,N,1,2,1d4,1d3
+Falchion,10 g.p.,7,3 1⁄2’,N,3,5,1d6+1,2d4
+Fauchard,3 g.p.,6,8’,Y,2,8,1d6,1d8
+Fauchard-fork,8 g.p.,8,8’,Y,2,8,1d8,1d10
+"Flail, footman’s",3 g.p.,15,4’,Y,6,7,1d6+1,2d4
+"Flail, horseman’s",8 g.p.,4,2’,N,4,6,1d4+1,1d4+1
+Garrote,1 e.p.,0.1,3’,Y,1,2,1d4,1d6
+Glaive,6 g.p.,7,8’,Y,1,8,1d6,1d10
+Glaive-guisarme,10 g.p.,10,8’,Y,1,9,2d4,2d6
+Guisarme,5 g.p.,8,6’,Y,2,8,2d4,1d8
+Guisarme-voulge,7 g.p.,15,7’,Y,2,10,2d4,2d4
+Halberd,9 g.p.,17,5’,Y,5,9,1d10,2d6
+"Hammer, war",1 g.p.,5,18”,N,2,4,1d4+1,1d4
+Hook fauchard,6 g.p.,8,8’,Y,2,9,1d4,1d4
+Improvised weapon,n/a,1-5,6”-5’,Y/N,1-5,5,1d6,1d3
+Khopesh,10 g.p.,7,3 1⁄2’,N,4,9,2d4,1d6
+Knife,1 g.p.,0.5,1’,N,1,2,1d3,1d2
+"Lance, light",6 g.p.,5,10’,N,1,8,1d6,1d8
+"Lance, medium",6 g.p.,10,12’,N,1,7,1d6+1,2d6
+"Lance, heavy",6 g.p.,15,14’,N,1,6,1d8+2,3d6
+Lucern hammer,7 g.p.,15,7’,Y,5,9,2d4,1d6
+"Mace, footman’s",8 g.p.,6,2 ½’,N,4,7,1d6+1,1d6
+"Mace, horseman’s",4 g.p.,4,18”,N,2,6,1d6,1d4
+"Mace, two-handed",13 g.p.,15,5’,Y,6,10,2d6,1d8
+Man catcher,25 g.p.,8,8’,Y,2,7,1d2,1d2
+Military fork,4 g.p.,7,7’,Y,1,7,1d8,2d4
+Military pick,8 g.p.,6,4’,N,4,7,1d6+1,2d4
+Morning star,5 g.p.,12,4’,N,5,7,2d4,1d6+1
+Partisan,10 g.p.,8,7’,Y,3,9,1d6,1d6+1
+Pike,3 g.p.,8,18’,Y,1,13,1d6,1d12
+Pole axe,8 g.p.,15,7’,Y,5,8,1d8+1,2d6
+Quarterstaff,3 g.p.,6,7’,Y,3,4,1d6,1d6
+Ranseur,4 g.p.,5,8’,Y,1,8,2d4,2d4
+Sap,1 g.p.,1-5,6”,N,1,2,1d2,1d2
+Scimitar,15 g.p.,4,3’,N,2,4,1d8,1d8
+Scythe,18 g.p.,10,7’,N,6,9,1d6,2d4
+Sickle,6 g.p.,2,1’,N,3,3,1d4,1d6
+Spear,1 g.p.,5,5’ - 12’,Y/N,1,7,1d6,1d8
+Spetum,3 g.p.,5,8’,Y,1,8,1d6+1,2d6
+Spiked buckler,10 g.p.,3,1’ (spike),N,2,4,1d4,1d3
+"Sword, bastard",25 g.p.,10,4 ½’,Y/N,4,6,2d4,2d8
+"Sword, broad",10 g.p.,7,3 1⁄2’,N,4,5,2d4,1d6+1
+"Sword, long",15 g.p.,6,3 1⁄2’,N,3,5,1d8,1d12
+"Sword, short",8 g.p.,4,2’,N,1,3,1d6,1d8
+"Sword, two-handed*",30 g.p.,25,6’,Y,6,10,1d10,3d6
+Trident,4 g.p.,5,6’,Y,1,7,1d6+1,3d4
+Voulge,2 g.p.,12,8’,Y,2,10,2d4,2d4
+Whip,3 g.p.,3,8’-20’,N,14,8,1d2,1

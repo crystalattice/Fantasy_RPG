@@ -99,7 +99,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 self.chr.setText(unpickle["char_chr"])
                 self.con.setText(unpickle["char_con"])
 
-
     def save_character(self) -> None:
         """Save the current character sheet"""
         save_name: str = self.get_char_name()
@@ -173,7 +172,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             # TODO: remove after testing
             # with open(f"{save_name}", "rb") as open_file:
             #     print(pickle.load(save_file))
-            print(char_vals)
+            for k, v in char_vals.items():
+                print(k, ": ", v)
 
     def roll_3d6(self) -> None:
         rolls: list = roll_abilities.three_d6()
@@ -286,14 +286,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                                                     int(self.chr.text()))
         # self.char_race.clear()
         self.char_race.addItems(races)
-        # self.class_selection()  # Use race to determine eligible classes
-        # return self.char_race.currentText()
+        self.class_selection()  # Use race to determine eligible classes
+        return self.char_race.currentText()
 
     # TODO: Check attributes vs. class mins
     def class_selection(self):
         """Get the character's class"""
         self.char_class.clear()
-        classes = get_acceptable_class.get_one_class(self.char_race.currentText().lower())
+        classes = get_acceptable_class.get_one_class(self.char_race.currentText())
         self.char_class.addItems(classes)
 
     def dual_class_selection(self) -> None:

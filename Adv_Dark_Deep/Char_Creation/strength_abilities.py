@@ -1,61 +1,100 @@
 from collections import namedtuple
-from typing import Type
+from typing import Type, Dict
+from enum import IntEnum
 
-strength: Type[namedtuple] = namedtuple("Strength",
-                                        ["ToHit_Modifier", "Damage_Modifier", "Weight_Allowance", "Open_Stuck_Doors",
-                                         "Open_Locked_Doors", "Bend_Bars_Lift_Gates"])
-str_1 = strength(-5, -2, -55, 0, 0, 0)
-str_2 = strength(-4, -2, -45, 0, 0, 0)
-str_3 = strength(-3, -1, -35, 0.17, 0, 0)
-str_4 = strength(-2, -1, -25, 0.17, 0, 0)
-str_5 = strength(-2, -1, -25, 0.17, 0, 0)
-str_6 = strength(-1, 0, -15, 0.17, 0, 0)
-str_7 = strength(-1, 0, -15, 0.17, 0, 0)
-str_8 = strength(0, 0, 0, 0.33, 0, 1)
-str_9 = strength(0, 0, 0, 0.33, 0, 1)
-str_10 = strength(0, 0, 0, 0.33, 0, 2)
-str_11 = strength(0, 0, 0, 0.33, 0, 2)
-str_12 = strength(0, 0, 10, 0.33, 0, 4)
-str_13 = strength(0, 0, 10, 0.33, 0, 4)
-str_14 = strength(0, 0, 20, 0.33, 0, 7)
-str_15 = strength(0, 0, 20, 0.33, 0, 7)
-str_16 = strength(0, 1, 35, 0.5, 0, 10)
-str_17 = strength(1, 1, 50, 0.5, 0, 13)
-str_18 = strength(1, 2, 75, 0.5, 0, 16)
-str_181_1850 = strength(1, 3, 100, 0.5, 0, 20)
-str_1851_1875 = strength(2, 3, 125, 0.67, 0, 25)
-str_1876_1890 = strength(2, 4, 150, 0.67, 0, 30)
-str_1891_1899 = strength(2, 5, 200, 0.67, 0.17, 35)
-str_18100 = strength(3, 6, 300, 0.83, 0.33, 40)
-str_19 = strength(3, 7, 450, 0.875, 0.5, 50)
-str_20 = strength(3, 8, 500, 0.875, 0.5, 60)
-str_21 = strength(4, 9, 600, 0.9, 0.67, 70)
-str_22 = strength(4, 10, 750, 0.9, 0.67, 80)
-str_23 = strength(5, 11, 900, 0.917, 0.83, 90)
-str_24 = strength(6, 12, 1200, 0.917, 0.875, 100)
-str_25 = strength(7, 14, 1500, 0.958, 0.9, 100)
-
-# Offset tuple so values match possible attribute scores
-str_abilities = (None, str_1, str_2, str_3, str_4, str_5, str_6, str_7, str_8, str_9, str_10, str_11, str_12, str_13,
-                 str_14, str_15, str_16, str_17, str_18, str_19, str_20, str_21, str_22, str_23, str_24, str_25,
-                 str_181_1850, str_1851_1875, str_1876_1890, str_1891_1899, str_18100,)
+# Define the namedtuple for strength attributes
+Strength: Type[namedtuple] = namedtuple("Strength",
+                                        ["to_hit", "damage", "weight", "open_stuck_doors", "open_locked_doors",
+                                         "bend_bars_lift_gates"])
 
 
-def get_str_ability(str_val: int, ability: int) -> int:
-    """Get the appropriate ability for a given strength value"""
-    try:
-        if 181 <= str_val <= 1850:
-            ability_val = str_181_1850[ability]
-        elif 1851 <= str_val <= 1875:
-            ability_val = str_1851_1875[ability]
-        elif 1876 <= str_val <= 1890:
-            ability_val = str_1876_1890[ability]
-        elif 1891 <= str_val <= 1899:
-            ability_val = str_1891_1899[ability]
-        elif str_val == 18100:
-            ability_val = str_18100[ability]
-        else:
-            ability_val = str_abilities[str_val][ability]
-        return ability_val
-    except IndexError:
-        print(str_val, ability)
+class StrengthModifier(IntEnum):
+    """
+    Enum for indexing the various ability modifiers related to strength.
+
+    Attributes:
+        TO_HIT: Index for the "to hit" modifier.
+        DAMAGE: Index for the damage modifier.
+        WEIGHT: Index for the weight allowance.
+        OPEN_STUCK_DOORS: Index for the ability to open stuck doors.
+        OPEN_LOCKED_DOORS: Index for the ability to open locked doors.
+        BEND_BARS_LIFT_GATES: Index for the ability to bend bars or lift gates.
+    """
+    TO_HIT = 0
+    DAMAGE = 1
+    WEIGHT = 2
+    OPEN_STUCK_DOORS = 3
+    OPEN_LOCKED_DOORS = 4
+    BEND_BARS_LIFT_GATES = 5
+
+
+# Define the strength scores using namedtuple
+strength_abilities: Dict[int | str, Strength] = {
+    1: Strength(-5, -2, -55, 0.0, 0.0, 0),
+    2: Strength(-4, -2, -45, 0.0, 0.0, 0),
+    3: Strength(-3, -1, -35, 0.17, 0.0, 0),
+    4: Strength(-2, -1, -25, 0.17, 0.0, 0),
+    5: Strength(-2, -1, -25, 0.17, 0.0, 0),
+    6: Strength(-1, 0, -15, 0.17, 0.0, 0),
+    7: Strength(-1, 0, -15, 0.17, 0.0, 0),
+    8: Strength(0, 0, 0, 0.33, 0.0, 1),
+    9: Strength(0, 0, 0, 0.33, 0.0, 1),
+    10: Strength(0, 0, 0, 0.33, 0.0, 2),
+    11: Strength(0, 0, 0, 0.33, 0.0, 2),
+    12: Strength(0, 0, 10, 0.33, 0.0, 4),
+    13: Strength(0, 0, 10, 0.33, 0.0, 4),
+    14: Strength(0, 0, 20, 0.33, 0.0, 7),
+    15: Strength(0, 0, 20, 0.33, 0.0, 7),
+    16: Strength(0, 1, 35, 0.5, 0.0, 10),
+    17: Strength(1, 1, 50, 0.5, 0.0, 13),
+    18: Strength(1, 2, 75, 0.5, 0.0, 16),
+    "18/01-50": Strength(1, 3, 100, 0.5, 0.0, 20),
+    "18/51-75": Strength(2, 3, 125, 0.67, 0.0, 25),
+    "18/76-90": Strength(2, 4, 150, 0.67, 0.0, 30),
+    "18/91-99": Strength(2, 5, 200, 0.67, 0.17, 35),
+    "18/00": Strength(3, 6, 300, 0.83, 0.33, 40),
+    19: Strength(3, 7, 450, 0.875, 0.5, 50),
+    20: Strength(3, 8, 500, 0.875, 0.5, 60),
+    21: Strength(4, 9, 600, 0.9, 0.67, 70),
+    22: Strength(4, 10, 750, 0.9, 0.67, 80),
+    23: Strength(5, 11, 900, 0.917, 0.83, 90),
+    24: Strength(6, 12, 1200, 0.917, 0.875, 100),
+    25: Strength(7, 14, 1500, 0.958, 0.9, 100),
+}
+
+
+def get_strength_ability(str_val: int | str, ability: StrengthModifier) -> int | float:
+    """
+    Retrieve the specific ability modifier for a given strength score.
+
+    Args:
+        str_val (int | str): The strength score of the character, which can be an integer (1-25)
+                             or a string (e.g., "18/01-50") for exceptional strength values.
+        ability (StrengthModifier): The specific ability modifier to retrieve (e.g., TO_HIT, DAMAGE).
+
+    Returns:
+        int | float: The value of the requested ability modifier for the given strength score.
+
+    Raises:
+        ValueError: If the provided strength value is not valid.
+
+    Example:
+        >>> get_strength_ability(18, StrengthModifier.DAMAGE)
+        2
+        >>> get_strength_ability("18/01-50", StrengthModifier.WEIGHT)
+        100
+    """
+    if isinstance(str_val, int) and 1 <= str_val <= 25:
+        return strength_abilities[str_val][ability]
+    elif isinstance(str_val, str) and str_val in strength_abilities:
+        return strength_abilities[str_val][ability]
+    else:
+        raise ValueError(f"Invalid strength value: {str_val}")
+
+
+# Example usage
+if __name__ == "__main__":
+    strength_value = 18
+    modifier_type = StrengthModifier.DAMAGE
+    result = get_strength_ability(str_val=strength_value, ability=modifier_type)
+    print(f"Strength {strength_value}: {modifier_type.name} = {result}")

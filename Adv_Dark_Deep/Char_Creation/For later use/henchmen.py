@@ -1,89 +1,122 @@
 import random
-from typing import Dict
 
 
-def calculate_potential_henchmen(population: int, density: str = "normal") -> int:
-    """
-    Calculate the number of potential henchmen in a given population.
+class Henchman:
+    def __init__(self, name, race, character_class, level=1):
+        self.name = name
+        self.race = race
+        self.character_class = character_class
+        self.level = level
+        self.experience_points = 0
+        self.loyalty = 100  # Loyalty is a percentage, starts at 100%
 
-    :param population: The population of the location.
-    :param density: The density of adventurers ('high', 'normal', 'low').
-    :return: Number of potential henchmen.
-    """
-    if density == "high":
-        return population // 200
-    elif density == "low":
-        return population // 5000
+    def gain_experience(self, exp):
+        # Henchmen gain 50% of the experience points
+        gained_exp = exp * 0.5
+        self.experience_points += gained_exp
+        required_exp = [1000, 3000, 6000, 12000, 25000, 50000, 100000, 200000, 400000, 600000]
+        if self.level < len(required_exp) and self.experience_points >= required_exp[self.level - 1]:
+            self.level_up()
+
+    def level_up(self):
+        self.level += 1
+        print(f"{self.name} has leveled up! Now at level {self.level}.")
+
+    def adjust_loyalty(self, adjustment):
+        self.loyalty += adjustment
+        if self.loyalty > 100:
+            self.loyalty = 100
+        elif self.loyalty < 0:
+            self.loyalty = 0
+        print(f"{self.name}'s loyalty is now {self.loyalty}%.")
+
+    def check_loyalty(self):
+        if self.loyalty < 50:
+            print(f"{self.name} is considering leaving due to low loyalty.")
+        elif self.loyalty < 25:
+            print(f"{self.name} is very likely to leave unless treated better soon.")
+
+
+def find_henchmen(town_population, activity_level="normal"):
+    if activity_level == "high":
+        ratio = 200
+    elif activity_level == "low":
+        ratio = 5000
     else:
-        return population // 1000
+        ratio = 1000
+
+    available_henchmen = town_population // ratio
+    print(f"There are {available_henchmen} potential henchmen available in the town.")
+
+    henchmen_list = []
+    for _ in range(available_henchmen):
+        race = determine_race()
+        character_class = determine_class()
+        name = generate_name(race)
+        henchmen_list.append(Henchman(name, race, character_class))
+
+    return henchmen_list
 
 
-def find_henchmen(method: str, potential_henchmen: int) -> int:
-    """
-    Determine how many henchmen respond based on the chosen method.
-
-    :param method: The method used to find henchmen ('inns', 'crier', 'notices', 'agents').
-    :param potential_henchmen: The total number of potential henchmen.
-    :return: Number of henchmen responding.
-    """
-    if method == "inns":
-        response_rate = random.randint(1, 4)
-    elif method == "crier":
-        response_rate = random.randint(1, 10)
-    elif method == "notices":
-        response_rate = random.randint(1, 4) * 10
-    elif method == "agents":
-        response_rate = random.randint(1, 4) * 10 + random.randint(1, 10)
+def determine_class():
+    roll = random.randint(1, 100)
+    if 1 <= roll <= 10:
+        return "Bard"
+    elif 11 <= roll <= 12:
+        return "Jester"
+    elif 13 <= roll <= 21:
+        return "Cavalier"
+    elif 22 <= roll <= 23:
+        return "Paladin"
+    elif 24 <= roll <= 35:
+        return "Cleric"
+    elif 36 <= roll <= 37:
+        return "Druid"
+    elif 38 <= roll <= 39:
+        return "Mystic"
+    elif 40 <= roll <= 68:
+        return "Fighter"
+    elif 69 <= roll <= 71:
+        return "Barbarian"
+    elif 72 <= roll <= 74:
+        return "Ranger"
+    elif 75 <= roll <= 85:
+        return "Mage"
+    elif 86 <= roll <= 87:
+        return "Illusionist"
+    elif 88 <= roll <= 89:
+        return "Savant"
+    elif 90 <= roll <= 98:
+        return "Thief"
     else:
-        response_rate = 0
-
-    return min((response_rate * potential_henchmen) // 100, potential_henchmen)
+        return "Mountebank"
 
 
-def check_henchman_limit(charisma: int) -> int:
-    """
-    Get the maximum number of henchmen a character can have based on charisma.
-
-    :param charisma: The charisma score of the character.
-    :return: The maximum number of henchmen.
-    """
-    charisma_henchmen_limit = {
-        3: 1, 4: 1, 5: 2, 6: 2, 7: 3, 8: 3, 9: 4, 10: 4,
-        11: 4, 12: 5, 13: 5, 14: 6, 15: 7, 16: 8, 17: 10,
-        18: 15, 19: 20
-    }
-    return charisma_henchmen_limit.get(charisma, 4)
+def determine_race():
+    # A placeholder function, modify based on your game's racial composition
+    races = ["Human", "Elf", "Dwarf", "Half-Elf", "Gnome", "Halfling", "Half-Orc"]
+    return random.choice(races)
 
 
-def determine_henchman_class_level(employer_level: int) -> Dict[str, int]:
-    """
-    Determine the class and level of a potential henchman.
-
-    :param employer_level: The level of the employer.
-    :return: A dictionary containing the class and level of the henchman.
-    """
-    classes = ["Fighter", "Cleric", "Thief", "Mage", "Druid", "Paladin", "Ranger", "Bard", "Mountebank"]
-    henchman_class = random.choice(classes)
-    henchman_level = 1
-
-    if employer_level >= 11:
-        if random.randint(1, 100) <= 25:
-            henchman_level = random.choice([2, 3])
-
-    return {"class": henchman_class, "level": henchman_level}
+def generate_name(race):
+    # A placeholder function for generating names, modify as needed
+    if race == "Elf":
+        return random.choice(["Elandril", "Lothariel", "Faelwen"])
+    elif race == "Dwarf":
+        return random.choice(["Thorin", "Borin", "Gloin"])
+    elif race == "Human":
+        return random.choice(["John", "Arthur", "Morgan"])
+    elif race == "Half-Orc":
+        return random.choice(["Grukk", "Thogg", "Morg"])
+    # Add more names for other races
+    return "Unknown"
 
 
-# Example usage:
-if __name__ == "__main__":
-    population = 20000
-    potential_henchmen = calculate_potential_henchmen(population, "normal")
+# Example Usage
+town_population = 10000
+henchmen = find_henchmen(town_population, activity_level="normal")
 
-    responding_henchmen = find_henchmen("inns", potential_henchmen)
-
-    charisma = 14
-    max_henchmen = check_henchman_limit(charisma)
-    print(f"Max Henchmen: {max_henchmen}")
-
-    for _ in range(responding_henchmen):
-        henchman = determine_henchman_class_level(12)
-        print(f"New Henchman - Class: {henchman['class']}, Level: {henchman['level']}")
+# Example of interacting with a henchman
+henchmen[0].gain_experience(500)
+henchmen[0].adjust_loyalty(-10)
+henchmen[0].check_loyalty()

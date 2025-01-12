@@ -1,0 +1,144 @@
+[
+    {
+        "range": [
+            1
+        ],
+        "HP_Bonus": -4,
+        "Fighter_HP_Bonus": 0,
+        "Reroll_HD": "5, 6, 7, 8, 9, 10",
+        "System_Shock": 25,
+        "Resurrection": 30
+    },
+    {
+        "range": [
+            2
+        ],
+        "HP_Bonus": -3,
+        "Fighter_HP_Bonus": 0,
+        "Reroll_HD": "6, 7, 8, 9, 10",
+        "System_Shock": 30,
+        "Resurrection": 35
+    },
+    {
+        "range": [
+            3
+        ],
+        "HP_Bonus": -2,
+        "Fighter_HP_Bonus": 0,
+        "Reroll_HD": "",
+        "System_Shock": 35,
+        "Resurrection": 40
+    },
+    {
+        "range": [
+            4,
+            5,
+            6
+        ],
+        "HP_Bonus": -1,
+        "Fighter_HP_Bonus": 0,
+        "Reroll_HD": "",
+        "System_Shock": 40,
+        "Resurrection": 55
+    },
+    {
+        "range": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+        ],
+        "HP_Bonus": 0,
+        "Fighter_HP_Bonus": 0,
+        "Reroll_HD": "",
+        "System_Shock": 55,
+        "Resurrection": 85
+    },
+    {
+        "range": [
+            15
+        ],
+        "HP_Bonus": 1,
+        "Fighter_HP_Bonus": 1,
+        "Reroll_HD": "",
+        "System_Shock": 88,
+        "Resurrection": 92
+    },
+    {
+        "range": [
+            16
+        ],
+        "HP_Bonus": 2,
+        "Fighter_HP_Bonus": 2,
+        "Reroll_HD": "",
+        "System_Shock": 91,
+        "Resurrection": 94
+    },
+    {
+        "range": [
+            17
+        ],
+        "HP_Bonus": 2,
+        "Fighter_HP_Bonus": 3,
+        "Reroll_HD": "",
+        "System_Shock": 97,
+        "Resurrection": 98
+    },
+    {
+        "range": [
+            18
+        ],
+        "HP_Bonus": 2,
+        "Fighter_HP_Bonus": 4,
+        "Reroll_HD": "",
+        "System_Shock": 99,
+        "Resurrection": 100
+    },
+    {
+        "range": [
+            19
+        ],
+        "HP_Bonus": 2,
+        "Fighter_HP_Bonus": 5,
+        "Reroll_HD": "1",
+        "System_Shock": 99,
+        "Resurrection": 100
+    },
+    {
+        "range": [
+            20
+        ],
+        "HP_Bonus": 2,
+        "Fighter_HP_Bonus": 6,
+        "Reroll_HD": "1, 2",
+        "System_Shock": 99,
+        "Resurrection": 100
+    },
+    {
+        "range": [
+            21,
+            22
+        ],
+        "HP_Bonus": 2,
+        "Fighter_HP_Bonus": 6,
+        "Reroll_HD": "1, 2, 3",
+        "System_Shock": 99,
+        "Resurrection": 100
+    },
+    {
+        "range": [
+            23,
+            24,
+            25
+        ],
+        "HP_Bonus": 2,
+        "Fighter_HP_Bonus": 7,
+        "Reroll_HD": "1, 2, 3",
+        "System_Shock": 99,
+        "Resurrection": 100
+    }
+]

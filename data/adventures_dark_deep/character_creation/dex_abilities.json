@@ -1,0 +1,118 @@
+[
+    {
+        "range": [
+            1
+        ],
+        "Init_Adj": 5,
+        "Missile_Attack": -5,
+        "AC_Adj": 6
+    },
+    {
+        "range": [
+            2
+        ],
+        "Init_Adj": 4,
+        "Missile_Attack": -4,
+        "AC_Adj": 5
+    },
+    {
+        "range": [
+            3
+        ],
+        "Init_Adj": 3,
+        "Missile_Attack": -3,
+        "AC_Adj": 4
+    },
+    {
+        "range": [
+            4
+        ],
+        "Init_Adj": 2,
+        "Missile_Attack": -2,
+        "AC_Adj": 3
+    },
+    {
+        "range": [
+            5
+        ],
+        "Init_Adj": 1,
+        "Missile_Attack": -1,
+        "AC_Adj": 2
+    },
+    {
+        "range": [
+            6
+        ],
+        "Init_Adj": 0,
+        "Missile_Attack": 0,
+        "AC_Adj": 1
+    },
+    {
+        "range": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+        ],
+        "Init_Adj": 0,
+        "Missile_Attack": 0,
+        "AC_Adj": 0
+    },
+    {
+        "range": [
+            15
+        ],
+        "Init_Adj": 0,
+        "Missile_Attack": 0,
+        "AC_Adj": -1
+    },
+    {
+        "range": [
+            16
+        ],
+        "Init_Adj": -1,
+        "Missile_Attack": 1,
+        "AC_Adj": -2
+    },
+    {
+        "range": [
+            17
+        ],
+        "Init_Adj": -2,
+        "Missile_Attack": 2,
+        "AC_Adj": -3
+    },
+    {
+        "range": [
+            18,
+            19,
+            20
+        ],
+        "Init_Adj": -3,
+        "Missile_Attack": 3,
+        "AC_Adj": -4
+    },
+    {
+        "range": [
+            21,
+            22,
+            23
+        ],
+        "Init_Adj": -4,
+        "Missile_Attack": 4,
+        "AC_Adj": -5
+    },
+    {
+        "range": [
+            24,
+            25
+        ],
+        "Init_Adj": -5,
+        "Missile_Attack": 5,
+        "AC_Adj": -6
+    }
+]

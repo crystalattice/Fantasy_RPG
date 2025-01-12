@@ -1,0 +1,139 @@
+[
+    {
+        "range": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "Max_Additional_Languages": 0,
+        "Immune_to_Illusion": 0,
+        "Max_Mage_Spell_Level": 0
+    },
+    {
+        "range": [
+            8
+        ],
+        "Max_Additional_Languages": 1,
+        "Immune_to_Illusion": 0,
+        "Max_Mage_Spell_Level": 0
+    },
+    {
+        "range": [
+            9
+        ],
+        "Max_Additional_Languages": 1,
+        "Immune_to_Illusion": 0,
+        "Max_Mage_Spell_Level": 4
+    },
+    {
+        "range": [
+            10,
+            11
+        ],
+        "Max_Additional_Languages": 2,
+        "Immune_to_Illusion": 0,
+        "Max_Mage_Spell_Level": 5
+    },
+    {
+        "range": [
+            12,
+            13
+        ],
+        "Max_Additional_Languages": 3,
+        "Immune_to_Illusion": 0,
+        "Max_Mage_Spell_Level": 6
+    },
+    {
+        "range": [
+            14,
+            15
+        ],
+        "Max_Additional_Languages": 4,
+        "Immune_to_Illusion": 0,
+        "Max_Mage_Spell_Level": 7
+    },
+    {
+        "range": [
+            16
+        ],
+        "Max_Additional_Languages": 5,
+        "Immune_to_Illusion": 0,
+        "Max_Mage_Spell_Level": 8
+    },
+    {
+        "range": [
+            17
+        ],
+        "Max_Additional_Languages": 6,
+        "Immune_to_Illusion": 0,
+        "Max_Mage_Spell_Level": 8
+    },
+    {
+        "range": [
+            18
+        ],
+        "Max_Additional_Languages": 7,
+        "Immune_to_Illusion": 0,
+        "Max_Mage_Spell_Level": 9
+    },
+    {
+        "range": [
+            19
+        ],
+        "Max_Additional_Languages": 7,
+        "Immune_to_Illusion": 1,
+        "Max_Mage_Spell_Level": 9
+    },
+    {
+        "range": [
+            20
+        ],
+        "Max_Additional_Languages": 7,
+        "Immune_to_Illusion": 2,
+        "Max_Mage_Spell_Level": 9
+    },
+    {
+        "range": [
+            21
+        ],
+        "Max_Additional_Languages": 7,
+        "Immune_to_Illusion": 3,
+        "Max_Mage_Spell_Level": 9
+    },
+    {
+        "range": [
+            22
+        ],
+        "Max_Additional_Languages": 7,
+        "Immune_to_Illusion": 4,
+        "Max_Mage_Spell_Level": 9
+    },
+    {
+        "range": [
+            23
+        ],
+        "Max_Additional_Languages": 7,
+        "Immune_to_Illusion": 5,
+        "Max_Mage_Spell_Level": 9
+    },
+    {
+        "range": [
+            24
+        ],
+        "Max_Additional_Languages": 7,
+        "Immune_to_Illusion": 6,
+        "Max_Mage_Spell_Level": 9
+    },
+    {
+        "range": [
+            25
+        ],
+        "Max_Additional_Languages": 7,
+        "Immune_to_Illusion": 7,
+        "Max_Mage_Spell_Level": 9
+    }
+]

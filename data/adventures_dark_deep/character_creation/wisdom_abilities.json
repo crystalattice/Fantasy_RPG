@@ -1,0 +1,155 @@
+[
+    {
+        "range": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+        ],
+        "Magical_Attack_Adjustment": -1,
+        "Cleric_Bonus": "0",
+        "Spell_Failure": 100,
+        "Immune_to_Charm": 0
+    },
+    {
+        "range": [
+            9
+        ],
+        "Magical_Attack_Adjustment": 0,
+        "Cleric_Bonus": "0",
+        "Spell_Failure": 20,
+        "Immune_to_Charm": 0
+    },
+    {
+        "range": [
+            10,
+            11,
+            12
+        ],
+        "Magical_Attack_Adjustment": 0,
+        "Cleric_Bonus": "0",
+        "Spell_Failure": 15,
+        "Immune_to_Charm": 0
+    },
+    {
+        "range": [
+            13
+        ],
+        "Magical_Attack_Adjustment": 0,
+        "Cleric_Bonus": "1x1",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 0
+    },
+    {
+        "range": [
+            14
+        ],
+        "Magical_Attack_Adjustment": 0,
+        "Cleric_Bonus": "2x1",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 0
+    },
+    {
+        "range": [
+            15
+        ],
+        "Magical_Attack_Adjustment": 1,
+        "Cleric_Bonus": "2x1, 1x2",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 0
+    },
+    {
+        "range": [
+            16
+        ],
+        "Magical_Attack_Adjustment": 2,
+        "Cleric_Bonus": "2x1, 2x2",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 0
+    },
+    {
+        "range": [
+            17
+        ],
+        "Magical_Attack_Adjustment": 3,
+        "Cleric_Bonus": "2x1, 2x2, 1x3",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 0
+    },
+    {
+        "range": [
+            18
+        ],
+        "Magical_Attack_Adjustment": 4,
+        "Cleric_Bonus": "2x1, 2x2, 1x3, 1x4",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 0
+    },
+    {
+        "range": [
+            19
+        ],
+        "Magical_Attack_Adjustment": 4,
+        "Cleric_Bonus": "3x1, 2x2, 1x3, 2x4",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 1
+    },
+    {
+        "range": [
+            20
+        ],
+        "Magical_Attack_Adjustment": 4,
+        "Cleric_Bonus": "3x1, 3x2, 1x3, 3x4",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 2
+    },
+    {
+        "range": [
+            21
+        ],
+        "Magical_Attack_Adjustment": 4,
+        "Cleric_Bonus": "3x1, 3x2, 2x3, 3x4, 1x5",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 3
+    },
+    {
+        "range": [
+            22
+        ],
+        "Magical_Attack_Adjustment": 4,
+        "Cleric_Bonus": "3x1, 3x2, 2x3, 4x4, 2x5",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 4
+    },
+    {
+        "range": [
+            23
+        ],
+        "Magical_Attack_Adjustment": 4,
+        "Cleric_Bonus": "3x1, 3x2, 2x3, 4x4, 4x5",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 5
+    },
+    {
+        "range": [
+            24
+        ],
+        "Magical_Attack_Adjustment": 4,
+        "Cleric_Bonus": "3x1, 3x2, 2x3, 4x4, 4x5, 2x6",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 6
+    },
+    {
+        "range": [
+            25
+        ],
+        "Magical_Attack_Adjustment": 4,
+        "Cleric_Bonus": "3x1, 3x2, 2x3, 4x4, 4x5, 3x6, 1x7",
+        "Spell_Failure": 0,
+        "Immune_to_Charm": 7
+    }
+]

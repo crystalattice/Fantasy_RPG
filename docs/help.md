@@ -99,3 +99,35 @@ Modify abilities by editing the corresponding JSON file in `data/`. Example (`ch
     "react_adj": 25
 }
 ```
+## Race Attribute Limits
+
+### Overview
+Racial attribute limits define the permissible ranges for core attributes (e.g., Strength, Intelligence) for each race and gender.
+
+### Using Attribute Limits
+To access attribute limits:
+1. Open `race_attribute_limits.json`.
+2. Retrieve the limits for a specific race and gender.
+
+Example:
+```python
+import json
+
+with open("data/race_attribute_limits.json", "r") as file:
+    race_limits = json.load(file)
+
+# Example: Get attribute limits for female high elves
+female_high_elf_limits = race_limits["female"]["high_elf"]
+print(female_high_elf_limits["DEX"])  # Output: [7, 19]
+```
+
+### Adding or Updating Races
+1. Edit the source dictionary in the Python script.
+2. Regenerate `race_attribute_limits.json` by running the script.
+
+### File Location
+The attribute limits are stored in:
+```
+data/
+└── race_attribute_limits.json
+```

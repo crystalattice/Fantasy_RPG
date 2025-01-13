@@ -119,3 +119,51 @@ The application now supports dynamically loading abilities for core attributes (
     "Immune_to_Charm": 0
 }
 ```
+## Race Attribute Limits
+
+The application now supports dynamically managing racial attribute limits for both male and female characters. These limits include minimum and maximum values for core attributes (e.g., Strength, Intelligence) and are stored in a JSON format for flexibility and ease of modification.
+
+### How It Works
+1. **Data Structure**:
+   - Attribute limits are grouped by gender and race.
+   - Each attribute (e.g., Strength, Intelligence) is represented by its minimum and maximum permissible values.
+
+2. **Dynamic Retrieval**:
+   - Use the provided functions or load the JSON file directly to retrieve limits for a specific race and gender.
+
+3. **JSON Storage**:
+   - All racial limits are stored in `race_attribute_limits.json`:
+     ```
+     data/
+     └── race_attribute_limits.json
+     ```
+
+### Example JSON Entry
+```json
+{
+    "male": {
+        "dwarf": {
+            "STR": [8, 18],
+            "IQ": [3, 18],
+            "WIS": [3, 18],
+            "DEX": [3, 17],
+            "CON": [12, 19],
+            "CHR": [3, 16]
+        }
+    }
+}
+```
+
+### Usage Example
+Retrieve racial limits dynamically in Python:
+```python
+import json
+
+# Load the JSON file
+with open("data/race_attribute_limits.json", "r") as file:
+    race_limits = json.load(file)
+
+# Example: Get attribute limits for male dwarves
+male_dwarf_limits = race_limits["male"]["dwarf"]
+print(male_dwarf_limits["STR"])  # Output: [8, 18]
+```

@@ -112,4 +112,46 @@ def serialize_strength_abilities_to_json(output_file: str):
   ├── constitution_abilities.json
   ...
   ```
-  
+## Race Attribute Limits
+
+### Overview
+Racial attribute limits are now stored in `race_attribute_limits.json`. This file defines minimum and maximum values for each core attribute (e.g., Strength, Intelligence) for every supported race and gender.
+
+### Key Features
+1. **Dynamic JSON Conversion**:
+   - The `race_attribute_limits.json` file is generated dynamically from `namedtuple` data.
+   - Avoids redundancy by iterating over a dictionary of races and genders.
+
+2. **Scalable**:
+   - Adding a new race or updating existing limits is as simple as modifying the source dictionary.
+
+### JSON File Path
+The racial attribute limits JSON file is stored in the `data/` directory:
+```
+data/
+└── race_attribute_limits.json
+```
+
+### Script Overview
+- The Python script dynamically converts `namedtuple` data to JSON.
+- Key attributes include:
+  - **STR**: Strength
+  - **IQ**: Intelligence
+  - **WIS**: Wisdom
+  - **DEX**: Dexterity
+  - **CON**: Constitution
+  - **CHR**: Charisma
+
+### Adding a New Race
+To add a new race:
+1. Define the limits using `Ability_Limits`:
+   ```python
+   new_race_limits = Ability_Limits(3, 18, 8, 18, 3, 18, 7, 19, 6, 18, 8, 18)
+   ```
+2. Add it to the `racial_limits` dictionary under the appropriate gender:
+   ```python
+   racial_limits["male"]["new_race"] = new_race_limits
+   racial_limits["female"]["new_race"] = new_race_limits
+   ```
+3. Run the script to regenerate `race_attribute_limits.json`.
+

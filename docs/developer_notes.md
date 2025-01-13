@@ -66,3 +66,50 @@
 ## Enhancements
 - Incremental saving to prevent data loss.
 - Conversion of `btn_surnames.txt` to `surnames.json`.
+
+## Attribute Abilities Refactor
+
+### Overview
+The core attributes (strength, charisma, constitution, dexterity, intelligence, wisdom) have been refactored to:
+1. Use `dataclass` structures for better readability and extensibility.
+2. Avoid duplication by grouping shared values using ranges.
+3. Enable JSON serialization for dynamic integration.
+
+### Key Features
+- **Range-Based Logic**:
+  - Attributes like wisdom and dexterity group shared values into ranges, e.g., `"Wisdom 1-8"`.
+- **Exceptional Values**:
+  - Handles specific cases like `"Strength 18/91-99"`.
+- **JSON Integration**:
+  - Stores all abilities in structured JSON files for ease of use.
+
+### Functions
+#### Retrieval Functions
+Each attribute has a dedicated retrieval function. Example for Strength:
+```python
+def get_strength_ability(str_val: Union[int, str], ability: StrengthModifier) -> Union[int, float]:
+    """
+    Retrieve the specific ability modifier for a given strength score.
+    """
+    ...
+```
+
+#### Serialization
+Each attribute includes a serialization function to convert abilities to JSON. Example:
+```python
+def serialize_strength_abilities_to_json(output_file: str):
+    """
+    Serialize strength abilities to JSON format.
+    """
+    ...
+```
+
+### JSON File Paths
+- All JSON files are stored in the `data/` directory:
+  ```
+  data/
+  ├── charisma_abilities.json
+  ├── constitution_abilities.json
+  ...
+  ```
+  

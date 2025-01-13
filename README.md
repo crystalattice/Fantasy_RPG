@@ -65,3 +65,57 @@ data/
    - `given_names.json`: Grouped names by region.
    - `surnames.json`: Surnames in JSON format.
    - `error_log.json`: Failed names for retries.
+
+## Attribute Abilities
+
+The application now supports dynamically loading abilities for core attributes (e.g., strength, charisma) from JSON files. Each attribute includes defined ranges and their corresponding abilities, making it easy to retrieve values programmatically.
+
+### Supported Attributes
+- Strength
+- Charisma
+- Constitution
+- Dexterity
+- Intelligence
+- Wisdom
+
+### How It Works
+1. **Data Structure**:
+   - Each attribute maps ranges of values to abilities (e.g., Strength 18/01-50).
+   - Data is stored in JSON files for easy access and editing.
+
+2. **Dynamic Retrieval**:
+   - Use the attribute-specific retrieval functions to access abilities by value:
+     ```python
+     from strength_abilities import get_strength_ability, StrengthModifier
+
+     strength_value = "18/91-99"
+     modifier = StrengthModifier.DAMAGE
+     value = get_strength_ability(strength_value, modifier)
+     print(value)
+     ```
+
+3. **JSON Storage**:
+   - Each attribute’s abilities are stored in a corresponding JSON file:
+     ```
+     data/
+     ├── charisma_abilities.json
+     ├── constitution_abilities.json
+     ├── dex_abilities.json
+     ├── iq_abilities.json
+     ├── strength_abilities.json
+     └── wisdom_abilities.json
+     ```
+
+4. **Customization**:
+   - You can update JSON files directly to modify or extend abilities without changing the code.
+
+### Example JSON Entry
+```json
+{
+    "range": [1, 2, 3, 4, 5, 6, 7, 8],
+    "Magical_Attack_Adjustment": -1,
+    "Cleric_Bonus": "0",
+    "Spell_Failure": 100,
+    "Immune_to_Charm": 0
+}
+```

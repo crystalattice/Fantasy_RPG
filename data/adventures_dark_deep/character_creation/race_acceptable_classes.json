@@ -1,0 +1,113 @@
+{
+    "single_class": {
+        "Dwarf, Grey": [
+            "Cleric",
+            "Fighter",
+            "Thief",
+            "Thief-Acrobat",
+            "Mountebank",
+            "Assassin"
+        ],
+        "Dwarf, Hill": [
+            "Cleric",
+            "Fighter",
+            "Thief",
+            "Thief-Acrobat",
+            "Mountebank",
+            "Assassin"
+        ],
+        "Elf, Dark (Drow)": [
+            "Bard",
+            "Cavalier",
+            "Cleric",
+            "Fighter",
+            "Ranger",
+            "Mage",
+            "Savant",
+            "Thief",
+            "Thief-Acrobat",
+            "Mountebank",
+            "Assassin"
+        ],
+        "Half-Elf": [
+            "Bard",
+            "Cavalier",
+            "Cleric",
+            "Druid",
+            "Mystic",
+            "Fighter",
+            "Ranger",
+            "Mage",
+            "Savant",
+            "Thief",
+            "Thief-Acrobat",
+            "Mountebank",
+            "Assassin"
+        ],
+        "Human": [
+            "Bard",
+            "Jester",
+            "Cavalier",
+            "Paladin",
+            "Cleric",
+            "Druid",
+            "Mystic",
+            "Fighter",
+            "Barbarian",
+            "Ranger",
+            "Mage",
+            "Illusionist",
+            "Savant",
+            "Thief",
+            "Thief-Acrobat",
+            "Mountebank",
+            "Assassin"
+        ]
+    },
+    "multi_class": {
+        "Dwarf": [
+            [
+                "Cleric",
+                "Fighter"
+            ],
+            [
+                "Cleric",
+                "Thief"
+            ],
+            [
+                "Fighter",
+                "Mountebank"
+            ]
+        ],
+        "Elf, Dark (Drow)": [
+            [
+                "Cleric",
+                "Fighter"
+            ],
+            [
+                "Cleric",
+                "Fighter",
+                "Mage"
+            ],
+            [
+                "Fighter",
+                "Mage",
+                "Thief"
+            ]
+        ],
+        "Human": [
+            [
+                "Cleric",
+                "Fighter"
+            ],
+            [
+                "Fighter",
+                "Mage"
+            ],
+            [
+                "Mage",
+                "Thief"
+            ]
+        ]
+    }
+}

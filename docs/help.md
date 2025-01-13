@@ -67,3 +67,35 @@ Alternatively, use the ```add_item()``` function in the equipment module.
 
 2. **Hourly Limit Reached**:
    - The script will pause for 1 hour and resume automatically.
+
+## Attribute Abilities
+
+### Supported Attributes
+- Strength
+- Charisma
+- Constitution
+- Dexterity
+- Intelligence
+- Wisdom
+
+### Using Abilities
+Each attribute provides functions for retrieving abilities based on value. Example for Charisma:
+```python
+from charisma_abilities import get_charisma_ability
+
+charisma_value = 16
+ability = "morale_adj"
+value = get_charisma_ability(charisma_value, ability)
+print(f"Charisma {charisma_value} - {ability}: {value}")
+```
+
+### Customizing Abilities
+Modify abilities by editing the corresponding JSON file in `data/`. Example (`charisma_abilities.json`):
+```json
+{
+    "range": [16],
+    "max_henchmen": 8,
+    "morale_adj": 4,
+    "react_adj": 25
+}
+```

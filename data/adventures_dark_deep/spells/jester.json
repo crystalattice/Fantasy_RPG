@@ -1,0 +1,22 @@
+{
+    "jester_spells_by_level": {
+        "first_level": [
+            "Animal Friendship", "Audible Glamer", "Color Spray", "Dancing Lights",
+            "Darkness 15’ Radius", "Enlarge", "ESP", "Faerie Fire",
+            "Fool’s Luck", "Minor Morphing", "Palm of my Hand", "Stinking Cloud"
+        ],
+        "second_level": [
+            "Feign Death", "Gust Of Wind", "Ignore Emotion", "Invisibility",
+            "Lightning Bolt", "Mirror Image", "Phantasmal Force", "Plant Growth",
+            "Skyhook", "Slow", "Stream", "Ventriloquism"
+        ],
+        "third_level": [
+            "Animal Summoning I", "Cloudburst", "Fireball", "Hide In Plain Sight",
+            "Hideous Laughter", "Just Out Of Time", "Passwall", "Project Image"
+        ],
+        "fourth_level": [
+            "Ethereality", "Exchange", "Place Of Holding", "Greater Morphing",
+            "Prismatic Spray", "Stone to Flesh"
+        ]
+    }
+}

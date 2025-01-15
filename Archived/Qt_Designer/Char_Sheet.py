@@ -7,8 +7,9 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QComboBox, QSp
     QMessageBox, QFileDialog
 
 from Archived.Qt_Designer.ADD_Char_Sheet import Ui_MainWindow
-from Archived.Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class, strength_abilities, dex_abilities, \
-    iq_abilities, wisdom_abilities, con_abilities, charisma_abilities
+from Archived.Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class
+from src.char_creation import charisma_abilities, con_abilities, dex_abilities, iq_abilities, strength_abilities, \
+    wisdom_abilities
 from Archived.Adv_Dark_Deep.Char_Creation import race_vs_attribs
 
 

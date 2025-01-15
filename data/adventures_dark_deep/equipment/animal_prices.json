@@ -1,0 +1,24 @@
+{
+    "animals": [
+        {"name": "Chicken", "price": "3 c.p."},
+        {"name": "Cow", "price": "10 g.p."},
+        {"name": "Dog, guard", "price": "25 g.p."},
+        {"name": "Dog, hunting", "price": "17 g.p."},
+        {"name": "Donkey", "price": "8 g.p."},
+        {"name": "Goat", "price": "1 g.p."},
+        {"name": "Hawk, large", "price": "40 g.p."},
+        {"name": "Hawk, small", "price": "18 g.p."},
+        {"name": "Horse, draft", "price": "30 g.p."},
+        {"name": "Horse, war, heavy", "price": "300 g.p."},
+        {"name": "Horse, war, light", "price": "150 g.p."},
+        {"name": "Horse, war, medium", "price": "225 g.p."},
+        {"name": "Horse, riding", "price": "25 g.p."},
+        {"name": "Mule", "price": "20 g.p."},
+        {"name": "Ox", "price": "15 g.p."},
+        {"name": "Pigeon", "price": "2 c.p."},
+        {"name": "Pig", "price": "3 g.p."},
+        {"name": "Pony", "price": "15 g.p."},
+        {"name": "Sheep", "price": "2 g.p."},
+        {"name": "Songbird", "price": "4 c.p."}
+    ]
+}

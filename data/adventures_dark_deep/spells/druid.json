@@ -1,0 +1,51 @@
+{
+    "druid_spells_by_level": {
+        "first_level": [
+            "Alter Animal", "Alter Plant", "Animal Friendship", "Ceremony",
+            "Detect Balance", "Detect Magic", "Detect Poison", "Detect Snares & Pits",
+            "Entangle", "Faerie Fire", "Invisibility to Animals", "Locate Animals",
+            "Pass without Trace", "Precipitation", "Predict Weather", "Purify Water",
+            "Shillelagh", "Speak with Animals"
+        ],
+        "second_level": [
+            "Animal Telepathy", "Barkskin", "Charm Person or Mammal", "Create Water",
+            "Cure Light Wounds", "Feign Death", "Fire Trap", "Flame Blade",
+            "Goodberry", "Heat Metal", "Locate Plants", "Plant Friend",
+            "Produce Flame", "Reflecting Pool", "Resist Fire", "Slow Poison",
+            "Trip", "Warp Wood"
+        ],
+        "third_level": [
+            "Call Lightning", "Cloudburst", "Cure Disease", "Hold Animal",
+            "Know Alignment", "Neutralize Poison", "Plant Growth", "Protection from Fire",
+            "Pyrotechnics", "Resist Water", "Snare", "Spike Growth",
+            "Starshine", "Stone Door", "Stone Shape", "Summon Insects",
+            "Tree", "Water Breathing"
+        ],
+        "fourth_level": [
+            "Animal Summoning I", "Call Woodland Beings", "Control Temperature 10’ Radius",
+            "Cure Serious Wounds", "Dispel Magic", "Hallucinatory Forest",
+            "Hold Elemental", "Hold Plant", "Plant Door", "Produce Fire",
+            "Protection from Lightning", "Repel Insects", "Speak with Plants",
+            "Sunburst"
+        ],
+        "fifth_level": [
+            "Animal Growth", "Animal Summoning II", "Anti-Plant Shell 10’ Radius",
+            "Balance", "Commune with Nature", "Control Winds", "Insect Plague",
+            "Moonbeam", "Pass Plant", "Spike Stones", "Sticks to Snakes",
+            "Transmute Rock to Mud", "Wall of Fire"
+        ],
+        "sixth_level": [
+            "Animal Summoning III", "Anti-Animal Shell", "Changestaff",
+            "Confusion", "Cure Critical Wounds", "Faerie Summoning",
+            "Feeblemind", "Fire Seeds", "Liveoak", "Resist Charm",
+            "Transmute Water to Dust", "Transport via Plants",
+            "Turn Wood", "Wall of Thorns"
+        ],
+        "seventh_level": [
+            "Animate Rock", "Chariot of Flame", "Conjure Fire Elemental",
+            "Conjure Earth Elemental", "Control Weather", "Creeping Doom",
+            "Earthquake", "Finger of Death", "Fire Storm", "Regenerate",
+            "Reincarnate", "Sunray", "Transmute Metal to Wood", "Weather Summoning"
+        ]
+    }
+}

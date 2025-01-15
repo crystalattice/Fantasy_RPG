@@ -1,0 +1,47 @@
+{
+    "illusionist_spells_by_level": {
+        "minor_illusion_cantrips": [
+            "Colored Lights", "Dim", "Haze", "Mask", "Mirage", "Noise",
+            "Pastel Rainbow", "Two-d’lusion"
+        ],
+        "first_level": [
+            "Audible Glamer", "Change Self", "Chromatic Orb", "Color Spray",
+            "Dancing Lights", "Darkness 15’ Radius", "Detect Illusion", "Detect Magic",
+            "Gaze Reflection", "Hypnotism", "Invisibility", "Light",
+            "Phantasmal Force", "Phantom Armor", "Read Illusionist Magic",
+            "Spook", "Wall of Fog", "Write"
+        ],
+        "second_level": [
+            "Alter Self", "Backstab", "Blindness", "Blur", "Cause Shadows",
+            "Deafness", "Detect Illusion", "Fascinate", "Fog Cloud", "Hypnotic Pattern",
+            "Improved Phantasmal Force", "Magic Mouth", "Mirror Image", "Misdirection",
+            "Ultravision", "Ventriloquism", "Whispering Wind"
+        ],
+        "third_level": [
+            "Continual Darkness", "Continual Light", "Delude", "Dispel Illusion",
+            "Fear", "Hallucinatory Terrain", "Illusionary Script", "Improved Ventriloquism",
+            "Invisibility 10’ Radius", "Non-detection", "Paralyzation", "Pass without Trace",
+            "Phantom Steed", "Phantom Wind", "Rope Trick", "Spectral Force",
+            "Suggestion", "Wraithform"
+        ],
+        "fourth_level": [
+            "Confusion", "Dispel Exhaustion", "Dispel Magic", "Emotion",
+            "Improved Invisibility", "Massmorph", "Minor Creation", "Phantasmal Killer",
+            "Rainbow Pattern", "Shadow Monsters", "Solid Fog", "Vacancy"
+        ],
+        "fifth_level": [
+            "Advanced Illusion", "Chaos", "Demi-shadow Monsters", "Dream",
+            "Magic Mirror", "Major Creation", "Maze", "Projected Image",
+            "Shadow Door", "Shadow Magic", "Summon Shadow", "Tempus Fugit"
+        ],
+        "sixth_level": [
+            "Conjure Animals", "Death Fog", "Demi-shadow Magic", "Mass Suggestion",
+            "Mirage Arcane", "Mislead", "Permanent Illusion", "Phantasmagoria",
+            "Programmed Illusion", "Shades", "True Seeing", "Veil"
+        ],
+        "seventh_level": [
+            "Alter Reality", "Astral Spell", "Magery", "Prismatic Spray",
+            "Prismatic Wall", "Shadow Walk", "Vision", "Weird"
+        ]
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "services": [
+        {"type": "Apartment, per room", "price": "10 g.p./month"},
+        {"type": "Appraisal (gem or jewelry)", "price": "5 g.p./item"},
+        {"type": "Coach (between cities)", "price": "1 g.p./30 miles"},
+        {"type": "Coach (within a city)", "price": "1 s.p./trip"},
+        {"type": "Crier", "price": "10 s.p./day (10 g.p. / month)"},
+        {"type": "Inn, common room", "price": "2-8 s.p./night"},
+        {"type": "Inn, private room", "price": "1 g.p./night"},
+        {"type": "Messenger", "price": "3 s.p./day (50 s.p. / month)"}
+    ]
+}

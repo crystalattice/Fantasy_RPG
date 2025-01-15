@@ -1,0 +1,13 @@
+{
+    "food_and_drink": [
+        {"type": "Ale, pint", "price": "1 s.p.", "weight": 1},
+        {"type": "Beer, small, pint", "price": "5 c.p.", "weight": 1},
+        {"type": "Meal, standard", "price": "1 s.p.", "weight": 2},
+        {"type": "Meal, rich", "price": "1 g.p.", "weight": 3},
+        {"type": "Horse fodder, 1 day", "price": "1 s.p.", "weight": 10},
+        {"type": "Mead, pint", "price": "5 s.p.", "weight": 5},
+        {"type": "Rations, dry tack, 1 week", "price": "5 g.p.", "weight": 7},
+        {"type": "Rations, standard, 1 week", "price": "3 g.p.", "weight": 20},
+        {"type": "Wine, pint", "price": "5 - 10 s.p.", "weight": 5}
+    ]
+}

@@ -167,3 +167,75 @@ with open("data/race_attribute_limits.json", "r") as file:
 male_dwarf_limits = race_limits["male"]["dwarf"]
 print(male_dwarf_limits["STR"])  # Output: [8, 18]
 ```
+## Spells by Level
+
+The application now supports spell data for the following classes, categorized by levels:
+
+- Bard Spells
+- Jester Spells
+- Cleric Spells
+- Druid Spells
+- Mage Spells
+- Illusionist Spells
+- Savant Spells
+- Mountebank Spells
+
+### Spell Data Structure
+Each spell data file is stored in JSON format, where spells are grouped by their respective levels. For example:
+```json
+{
+    "first_level": ["Spell A", "Spell B"],
+    "second_level": ["Spell C", "Spell D"]
+}
+```
+
+### JSON File Locations
+All spell JSON files are located in the `data/spells/` directory:
+- `bard_spells_by_level.json`
+- `jester_spells_by_level.json`
+- `cleric_spells_by_level.json`
+- `druid_spells_by_level.json`
+- `mage_spells_by_level.json`
+- `illusionist_spells_by_level.json`
+- `savant_spells_by_level.json`
+- `mountebank_spells_by_level.json`
+
+
+## Equipment and Gear
+
+The application includes comprehensive data for various types of equipment and gear. Each category is stored in a separate JSON file for modularity and easy access.
+
+### Categories
+1. Animals (`animals.json`)
+2. Armor (`armor.json`)
+3. Clothing (`clothing.json`)
+4. Food and Drink (`food_and_drink.json`)
+5. Furs (`furs.json`)
+6. Hirelings (`hirelings.json`)
+7. Luxury Items (`luxury_items.json`)
+8. Miscellaneous Items (`miscellaneous_items.json`)
+9. Musical Instruments (`musical_instruments.json`)
+10. Poisons (`poisons.json`)
+11. Services (`services.json`)
+12. Transportation (`transportation.json`)
+13. Melee Weapons (`melee_weapons.json`)
+
+### JSON File Locations
+All files are stored in the `data/equipment/` directory.
+
+### Example File Structure
+Each file organizes items in a list of dictionaries. For example, `armor.json`:
+```json
+{
+    "armor": [
+        {
+            "type": "Plate Armor",
+            "price": "400 g.p.",
+            "weight": 45,
+            "armor_value": 7,
+            "base_ac": 3,
+            "movement": "50%"
+        }
+    ]
+}
+```

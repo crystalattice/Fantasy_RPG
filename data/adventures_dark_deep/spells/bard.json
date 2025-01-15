@@ -1,0 +1,44 @@
+{
+    "bard_spells_by_level": {
+        "first_level": [
+            "Alter Animal", "Alter Plant", "Bless", "Calmness", "Climb",
+            "Cure Animal Wounds", "Disgust", "Dry", "False Trail", "Friends",
+            "Haunting Dream", "Jump", "Message", "Perception", "Ready Spell",
+            "Resist Cold", "Sharp Note", "Sleep", "Ventriloquism", "Wizard Lock"
+        ],
+        "second_level": [
+            "Alter Self", "Animal Fear", "Bind", "Birdsong", "Enhance Beverage",
+            "Enhance Food", "Enhance Image", "Far Wandering", "Gust of Wind",
+            "Healing Sleep", "Knock", "Levitate", "Lucky Draw", "Predict Weather",
+            "Refresh", "Remove Fear", "Resist Fire", "Social Grace", "Spike Growth",
+            "Tiny Hut"
+        ],
+        "third_level": [
+            "Animal Friendship", "Comfortable Refuge", "Distraction", "Easy Travels",
+            "Fear", "Fly", "Fresh Air", "Fumble", "Haste", "Martial Airs",
+            "Neutralize Poison", "Remove Paralysis", "Resist Charm", "Shillelagh",
+            "Shout", "Song of Combat", "Spectral Force", "Water Breathing",
+            "Weakness", "Whispering Wind"
+        ],
+        "fourth_level": [
+            "Awestruck", "Depression", "Detect Invisibility", "Distance Distortion",
+            "Emotion", "Fetter", "Hallucinatory Forest", "Interrupt Concentration",
+            "Pass Without Trace", "Polymorph Self", "Song of Battle", "Steadfast Mount"
+        ],
+        "fifth_level": [
+            "Dig", "Improved Fear", "Inspiration", "Invisibility", "Irresistible Dance",
+            "Maze", "Polymorph Other", "Song of War", "Sympathy", "Volley of Javelins",
+            "Wall of Force", "Wall of Thorns"
+        ],
+        "sixth_level": [
+            "Affect Normal Fires", "Avalanche", "Bonhomie", "Charm Monster",
+            "Fascinate", "Fog Cloud", "Mass Invisibility", "Sonic Blast", "Veil",
+            "Veil of Shadows", "Volley of Icicles", "Volley of Arrows"
+        ],
+        "seventh_level": [
+            "Animal Summoning I", "Bridge", "Cacophony", "Control Winds",
+            "Conjure Fire Elemental", "Control Weather", "Dancing Weapon",
+            "Enveloping Flame", "Gale", "Teleport", "Teleport Other", "Wind Walk"
+        ]
+    }
+}

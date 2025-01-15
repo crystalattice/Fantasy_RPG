@@ -1,0 +1,32 @@
+{
+    "musical_instruments": [
+        {"type": "Bagpipe", "cost": "60 g.p.", "weight": 20},
+        {"type": "Bladder pipe", "cost": "8 g.p.", "weight": 2},
+        {"type": "Cornamuse", "cost": "24 g.p.", "weight": 5},
+        {"type": "Crumhorn", "cost": "16 g.p.", "weight": 3},
+        {"type": "Drum", "cost": "4 g.p.", "weight": 8},
+        {"type": "Dulcian", "cost": "19 g.p.", "weight": 4},
+        {"type": "Dulcimer", "cost": "20 g.p.", "weight": 6},
+        {"type": "Flute", "cost": "5 g.p.", "weight": 1},
+        {"type": "Gamba", "cost": "40 g.p.", "weight": 10},
+        {"type": "Gemshorn", "cost": "2 g.p.", "weight": 1},
+        {"type": "Harp", "cost": "75 g.p.", "weight": 14},
+        {"type": "Harpsichord", "cost": "250 g.p.", "weight": 200},
+        {"type": "Hurdy-gurdy", "cost": "100 g.p.", "weight": 12},
+        {"type": "Kortholt", "cost": "8 g.p.", "weight": 2},
+        {"type": "Lute", "cost": "25 g.p.", "weight": 7},
+        {"type": "Lyre", "cost": "150 g.p.", "weight": 15},
+        {"type": "Mandolin", "cost": "28 g.p.", "weight": 10},
+        {"type": "Organ", "cost": "300 g.p. and up", "weight": "300+"},
+        {"type": "Organetto", "cost": "110 g.p.", "weight": 10},
+        {"type": "Psaltery", "cost": "90 g.p.", "weight": 11},
+        {"type": "Racket", "cost": "22 g.p.", "weight": 2},
+        {"type": "Rebec", "cost": "30 g.p.", "weight": 5},
+        {"type": "Recorder", "cost": "6 g.p.", "weight": 1},
+        {"type": "Sacbut", "cost": "30 g.p.", "weight": 6},
+        {"type": "Shepherd’s shawm", "cost": "18 g.p.", "weight": 6},
+        {"type": "Trumpet", "cost": "6 g.p.", "weight": 4},
+        {"type": "Viol", "cost": "30 g.p.", "weight": 8},
+        {"type": "Zink", "cost": "15 g.p.", "weight": 2}
+    ]
+}

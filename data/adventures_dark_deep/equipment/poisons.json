@@ -1,0 +1,17 @@
+{
+    "poisons": [
+        {"type": "Swallowed A", "price_per_dose": "5 g.p."},
+        {"type": "Swallowed B", "price_per_dose": "30 g.p."},
+        {"type": "Swallowed C", "price_per_dose": "200 g.p."},
+        {"type": "Swallowed D", "price_per_dose": "500 g.p."},
+        {"type": "Swallowed E", "price_per_dose": "1,000 g.p."},
+        {"type": "Blade venom A", "price_per_dose": "10 g.p."},
+        {"type": "Blade venom B", "price_per_dose": "75 g.p."},
+        {"type": "Blade venom C", "price_per_dose": "600 g.p."},
+        {"type": "Blade venom D", "price_per_dose": "1,500 g.p."},
+        {"type": "Antidote A", "price_per_dose": "10 g.p."},
+        {"type": "Antidote B", "price_per_dose": "60 g.p."},
+        {"type": "Antidote C", "price_per_dose": "400 g.p."},
+        {"type": "Antidote D", "price_per_dose": "500 g.p."}
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "mountebank_spells_by_level": {
+        "first_level": [
+            "Affect Normal Fires", "Change Self", "Charm Person", "Dancing Lights",
+            "Friends", "Magic Aura", "Mending", "Message", "Push", "Spook",
+            "Taunt", "Ventriloquism"
+        ],
+        "second_level": [
+            "Alter Self", "Detect Magic", "Fascinate", "Fools Gold", "Forget",
+            "Hypnotic Pattern", "Misdirection", "Preserve", "Rope Trick", "Sobriety"
+        ],
+        "third_level": [
+            "Clairaudience", "Delude", "Feign Death", "Infravision", "Non-Detection",
+            "Suggestion", "Tongues", "Water Breathing"
+        ],
+        "fourth_level": [
+            "Charm Monster", "Dispel Exhaustion", "Emotion", "Fear", "Fumble",
+            "Plant Growth"
+        ]
+    }
+}

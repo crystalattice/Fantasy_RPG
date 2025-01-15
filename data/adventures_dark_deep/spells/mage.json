@@ -1,0 +1,77 @@
+{
+    "mage_spells_by_level": {
+        "first_level": [
+            "Affect Normal Fires", "Alarm", "Armor", "Burning Hands", "Charm Person",
+            "Comprehend Languages", "Dancing Lights", "Detect Magic", "Enlarge", "Erase",
+            "Feather Fall", "Find Familiar", "Firewater", "Floating Disc", "Friends",
+            "Grease", "Hold Portal", "Identify", "Jump", "Light",
+            "Magic Aura", "Magic Missile", "Melt", "Mending", "Message",
+            "Mount", "Precipitation", "Protection from Evil", "Push", "Read Magic",
+            "Run", "Shield", "Shocking Grasp", "Sleep", "Spider Climb",
+            "Taunt", "Unseen Servant", "Ventriloquism", "Wizard Lock", "Wizard Mark",
+            "Write"
+        ],
+        "second_level": [
+            "Acid Arrow", "Audible Glamer", "Bind", "Continual Light", "Darkness 15’ Radius",
+            "Deeppockets", "Detect Evil", "Detect Invisibility", "ESP", "Flaming Sphere",
+            "Fools Gold", "Forget", "Hideous Laughter", "Illusionary Trap", "Invisibility",
+            "Irritation", "Knock", "Know Alignment", "Levitate", "Locate Object",
+            "Magic Mouth", "Mirror Image", "Preserve", "Protection From Cantrips", "Pyrotechnics",
+            "Ray of Enfeeblement", "Rope Trick", "Scare", "Shatter", "Spark Shower",
+            "Stinking Cloud", "Strength", "Tracking Mark", "Vocalize", "Web",
+            "Whip", "Zephyr"
+        ],
+        "third_level": [
+            "Amnesia", "Blink", "Clairaudience", "Clairvoyance", "Cloudburst",
+            "Detect Illusion", "Dispel Magic", "Explosive Runes", "Feign Death", "Fireball",
+            "Flame Arrow", "Fly", "Gust of Wind", "Haste", "Hold Person",
+            "Infravision", "Invisibility, 10’ Radius", "Item", "Lightning Bolt", "Material",
+            "Monster Summoning I", "Phantasmal Force", "Protection from Normal Missiles", "Secret Page", "Sepia Snake Sigil",
+            "Slow", "Suggestion", "Tiny Hut", "Tongues", "Water Breathing"
+        ],
+        "fourth_level": [
+            "Ball Lightning", "Black Tentacles", "Charm Monster", "Confusion", "Dig",
+            "Dimension Door", "Dispel Illusion", "Enchanted Weapon", "Extension I", "Fear",
+            "Fire Charm", "Fire Shield", "Fire Trap", "Fumble", "Hallucinatory Terrain",
+            "Ice Storm", "Magic Mirror", "Massmorph", "Minor Globe of Invulnerability", "Mnemonic Enhancer",
+            "Monster Summoning II", "Plant Growth", "Polymorph Other", "Polymorph Self", "Remove Curse",
+            "Resilient Sphere", "Secure Shelter", "Shout", "Stoneskin", "Ultravision",
+            "Wall of Fire", "Wall of Ice", "Wind Wall", "Wizard Eye"
+        ],
+        "fifth_level": [
+            "Airy Water", "Animal Growth", "Animate Dead", "Avoidance", "Cloudkill",
+            "Cone of Cold", "Conjure Elemental", "Contact Other Plane", "Dismissal", "Distance Distortion",
+            "Dolor", "Extension II", "Fabricate", "Faithful Hound", "Feeblemind",
+            "Hold Monster", "Interposing Hand", "Lamentable Distraction", "Magic Jar", "Monster Summoning III",
+            "Passwall", "Secret Chest", "Sending", "Shooting Stars", "Stone Shape",
+            "Telekinesis", "Teleport", "Transmute Rock To Mud", "Wall of Force", "Wall of Iron",
+            "Wall of Stone"
+        ],
+        "sixth_level": [
+            "Anti-Magic Shell", "Chain Lightning", "Contingency", "Control Weather", "Death Spell",
+            "Disintegrate", "Enchant an Item", "Extension III", "Eyebite", "Forceful Hand",
+            "Freezing Sphere", "Geis", "Glassee", "Globe of Invulnerability", "Guards and Wards",
+            "Invisible Stalker", "Legend Lore", "Lower Water", "Monster Summoning IV", "Move Earth",
+            "Part Water", "Project Image", "Reincarnate", "Repulsion", "Sand Stalker",
+            "Spiritwrack", "Stone to Flesh", "Terrible Transformation", "Transmute Water to Dust", "Vanish"
+        ],
+        "seventh_level": [
+            "Banishment", "Cacodaemon", "Charm Plants", "Delayed Blast Fireball", "Duo-Dimensions",
+            "Forcecage", "Grasping Hand", "Instant Summons", "Limited Wish", "Mage Sword",
+            "Mass Invisibility", "Monster Summoning V", "Phase Door", "Power Word, Stun", "Reverse Gravity",
+            "Simulacrum", "Statue", "Teleport without Error", "Torment", "Truename",
+            "Wall of Force"
+        ],
+        "eighth_level": [
+            "Antipathy/Sympathy", "Binding", "Charm Immunity", "Clone", "Demand",
+            "Incendiary Cloud", "Irresistible Dance", "Mass Charm", "Maze", "Mind Blank",
+            "Monster Summoning VI", "Permanency", "Polymorph Any Object", "Power Word, Blind", "Sink",
+            "Symbol", "Telekinetic Sphere", "Trap the Soul", "Wish"
+        ],
+        "ninth_level": [
+            "Astral Spell", "Crushing Hand", "Crystalbrittle", "Energy Drain", "Gate",
+            "Imprisonment", "Meteor Swarm", "Monster Summoning VII", "Power Word, Kill", "Prismatic Sphere",
+            "Shape Change", "Succor", "Temporal Stasis", "Time Stop", "Turn Wood"
+        ]
+    }
+}

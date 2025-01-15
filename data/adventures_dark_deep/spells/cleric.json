@@ -1,0 +1,47 @@
+{
+    "cleric_spells_by_level": {
+        "first_level": [
+            "Bless", "Ceremony", "Combine", "Command", "Create Water",
+            "Cure Light Wounds", "Detect Evil", "Detect Magic", "Endure Cold",
+            "Invisibility to Undead", "Light", "Magic Stone", "Penetrate Disguise",
+            "Portent", "Precipitation", "Protection from Evil", "Purify Food & Drink",
+            "Remove Fear", "Resist Cold", "Sanctuary"
+        ],
+        "second_level": [
+            "Aid", "Augury", "Chant", "Detect Charm", "Detect Life",
+            "Dust Devil", "Enthrall", "Find Traps", "Hold Person",
+            "Holy Symbol", "Know Alignment", "Messenger", "Resist Fire",
+            "Silence 15’ radius", "Slow Poison", "Snake Charm", "Speak with Animals",
+            "Spiritual Hammer", "Withdraw", "Wyvern Watch"
+        ],
+        "third_level": [
+            "Animate Dead", "Boundary", "Cloudburst", "Continual Light", "Create Food & Water",
+            "Cure Blindness", "Cure Disease", "Dispel Magic", "Feign Death",
+            "Flame Walk", "Glyph of Warding", "Holy Vestment", "Locate Object",
+            "Meld into Stone", "Negative Plane Protection", "Prayer",
+            "Remove Curse", "Remove Paralysis", "Speak with the Dead", "Water Walk"
+        ],
+        "fourth_level": [
+            "Abjure", "Cloak of Fear", "Cure Serious Wounds", "Detect Lie", "Divination",
+            "Exorcise", "Giant Insect", "Imbue with Spell Ability", "Lower Water",
+            "Neutralize Poison", "Protection from Evil 10’ Radius", "Speak with Plants",
+            "Spell Immunity", "Spike Stones", "Sticks to Snakes", "Tongues"
+        ],
+        "fifth_level": [
+            "Air Walk", "Atonement", "Commune", "Cure Critical Wounds", "Dispel Evil",
+            "Flame Strike", "Golem", "Insect Plague", "Magic Font", "Plane Shift",
+            "Quest", "Rainbow", "Raise Dead", "Spike Growth", "Sunburst",
+            "True Seeing", "Wall of Thorns"
+        ],
+        "sixth_level": [
+            "Aerial Servant", "Animate Object", "Blade Barrier", "Conjure Animals",
+            "Cure Insanity", "Find the Path", "Forbiddance", "Heal", "Heroes’ Feast",
+            "Part Water", "Speak with Monsters", "Stone Tell", "Word of Recall"
+        ],
+        "seventh_level": [
+            "Astral Spell", "Control Weather", "Conversion", "Disruption",
+            "Earthquake", "Exaction", "Gate", "Holy (Unholy) Word", "Regenerate",
+            "Restoration", "Resurrection", "Succor", "Symbol", "Wind Walk"
+        ]
+    }
+}

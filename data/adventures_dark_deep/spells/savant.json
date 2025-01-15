@@ -1,0 +1,59 @@
+{
+    "savant_spells_by_level": {
+        "scholarly_cantrips": [
+            "Blank Book", "Calligraphy", "Cram", "Detect Plane", "Dictation", "Illumination",
+            "Quantify", "Volume", "Detect Poison", "Detect Snares and Pits", "ESP", "Identify",
+            "Invisibility to Animals", "Invisibility to Undead", "Light", "Locate Animals",
+            "Message", "Predict Weather", "Protection from Evil", "Read Savant Magic",
+            "Spider Climb", "Ventriloquism", "Wall of Fog", "Write"
+        ],
+        "first_level": [
+            "Affect Normal Fires", "Alarm", "Augury", "Comprehend Languages",
+            "Detect Evil", "Detect Illusion", "Detect Life", "Detect Magic",
+            "Know Alignment", "Language of Birds", "Levitate", "Locate Object",
+            "Penetrate Disguise", "Prediction", "Read Magic", "Whispering Wind"
+        ],
+        "second_level": [
+            "Alter Writing", "Charm Person", "Detect Charm", "Detect Invisibility",
+            "Detect Possession", "Erase", "Hypnotic Pattern", "Invisibility",
+            "Negative Plane Protection", "Non-Detection", "Paralyzation",
+            "Planar Stability", "Reflecting Pool", "Read Illusionist Magic", "Tongues"
+        ],
+        "third_level": [
+            "Answer", "Blink", "Clairaudience", "Clairvoyance", "Dispel Magic",
+            "Divination", "Explosive Runes", "Hold Elemental", "Infravision",
+            "Lamentable Distraction", "Magic Mirror", "Mnemonic Enhancer",
+            "Plane Shift", "Prophecy", "Ultravision"
+        ],
+        "fourth_level": [
+            "Commune", "Contact Other Plane", "Dismiss Creature I", "Detect Lie",
+            "Dispel Illusion", "Exorcise", "Hold Elemental", "Infravision",
+            "Magic Mirror", "Plane Shift", "Prophecy", "Ultravision"
+        ],
+        "fifth_level": [
+            "Command Word", "Conjure Elemental", "Dismiss Creature II", "Dismissal",
+            "Distance Distortion", "Dolor", "Find the Path", "Minor Creation",
+            "Sending", "Shadow Magic", "Spell Immunity", "Stone Tell",
+            "Wall of Force"
+        ],
+        "sixth_level": [
+            "Animate Object", "Anti-Magic Shell", "Cloudkill", "Dismiss Creature III",
+            "Ensnarement", "Exaction", "Legend Lore", "Repulsion",
+            "Sequester", "Spiritwrack", "True Seeing"
+        ],
+        "seventh_level": [
+            "Banishment", "Cacodaemon", "Dismiss Creature IV", "Enchant an Item",
+            "Invisible Stalker", "Know Name", "Measure", "Phantom Stalker",
+            "Sand Stalker", "Torment", "Truename"
+        ],
+        "eighth_level": [
+            "Demand", "Detect Curse", "Dismiss Creature V", "Elemental Transformation",
+            "Inanimate Object", "Light of Truth", "Mind Blank", "Permanency",
+            "Shadow Door", "Vision"
+        ],
+        "ninth_level": [
+            "Astral Spell", "Gate", "Reverse Transmutation", "Shadow Walk",
+            "Word of Knowledge"
+        ]
+    }
+}

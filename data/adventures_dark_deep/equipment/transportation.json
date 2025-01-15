@@ -1,0 +1,20 @@
+{
+    "transportation": [
+        {"type": "Boat, long", "price": "150 g.p."},
+        {"type": "Boat, small", "price": "75 g.p."},
+        {"type": "Canoe, large", "price": "300 g.p."},
+        {"type": "Canoe, small", "price": "100 g.p."},
+        {"type": "Canvas", "price": "10 g.p."},
+        {"type": "Caravan travel", "price": "10 c.p./mile"},
+        {"type": "Cart", "price": "50 g.p."},
+        {"type": "Chariot, 1-man", "price": "200 g.p."},
+        {"type": "Chariot, 2-man", "price": "500 g.p."},
+        {"type": "Lumber", "price": "10 g.p."},
+        {"type": "Raft, small", "price": "50 g.p."},
+        {"type": "River ferry", "price": "5 s.p."},
+        {"type": "River/lake voyage", "price": "1 s.p./mile"},
+        {"type": "Sea voyage", "price": "5 c.p./mile"},
+        {"type": "Wagon", "price": "150 g.p."},
+        {"type": "Wagon plus drover", "price": "1 s.p./mile"}
+    ]
+}

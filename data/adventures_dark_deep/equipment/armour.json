@@ -1,0 +1,20 @@
+{
+    "armor": [
+        {"type": "None", "price": null, "weight": 0, "armor_value": 0, "base_ac": 10, "movement": "100%"},
+        {"type": "Helmet and/or shield only", "price": null, "weight": 0, "armor_value": 0, "base_ac": 9, "movement": "100%"},
+        {"type": "Cuirass (leather)", "price": "3 g.p.", "weight": 15, "armor_value": 2, "base_ac": 8, "movement": "100%"},
+        {"type": "Furs", "price": "2 g.p.", "weight": 8, "armor_value": 1, "base_ac": 8, "movement": "100%"},
+        {"type": "Gambeson", "price": "4 g.p.", "weight": 10, "armor_value": 3, "base_ac": 8, "movement": "75%"},
+        {"type": "Lamellar (leather)", "price": "15 g.p.", "weight": 20, "armor_value": 4, "base_ac": 8, "movement": "75%"},
+        {"type": "Ring armor", "price": "30 g.p.", "weight": 25, "armor_value": 4, "base_ac": 7, "movement": "75%"},
+        {"type": "Brigandine armor", "price": "30 g.p.", "weight": 20, "armor_value": 4, "base_ac": 7, "movement": "75%"},
+        {"type": "Scale armor (leather)", "price": "25 g.p.", "weight": 30, "armor_value": 3, "base_ac": 7, "movement": "50%"},
+        {"type": "Lamellar armor (steel)", "price": "35 g.p.", "weight": 30, "armor_value": 6, "base_ac": 7, "movement": "50%"},
+        {"type": "Cuirass (steel)", "price": "60 g.p.", "weight": 25, "armor_value": 4, "base_ac": 6, "movement": "60%"},
+        {"type": "Scale armor (steel)", "price": "45 g.p.", "weight": 40, "armor_value": 5, "base_ac": 6, "movement": "50%"},
+        {"type": "Mail", "price": "75 g.p.", "weight": 30, "armor_value": 5, "base_ac": 5, "movement": "75%"},
+        {"type": "Plated mail", "price": "90 g.p.", "weight": 35, "armor_value": 6, "base_ac": 4, "movement": "75%"},
+        {"type": "Plate armor", "price": "400 g.p.", "weight": 45, "armor_value": 7, "base_ac": 3, "movement": "50%"},
+        {"type": "Jousting Plate", "price": "4,000 g.p.", "weight": 100, "armor_value": 8, "base_ac": 1, "movement": "25%"}
+    ]
+}

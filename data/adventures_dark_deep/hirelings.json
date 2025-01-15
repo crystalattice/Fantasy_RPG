@@ -1,0 +1,18 @@
+{
+    "hirelings": [
+        {"type": "Alchemist", "wages_per_month": "300 g.p.", "wages_per_day": "-", "skills_and_notes": "Alchemy skill"},
+        {"type": "Bearer/porter", "wages_per_month": "1 g.p.", "wages_per_day": "1 s.p.", "skills_and_notes": "n/a"},
+        {"type": "Drover", "wages_per_month": "5 g.p.", "wages_per_day": "5 s.p.", "skills_and_notes": "Animal handling and training skill"},
+        {"type": "Jeweler", "wages_per_month": "100 g.p.", "wages_per_day": "-", "skills_and_notes": "Jeweler skill"},
+        {"type": "Lantern-bearer", "wages_per_month": "1 g.p.", "wages_per_day": "5 s.p.", "skills_and_notes": "n/a"},
+        {"type": "Leather worker", "wages_per_month": "2 s.p.", "wages_per_day": "30 s.p.", "skills_and_notes": "Materials cost 10% of standard price of item"},
+        {"type": "Marine", "wages_per_month": "3 g.p.", "wages_per_day": "-", "skills_and_notes": "1st-level fighter"},
+        {"type": "Oarsman", "wages_per_month": "5 g.p.", "wages_per_day": "-", "skills_and_notes": "Seamanship skill (specialty as appropriate)"},
+        {"type": "Pack handler", "wages_per_month": "30 s.p.", "wages_per_day": "2 s.p.", "skills_and_notes": "Animal handling and training skill"},
+        {"type": "Sage", "wages_per_month": "Special", "wages_per_day": "Special", "skills_and_notes": "Scholarship skill (any specialization, as desired)"},
+        {"type": "Sailor", "wages_per_month": "2 g.p.", "wages_per_day": "-", "skills_and_notes": "Seamanship skill (specialty as appropriate)"},
+        {"type": "Ship’s master", "wages_per_month": "100 g.p.", "wages_per_day": "-", "skills_and_notes": "Seamanship skill (specialty as appropriate)"},
+        {"type": "Ship’s mate", "wages_per_month": "30 g.p.", "wages_per_day": "-", "skills_and_notes": "Seamanship skill (specialty as appropriate)"},
+        {"type": "Valet/lackey", "wages_per_month": "50 s.p.", "wages_per_day": "3 s.p.", "skills_and_notes": "n/a"}
+    ]
+}

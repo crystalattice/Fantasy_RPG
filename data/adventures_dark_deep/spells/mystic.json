@@ -1,0 +1,42 @@
+{
+    "mystic_spells_by_level": {
+        "first_level": [
+            "Augury", "Awaken 1st Chakra", "Bless", "Ceremony", "Clairaudience",
+            "Clairvoyance", "Comprehend Languages", "Crystal Magic I", "Detect Evil",
+            "Detect Magic", "Light", "Portent", "Protection from Evil", "Resist Cold",
+            "Snake Charm", "Spirit Gift I"
+        ],
+        "second_level": [
+            "Awaken 2nd Chakra", "Crystal Magic II", "Cure Light Wounds", "Detect Ethereal",
+            "Detect Life", "Gaze Reflection", "Know Alignment", "Language of Birds",
+            "Levitate", "Obscurement", "Penetrate Disguise", "Protection from Normal Missiles",
+            "Resist Fire", "Rope Trick", "Slow Poison", "Sunrise"
+        ],
+        "third_level": [
+            "Awaken 3rd Chakra", "Crystal Magic III", "Feign Death", "Fly", "Invisibility",
+            "Locate Object", "Material", "Meld Into Stone", "Message", "Negative Plane Protection",
+            "Non-Detection", "Prayer", "Protection from Evil 10’ Radius", "Resist Water", "Spirit Gift II",
+            "Water Walk"
+        ],
+        "fourth_level": [
+            "Awaken 4th Chakra", "Crystal Magic IV", "Cure Blindness", "Cure Disease",
+            "Detect Astral", "Divination", "Exorcise", "Hypnotic Pattern", "Protection from Lightning",
+            "Selflessness", "Sticks to Snakes", "Telepathy"
+        ],
+        "fifth_level": [
+            "Awaken 5th Chakra", "Awareness", "Commune with the Multiverse", "Cure Serious Wounds",
+            "Dispel Evil", "Earthwalk", "Prophecy", "Sacred Place", "Spirit Gift III", "Spirit Possession",
+            "True Seeing"
+        ],
+        "sixth_level": [
+            "Awaken 6th Chakra", "Astral Spell", "Cloud of Unknowing", "Cure Critical Wounds",
+            "Empathy", "Find the Path", "Grounding", "Infravision", "Intuition", "Run",
+            "Triumph of the Will", "Ultravision"
+        ],
+        "seventh_level": [
+            "Awaken 7th Chakra", "Animate Rock", "Heal", "Holy Word", "Know Self",
+            "Limited Wish", "Luck", "Planetrack", "Restoration", "Spirit Gift IV",
+            "Time Stop", "Turn Wood"
+        ]
+    }
+}

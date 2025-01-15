@@ -1,0 +1,13 @@
+{
+    "furs": [
+        {"type": "Bear pelt", "price": "30 g.p.", "weight": 10},
+        {"type": "Beaver pelt", "price": "2 g.p.", "weight": 1},
+        {"type": "Ermine pelt", "price": "4 g.p.", "weight": 1},
+        {"type": "Fox pelt", "price": "3 g.p.", "weight": 1},
+        {"type": "Marten pelt", "price": "4 g.p.", "weight": 1},
+        {"type": "Mink pelt", "price": "3 g.p.", "weight": 1},
+        {"type": "Muskrat", "price": "1 g.p.", "weight": 1},
+        {"type": "Sable pelt", "price": "5 g.p.", "weight": 1},
+        {"type": "Seal pelt", "price": "5 g.p.", "weight": 2}
+    ]
+}

@@ -155,3 +155,79 @@ To add a new race:
    ```
 3. Run the script to regenerate `race_attribute_limits.json`.
 
+## Spell JSON Files
+
+### Overview
+Spell data for various classes has been implemented as JSON files. Each file organizes spells by level for efficient retrieval and integration with the application.
+
+### File Structure
+Each JSON file follows this structure:
+```json
+{
+    "class_spells_by_level": {
+        "first_level": ["Spell A", "Spell B"],
+        "second_level": ["Spell C", "Spell D"]
+    }
+}
+```
+
+### Current Files
+1. `bard_spells_by_level.json`
+2. `jester_spells_by_level.json`
+3. `cleric_spells_by_level.json`
+4. `druid_spells_by_level.json`
+5. `mage_spells_by_level.json`
+6. `illusionist_spells_by_level.json`
+7. `savant_spells_by_level.json`
+8. `mountebank_spells_by_level.json`
+
+### Integration Notes
+- **File Location**: All spell files are stored in the `data/spells/` directory.
+- **Access Pattern**: Use Python’s `json` module to load the data and access spells by level.
+
+### Example Usage
+To retrieve all third-level mage spells:
+```python
+import json
+
+with open("data/spells/mage_spells_by_level.json", "r") as file:
+    mage_spells = json.load(file)
+
+third_level_spells = mage_spells["third_level"]
+print(third_level_spells)
+```
+## Equipment and Gear JSON Files
+
+### Overview
+Equipment and gear are categorized into distinct JSON files to enable modular access and flexibility in usage.
+
+### Categories and File Names
+1. Animals: `animals.json`
+2. Armor: `armor.json`
+3. Clothing: `clothing.json`
+4. Food and Drink: `food_and_drink.json`
+5. Furs: `furs.json`
+6. Hirelings: `hirelings.json`
+7. Luxury Items: `luxury_items.json`
+8. Miscellaneous Items: `miscellaneous_items.json`
+9. Musical Instruments: `musical_instruments.json`
+10. Poisons: `poisons.json`
+11. Services: `services.json`
+12. Transportation: `transportation.json`
+13. Melee Weapons: `melee_weapons.json`
+
+### File Structure
+Each JSON file stores data as a list of dictionaries with fields relevant to the item type. For example:
+- **Armor** includes fields like `type`, `price`, `weight`, `armor_value`, `base_ac`, and `movement`.
+- **Food and Drink** includes fields like `type`, `price`, and `weight`.
+
+### Access Example
+To retrieve all available hirelings:
+```python
+import json
+
+with open("data/equipment/hirelings.json", "r") as file:
+    hirelings = json.load(file)
+
+print(hirelings["hirelings"])
+```

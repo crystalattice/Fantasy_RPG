@@ -1,6 +1,6 @@
 import pytest
 
-from Archived.Adv_Dark_Deep.Char_Creation import con_abilities
+from src.char_creation import con_abilities
 from Archived.Qt_Designer import Char_Sheet
 
 

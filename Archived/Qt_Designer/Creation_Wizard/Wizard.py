@@ -5,7 +5,8 @@ from pathlib import Path
 
 from PyQt5.QtWidgets import QApplication, QWizard, QPushButton, QButtonGroup, QLineEdit, QLabel, QMessageBox
 
-from Archived.Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class, con_abilities
+from Archived.Adv_Dark_Deep.Char_Creation import roll_abilities, get_acceptable_class
+from src.char_creation import con_abilities
 from Archived.Adv_Dark_Deep.Char_Creation import race_vs_attribs
 from New_Char_Wizard import Ui_Wizard
 

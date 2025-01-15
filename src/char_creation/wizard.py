@@ -3,7 +3,8 @@ import random
 from pathlib import Path
 
 # Import relevant functions from modules
-from Archived.Adv_Dark_Deep.Char_Creation import roll_abilities, con_abilities
+from Archived.Adv_Dark_Deep.Char_Creation import roll_abilities
+from src.char_creation import con_abilities
 from Archived.Adv_Dark_Deep.Char_Creation import race_vs_attribs
 
 # Initialize the character dictionary

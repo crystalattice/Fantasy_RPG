@@ -1,0 +1,91 @@
+{
+  "Leather cuirass, scale, or lamellar": {
+    "pick_pockets": 0,
+    "open_locks": 0,
+    "find_remove_traps": 0,
+    "move_silently": 0,
+    "hide_in_shadows": 0,
+    "climb_walls": 0
+  },
+  "Elven mail": {
+    "pick_pockets": -20,
+    "open_locks": -5,
+    "find_remove_traps": -5,
+    "move_silently": -10,
+    "hide_in_shadows": -10,
+    "listen_at_doors": -5,
+    "climb_walls": -20
+  },
+  "Plate armor": {
+    "pick_pockets": -75,
+    "open_locks": -40,
+    "find_remove_traps": -40,
+    "move_silently": -80,
+    "hide_in_shadows": -75,
+    "listen_at_doors": -50,
+    "climb_walls": -99
+  },
+  "Brigandine, furs, or gambeson": {
+    "pick_pockets": -30,
+    "open_locks": -10,
+    "find_remove_traps": -10,
+    "move_silently": -20,
+    "hide_in_shadows": -20,
+    "listen_at_doors": -10,
+    "climb_walls": -30
+  },
+  "Ring armor": {
+    "pick_pockets": -40,
+    "open_locks": -15,
+    "find_remove_traps": -15,
+    "move_silently": -40,
+    "hide_in_shadows": -30,
+    "listen_at_doors": -20,
+    "climb_walls": -40
+  },
+  "Steel scale or lamellar": {
+    "pick_pockets": -50,
+    "open_locks": -20,
+    "find_remove_traps": -20,
+    "move_silently": -60,
+    "hide_in_shadows": -50,
+    "listen_at_doors": -30,
+    "climb_walls": -90
+  },
+  "Mail": {
+    "pick_pockets": -40,
+    "open_locks": -15,
+    "find_remove_traps": -15,
+    "move_silently": -40,
+    "hide_in_shadows": -30,
+    "listen_at_doors": -20,
+    "climb_walls": -40
+  },
+  "Plated mail": {
+    "pick_pockets": -50,
+    "open_locks": -20,
+    "find_remove_traps": -20,
+    "move_silently": -60,
+    "hide_in_shadows": -50,
+    "listen_at_doors": -30,
+    "climb_walls": -90
+  },
+  "Jousting plate": {
+    "pick_pockets": -100,
+    "open_locks": -80,
+    "find_remove_traps": -80,
+    "move_silently": -100,
+    "hide_in_shadows": -110,
+    "listen_at_doors": -70,
+    "climb_walls": -99.9
+  },
+  "None": {
+    "pick_pockets": 5,
+    "open_locks": 0,
+    "find_remove_traps": 0,
+    "move_silently": 10,
+    "hide_in_shadows": 5,
+    "listen_at_doors": 0,
+    "climb_walls": 10
+  }
+}
